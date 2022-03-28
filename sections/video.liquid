@@ -1,0 +1,329 @@
+{% comment %}
+** Video - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'include-video' %}
+
+{% schema %}
+{
+  "name": "Video",
+  "class": "video-section under-menu",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "wide_display",
+      "label": "Wide display",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        {
+          "value": "16:9",
+          "label": "16:9"
+        },
+        {
+          "value": "4:3",
+          "label": "4:3"
+        }
+      ],
+      "default": "16:9"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay video",
+      "default": false,
+      "info": "Limited browser support for autoplaying video. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/360000661568-Why-won-t-my-video-autoplay-)"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoloop",
+      "label": "Autoloop video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_dark_overlay",
+      "label": "Darken video"
+    },
+    {
+      "type": "text",
+      "id": "mp4",
+      "label": "HTML5 MP4 File URL"
+    },
+    {
+      "type": "text",
+      "id": "ogv",
+      "label": "HTML5 OGV File URL (optional)"
+    },
+    {
+      "type": "text",
+      "id": "mp4_m",
+      "label": "MOBILE HTML5 MP4 File URL"
+    },
+    {
+      "type": "text",
+      "id": "ogv_m",
+      "label": "MOBILE HTML5 OGV File URL (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1600 x 900px recommended"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color Mobile",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_text_over_video",
+      "label": "Show text on video",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "video_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "pretext",
+      "label": "Preheading"
+    },
+    {
+      "type": "color",
+      "id": "pretext_color",
+      "label": "Preheading Color"
+    },
+	{
+      "type": "range",
+      "id": "pretext_size",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Preheading Font Size",
+      "default": 15
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+	{
+      "type": "range",
+      "id": "head_font_size",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font Size",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "head_line_height",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Line Height",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "head_line_color",
+      "label": "Headline Color"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "range",
+      "id": "sub_font_size",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle Font Size",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color"
+    },
+    {
+      "type": "color",
+      "id": "link_h_color",
+      "label": "Link Hover Color"
+    },
+    {
+      "type": "header",
+      "content": "Setup MOBILE"
+    },
+    {
+      "type": "range",
+      "id": "head_line_height_m",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Line Height",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "pretext_color_m",
+      "label": "Pretext Font Color"
+    },
+    {
+      "type": "range",
+      "id": "pretext_size_m",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Pretext Font Size",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "head_line_color_m",
+      "label": "Headline Font Color"
+    },  
+    {
+      "type": "range",
+      "id": "head_font_size_m",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Headline Font Size",
+      "default": 35
+    },    
+    {
+      "type": "color",
+      "id": "subtitle_color_m",
+      "label": "Subtitle Font Color"
+    },
+    {
+      "type": "range",
+      "id": "sub_font_size_m",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle Font Size",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "mobile_bg",
+      "label": "Background Mobile Color"
+    },    
+    {
+      "type": "color",
+      "id": "link_color_m",
+      "label": "Link Color"
+    },
+    {
+      "type": "color",
+      "id": "link_h_color_m",
+      "label": "Link Hover Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "caption_background",
+      "label": "Display solid text background"
+    },
+    {
+      "type": "checkbox",
+      "id": "caption_background_transparency",
+      "label": "Enable background transparency"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "First button label"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "First button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button1_highlight",
+      "label": "Highlight first button"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Second button label"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Second button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_highlight",
+      "label": "Highlight second button"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_og",
+      "label": "Image",
+      "info": "1600 x 900px recommended"
+    }
+  ],
+  "presets": [{
+    "name": "Video",
+    "category": "Video",
+    "settings": {
+      "autoplay": true,
+      "button1_label": "Play Video"
+    }
+  }]
+}
+
+{% endschema %}

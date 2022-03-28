@@ -1,0 +1,77 @@
+{% if customer.tags contains 'wholesale' %}
+{% assign dealer = "true"%}
+      {% if customer.tags contains 'bronze' %}
+      {% assign dealer_level = 'bronze'%}
+      {% assign dealer_badge = 'bronze-badge'%}
+          {%else%}
+            {% if customer.tags contains 'platinum' %}
+            {% assign dealer_level = 'platinum'%}
+            {% assign dealer_badge = 'platinum-badge'%}
+              {%else%}
+              {% if customer.tags contains 'gold' %}
+              {% assign dealer_level = 'gold'%}
+              {% assign dealer_badge = 'gold-badge'%}
+                  {%else%}
+                        {% if customer.tags contains 'silver' %}
+                        {% assign dealer_level = 'silver'%}
+                        {% assign dealer_badge = 'silver-badge'%}
+                        {% endif %}
+			  {% endif %}
+		    {% endif %}
+     {% endif %}
+{%else%}
+
+{% assign dealer = "false"%}
+
+{% endif %}
+
+{% assign date = {{ "now" | date: "%Y-%m-%d %H:%M" }} %}
+
+
+
+
+{% if dealer != 'false' %}
+{%include 'wholesale-page'%}
+
+{% else %}
+{% paginate customer.orders by 20 %}
+ 
+
+<section id="account">
+<div class="container">
+
+  
+  {% include 'include-customer', type: 'block'  %}
+  <div class="container text-center"><h1 id="techs" >Contact Technical Support</h1></div>
+  
+  {% include 'customer-support-ticket', type: 'block'  %}
+  {% include 'include-divider', type: 'block' %}
+  
+  
+  <div class="feature_divider"></div>
+  
+{% endpaginate %}
+  </div>
+</section>
+  {% endif %}
+<style>
+    .mobile_img{
+    display: none !important;
+    }  
+      .desktop_img{
+    display: block !important;
+    }
+  
+  @media only screen and (max-width: 798px) {
+    .featured_text {
+      text-align: {{ text_alignment }};
+    }
+    .desktop_img{
+    display: none !important;
+    }
+    .mobile_img{
+    display: block !important;
+    }  
+    
+  }
+</style>

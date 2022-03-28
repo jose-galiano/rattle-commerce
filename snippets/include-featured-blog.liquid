@@ -1,0 +1,158 @@
+{% if type == 'block' %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign title = block.settings.title %}
+  {% assign blog_widget_select = block.settings.blog_widget_select %}
+  {% assign home_page_articles = block.settings.home_page_articles %}
+  {% assign blog_tags = block.settings.blog_tags %}
+  {% assign blog_author = block.settings.blog_author %}
+  {% assign blog_date = block.settings.blog_date %}
+  {% assign blog_comment_count = block.settings.blog_comment_count %}
+  {% assign read_more_link = block.settings.read_more_link %}
+  {% assign taggs = block.settings.tag %}
+  {% assign articles_per = block.settings.articles_per %}
+  {% assign articles_limit = block.settings.articles_limit %}
+  {% assign bg_color = block.settings.bg_color %}
+  {% assign color_mo = block.settings.color_mo %}
+  {% assign color_de = block.settings.color_de %}
+
+{% else %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign title = section.settings.title %}
+  {% assign blog_widget_select = section.settings.blog_widget_select %}
+  {% assign home_page_articles = section.settings.home_page_articles %}
+  {% assign blog_tags = section.settings.blog_tags %}
+  {% assign blog_author = section.settings.blog_author %}
+  {% assign blog_date = section.settings.blog_date %}
+  {% assign blog_comment_count = section.settings.blog_comment_count %}
+  {% assign read_more_link = section.settings.read_more_link %}
+  {% assign articles_per = section.settings.articles_per %}
+  {% assign articles_limit = section.settings.articles_per %}
+  {% assign bg_color = section.settings.bg_color %}
+  {% assign color_mo = section.settings.color_mo %}
+  {% assign color_de = section.settings.color_de %}
+
+{% endif %}
+
+<div id="{{id}}" class="desktop_vid {%if wide_display %}container-fluid {%else%}container{%endif%}" >
+  <div class="title-blog_section text-center"  ><h1 style="color:{{color_de}}";> </h1></div>
+  {% paginate blogs[blog_widget_select].articles by 3 %}
+{% for article in blogs[blog_widget_select].articles %}
+	{% if articles_per == 10 %}
+	{% cycle '<div class="row justify-content-center">','','','','','','','','','' %}
+    {% elsif articles_per == 9 %}
+    {% cycle '<div class="row justify-content-center">','','','','','','','','' %}
+	{% elsif articles_per == 8 %}
+    {% cycle '<div class="row justify-content-center">','','','','','','','' %}
+	{% elsif articles_per == 7 %}
+    {% cycle '<div class="row justify-content-center">','','','','','','' %}
+    {% elsif articles_per == 6 %}
+    {% cycle '<div class="row justify-content-center">','','','','','' %}
+	{% elsif articles_per == 5 %}
+    {% cycle '<div class="row justify-content-center">','','','','' %}
+	{% elsif articles_per == 4 %}
+    {% cycle '<div class="row justify-content-center">','','','' %}
+	{% elsif articles_per == 3 %}
+    {% cycle '<div class="row justify-content-center">','','' %}
+    {% elsif articles_per == 2 %}
+	{% cycle '<div class="row justify-content-center">','' %}
+  	{% elsif articles_per == 1 %}
+	<div class="row justify-content-center">
+	{% endif %}
+       {% include 'articles-loop' %}
+	 {% if articles_per == 10 %}
+     {% cycle '','','','','','','','','','</div>' %}
+     {% elsif articles_per == 9 %}
+     {% cycle '','','','','','','','','</div>' %}
+     {% elsif articles_per == 8 %}
+     {% cycle '','','','','','','','</div>' %}
+     {% elsif articles_per == 7 %}
+     {% cycle '','','','','','','</div>' %}
+     {% elsif articles_per == 6 %}
+     {% cycle '','','','','','</div>' %}
+     {% elsif articles_per == 5 %}
+     {% cycle '','','','','</div>' %} 
+	 {% elsif articles_per == 4 %}
+     {% cycle '','','','</div>' %} 
+	 {% elsif articles_per == 3 %}
+     {% cycle '','','</div>' %} 
+     {% elsif articles_per == 2 %}
+	 {% cycle '','</div>' %} 
+     {% elsif articles_per == 1 %}
+	 </div>
+     {% endif %}
+{% endfor %}
+  
+ <div class="container text-center">
+   <div class="row paginate_link">
+  	{% if paginate.previous.is_link %}
+   <p class="paginate_link"> <a class="paginate_link" href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a></p>
+    {% endif %} 
+    {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+   <p class="paginate_link"><a class="paginate_link" href="{{ part.url }}">{{ part.title }}</a></p>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+   <p class="paginate_link"><b>{{ part.title }}</b></p>
+            {%- else -%}
+           <p class="paginate_link">{{ part.title }}</p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%} 
+     {% if paginate.next.is_link %}
+     <p class="paginate_link"><a class="paginate_link" href="{{ paginate.next.url }}">{{ paginate.next.title }}</a></p>
+      {% endif %}
+   </div>
+</div>
+  {% endpaginate %}
+</div>
+</div>
+
+<div class="mobile_vid container contrars" style="background-color:{{bg_color}}; padding-bottom: 30px;">
+  {% paginate blogs[blog_widget_select].articles by 5 %}
+{% for article in blogs[blog_widget_select].articles %}
+ <div class="row art-cardso">  
+
+     <div class="col-6">
+       <div class=frame>
+    <span class="helper"></span>
+    <img class="art-mob" src="//cdn.shopify.com/s/files/1/0276/4174/1415/{{article.image}}" alt="{{article.image.alt}}"/>
+</div>
+   </div>
+
+     <div class="art-body col-6">
+<div class="art-tit-m"><h1 class="fs-6">{{ article.title }}</h1></div>
+<div class=" date_p "><small class="text-muted">{{ article.published_at | date: format: "month_day_year" }}</small></div>
+<div class=" ">
+        <small class="text-muted meta-info"><b> {{ 'blogs.article.by_author' | t: author: article.author }}</b> · {% include 'include-read-time' %} </small>
+       
+</div>
+<div class="art-mor text-end">
+        <a href="{{ article.url }}"><p class="art-mor text-info"> <b>Read More...</b></p></a>
+</div>
+    </div>
+</div>
+
+  {% endfor %}        
+ <div class="container small text-center">
+   <div class="row paginate_link">
+  	{% if paginate.previous.is_link %}
+   <p class="paginate_link"> <a class="paginate_link" href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a></p>
+    {% endif %} 
+    {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+   <p class="paginate_link"><a class="paginate_link" href="{{ part.url }}">{{ part.title }}</a></p>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+   <p class="paginate_link"><b>{{ part.title }}</b></p>
+            {%- else -%}
+           <p class="paginate_link">{{ part.title }}</p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%} 
+     {% if paginate.next.is_link %}
+     <p class="paginate_link"><a class="paginate_link" href="{{ paginate.next.url }}">{{ paginate.next.title }}</a></p>
+      {% endif %}
+   </div>
+</div>
+  {% endpaginate %}
+  </div>

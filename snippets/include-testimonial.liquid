@@ -1,0 +1,191 @@
+{% if type == 'block' %}
+
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign title = block.settings.title %}  
+  {% assign title_test_1 = block.settings.title_test_1 %}
+  {% assign title_test_2 = block.settings.title_test_2 %}
+  {% assign title_test_3 = block.settings.title_test_3 %}
+  {% assign title_test_4 = block.settings.title_test_4 %}
+  {% assign testimonial_1 = block.settings.testimonial_1 %} 
+  {% assign testimonial_2 = block.settings.testimonial_2 %}
+  {% assign testimonial_3 = block.settings.testimonial_3 %}  
+  {% assign testimonial_4 = block.settings.testimonial_4 %}  
+  {% assign name_1 = block.settings.name_1 %}  
+  {% assign name_2 = block.settings.name_2 %}  
+  {% assign name_3 = block.settings.name_3 %}  
+  {% assign name_4 = block.settings.name_4 %}  
+  {% assign store_name_1 = block.settings.store_name_1 %} 
+  {% assign store_name_2 = block.settings.store_name_2 %} 
+  {% assign store_name_3 = block.settings.store_name_3 %} 
+  {% assign store_name_4 = block.settings.store_name_4 %}
+  {% assign quote_mark_color = block.settings.quote_mark_color %}
+  {% assign quote_mark_size = block.settings.quote_mark_size%}
+  {% assign section_color_bg = block.settings.section_color_bg %}
+  {% assign content_color = block.settings.content_color %}
+  {% assign dot_color = block.settings.dot_color %}
+  {% assign arrows_color = block.settings.arrows_color %}
+
+{% else %}
+
+  {% assign id = section.id %}
+  {% assign wide_display = section.settings.wide_display %}
+  {% assign title = section.settings.title %}  
+  {% assign title_test_1 = section.settings.title_test_1 %} 
+  {% assign title_test_2 = section.settings.title_test_2 %}
+  {% assign title_test_3 = section.settings.title_test_3 %}
+  {% assign title_test_4 = section.settings.title_test_4 %}
+  {% assign testimonial_1 = section.settings.testimonial_1 %} 
+  {% assign testimonial_2 = section.settings.testimonial_2 %}
+  {% assign testimonial_3 = section.settings.testimonial_3 %}  
+  {% assign testimonial_4 = section.settings.testimonial_4 %}  
+  {% assign name_1 = section.settings.name_1 %}  
+  {% assign name_2 = section.settings.name_2 %}  
+  {% assign name_3 = section.settings.name_3 %}  
+  {% assign name_4 = section.settings.name_4 %}  
+  {% assign store_name_1 = section.settings.store_name_1 %} 
+  {% assign store_name_2 = section.settings.store_name_2 %} 
+  {% assign store_name_3 = section.settings.store_name_3 %} 
+  {% assign store_name_4 = section.settings.store_name_4 %}
+  {% assign quote_mark_color = section.settings.quote_mark_color %}
+  {% assign quote_mark_size = section.settings.quote_mark_size%}
+  {% assign section_color_bg = section.settings.section_color_bg %}
+  {% assign content_color = section.settings.content_color %}
+  {% assign dot_color = section.settings.dot_color %}
+  {% assign arrows_color = section.settings.arrows_color %}
+{% endif %}
+
+
+<div class="testimonials {% if wide_display == false %}container{% else %}container-fluid{%endif%}">
+
+<div class="testimonial_prod {% if wide_display == false %}container{% else %}container-fluid{%endif%}">
+ 
+{% for i in (1..4) %}
+  
+  {% assign test-tit = 'title_test_' | append : i %}
+  {% assign testimon = [test-tit] %}
+  {% assign test-text = 'testimonial_' | append : i %}
+  {% assign testimon_text = [test-text] %} 
+  {% assign test-name = 'name_' | append : i %}
+  {% assign testimon_name = [test-name] %}   
+  {% assign test-store = 'store_name_' | append : i %}
+  {% assign testimon_store = [test-store] %}    
+    
+
+<div class="row text-center">
+        <div class="testimn col-md" >
+          <div class="col-md"><i class="quote-mark fas fa-quote-left"></i></div>
+        
+        {% if testimon != blank %}
+        <h2 class="testimonial_title"> {{testimon}}</h2>
+        {% endif %}
+          
+        {% if testimon_text != blank %}
+        <p class="testimonial_text">{{ testimon_text | replace: '<p', '<p class="testimonial_text"' }}</p>
+        {% endif %}
+          
+         {% if testimon_name != blank %}
+        <p class="testimonial_name"> {{ testimon_name }}</p>
+         {% endif %}
+          
+        {% if testimon_store != blank %}
+        <p class="testimonial_city"> {{ testimon_store }}</p>
+        {% endif %}
+     
+         
+      </div>
+  </div>
+
+        {% endfor %}
+  
+  </div>
+</div>
+
+<style>
+  @media only screen and (max-width: 479px) {
+.testimonial_text {
+    line-height: 1.4rem !important;
+    font-size: 1em !important;
+}
+    .quote-mark{
+    padding: 0.4rem 0 0.4rem 0 !important;
+    font-size: 2.5rem !important;
+  }  
+    .testimn.col-md{
+  padding: 0 0 0 0 !important;
+  }
+ }
+  
+  .testimn.col-md{
+  padding: 0 25% 0 25%;
+  }
+  .testimonial_title{
+    font-family: 'Open Sans';
+    font-size: 2.3em;
+  }
+  .testimonial_name{
+    font-family: 'Open Sans';
+    line-height: 3px;
+  }
+  .testimonial_text{
+  font-family: 'Open Sans';
+  line-height: 45px;
+  font-size: 1.4em;
+  }
+  .testimonial_city{
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+    font-weight: bold;
+    line-height: 8px;
+    color: #8c8c8c;
+  }
+  .testimonials{ 
+    background-color: {{section_color_bg}};
+    overflow:hidden;
+    color:{{content_color}};
+    padding: 75px 10px 80px 10px;
+  }
+  .quote-mark{
+    padding: 50px 0 30px 0;
+    font-size:{{quote_mark_size}}px;
+    color:{{quote_mark_color}};
+  }  
+  
+
+  .slick-dots {
+    position: absolute;
+    bottom: -45px;
+    display: block;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-align: center;
+    color: {{dot_color}};
+    font-size: 30px;
+}
+  .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+    opacity: 1;
+}
+  .slick-dots li button:before
+    {
+        
+        font-size: 45px;
+        line-height: 20px;
+       content:"-";
+    color: {{dot_color}};
+    }
+
+ 
+</style>

@@ -1,0 +1,238 @@
+{% comment %}
+** Collections - default view **
+- Collection template
+- https://themeatstick.com/collections/pick-your-meatstick?utm_source=facebook&utm_medium=email&utm_campaign=dads
+{% endcomment %}
+
+  
+
+{%include 'include-TMS-Collection'%}
+
+
+
+
+<style>
+ .promo_banner{
+    display:none !important;
+    }
+</style>
+
+
+{% schema %}
+
+
+{
+  "name": "TMS Landing",
+  "class": "collection-template-section",
+  "settings": [
+ 	 {
+      "type": "header",
+      "content": "General Landing"
+    },
+	
+    {
+      "type": "text",
+      "id": "promo-banner-collection-tms",
+      "label": "Promo Banner Default"
+    },
+      {
+      "type": "text",
+      "id": "title_page",
+      "label": "Page Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image",
+      "info": "1920 x 170px recommended"
+    },
+      {
+      "type": "image_picker",
+      "id": "image_m",
+      "label": "Banner image",
+      "info": "1800 x 1000px recommended"
+    },
+	{
+      "type": "header",
+      "content": "UTM Setup"
+    },
+ 	{
+      "type": "text",
+      "id": "utm_cat_1",
+      "label": "Category #1"
+    },
+ 	{
+      "type": "text",
+      "id": "utm_cat_1_title",
+      "label": "Category #1 Custom landing title"
+    },
+	{
+	  "type": "image_picker",
+      "id": "image_utm_1",
+      "label": "Banner image UTM 1",
+      "info": "1920 x 170 px recommended"
+	},
+	{
+	  "type": "image_picker",
+      "id": "image_utm_1_m",
+      "label": "Banner image Mobile UTM 1",
+      "info": "1800 x 1800 px recommended"
+	},
+	 	{
+      "type": "text",
+      "id": "utm_cat_2",
+      "label": "Category #2"
+    },
+ 	{
+      "type": "text",
+      "id": "utm_cat_2_title",
+      "label": "Category #2 Custom landing title"
+    },
+	{
+	  "type": "image_picker",
+      "id": "image_utm_2",
+      "label": "Banner image UTM 2",
+      "info": "1920 x 170 px recommended"
+	},
+	{
+	  "type": "image_picker",
+      "id": "image_utm_2_m",
+      "label": "Banner image Mobile UTM 2",
+      "info": "1800 x 1800 px recommended"
+	},
+	 	{
+      "type": "text",
+      "id": "utm_cat_3",
+      "label": "Category #3"
+    },
+ 	{
+      "type": "text",
+      "id": "utm_cat_3_title",
+      "label": "Category #1 Custom landing title"
+    },
+	{
+	  "type": "image_picker",
+      "id": "image_utm_3",
+      "label": "Banner image UTM 3",
+      "info": "1920 x 170 px recommended"
+	},
+	{
+	  "type": "image_picker",
+      "id": "image_utm_3_m",
+      "label": "Banner image Mobile UTM 3",
+      "info": "1800 x 1800 px recommended"
+	}
+  ],
+  "blocks": [
+    {
+      "type": "filter_by_collection",
+      "name": "Collection list",
+      "limit": 1
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "custom_menu_linklist",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        {
+          "type": "page",
+          "id": "content_page",
+          "label": "Page"
+        }
+      ]
+    },
+    {
+      "type": "recently_viewed",
+      "name": "Recently viewed products",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "To test the recently viewed products, view your online store outside of the Editor and visit multiple product pages. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/115008765228)"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_rv_title",
+          "label": "Title",
+          "default": "Recently Viewed"
+        },
+        {
+          "type": "range",
+          "id": "sidebar_rv_per",
+          "label": "Products limit",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 3
+        }
+      ]
+    },
+    {
+      "type": "filter",
+      "name": "Tag filter",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "filter_name",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "filter_tags",
+          "label": "Filter tags",
+          "info": "Add a comma-separated list of product tags. Only the tags found in the collection will be displayed as filters. [Learn more](https://help.outofthesandbox.com/hc/en-us/articles/115008642047)"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_filter_swatches",
+          "label": "Display color swatches"
+        }
+      ]
+    },
+    {
+      "type": "filter_by_tag",
+      "name": "Tag list",
+      "limit": 1
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text area can be used for special announcements or general information.</p>"
+        }
+      ]
+    },
+    {
+      "type": "filter_by_type",
+      "name": "Type list",
+      "limit": 1
+    },
+    {
+      "type": "filter_by_vendor",
+      "name": "Vendor list",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,756 @@
+{% assign bps = collection.products %}
+{% assign r = 0 %}
+{% assign count = 0 %}
+{% assign counl = 0 %}
+
+<div class="container-fluid" style="padding-top:60px;">
+  <div class="top-portion" style="background-color:#E6E6E6">
+<div class="banner-header">
+  <div class="banner-overlay desktop_vid">
+    <div>
+      {% capture zeroicon %}
+      {{ 'SOL-B-P.general.zero_ico' | t}}
+      {% endcapture %} 
+      {% if zeroicon != blank%}
+    <img src="{{ 'SOL-B-P.general.zero_ico' | t}}"  alt="Zero Wait. Zero Waste SOL 3D Printer Small and Medium Build Platforms for Speed and Resin economy" class="logo-c-series img-fluid lazyload"/>
+      {%endif%}
+    </div>
+  </div>
+  <img src="{{ 'SOL-B-P.general.img_header' | t}}" alt="Zero Wait. Zero Waste SOL 3D Printer Small and Medium Build Platforms for Speed and Resin economy" class="img-fluid lazyload"/> 
+  </div> 
+    
+<div class=" intro-curo">
+  <div class="container blurb-curo-intro text-center">
+    <div class="banner-overlay mobile_vid">
+    <div>
+    <img src="{{ 'SOL-B-P.general.img_header' | t}}" alt="Zero Wait. Zero Waste SOL 3D Printer Small and Medium Build Platforms for Speed and Resin economy" class="logo-c-series img-fluid lazyload"/>
+      <div class="overlay-blurb">
+        <p class="over-blurb">{{ 'SOL-B-P.general.layover_blurb_m' | t}}</p>
+      </div> 
+    </div>
+  </div>
+    
+  <h1 class="mb-3 h1 fw-bold desktop_vid">{{ 'SOL-B-P.general.bps_tit' | t}}</h1>
+    <h1 class="mb-3 h1 fw-bold mobile_vid">{{ 'SOL-B-P.general.bps_tit_m' | t}}</h1>
+    
+     <p class="blurb-curo desktop_vid">  {{ 'SOL-B-P.general.bps_blurb_html' | t}}</p>
+    <p class="blurb-curo mobile_vid">  {{ 'SOL-B-P.general.bps_blurb_m_html' | t}}</p>
+    
+  </div>
+  <div class="c-bottles banner-header text-center">
+  <img src="{{ 'SOL-B-P.general.img_infographic' | t}}" class="img-fluid lazyload"/> 
+</div>
+  </div>
+    
+    
+    
+  <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        id="btn-back-to-top"
+        data-mdb-toggle="collapse"
+        data-mdb-target="">
+    <div class="btn_lbl"><p>{{ 'SOL-B-P.general.back_to_top_btn_html' | t}}</p></div>
+</button>
+    
+    
+
+<div class="container sidebside">
+  <div class="row text-center justify-content-center">
+    <div class="col-md-6 text-center">
+      <div class="giv-anim-ico" >
+      <div class="giv-anim" > <img src="{{ 'SOL-B-P.general.gif_Medium_BP' | t}}" class="img-fluid lazyload"/> </div>
+            <div class="ico-over" > <img src="{{ 'SOL-B-P.general.ico_Medium_BP' | t}}" class="ico-over img-fluid lazyload" alt="{{ 'SOL-B-P.general.Medium' | t}} {{ 'SOL-B-P.general.bp' | t}}"/> </div>
+        <h1>{{ 'SOL-B-P.general.Medium' | t}} {{ 'SOL-B-P.general.bp' | t}}</h1>
+        <p> {{ 'SOL-B-P.general.Medium_desc' | t}}</p>
+      </div>
+      <div class="text-center"><p><b>{{'SOL-B-P.general.Ideal_for'|t}}</b></p>
+      <div class="row">
+				<div class="col">
+                  <ul class="box-list">
+					<p>{{ 'SOL-B-P.general.medium_bp_ideal_html' | t}}</p>
+                  </ul>
+				</div>
+				
+			</div>
+      </div>
+      
+         {% for product in bps %}
+  
+  {%  if product.title contains 'Medium' %} 
+   {% assign product = product.id %}
+   
+            {% assign ct = 0%}
+            {% if collection_handles contains 'coming-soon' %}
+              <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
+            {% else %}
+              <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                <meta itemprop="seller" content="{{ shop.name | escape }}" />
+                <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+                <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
+                <span class="sold_out">{% if product.available == false %}<button type="button" class="btn btn-danger btn-rounded   btn-sm" disabled data-mdb-ripple-color="#ffffff">{{ 'products.product.sold_out' | t }}</button>{% endif %}</span>
+                <span itemprop="price" content="{{ product.price | money_without_currency | remove: "," }}" class="{% if product.compare_at_price > product.price %}sale{% endif %}">
+                  <span class="current_price {% if product.available == false %}hidden{% endif %}">
+                    {% if product.price > 0 %}
+                      <span class="money">{{ product.price | money }}</span>
+                    {% else %}
+                      {{ settings.free_price_text }}
+                    {% endif %}
+                  </span>
+                </span>
+                <span class="was_price">
+                  {% if product.price < product.compare_at_price and product.available %}
+                     <i class="fas fa-tag"></i> {{ product.compare_at_price | money }}
+                  {% endif %}
+                </span>
+                {% if section.settings.display_savings %}
+                  <span class="sale savings">
+                    {% if product.price < product.compare_at_price and product.available %}
+                      {{ 'products.product.savings' | t }}  {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% (<span class="money">{{ product.compare_at_price | minus: product.price | money }}</span>)
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </p>
+              {% include 'product-notify-me' %}
+            {% endif %}
+     {% unless collection_handles contains 'coming-soon' %}
+                <div class="row">
+                  <div class="payments">
+              {% include 'product-form' with 'product' %}
+                       </div>
+                </div>
+              {% endunless %}
+        {%endif%}
+{%endfor%}
+         
+          
+    </div>
+    <div class="col-md-6 text-center">
+      <div class="giv-anim-ico" >
+     <div class="giv-anim" ><img src="{{ 'SOL-B-P.general.gif_Small_BP' | t}}" class="img-fluid lazyload"/>  </div>
+      <div class="ico-over" > <img src="{{ 'SOL-B-P.general.ico_Small_BP' | t}}" class="ico-over img-fluid lazyload" alt="{{ 'SOL-B-P.general.Small' | t}} {{ 'SOL-B-P.general.bp' | t}}" /> </div>
+      </div> 
+      <div>
+        <h1>{{ 'SOL-B-P.general.Small' | t}} {{ 'SOL-B-P.general.bp' | t}}</h1>
+        <p>  {{ 'SOL-B-P.general.Small_desc' | t}}</p>
+      </div>
+      <div class="text-center"><p><b>{{'SOL-B-P.general.Ideal_for'|t}}</b></p>
+        
+      <div class="row">
+				<div class="col">
+                  <ul class="box-list">
+					<p>{{ 'SOL-B-P.general.small_bp_ideal_html' | t}}</p>
+                  </ul>
+				</div>
+				
+			</div>
+      </div>
+      
+      
+      
+      {% for product in bps %}
+  
+  {%  if product.title contains 'Small' %} 
+   {% assign product = product.id %}
+   
+            {% assign ct = 0%}
+            {% if collection_handles contains 'coming-soon' %}
+              <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
+            {% else %}
+              <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                <meta itemprop="seller" content="{{ shop.name | escape }}" />
+                <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+                <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
+                <span class="sold_out">{% if product.available == false %}<button type="button" class="btn btn-danger btn-rounded   btn-sm" disabled data-mdb-ripple-color="#ffffff">{{ 'products.product.sold_out' | t }}</button>{% endif %}</span>
+                <span itemprop="price" content="{{ product.price | money_without_currency | remove: "," }}" class="{% if product.compare_at_price > product.price %}sale{% endif %}">
+                  <span class="current_price {% if product.available == false %}hidden{% endif %}">
+                    {% if product.price > 0 %}
+                      <span class="money">{{ product.price | money }}</span>
+                    {% else %}
+                      {{ settings.free_price_text }}
+                    {% endif %}
+                  </span>
+                </span>
+                <span class="was_price">
+                  {% if product.price < product.compare_at_price and product.available %}
+                     <i class="fas fa-tag"></i> {{ product.compare_at_price | money }}
+                  {% endif %}
+                </span>
+                {% if section.settings.display_savings %}
+                  <span class="sale savings">
+                    {% if product.price < product.compare_at_price and product.available %}
+                      {{ 'products.product.savings' | t }}  {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% (<span class="money">{{ product.compare_at_price | minus: product.price | money }}</span>)
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </p>
+              {% include 'product-notify-me' %}
+            {% endif %}
+     {% unless collection_handles contains 'coming-soon' %}
+                <div class="row">
+                  <div class="payments">
+              {% include 'product-form' with 'product' %}
+                       </div>
+                </div>
+              {% endunless %}
+        {%endif%}
+{%endfor%}
+        
+      
+    </div>
+
+  </div>
+</div>
+    </div>
+  
+  <div class="container">
+    
+  <did class="container-fluid text-center">    <h1 class="mb-3 h1 title-curo fw-bold">{{ 'SOL-B-P.general.bps_tit_appls' | t}}</h1> </did>
+    
+    <div class="row gx-1 justify-content-center appls">
+      
+    <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Model_img' | t}}" alt="{{ 'SOL-B-P.general.Model_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Model_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Model_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Model_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.Model_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+      
+    <div class="col-lg-2 col-md-12">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Splint_img' | t}}" alt="{{ 'SOL-B-P.general.Splint_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Splint_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Splint_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Splint_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.Splint_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+   <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Surgical_Guide_img' | t}}" alt="{{ 'SOL-B-P.general.Surgical_Guide_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Surgical_Guide_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Surgical_Guide_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Surgical_Guide_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.Surgical_Guide_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.IBT_img' | t}}" alt="{{ 'SOL-B-P.general.IBT_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.IBT_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.IBT_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.IBT_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.IBT_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Denture_Base_img' | t}}" alt="{{ 'SOL-B-P.general.Denture_Base_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload" >
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Denture_Base_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Denture_Base_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Denture_Base_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.Denture_Base_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    
+  </div>
+    <div class="row gx-1 justify-content-center appls">
+      
+      <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Denture_Teeth_img' | t}}" alt="{{ 'SOL-B-P.general.Denture_Teeth_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload" >
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Denture_Teeth_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Denture_Teeth_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Denture_Teeth_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.Denture_Teeth_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-2 col-md-12">
+  <div class="flip-card">
+   <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Tray_img' | t}}" alt="{{ 'SOL-B-P.general.Tray_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload" >
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Tray_title' | t}}</h1>
+     <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Tray_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Tray_percentage' | t}}</p>
+      <div> <img src="{{ 'SOL-B-P.general.m-ico' | t}}" alt="{{ 'SOL-B-P.general.Tray_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+   <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Cast_img' | t}}" alt="{{ 'SOL-B-P.general.Cast_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Cast_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Cast_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Cast_percentage' | t}}</p>
+      <div> <img src="{{ 'SOL-B-P.general.s-ico' | t}}" alt="{{ 'SOL-B-P.general.Cast_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+   <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Gingiva_img' | t}}" alt="{{ 'SOL-B-P.general.Gingiva_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Gingiva_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Gingiva_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Gingiva_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.s-ico' | t}}  " alt="{{ 'SOL-B-P.general.Gingiva_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+       <div class="col-lg-2 col-md-6">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{ 'SOL-B-P.general.Crown_img' | t}}" alt="{{ 'SOL-B-P.general.Crown_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="img-fluid lazyload">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{ 'SOL-B-P.general.Crown_title' | t}}</h1>
+      <p><b>{{ 'SOL-B-P.general.time-ico_html' | t}}</b>{{ 'SOL-B-P.general.Crown_time' | t}}</p>
+      <p><b>{{ 'SOL-B-P.general.speed-ico_html' | t}}</b>{{ 'SOL-B-P.general.Crown_percentage' | t}}</p>
+       <div> <img src="{{ 'SOL-B-P.general.s-ico' | t}}" alt="{{ 'SOL-B-P.general.Crown_title' | t}} | SOL 3D Printer | Build Platform | Ackuretta" class="bp-ico-m img-fluid lazyload" > </div>
+    </div>
+  </div>
+</div>
+    </div>
+   
+
+  </div>
+</div>
+  <did class="container-fluid text-center">    <h1 class="mb-3 h1 title-curo fw-bold">{{ 'SOL-B-P.general.feats_tit' | t}}</h1> </did>
+<div class="container-fluid feats-bps text-center">
+
+  
+  <div class="row g-0">
+    <div class="col-md-6">
+      <img class="img-fluid" src="{{ 'SOL-B-P.general.headline_img_1' | t }} "/>
+    </div>
+    <div class="col-md-6">
+     <div class="parentbox">
+       <div class="childbox ">
+          <h1 class="hdlncu">{{ 'SOL-B-P.general.headline_1' | t }}</h1>
+          <p class="hdlncu">{{ 'SOL-B-P.general.content_1' | t }}</p>
+       </div>
+      </div>
+    </div>
+  </div>
+  
+   <div class="row g-0">
+        <div class="col-md-6 order-md-5">
+      <video width="auto" height="auto" autoplay muted playinline loop >
+  <source src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/SvsL.mp4?v=1648182446" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+        </div>
+            <div class="col-md-6 order-md-6 ">
+     <div class="parentbox">
+       <div class="childbox">
+          <h1 class="hdlncu">{{ 'SOL-B-P.general.headline_2' | t }}</h1>
+          <p class="hdlncu">{{ 'SOL-B-P.general.content_2' | t }}</p>
+       </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row g-0">
+    <div class="col-md-6">
+      <img class="img-fluid" src="{{ 'SOL-B-P.general.headline_img_3' | t }}"/>
+    </div>
+     <div class="col-md-6">
+     <div class="parentbox">
+       <div class="childbox ">
+          <h1 class="hdlncu">{{ 'SOL-B-P.general.headline_3' | t }}</h1>
+          <p class="hdlncu">{{ 'SOL-B-P.general.content_3' | t }}</p>
+       </div>
+      </div>
+    </div>
+   </div>
+  
+  <div class="row g-0">
+        <div class="col-md-6 order-md-5">
+      <img class="img-fluid" src="{{ 'SOL-B-P.general.headline_img_4' | t }}"/>
+        </div>
+            <div class="col-md-6 order-md-6 ">
+     <div class="parentbox">
+       <div class="childbox" >
+          <h1 class="hdlncu">{{ 'SOL-B-P.general.headline_4' | t }}</h1>
+          <p class="hdlncu">{{ 'SOL-B-P.general.content_4' | t }}</p>
+       </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+<div class="container-fluid text-center vidscomp">
+  
+    <did class="container-fluid text-center">    <h1 class="mb-3 h1 title-curo fw-bold">{{ 'SOL-B-P.general.vids_tit' | t}}</h1> </did>
+  
+  <div class="row">
+    <div class="col-md-6">
+  <style>
+.hytPlayerWrap{display:inline-block;position:relative}.hytPlayerWrap.ended::after{content:"";position:absolute;top:0;left:0;bottom:0;right:0;cursor:pointer;background-color:black;background-repeat:no-repeat;background-position:center;background-size:64px 64px;background-image:url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==)}.hytPlayerWrap.paused::after{content:"";position:absolute;top:70px;left:0;bottom:50px;right:0;cursor:pointer;background-color:black;background-repeat:no-repeat;background-position:center;background-size:40px 40px;background-image:url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)}</style><div class="hytPlayerWrapOuter"><div class="hytPlayerWrap"> <iframe width="640" height="360" src="https://www.youtube.com/embed/{{-'SOL-B-P.general.vids_1_ID' | t-}}?modestbranding=1&enablejsapi=1&widgetid=3&iv_load_policy=3&fs=0&rel=0&loop=1&controls=0&mute=1&start=14&widget_referrer=LandingPageBPS" frameborder="0" ></iframe></div></div> <script>"use strict";document.addEventListener('DOMContentLoaded',function(){if(window.hideYTActivated)return;if(typeof YT==='undefined'){let tag=document.createElement('script');tag.src="https://www.youtube.com/iframe_api";let firstScriptTag=document.getElementsByTagName('script')[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);} let onYouTubeIframeAPIReadyCallbacks=[];for(let playerWrap of document.querySelectorAll(".hytPlayerWrap")){let playerFrame=playerWrap.querySelector("iframe");let onPlayerStateChange=function(event){if(event.data==YT.PlayerState.ENDED){playerWrap.classList.add("ended");}else if(event.data==YT.PlayerState.PAUSED){playerWrap.classList.add("paused");}else if(event.data==YT.PlayerState.PLAYING){playerWrap.classList.remove("ended");playerWrap.classList.remove("paused");}};let player;onYouTubeIframeAPIReadyCallbacks.push(function(){player=new YT.Player(playerFrame,{events:{'onStateChange':onPlayerStateChange}});});playerWrap.addEventListener("click",function(){let playerState=player.getPlayerState();if(playerState==YT.PlayerState.ENDED){player.seekTo(0);}else if(playerState==YT.PlayerState.PAUSED){player.playVideo();}});} window.onYouTubeIframeAPIReady=function(){for(let callback of onYouTubeIframeAPIReadyCallbacks){callback();}};window.hideYTActivated=true;});</script>
+  </div>
+  
+  <div class="col-md-6">
+  <style>
+.hytPlayerWrap{display:inline-block;position:relative}.hytPlayerWrap.ended::after{content:"";position:absolute;top:0;left:0;bottom:0;right:0;cursor:pointer;background-color:black;background-repeat:no-repeat;background-position:center;background-size:64px 64px;background-image:url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==)}.hytPlayerWrap.paused::after{content:"";position:absolute;top:70px;left:0;bottom:50px;right:0;cursor:pointer;background-color:black;background-repeat:no-repeat;background-position:center;background-size:40px 40px;background-image:url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)}</style><div class="hytPlayerWrapOuter"><div class="hytPlayerWrap"> <iframe width="640" height="360" src="https://www.youtube.com/embed/{{-'SOL-B-P.general.vids_2_ID' | t-}}?modestbranding=1&enablejsapi=1&widgetid=3&iv_load_policy=3&fs=0&rel=0&loop=1&controls=0&mute=1&start=14&widget_referrer=LandingPageBPS" frameborder="0" ></iframe></div></div> <script>"use strict";document.addEventListener('DOMContentLoaded',function(){if(window.hideYTActivated)return;if(typeof YT==='undefined'){let tag=document.createElement('script');tag.src="https://www.youtube.com/iframe_api";let firstScriptTag=document.getElementsByTagName('script')[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);} let onYouTubeIframeAPIReadyCallbacks=[];for(let playerWrap of document.querySelectorAll(".hytPlayerWrap")){let playerFrame=playerWrap.querySelector("iframe");let onPlayerStateChange=function(event){if(event.data==YT.PlayerState.ENDED){playerWrap.classList.add("ended");}else if(event.data==YT.PlayerState.PAUSED){playerWrap.classList.add("paused");}else if(event.data==YT.PlayerState.PLAYING){playerWrap.classList.remove("ended");playerWrap.classList.remove("paused");}};let player;onYouTubeIframeAPIReadyCallbacks.push(function(){player=new YT.Player(playerFrame,{events:{'onStateChange':onPlayerStateChange}});});playerWrap.addEventListener("click",function(){let playerState=player.getPlayerState();if(playerState==YT.PlayerState.ENDED){player.seekTo(0);}else if(playerState==YT.PlayerState.PAUSED){player.playVideo();}});} window.onYouTubeIframeAPIReady=function(){for(let callback of onYouTubeIframeAPIReadyCallbacks){callback();}};window.hideYTActivated=true;});</script>
+  </div>
+  </div>
+  </div>
+   
+  
+  
+
+  {% assign products_limit = 3 %}
+  {% assign products_per = 3 %}
+    
+   
+    <div class="container-fluid shop-coll ">
+       <did class="container-fluid text-center">    <h1 class="mb-3 h1 title-curo fw-bold">{{ 'SOL-B-P.general.shop_now_tit' | t}}</h1> </did>
+      
+      <div class="featured-collection__products">
+      <div class="row">
+        
+          {% include 'prd-loop-v3' with products_limit%}
+      </div>
+    </div>
+    </div>
+  
+  </div>
+
+  
+
+  
+  
+
+
+
+<style>
+  img.ico-over.img-fluid.lazyloaded {
+    max-width: 35px;
+}
+  .ico-over {
+    padding-top: 20px;
+}
+ul.box-list {
+    padding: 0px;
+    height: 200px;
+}
+  .sidebside .list-item p {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 400;
+}
+  .shop-coll{
+      background-color: #ececea;
+    padding-bottom: 50px;
+  }
+.vidscomp {
+    background-color: #f1f1eb;
+    padding-bottom: 50px;
+}
+  .sidebside {
+    padding-bottom: 40px;
+}
+  h1.mb-3.h1.title-curo.fw-bold {
+    margin-top: 50px;
+    padding-bottom: 45px;
+}
+  .feats-bps h1 {
+    color: #2c353c;
+}
+  .flip-card-back h1 {
+    font-size: 1.3rem;
+}
+  .appls {
+    margin-bottom: 30px;
+}
+  .bp-ico-m{
+  max-width:20px;
+  }
+  
+  a.ytp-impression-link {
+    display: none !important;
+}
+  .ytp-chrome-top.ytp-show-cards-title {
+    display: none !important;
+}
+  .flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  border: 1px solid #764595;
+  color: #212b36;
+  transform: rotateY(180deg);
+}
+
+  .purchase-details {
+    display: inline-grid !important;
+}
+  .items_left {
+    display: none;
+}
+  .purchase-details {
+    max-width: 270px;
+}
+  
+  .desktop_flex{
+  display: flex;
+  }
+  .container-fluid{
+	overflow:hidden;
+}
+  .blurb-curo-intro {
+    padding: 30px 0;
+}
+button.btn-resin {
+    background-color: unset;
+    border: unset;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 0px 30px 0;
+    margin: unset;
+}
+  .app-btn:hover {
+    box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    -moz-box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    -webkit-box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    -o-box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    border-radius: 100px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+  
+  img.logo-c-series.img-fluid.lazyloaded {
+    max-width: 50%;
+}
+  
+.banner-overlay {
+    display: flex;
+    position: absolute;
+    top: 9rem;
+    max-width: 85%;
+    padding: 0 7%;
+    color: #fff;
+    font-size: 1.5rem;
+}
+  
+  .banner-header{
+  padding-bottom:30px;
+  }
+  #btn-back-to-top {
+    position: fixed;
+    bottom: 9%;
+    right: 7%;
+    z-index: 22222;
+    display: none;
+    padding-bottom: 0px;
+}
+
+  .accordion-button:not(.collapsed) {
+    color: #1266f1;
+    background-color: #fff;
+    -webkit-box-shadow:  none !important;
+    box-shadow: none !important;
+    border-bottom: none!important;
+}
+  .cont-rest {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+  .accordion-item {
+    border: none !important;
+}
+a.resin.docu_link {
+	color:#000;
+	display: inline;
+	margin: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+a.resin.docu_link:hover {
+	color:#764595;
+}
+
+  .resin{
+  padding-top: 5px;
+  }
+  .resin .feature_divider {
+    margin-bottom: 0px;
+}
+   .rbc-label-start {
+   font-family: fontawesome;
+   font-weight: bold;
+   font-size: 30px;
+ }
+ 
+ .rbc-center-text {
+   font-family: 'Open Sans';
+   fill: #000;;
+ }
+ 
+ .fm .fs .pt .pb, .rbc-center-text-line0 {
+   font-size: 2.8rem;
+ }
+ 
+.fm .fs .pt .pb, .rbc-center-text-line1 {
+   font-size: 1.8rem;
+ }
+.row.gauges {
+    padding: 5px 15%;
+}
+  h1.resin-title {
+    margin: 0;
+}
+.resin-blurb ul {
+    margin: 0;
+    padding: 0;
+}
+  .row.resin-blurb {
+    text-align: left;
+}
+  @media (max-width: 992px) {
+    .desktop_flex{
+    display: none !important;
+    }
+  .banner-overlay {
+    display: unset;
+    position: unset;
+    top: unset;
+    max-width: 100%;
+    padding: 0 0%;
+    color: #2a2828;
+    font-size: 1.5rem;
+}
+    img.logo-c-series.img-fluid.lazyloaded {
+    background-color: currentcolor;
+}
+    p.blurb-curo {
+    text-align: justify;
+    font-size: 1rem;
+    padding: 0 25px;  
+}
+    .row.resin-blurb {
+    font-size: 0.9rem;
+    text-align: justify;
+}
+    .row.gauges {
+    padding: 0px 0%;
+}
+    div#shopify-chat-dummy {
+    display: none;
+}
+    .blurb-curo-intro {
+    padding: 0;
+}
+    .banner-header {
+    padding-bottom: 10px;
+}
+}
+    @media (min-width: 993px) and (max-width: 1400px) {
+.banner-overlay {
+    top: 2% !important;
+    max-width: 54% !important;
+    padding: 5% 7% !important;
+    font-size: 1em !important;
+}
+}
+  
+  </style>

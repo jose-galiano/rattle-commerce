@@ -1,0 +1,93 @@
+{% if type == 'block' %}
+  {% assign image = block.settings.image %}
+  {% assign title = block.settings.title %}
+  {% assign content = block.settings.content %}
+  {% assign text_size = block.settings.text_size %}
+  {% assign text_alignment = block.settings.text_alignment %}
+  {% assign button_label = block.settings.button_label %}
+  {% assign button_link = block.settings.button_link %}
+ {% assign section_color_bg = block.settings.section_color_bg %}
+{% assign max_width = block.settings.max_width %}
+{% assign section_color_font = block.settings.section_color_font %}
+{% assign framed = block.settings.framed %}
+{% else %}
+  {% assign image = section.settings.image %}
+  {% assign title = section.settings.title %}
+  {% assign content = section.settings.content %}
+  {% assign text_size = section.settings.text_size %}
+  {% assign text_alignment = section.settings.text_alignment %}
+  {% assign button_label = section.settings.button_label %}
+  {% assign button_link = section.settings.button_link %}
+  {% assign section_color_bg = section.settings.section_color_bg %}
+  {% assign max_width = section.settings.max_width %}
+{% assign section_color_font = section.settings.section_color_font %}
+{% assign framed = section.settings.framed %}
+
+{% endif %}
+
+<div class="{% if max_width %} jumbotron-fluid {%else%} container {%endif%} {% if framed %} jumbotron {%endif%} text-center" style=" background:{{section_color_bg}}; overflow: hidden;">
+  
+  {% if title != blank %}
+      <div class="row text-{{ text_alignment }}">  
+         <div class="col"  {% if  content != blank  %}style="margin: 5px;"{% endif %}>
+      <h1 class="title block-ftx" > {{ title }}</h1>
+        {% if  content != blank  %} <div class="feature_divider"></div>{% endif %}
+      </div>
+        </div>
+      {% endif %}
+  
+  
+  <div class="row text-{{text_alignment}}">
+    
+      
+            <div class="col img-fluid shadow-2-strong">
+            {% if image %}
+              {% include 'image-element', image: image.src, alt: image.alt %}
+            {% endif %}
+            </div>
+   
+  </div>
+  
+      
+  
+<div class="row text-{{ text_alignment }}">  
+      <div class="col" {% if  content != blank  %} style="margin: 5px 5%;" {% endif %}>
+        {% if content != blank %}
+          {{ content }}
+        {% endif %}
+
+        {% if button_label != blank %}
+          <a href="{{ button_link }}" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            {{ button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+</div>
+
+<style>
+  
+.row.text-center {
+    margin: 0;
+    overflow: hidden;
+}
+  
+    h1.title.block-ftx{
+   color: {{section.settings.headline_color}} !important;
+}
+  
+  .generals{
+    max-width:{{max_width}};
+  }
+  
+  @media only screen and (max-width: 798px) {
+      .generals{
+ 
+    width:{{max_width}};
+  }
+  
+    .featured_text {
+      text-align: {{ text_alignment }};
+    }
+  }
+</style>

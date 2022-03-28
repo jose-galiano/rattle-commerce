@@ -1,0 +1,12 @@
+{% if customer and customer.tags contains 'wholesale' %}
+{% assign menu_handle = 'main-menu-wholesale' %}
+{% else %}
+{% assign menu_handle = 'main-menu' %}
+{% endif %}
+
+{% for link in linklists[menu_handle].links %}
+  <li><a href="{{ link.url }}" {% if link.title == 'F.A.Q.' %}data-no-instant{% endif %} 
+         {% if link.title == 'TIPS & RECIPES' %}data-no-instant{% endif %} class="{% if link.active %}active{% endif %} 
+    {% if linklists[link.handle] != empty %}dropdown_link{% else %} top_link {% endif %}" data-dropdown-rel="{{ link.handle }}">{{ link.title }} 
+    {% if linklists[link.handle] != empty %}<span class="icon-down-arrow"></span>{% endif %} </a></li>
+{% endfor %}

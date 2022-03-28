@@ -1,0 +1,66 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign image = block.settings.image %}
+ {% assign image_mobile = block.settings.image_mobile %}
+
+{% else %}
+  {% assign id = section.id %}
+  {% assign image = section.settings.image %}
+  {% assign image_mobile = section.settings.image_mobile %}
+{% endif %}
+
+
+<div id="banner-{{id}}" class="container-fluid bg-coleur text-center">
+    <img src="{{ image.src | img_url: '3000x' }}" alt="{{image.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+    <img src="{{ image_mobile.src | img_url: '800x' }}" alt="{{image_mobile.alt}}" class="mobile_vid img-fluid" id="img--{{id}}"> 
+</div>
+
+<div class="d-flex align-items-center justify-content-center taglines">
+      <div class=" text-center">         
+          <h1 class="tagline">
+                 {{ 'homepage.ecosystem.ecosystem_tagline' | t }}
+          </h1>
+          <div id="sub">
+            <p class="tagline2">{{ 'homepage.ecosystem.ecosystem_tagline2' | t }}</p>
+          </div>
+          <div id="sub" class="iwtos blurb">
+            <p class="blurb"> {{ 'homepage.ecosystem.ecosystem_blurb' | t }}</p>
+          </div>
+        <a href="{{ 'homepage.ecosystem.button_1_link' | t }}" class="f-p-bn btn btn-primary" data-mdb-ripple-color="dark">
+             {{ 'homepage.ecosystem.button_1' | t }}
+          </a>
+        <a href="{{ 'homepage.ecosystem.button_2_link' | t }}" class="f-p-bn btn btn-primary" data-mdb-ripple-color="dark">
+             {{ 'homepage.ecosystem.button_2' | t }}
+          </a>
+        <a href="{{ 'homepage.ecosystem.button_3_link' | t }}" class="f-p-bn btn btn-primary" data-mdb-ripple-color="dark">
+             {{ 'homepage.ecosystem.button_3' | t }}
+          </a>
+      </div>    
+</div>
+
+
+
+<style>
+  .bg-coleur{
+background: rgb(224,224,224);
+background: -moz-linear-gradient(-180deg, rgba(224,224,224,1) 47%, rgba(172,172,172,0.7777485994397759) 100%);
+background: -webkit-linear-gradient(-180deg, rgba(224,224,224,1) 47%, rgba(172,172,172,0.7777485994397759) 100%);
+background: linear-gradient(-180deg, rgba(224,224,224,1) 47%, rgba(172,172,172,0.7777485994397759) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e0e0e0",endColorstr="#acacac",GradientType=1);
+  }
+.text_block {
+    margin: 0;
+    position: absolute;
+    top: 65%;
+    left: 15%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+img#img--163030600200a13620 {
+    padding-top: 45px;
+}
+  .d-flex.align-items-center.justify-content-center.taglines {
+    margin-top: 2rem;
+    margin-bottom: 50px;
+}
+</style>

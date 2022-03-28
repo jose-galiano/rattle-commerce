@@ -1,0 +1,106 @@
+{% if type == 'block' %}
+  {% assign wide_display = block.settings.wide_display %}
+	{% assign txt_color = block.settings.txt_color %}
+
+
+
+  {% assign detail_image_1 = block.settings.detail_image_1 %}
+  {% assign image_title_1 = block.settings.image_title_1 %}
+  {% assign image_text_1 = block.settings.image_text_1 %}
+  {% assign btn_1 = block.settings.btn_1 %}
+
+  {% assign detail_image_2 = block.settings.detail_image_2 %}
+  {% assign image_title_2 = block.settings.image_title_2 %}
+  {% assign image_text_2 = block.settings.image_text_2 %}
+  {% assign btn_2 = block.settings.btn_2 %}
+
+  {% assign detail_image_3 = block.settings.detail_image_3 %}
+  {% assign image_title_3 = block.settings.image_title_3 %}
+  {% assign image_text_3 = block.settings.image_text_3 %}
+  {% assign btn_3 = block.settings.btn_3 %}
+
+  {% assign detail_image_4 = block.settings.detail_image_4 %}
+  {% assign image_title_4 = block.settings.image_title_4 %}
+  {% assign image_text_4 = block.settings.image_text_4 %}
+  {% assign btn_4 = block.settings.btn_4 %}
+
+
+{% else %}
+{% assign wide_display = section.settings.wide_display %}
+
+  {% assign detail_image_1 = section.settings.detail_image_1 %}
+  {% assign image_title_1 = section.settings.image_title_1 %}
+  {% assign image_text_1 = section.settings.image_text_1 %}
+  {% assign btn_1 = section.settings.btn_1 %}
+
+  {% assign detail_image_2 = section.settings.detail_image_2 %}
+  {% assign image_title_2 = section.settings.image_title_2 %}
+  {% assign image_text_2 = section.settings.image_text_2 %}
+  {% assign btn_2 = section.settings.btn_2 %}
+
+  {% assign detail_image_3 = section.settings.detail_image_3 %}
+  {% assign image_title_3 = section.settings.image_title_3 %}
+  {% assign image_text_3 = section.settings.image_text_3 %}
+  {% assign btn_3 = section.settings.btn_3 %}
+
+  {% assign detail_image_4 = section.settings.detail_image_4 %}
+  {% assign image_title_4 = section.settings.image_title_4 %}
+  {% assign image_text_4 = section.settings.image_text_4 %}
+  {% assign btn_4 = section.settings.btn_4 %}
+
+{% endif %}
+
+<div class="container">
+  <div class="row ">
+  <div class="col-lg-3 col-md-6">
+    {% if block.settings.detail_image_1 %}
+        <div class="gallery-cell">
+         {% include 'image-element', image: block.settings.detail_image_1, alt: block.settings.detail_image_1.alt %}
+          <div class="img_txt {{txt_color}}">{{block.settings.image_text_1}}</div>
+        </div>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+     {% endif %}   
+</div>
+
+  
+     
+    <div class="col-lg-3 col-md-6">
+{% if block.settings.detail_image_2 %}
+         <div class="gallery-cell">
+         {% include 'image-element', image: block.settings.detail_image_2, alt: block.settings.detail_image_2.alt %}
+          <div class="img_txt {{txt_color}}">{{block.settings.image_text_2}}</div>
+        </div>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+</div>
+
+  
+      <div class="col-lg-3 col-md-6">
+{% if block.settings.detail_image_3 %}
+         <div class="gallery-cell">
+         {% include 'image-element', image: block.settings.detail_image_3, alt: block.settings.detail_image_3.alt %}
+          <div class="img_txt {{txt_color}}">{{block.settings.image_text_3}}</div>
+        </div>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+     {% endif %}   
+</div>
+
+  
+   
+        <div class="col-lg-3 col-md-6">
+     {% if block.settings.detail_image_4 %}
+         <div class="gallery-cell">
+         {% include 'image-element', image: block.settings.detail_image_4, alt: block.settings.detail_image_4.alt %}
+          <div class="img_txt {{txt_color}}">{{block.settings.image_text_4}}</div>
+        </div>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+  {% endif %}    
+</div>
+
+  
+</div>
+</div>

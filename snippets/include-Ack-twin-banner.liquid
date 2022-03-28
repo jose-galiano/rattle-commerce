@@ -1,0 +1,304 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign image_a = block.settings.image_a %}
+  {% assign image_mobile_a = block.settings.image_mobile_a %}
+  {% assign gr_bg_param_a = block.settings.gr_bg_param_a %}
+  {% assign image_b = block.settings.image_b %}
+  {% assign image_mobile_b = block.settings.image_mobile_b %}
+  {% assign gr_bg_param_b = block.settings.gr_bg_param_b %}
+  {% assign image_c = block.settings.image_c %}
+  {% assign image_mobile_c = block.settings.image_mobile_c %}
+  {% assign gr_bg_param_c = block.settings.gr_bg_param_c %}
+  {% assign image_d = block.settings.image_d %}
+  {% assign image_mobile_d = block.settings.image_mobile_d %}
+  {% assign gr_bg_param_d = block.settings.gr_bg_param_d %}
+  {% assign image_e = block.settings.image_e %}
+  {% assign image_mobile_e = block.settings.image_mobile_e %}
+  {% assign gr_bg_param_e = block.settings.gr_bg_param_e %}
+  {% assign image_f = block.settings.image_f %}
+  {% assign image_mobile_f = block.settings.image_mobile_f %}
+  {% assign gr_bg_param_f = block.settings.gr_bg_param_f %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign image_a = section.settings.image_a %}
+  {% assign image_mobile_a = section.settings.image_mobile_a %}
+  {% assign gr_bg_param_a = section.settings.gr_bg_param_a %}
+  {% assign image_b = section.settings.image_b %}
+  {% assign image_mobile_b = section.settings.image_mobile_b %}
+  {% assign gr_bg_param_b = section.settings.gr_bg_param_b %}
+  {% assign image_c = section.settings.image_c %}
+  {% assign image_mobile_c = section.settings.image_mobile_c %}
+  {% assign gr_bg_param_c = section.settings.gr_bg_param_c %}
+  {% assign image_d = section.settings.image_d %}
+  {% assign image_mobile_d = section.settings.image_mobile_d %}
+  {% assign gr_bg_param_d = section.settings.gr_bg_param_d %}
+  {% assign image_e = section.settings.image_e %}
+  {% assign image_mobile_e = section.settings.image_mobile_e %}
+  {% assign gr_bg_param_e = section.settings.gr_bg_param_e %}
+  {% assign image_f = section.settings.image_f %}
+  {% assign image_mobile_f = section.settings.image_mobile_f %}
+  {% assign gr_bg_param_f = section.settings.gr_bg_param_f %}
+{% endif %}
+
+<div id="showcase" class="showcase container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class=" col-md-6 bg-coleur-a">
+					<div class="row">
+						<div class="col-md-12 ">
+							<img src="{{ image_a.src | img_url: '3000x' }}" alt="{{image_a.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+      						<img src="{{ image_mobile_a.src | img_url: '800x' }}" alt="{{image_mobile_a.alt}}" class="mobile_vid img-fluid" id="img--{{id}}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1 class="headline">
+                  		{{ 'homepage.showcase.printer_headline' | t }}
+                        </h1>
+                        <div id="sub">
+                        <p  class="taglinx"> {{ 'homepage.showcase.printer_tagline' | t }}</p>
+                        </div>
+                        <div id="sub">
+                       <p class="blurb">{{ 'homepage.showcase.printer_blurb' | t }}</p>
+                        </div>
+                          <div class="showcase btns">
+                        <a href=" {{ 'homepage.showcase.printer_button_link' | t }}" class="btn btn-primary" data-mdb-ripple-color="dark">
+                           {{ 'homepage.showcase.printer_button' | t }}
+                        </a>
+                          </div>
+						</div>
+					</div>
+				</div>
+				<div class=" col-md-6 bg-coleur-b">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="{{ image_b.src | img_url: '3000x' }}" alt="{{image_b.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+    						<img src="{{ image_mobile_b.src | img_url: '800x' }}" alt="{{image_mobile_b.alt}}" class="mobile_vid img-fluid" id="img--{{id}}"> 
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+						 <h1 class="headline">
+                 		 {{ 'homepage.showcase.dlp_headline' | t }}
+          				</h1>
+          				<div id="sub">
+                         <p  class="taglinx"> {{ 'homepage.showcase.dlp_tagline' | t }}</p>
+                        </div>
+                        <div id="sub">
+                        <p class="blurb">{{ 'homepage.showcase.dlp_blurb' | t }}</p>
+                        </div>
+                          <div class="showcase btns">
+                        <a href="{{ 'homepage.showcase.dlp_button_link' | t }}" class="btn btn-primary" data-mdb-ripple-color="dark">
+                           {{ 'homepage.showcase.dlp_button' | t }}
+                        </a>
+                          </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+  
+  <div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6 bg-coleur-c">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="{{ image_c.src | img_url: '3000x' }}" alt="{{image_c.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+      						<img src="{{ image_mobile_c.src | img_url: '800x' }}" alt="{{image_mobile_c.alt}}" class="mobile_vid img-fluid" id="img--{{id}}">
+						</div>
+					</div>
+					<div class="row"> 
+						<div class="col-md-12 text-center">
+							<h1 class="headline">
+                  		{{ 'homepage.showcase.cleani_headline' | t }}
+                        </h1>
+                        <div id="sub">
+                         <p  class="taglinx">{{ 'homepage.showcase.cleani_tagline' | t }}</p>
+                        </div>
+                        <div id="sub">
+                          <p class="blurb">{{ 'homepage.showcase.cleani_blurb' | t }}</p>
+                        </div>
+                          <div class="showcase btns">
+                        <a href=" {{ 'homepage.showcase.cleani_button_link' | t }}" class="btn btn-primary" data-mdb-ripple-color="dark">
+                         {{ 'homepage.showcase.cleani_button' | t }}
+                        </a>
+                          </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 bg-coleur-d">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="{{ image_d.src | img_url: '3000x' }}" alt="{{image_d.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+    						<img src="{{ image_mobile_d.src | img_url: '800x' }}" alt="{{image_mobile_d.alt}}" class="mobile_vid img-fluid" id="img--{{id}}"> 
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+						 <h1 class="headline">
+                 		 {{ 'homepage.showcase.oven_headline' | t }}
+          				</h1>
+          				<div id="sub">
+                          <p  class="taglinx">{{ 'homepage.showcase.oven_tagline' | t }}</p>
+                        </div>
+                        <div id="sub">
+                           <p class="blurb">{{ 'homepage.showcase.oven_blurb' | t }}</p>
+                        </div>
+                          <div class="showcase btns">
+                        <a href="{{ 'homepage.showcase.oven_button_link' | t }}" class="btn btn-primary" data-mdb-ripple-color="dark">
+                           {{ 'homepage.showcase.oven_button' | t }}
+                        </a>
+                          </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+  <div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6 bg-coleur-e">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="{{ image_e.src | img_url: '3000x' }}" alt="{{image_e.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+      						<img src="{{ image_mobile_e.src | img_url: '800x' }}" alt="{{image_mobile_e.alt}}" class="mobile_vid img-fluid" id="img--{{id}}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1 class="headline">
+                  		{{ 'homepage.showcase.alpha_headline' | t }}
+                        </h1>
+                        <div id="sub" class=" tagline2">
+                          <p  class="taglinx">{{ 'homepage.showcase.alpha_tagline' | t }}</p>
+                        </div>
+                        <div id="sub" class=" blurb">
+                          <p class="blurb">{{ 'homepage.showcase.alpha_blurb' | t }}</p>
+                        </div>
+                          <div class="showcase btns">
+                        <a href=" {{ 'homepage.showcase.alpha_button_link' | t }}" class="btn btn-primary" data-mdb-ripple-color="dark">
+                           {{ 'homepage.showcase.alpha_button' | t }}
+                        </a>
+                          </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 bg-coleur-f">
+					<div class="row">
+						<div class="col-md-12">
+							<img src="{{ image_f.src | img_url: '3000x' }}" alt="{{image_f.alt}}" class="desktop_vid img-fluid" id="img--{{id}}"> 
+    						<img src="{{ image_mobile_f.src | img_url: '800x' }}" alt="{{image_mobile_f.alt}}" class="mobile_vid img-fluid" id="img--{{id}}"> 
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+						 <h1 class="headline">
+                 		 {{ 'homepage.showcase.curo_headline' | t }}
+          				</h1>
+          				<div id="sub">
+                        <p  class="taglinx"> {{ 'homepage.showcase.curo_tagline' | t }}</p>
+                        </div>
+                        <div id="sub" >
+                          <p class="blurb">  {{ 'homepage.showcase.curo_blurb' | t }}</p>
+                        </div>
+                          <div class="showcase btns">
+                        <a href="{{ 'homepage.showcase.curo_button_link' | t }}" class="btn btn-primary" data-mdb-ripple-color="dark">
+                           {{ 'homepage.showcase.curo_button' | t }}
+                        </a>
+                          </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+</div>
+
+
+<style>
+  .bg-coleur-a{
+    {{gr_bg_param_a}}
+  }
+  .bg-coleur-b{
+    {{gr_bg_param_b}}
+  }
+  .bg-coleur-c{
+    {{gr_bg_param_c}}
+  }
+  .bg-coleur-d{
+    {{gr_bg_param_d}}
+  }
+  .bg-coleur-e{
+    {{gr_bg_param_e}}
+  }
+  .bg-coleur-f{
+    {{gr_bg_param_f}}
+  }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

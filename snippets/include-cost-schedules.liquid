@@ -1,0 +1,900 @@
+ {% for tag in customer.tags %}
+     {% if tag == "USD" %}
+        {% assign cur-sym = "$" %}
+        {% assign allowBuy = true %}
+     {% endif %}
+    {% endfor %}
+
+   {% for tag in customer.tags %}
+     {% if tag == "EUR" %}
+      {% assign cur-sym = "€" %}
+      {% assign allowBuy = false %}
+     {% endif %}
+    {% endfor %}
+
+  {% if customer.tags contains 'webmaster' %}
+  <div id="content">
+</div>
+<div id="editor"></div>
+<button id="cmd">generate PDF</button>
+  {% endif %}
+
+<div class="container">
+<div class="accordion" id="costSchedules">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseOne"
+        aria-expanded="false"
+        aria-controls="collapseOne"
+      >
+        Distributor Cost Schedule
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+         <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+       
+        
+      <div class="canvas_div_pdf">
+  <div class="col-md-12 text-center">
+	<h1>Distributor Cost Schedule</h1>
+  
+  </div>
+    
+ <div id="content" class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm ">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Min. Order Qty.</b></p></th>
+    <th><p><b>Distributor Price</b></p></th>
+    <th><p><b>MSRP</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.distributor.products %}
+      {% if product.tags contains 'spare kit' %}
+      {% else %}
+      <td><div class="grid-view-item__image-wrapper"><img crossorigin="anonymous" src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+      <td><p><b>{{ product.title }}</b>
+        <li>
+       {% for color_option in product.options_by_name['Color'].values %}
+        
+        <ul class="sched">{{ color_option }}</ul>
+    {% endfor %}
+        </li>
+       </p></td>
+    <td>
+     <p><li>
+       <ul class="sched">	&nbsp;</ul>
+        {% assign count = 1 %}
+       	{% for variant in product.variants %}
+        {% assign count = count | plus: 1 %}
+        
+        {% if count > 1  %}
+       
+             <ul class="sched">{{ variant.sku }}</ul>
+       
+        {% else %}
+        {% assign current_variant = product.selected_or_first_available_variant %}<ul class="sched">{{ current_variant.sku }}</ul>
+        {% endif %}
+    {% endfor%}
+   </li> </p>
+      </td>
+    <td>
+    {% if product.metafields.distributor != "blank"   %}  
+    {%- for fieldName in product.metafields.distributor  -%}
+    {% capture fieldnamefirst%}     
+     {{ fieldName | first }}
+      {%endcapture%}  
+      {% if fieldnamefirst contains "moq_" %}
+            <p>{{ fieldName | first | remove: "moq_" | append: " Unit(s)" }}</p>
+            {%endif%}
+      {% endfor %}
+      {% endif %}
+    </td>
+    <td>
+      
+    {% if product.metafields.distributor != "blank"   %}  
+    {%- for fieldName in product.metafields.distributor-%}
+    {% capture fieldnamefirst%}     
+    {{ fieldName | first }}
+    {%endcapture%}  
+    {% capture metavalue%}
+    {{ fieldName | last }}
+    {%endcapture%}  
+         {% if metavalue != "blank"  %}
+                          {% if fieldnamefirst contains "moq_" %}
+                            <p>{{cur-sym}} {{ metavalue | money_without_currency }}</p>
+                          {% endif %}
+                  {%endif%}
+       {% endfor %}
+       {% endif %}   
+    </td>
+      
+    <td><p class="money">{{cur-sym}}{{ product.metafields.distributor.msrp | money_without_currency }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseTwo"
+        aria-expanded="false"
+        aria-controls="collapseTwo"
+      >
+        SOL Spare Kit
+      </button>
+    </h2>
+    <div
+      id="collapseTwo"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingTwo"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+         <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+      
+  <div class="col-md-12 text-center">
+	<h1>SOL Spare Kit</h1>
+  </div>
+          
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Qty/kit</b></p></th>
+    <th><p><b>Price</b></p></th>
+    <th><p><b>Support Level</b></p></th>  
+     </tr>
+    </thead>
+    <tr>
+    {% for product in collections.sol-spare-part-kit.products %} 
+      {% if product.metafields.wholesale.spare_kit == 'SOL' %}
+     {% if product.id == 6608760569959 %} 
+      {% else %}
+    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td><p class="">{{ product.metafields.wholesale.pieces_per_kit }}</p></td>
+    <td> 
+      {%capture qnty%}
+      {{ product.metafields.wholesale.pieces_per_kit }}
+      {% endcapture %}
+      {%capture msrp %}
+      {{ product.metafields.distributor.msrp }}
+      {% endcapture %}
+      {% assign totalpr = msrp| times: qnty %}
+      
+      <p class="money">{{cur-sym}} {{totalpr | money_without_currency }}</p>  </td>
+      <td><p>{{ product.metafields.support.level }}</p></td> 
+    </tr>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><p><b>TOTAL</b></p></td>
+      <td><p class="money"><b>{{cur-sym}} {% if allowBuy  %}{% for product in collections.sol-spare-part-kit.products %} 
+        
+   	{% if product.id == 6608760569959 %} 
+       	{{product.price | money_without_currency  }}
+   {% endif %}     
+   {% endfor %}
+         {% elsif allowBuy == false%}1,499.00
+        {% endif %}</b></p> </td>
+    </tr>
+  </table>
+ 
+   </div>
+    {% if allowBuy  %}    
+   {% for product in collections.sol-spare-part-kit.products %} 
+   {% if product.id == 6608760569959 %}
+   <div class="product-{{ product.id }}">
+   <div class="col-4 payments">
+     {% include 'product-form' with 'product' %}
+   </div>
+        </div>
+   {% endif %}
+        
+   {% endfor %}
+        {% elsif allowBuy == false%}
+        <div class="col-12 text-center"> To order, please contact <a href="mailto:sales@ackuretta.com">sales@ackuretta.com</a> </div>
+     {% endif %}
+  </div>
+      </div>
+    </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseThree"
+        aria-expanded="false"
+        aria-controls="collapseThree"
+      >
+        DENTIQ Spare Kit
+      </button>
+    </h2>
+    <div
+      id="collapseThree"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingThree"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+      
+  <div class="col-md-12 text-center">
+	<h1>DENTIQ Spare Kit</h1>
+  </div>
+      
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Qty/kit</b></p></th>
+    <th><p><b>Price</b></p></th>
+      <th><p><b>Support Level</b></p></th>
+     </tr>
+    </thead>
+    <tr>
+    {% for product in collections.dentiq-spare-kit.products %} 
+      {% if product.metafields.wholesale.spare_kit == 'DENTIQ' %}
+        {% if product.id == 6609137303655 %} 
+      {% else %}
+    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+   <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td><p class="">{{ product.metafields.wholesale.pieces_per_kit }}</p></td>
+    <td> 
+      {%capture qnty%}
+      {{ product.metafields.wholesale.pieces_per_kit }}
+      {% endcapture %}
+      {%capture msrp %}
+      {{ product.metafields.distributor.msrp }}
+      {% endcapture %}
+      {% assign totalpr = msrp| times: qnty %}
+      
+      <p class="money">{{cur-sym}} {{totalpr | money_without_currency }}</p></td>
+      <td><p>{{ product.metafields.support.level }}</p></td>
+      
+    </tr>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><p><b>TOTAL</b></p></td>
+      <td><p class="money"><b>{{cur-sym}} {% if allowBuy  %}{% for product in collections.dentiq-spare-kit.products %} 
+   	{% if product.id == 6609137303655 %}
+	{{product.price | money_without_currency}}
+   {% endif %}     
+   {% endfor %}
+         {% elsif allowBuy == false%}1,099.00
+        {% endif %}</b></p></td>
+    </tr>
+  </table>
+  </div>  
+         {% if allowBuy  %}    
+         {% for product in collections.dentiq-spare-kit.products %} 
+         {% if product.id == 6609137303655 %}
+           <div class="product-{{ product.id }}">
+           <div class="col-4 payments">
+     {% include 'product-form' with 'product' %}
+   </div>
+        </div>
+   {% endif %}
+        
+   {% endfor %}
+        {% elsif allowBuy == false%}
+        <div class="col-12 text-center"> To order, please contact <a href="mailto:sales@ackuretta.com">sales@ackuretta.com</a> </div>
+     {% endif %}
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseFour"
+        aria-expanded="false"
+        aria-controls="collapseFour"
+      >
+        CLEANI Spare Parts
+      </button>
+    </h2>
+    <div
+      id="collapseFour"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingFour"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+      
+  <div class="col-md-12 text-center">
+	<h1>CLEANI Spare Parts</h1>
+  </div>
+      
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Price</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.spare-cleani.products %}   
+    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td> <p class="money">{{cur-sym}} {{product.metafields.distributor.msrp  | money_without_currency }}</p></td>
+    </tr>
+    {% endfor %}
+    </table>
+  </div>  
+         
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseFive"
+        aria-expanded="false"
+        aria-controls="collapseFive"
+      >
+        CURIE Spare Parts
+      </button>
+    </h2>
+    <div
+      id="collapseFive"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingFive"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+      
+  <div class="col-md-12 text-center">
+	<h1>CURIE Spare Parts</h1>
+  </div>
+      
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+    <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Price</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.spare-curie.products %}   
+    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td> <p class="money">{{cur-sym}} {{product.metafields.distributor.msrp  | money_without_currency }}</p></td>
+    </tr>
+    {% endfor %}
+    </table>
+  </div>  
+         
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSix">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseSix"
+        aria-expanded="false"
+        aria-controls="collapseSix"
+      >
+        HS Codes
+      </button>
+    </h2>
+    <div
+      id="collapseSix"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingSix"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+      
+  <div class="col-md-12 text-center">
+	<h1>Download HS Codes <a href="https://drive.google.com/file/d/13wYkBy0TyzakyZGa66yZljKfbZVmtS57/view" target="_blank"> Here</a></h1>
+  </div>
+      
+ 
+      </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingSeven">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseSeven"
+        aria-expanded="false"
+        aria-controls="collapseSeven"
+      >
+        Shipping Estimates
+      </button>
+    </h2>
+    <div
+      id="collapseSeven"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingSeven"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        <div class="col-md-12 text-center">
+	<img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4_410x.png?v=1624620725" class="hidden-sm-up" />
+  </div>
+      
+  <div class="col-md-12 text-center">
+	<h1>Download Shipping Estimates List <a href="https://drive.google.com/file/d/10vCyU4oWgSDA9bYt8fgkGMY5TrmCPGlM/view" target="_blank"> Here</a></h1>
+  </div>
+      
+ 
+      </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingEigth">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseEigth"
+        aria-expanded="false"
+        aria-controls="collapseEigth"
+      >
+       DENTIQ Component Cost Schedule
+      </button>
+    </h2>
+    <div
+      id="collapseEigth"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingEigth"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        
+        
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Price</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.dentiq-spare-kit.products %} 
+      {% if product.tags contains "spare DENTIQ" %}  
+    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td><p class="money"> {{product.price | money }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+  </div>  
+      
+ 
+      </div>
+    </div>
+</div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingNine">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseNine"
+        aria-expanded="false"
+        aria-controls="collapseNine"
+      >
+       SOL Component Cost Schedule
+      </button>
+    </h2>
+    <div
+      id="collapseNine"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingNine"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        
+        
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Price</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.sol-spare-part-kit.products %} 
+      {% if product.tags contains "spare SOL" %}  
+      <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td><p class="money"> {{product.price | money }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+  </div>  
+      
+ 
+      </div>
+    </div>
+</div>
+{% if customer.tags contains 'webmaster' %}
+ 
+        
+        
+ <div id="invoice">
+    <header >
+      <h1>Invoice</h1>
+      <address >
+        <p> alexandercross202@gmail.com </p>
+        <p> 45189, Research Place, Suite 150A </p>
+        <p> P: 1-800-961-4952 </p>
+        <p> Business Number: 0-808-234-2380 </p>
+      </address>
+      <span><!--<img alt="it" src="base64imagecodehere" width="150">--></span>
+    </header>
+    <article>
+    
+      <address class="norm">
+        <h4>Jan Denean Banister</h4>
+        <p> name@client.com <br>
+        <p> 1613 bethany church road,belton,South <br>
+        <p> Carolina,29627,USA <br>
+        <p> Phone: 1-864-933-0793</p>
+      </address>
+      
+      <table class="meta">
+        <tr>
+          <th><span >Invoice #</span></th>
+          <td><span >101138</span></td>
+        </tr>
+        <tr>
+          <th><span >Date</span></th>
+          <td><span >January 1, 2019</span></td>
+        </tr>
+        <tr>
+          <th><span >Amount Due</span></th>
+          <td><span id="prefix" >$</span><span>600.00</span></td>
+        </tr>
+      </table>
+      <table class="inventory">
+        <thead>
+          <tr>
+            <th><span >S. No</span></th>
+            <th><span >Description</span></th>
+            <th><span >Qty</span></th>
+            <th><span >Rate Per Qty</span></th>
+            <th><span >Amount</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span >1.</span></td>
+            <td><span >Experience Review</span></td>
+            <td><span data-prefix>$</span><span >150.00</span></td>
+            <td><span >4</span></td>
+            <td><span data-prefix>$</span><span>600.00</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="sign">
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+      <table class="balance">
+        <tr>
+          <th><span >Total</span></th>
+          <td><span data-prefix>$</span><span>600.00</span></td>
+        </tr>
+      </table>
+    </article>
+    <aside>
+      <h1><span >Additional Notes</span></h1>
+      <div >
+        <p>We offer limited 10 days refund policy and 30 days workmanship warranty on all of our services. For more details, please read our refund policy below.</p>
+      </div>
+    </aside>
+</div>
+
+  <script type="text/javascript">
+    function pdf(){
+   const options = {
+      margin: 0.5,
+      filename: 'invoice.pdf',
+      image: { 
+        type: 'jpeg', 
+        quality: 500
+      },
+      html2canvas: { 
+        scale: 1 
+      },
+      jsPDF: { 
+        unit: 'in', 
+        format: 'letter', 
+        orientation: 'portrait' 
+      }
+    }
+  
+    $('.btn-download').click(function(e){
+      e.preventDefault();
+      const element = document.getElementById('invoice');
+      html2pdf().from(element).set(options).save();
+    });
+
+}
+    function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+
+  </script>
+  <a  href="javascript:void(0)" class="btn-download" onclick="pdf();">Download PDF  </a>
+    
+  {% endif %}
+  
+
+</div>
+    </div>
+</div>
+
+<style>
+  /* heading */
+
+h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
+
+/* table */
+
+table { font-size: 75%; table-layout: fixed; width: 100%; }
+table { border-collapse: separate; border-spacing: 2px; }
+th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
+th, td { border-radius: 0.25em; border-style: solid; }
+th { background: #EEE; border-color: #BBB; }
+td { border-color: #DDD; }
+
+
+
+/* header */
+
+header { margin: 0 0 3em; }
+header:after { clear: both; content: ""; display: table; }
+
+header h1 { background: #e40101; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
+header address { float: left; font-size: 95%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+article address.norm h4 {
+    font-size: 125%;
+    font-weight: bold;
+}
+article address.norm { float: left; font-size: 95%; font-style: normal; font-weight: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+header address p { margin: 0 0 0.25em; }
+header span, header img { display: block; float: right; }
+header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
+header img { max-height: 100%; max-width: 100%; }
+header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
+
+/* article */
+
+article, article address, table.meta, table.inventory { margin: 0 0 3em; }
+article:after { clear: both; content: ""; display: table; }
+article h1 { clip: rect(0 0 0 0); position: absolute; }
+
+article address { float: left; font-size: 125%; font-weight: bold; }
+
+/* table meta & balance */
+
+table.meta, table.balance { float: right; width: 36%; }
+table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
+
+/* table meta */
+
+table.meta th { width: 40%; }
+table.meta td { width: 60%; }
+
+/* table items */
+
+table.inventory { clear: both; width: 100%; }
+table.inventory th:first-child {
+    width:50px;
+}
+table.inventory th:nth-child(2) {
+    width:300px;
+}
+table.inventory th { font-weight: bold; text-align: center; }
+
+table.inventory td:nth-child(1) { width: 26%; }
+table.inventory td:nth-child(2) { width: 38%; }
+table.inventory td:nth-child(3) { text-align: right; width: 12%; }
+table.inventory td:nth-child(4) { text-align: right; width: 12%; }
+table.inventory td:nth-child(5) { text-align: right; width: 12%; }
+
+/* table balance */
+
+table.balance th, table.balance td { width: 50%; }
+table.balance td { text-align: right; }
+
+/* aside */
+
+aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
+aside h1 { border-color: #999; border-bottom-style: solid; }
+
+table.sign {
+    float: left;
+    width: 220px;
+}
+table.sign img {
+    width: 100%;
+}
+table.sign tr td {
+    border-color: transparent;
+}
+@media print {
+    * { -webkit-print-color-adjust: exact; }
+    html { background: none; padding: 0; }
+    body { box-shadow: none; margin: 0; }
+    span:empty { display: none; }
+    .add, .cut { display: none; }
+}
+
+@page { margin: 0; }
+  
+  .grid-view-item__image-wrapper {
+    border-radius: 4px;
+    background: #fff;
+}
+.grid-view-item__image-wrapper img {
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background: #fff;
+}
+.grid-view-item__image-wrapper:hover img {
+  border-radius: 4px;
+  -moz-transform: scale(2.2);
+  -webkit-transform: scale(2.2);
+  transform: scale(2.2);
+  box-shadow: 10px 10px 5px #cacaca;
+  background: #fff;
+}
+  ul.sched {
+    padding: 5px 0;
+}
+  
+  td, th
+{
+    text-align: center; 
+    vertical-align: middle;
+}
+  
+  @media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+  table p {
+    font-size: .7em;
+    margin: 0; 
+}
+  .table-sm>:not(caption)>*>* {
+    padding: 0.1rem 0.1rem;
+}
+}
+</style>
+

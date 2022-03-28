@@ -1,0 +1,40 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign custom_html = block.settings.custom_html %}
+  {% assign role = block.settings.role %}
+
+{% else %}
+{% assign id = section.id %}
+  {% assign custom_html = section.settings.custom_html %}
+  {% assign role = section.settingsrolecustom_html %}
+{% endif %}
+
+
+{%if role %}
+{% if customer %}
+  <div class="container">
+      <div class="custom-{{id}}">
+        {% if custom_html != blank %}
+         {{ custom_html }}
+        {% else %}
+          <p class="center">
+            {{ 'homepage.onboarding.no_content' | t }}
+          </p>
+        {% endif %}
+      </div>
+  </div>
+{% endif %}
+{% else %}
+<div class="container">
+      <div class="custom-{{id}}">
+        {% if custom_html != blank %}
+         {{ custom_html }}
+        {% else %}
+          <p class="center">
+            {{ 'homepage.onboarding.no_content' | t }}
+          </p>
+        {% endif %}
+      </div>
+  </div>
+{% endif %}
+    

@@ -1,0 +1,283 @@
+{% if type == 'block' %}
+    {% assign att_title_1 = block.settings.att_title_1 %}
+    {% assign att_title_2 = block.settings.att_title_2 %}
+    {% assign att_title_3 = block.settings.att_title_3 %}
+    {% assign att_title_4 = block.settings.att_title_4 %}
+    {% assign att_title_5 = block.settings.att_title_5 %}
+    {% assign att_title_6 = block.settings.att_title_6 %}
+    {% assign att_title_7 = block.settings.att_title_7 %}
+    {% assign att_title_8 = block.settings.att_title_8 %}
+    {% assign att_title_9 = block.settings.att_title_9 %}
+    {% assign att_title_10 = block.settings.att_title_10 %}
+    {% assign	att_1_1 = block.settings.att_1_1	%}
+    {% assign	att_1_2 = block.settings.att_1_2	%}
+    {% assign	att_2_1 =	block.settings.att_2_1	%}
+    {% assign	att_2_2	 =	block.settings.att_2_2	%}
+    {% assign	att_3_1  =	block.settings.att_3_1	%}
+    {% assign	att_3_2	 =	block.settings.att_3_2	%}
+    {% assign	att_4_1  =	block.settings.att_4_1	%}
+    {% assign	att_4_2	 =	block.settings.att_4_2	%}
+    {% assign	att_5_1  =	block.settings.att_5_1	%}
+    {% assign	att_5_2	 =	block.settings.att_5_2	%}
+    {% assign	att_6_1  =	block.settings.att_6_1	%}
+    {% assign	att_6_2	 =	block.settings.att_6_2	%}
+    {% assign	att_7_1  =	block.settings.att_7_1	%}
+    {% assign	att_7_2	 =	block.settings.att_7_2	%}
+    {% assign	att_8_1  =	block.settings.att_8_1	%}
+    {% assign	att_8_2	 =	block.settings.att_8_2	%}
+    {% assign	att_9_1  =	block.settings.att_9_1	%}
+    {% assign	att_9_2	 =	block.settings.att_9_2	%}
+    {% assign	att_10_1 =	block.settings.att_10_1	%}
+    {% assign	att_10_2 =	block.settings.att_10_2	%}
+    {% assign id = block.id %}
+  	{% assign wide_display = block.settings.frontpage_grid_style %}
+  	{% assign frontpage_image_position = block.settings.frontpage_image_position %}
+	{% assign frontpage_text_align = block.settings.frontpage_text_align %}
+	{% assign image = block.settings.image %}
+    {% assign image_m = block.settings.image_m %}
+	{% assign title = block.settings.title %}
+	{% assign headline_color = block.settings.headline_color %}
+	{% assign category = block.settings.category %}
+	{% assign cat_color = block.settings.cat_color %}
+	{% assign text = block.settings.text %}
+	{% assign button_label = block.settings.button_label %}
+	{% assign link = block.settings.link %}
+	{% assign bg_color = block.settings.bg_color %}
+	{% assign text_color = block.settings.text_color %}
+	{% assign content_box_font = block.settings.content_box_font %}
+	{% assign padding_content_box = block.settings.padding_content_box %}
+{% else %}
+    {% assign att_title_1 = section.settings.att_title_1 %}
+    {% assign att_title_2 = section.settings.att_title_2 %}
+    {% assign att_title_3 = section.settings.att_title_3 %}
+    {% assign att_title_4 = section.settings.att_title_4 %}
+    {% assign att_title_5 = section.settings.att_title_5 %}
+    {% assign att_title_6 = section.settings.att_title_6 %}
+    {% assign att_title_7 = section.settings.att_title_7 %}
+    {% assign att_title_8 = section.settings.att_title_8 %}
+    {% assign att_title_9 = section.settings.att_title_9 %}
+    {% assign att_title_10 = section.settings.att_title_10 %}
+    {% assign	att_1_1 = section.settings.att_1_1	%}
+    {% assign	att_1_2 = section.settings.att_1_2	%}
+    {% assign	att_2_1 = section.settings.att_2_1	%}
+    {% assign	att_2_2 = section.settings.att_2_2	%}
+    {% assign	att_3_1  =	section.settings.att_3_1	%}
+    {% assign	att_3_2	 =	section.settings.att_3_2	%}
+    {% assign	att_4_1  =	section.settings.att_4_1	%}
+    {% assign	att_4_2	 =	section.settings.att_4_2	%}
+    {% assign	att_5_1  =	section.settings.att_5_1	%}
+    {% assign	att_5_2	 =	section.settings.att_5_2	%}
+    {% assign	att_6_1  =	section.settings.att_6_1	%}
+    {% assign	att_6_2	 =	section.settings.att_6_2	%}
+    {% assign	att_7_1  =	section.settings.att_7_1	%}
+    {% assign	att_7_2	 =	section.settings.att_7_2	%}
+    {% assign	att_8_1  =	section.settings.att_8_1	%}
+    {% assign	att_8_2	 =	section.settings.att_8_2	%}
+    {% assign	att_9_1  =	section.settings.att_9_1	%}
+    {% assign	att_9_2	 =	section.settings.att_9_2	%}
+    {% assign	att_10_1 =	section.settings.att_10_1	%}
+    {% assign	att_10_2 =	section.settings.att_10_2	%}
+    {% assign id = section.id %}
+  	{% assign wide_display = section.settings.frontpage_grid_style %}
+  	{% assign frontpage_image_position = section.settings.frontpage_image_position %}
+	{% assign frontpage_text_align = section.settings.frontpage_text_align %}
+	{% assign image = section.settings.image %}
+    {% assign image_m = section.settings.image_m %}
+	{% assign title = section.settings.title %}
+	{% assign headline_color = section.settings.headline_color %}
+	{% assign category = section.settings.category %}
+	{% assign cat_color = section.settings.cat_color %}
+	{% assign text = section.settings.text %}
+	{% assign button_label = section.settings.button_label %}
+	{% assign link = section.settings.link %}
+	{% assign bg_color = section.settings.bg_color %}
+	{% assign text_color = section.settings.text_color %}
+	{% assign content_box_font = section.settings.content_box_font %}
+	{% assign padding_content_box = section.settings.padding_content_box %}
+{% endif %}
+
+
+ <div id="{{id}}" class="t-w-img section-{{id}} {%if wide_display %}container-fluid {%else%}container{%endif%} image-align--{{ frontpage_image_position }}">
+      
+<div class="t-w-img container-fluid">
+  <div class="row t-w-img">
+    <div class="col-md-6 twiblck t-w-img {%if frontpage_image_position != "left" %} order-last {%endif%}">   
+             <div class="">
+                <a data-no-instant {% if link != blank %}href="{{ link }}"{% endif %} title="{{ title }}">
+                  {% if image != nil %}
+                    <div  class="iwt-pic{{id}} t-w-img"> </div>
+                    {% else %}
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+                    {% endif %}
+                </a>
+              </div>
+            </div>
+    
+   <div class="t-w-img d-flex align-items-center col-md-6 text-block  block--{{id}} twiblck" style="background-color: {{ bg_color }}  ;" >
+            <div class="info text-{{frontpage_text_align}}">
+              
+               {% if category != blank %}
+              <div class="category text-{{frontpage_text_align}}"> <small class="catg-tit cat--{{id}}">{{category}}</small></div>
+              {%endif%}
+              
+              <a data-no-instant {% if link != blank %}href="{{ link }}"{% endif %} class="collection_title">
+                  <h1 class="title block--{{id}}"> {{ title }}</h1>
+                </a>
+                
+                 <div class="table-responsive">
+  <table id="prod_attr_SOL" class="table table-hover table-sm">
+
+<tbody>
+  
+{% for i in (1..10) %}
+  {% capture attrib_title %}att_title_{{i}}{% endcapture %}
+  {% if block.settings[attrib_title] != blank %}
+  <td>
+  <tr>
+<td class="prod_attr_title {% if i == 1 or i == 3 or i == 5 or i == 7 or i == 9 %} alternate_shading{% endif %}" colspan="3"><p><b>{{block.settings[attrib_title]}}</b></p></td>
+  </tr>
+  {% endif%}
+     <tr class="{% if i == 1 or i == 3 or i == 5 or i == 7 or i == 9 %} alternate_shading">  {% else %}">{% endif %}
+      {% for j in (1..2) %}
+       {% capture attrib_txt %}att_{{i}}_{{j}}{% endcapture %}
+         {% if block.settings[attrib_txt] != blank %}
+         <td><p>{{block.settings[attrib_txt]}}</p></td>
+         {% endif%}
+      {% endfor %}
+     </tr>
+</td>
+    {% endfor %}
+  
+</tbody>
+ </table>
+</div>
+                
+                {% if button_label != blank %}
+                  <a data-no-instant {% if link != blank %}href="{{link }}"{% endif %} class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                    {{ button_label }}
+                  </a>
+                {% endif %}
+              </div>
+    
+    </div>
+  </div>
+  
+
+</div>
+
+</div>
+<style>
+
+   .iwt-pic{{ id }}{
+    background-image: url({{ image.src | img_url: '2000x' }})!important;
+    background-repeat: repeat-x;
+    height: 60em;
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .iwt-pic{{ id }}{
+    background-image: url({{ image.src | img_url: '1000x' }})!important;
+    background-repeat: repeat-x;
+    height: 45em;
+    background-position: center;
+    background-size: cover;
+  }
+  }
+  
+  
+ @media only screen and (max-width: 479px) {
+.iwt-pic{{ id }} {
+    background-image: url({{ image_m.src | img_url: '400x' }})!important;
+    background-repeat: repeat-x;
+    height: 18em;
+    background-position: center;
+    background-size: cover;
+    }
+   
+ }
+  
+  {% for block in section.blocks %}
+  
+    .block_text-{{id }}{
+    padding: {{padding_content_box}};
+  }
+  .block_text-{{id }}{
+    font-size:{{content_box_font}}px;
+  }
+   
+    .block--{{id }} {
+      background-color: {{ bg_color }};
+    }
+
+    .block--{{ id }} .collection_title,
+    .block--{{ id }} p {
+      color: {{text_color }};
+    }
+
+    .block--{{ id }} a.button {
+      color: {{ text_color }};
+      border-color: {{ text_color }};
+    }
+  
+   h1.title.block--{{id}} {
+   color: {{headline_color}} !important;
+}
+  
+  .cat--{{id}}{
+    color: {{cat_color}} !important;
+  }
+  {% endfor %}
+
+  {% if frontpage_grid_style == false and featured_links_per_row == '1' %}
+      #shopify-section-{{ id }} .featured-link--section {
+        margin-bottom: 3%;
+      }
+      @media only screen and (max-width: 480px) {
+        #shopify-section-{{ id }} .featured-link--section {
+          margin-bottom: 10%;
+        }
+      }
+
+      #shopify-section-{{ id }} .featured-link--half {
+        width: 45%;
+      }
+      #shopify-section-{{id }} .featured-link--margin {
+        {% if frontpage_image_position == 'right' %}
+          margin-left: 3%;
+        {% else %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% endif %}
+      }
+      #shopify-section-{{id }} .featured-link--section:nth-child(even) .featured-link--margin {
+        {% if frontpage_image_position == 'right' %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% else %}
+          margin-left: 3%;
+          margin-right: 0;
+        {% endif %}
+      }
+
+    {% elsif frontpage_grid_style == false and settings.featured_links_per_row == '2' %}
+
+        @media only screen and (max-width: 480px) {
+          #shopify-section-{{ id }} .featured-link--section {
+            margin-bottom: 10%;
+          }
+        }
+
+        #shopify-section-{{ id }} .featured-link--margin {
+          margin-right: 0;
+          margin-left: 0;
+        }
+
+        #shopify-section-{{ id }} .featured-link--section:nth-child(even) .featured-link--margin {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+      {% endif %}
+</style>

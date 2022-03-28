@@ -1,0 +1,181 @@
+{% if type == 'block' %}
+  	{% assign id = block.id %}
+  	{% assign wide_display = block.settings.frontpage_grid_style %}
+  	{% assign frontpage_image_position = block.settings.frontpage_image_position %}
+	{% assign frontpage_text_align = block.settings.frontpage_text_align %}
+	{% assign image = block.settings.image %}
+    {% assign image_m = block.settings.image_m %}
+	{% assign title = block.settings.title %}
+	{% assign headline_color = block.settings.headline_color %}
+	{% assign category = block.settings.category %}
+	{% assign cat_color = block.settings.cat_color %}
+	{% assign text = block.settings.text %}
+	{% assign button_label = block.settings.button_label %}
+	{% assign link = block.settings.link %}
+	{% assign bg_color = block.settings.bg_color %}
+	{% assign text_color = block.settings.text_color %}
+	{% assign content_box_font = block.settings.content_box_font %}
+	{% assign padding_content_box = block.settings.padding_content_box %}
+
+{% else %}
+ 	{% assign id = section.id %}
+  	{% assign wide_display = section.settings.frontpage_grid_style %}
+  	{% assign frontpage_image_position = section.settings.frontpage_image_position %}
+	{% assign frontpage_text_align = section.settings.frontpage_text_align %}
+	{% assign image = section.settings.image %}
+    {% assign image_m = section.settings.image_m %}
+	{% assign title = section.settings.title %}
+	{% assign headline_color = section.settings.headline_color %}
+	{% assign category = section.settings.category %}
+	{% assign cat_color = section.settings.cat_color %}
+	{% assign text = section.settings.text %}
+	{% assign button_label = section.settings.button_label %}
+	{% assign link = section.settings.link %}
+	{% assign bg_color = section.settings.bg_color %}
+	{% assign text_color = section.settings.text_color %}
+	{% assign content_box_font = section.settings.content_box_font %}
+	{% assign padding_content_box = section.settings.padding_content_box %}
+{% endif %}
+
+
+<div id="{{id}}" class="{%if wide_display %}container-fluid {%else%}container{%endif%} image-align--{{ frontpage_image_position }}">
+  
+  <div class="row g-0 justify-content-center">
+  
+    <div id="img-side-{{id}}" class="desktop_vid col-md-6 container {%if frontpage_image_position != "left" %} order-last {%endif%}bg-image hover-overlay ripple">
+    <a data-no-instant {% if link != blank %}href="{{ link }}"{% endif %} title="{{ title }}">
+                  {% if image != nil %}
+                     <img src="{{ image.src | img_url: '3000x' }}" alt="{{image.alt}}" class="lazyload img-fluid" id="img-{{id}}"> 
+                    {% else %}
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+                    {% endif %}</a>
+    </div>
+    
+    <div id="img-side-{{id}}" class="mobile_vid col-md-6 container {%if frontpage_image_position != "left" %} order-last {%endif%}bg-image hover-overlay ripple">
+    <a data-no-instant {% if link != blank %}href="{{ link }}"{% endif %} title="{{ title }}">
+                  {% if image != nil %}
+                     <img src="{{ image_m.src | img_url: '3000x' }}" alt="{{image_m.alt}}" class="lazyload img-fluid" id="img-{{id}}"> 
+                    {% else %}
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+                    {% endif %}</a>
+    </div>
+    
+  <div id="txt-side-{{id}}" class="col-md-6 d-flex flex-column justify-content-center align-items-center block_text-{{id }} block--{{id}} text-{{frontpage_text_align}}">
+    
+     {% if category != blank %}
+     <div class="category text-{{frontpage_text_align}}"> <small class="catg-tit cat--{{id}}">{{category}}</small></div>
+     {%endif%}
+    
+     <a data-no-instant {% if link != blank %}href="{{ link }}"{% endif %} class="collection_title"><h1 class="title block--{{id}}"> {{ title }}</h1></a>
+     
+     <div class="description block_text-{{id }}">{{text }}</div>
+  
+     {% if button_label != blank %}
+     <a data-no-instant {% if link != blank %}href="{{link }}"{% endif %} class="btn btn-primary" data-mdb-ripple-color="dark">{{ button_label }}</a>
+     {% endif %}
+      
+  </div>
+  
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<style>
+  
+    
+
+  
+    .block_text-{{id }}{
+    padding: {{padding_content_box}};
+  }
+  .block_text-{{id }}{
+    font-size:{{content_box_font}}px;
+  }
+   
+    .block--{{id }} {
+      background-color: {{ bg_color }};
+    }
+
+    .block--{{ id }} .collection_title,
+    .block--{{ id }} p {
+      color: {{text_color }};
+    }
+
+    .block--{{ id }} a.button {
+      color: {{ text_color }};
+      border-color: {{ text_color }};
+    }
+  
+   h1.title.block--{{id}} {
+   color: {{headline_color}} !important;
+}
+  
+  .cat--{{id}}{
+    color: {{cat_color}} !important;
+  }
+
+
+  {% if frontpage_grid_style == false and featured_links_per_row == '1' %}
+      #shopify-section-{{ id }} .featured-link--section {
+        margin-bottom: 3%;
+      }
+      @media only screen and (max-width: 480px) {
+        #shopify-section-{{ id }} .featured-link--section {
+          margin-bottom: 10%;
+        }
+      }
+
+      #shopify-section-{{ id }} .featured-link--half {
+        width: 45%;
+      }
+      #shopify-section-{{id }} .featured-link--margin {
+        {% if frontpage_image_position == 'right' %}
+          margin-left: 3%;
+        {% else %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% endif %}
+      }
+      #shopify-section-{{id }} .featured-link--section:nth-child(even) .featured-link--margin {
+        {% if frontpage_image_position == 'right' %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% else %}
+          margin-left: 3%;
+          margin-right: 0;
+        {% endif %}
+      }
+
+    {% elsif frontpage_grid_style == false and settings.featured_links_per_row == '2' %}
+
+        @media only screen and (max-width: 480px) {
+          #shopify-section-{{ id }} .featured-link--section {
+            margin-bottom: 10%;
+          }
+        }
+
+        #shopify-section-{{ id }} .featured-link--margin {
+          margin-right: 0;
+          margin-left: 0;
+        }
+
+        #shopify-section-{{ id }} .featured-link--section:nth-child(even) .featured-link--margin {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+      {% endif %}
+</style>

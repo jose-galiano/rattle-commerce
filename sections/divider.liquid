@@ -1,0 +1,111 @@
+{% comment %}
+** Divider - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'include-divider' %}
+
+{% schema %}
+
+{
+  "name": "Divider",
+  "class": "divider-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "divider_spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Space",
+      "default": 20
+    },
+	{
+   "type":      "select",
+   "id":        "devicer",
+   "label":     "Display Device",
+   "default":   "all",
+   "options": [
+     {
+       
+       "value": "true",
+       "label": "Show on Mobile Only"
+     },
+     {
+       
+       "value": "false",
+       "label": "Show on Desktop Only"
+     },
+     {
+       
+       "value": "all",
+       "label": "All Devices"
+     }
+   ] 
+	},
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line Color"
+     },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+     },
+    {
+      "type": "checkbox",
+      "id": "divider_border",
+      "label": "Show border",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "screen_size",
+      "label": "Wide-screen",
+      "default": false
+    },
+	{
+            "type": "select",
+            "id": "border_style",
+            "label": "Style",
+            "options": [
+              {
+                "value": "solid",
+                "label": "Solid"
+              },
+              {
+                "value": "dashed",
+                "label": "Dashed"
+              },
+              {
+                "value": "dotted",
+                "label": "Dotted"
+              }
+            ],
+            "default": "solid"
+     },
+     {
+      "type": "range",
+      "id": "divider_size",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Thinkness",
+      "default": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Divider",
+      "category": "Layout",
+      "settings": {
+
+      }
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,247 @@
+{% comment %}
+** Testimonial - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+
+
+<div class="{% if section.settings.wide_display == false %}container{% else %}container-fluid{%endif%}">
+  <div class="row text-center">
+    <div class="col-md"><h1 class="title testimonial">{{section.settings.headline}}</h1>
+    </div>
+  </div>
+<div class="testimonial-slick-section container">
+   {% if section.blocks.size > 0 %}
+ <div class="testimonial_by">
+         {% for block in section.blocks %}
+<div class="d-flex card mb-3">
+  <div class="row g-0">
+    
+    {% if block.settings.image != nil %}
+    <div class="col-md-4">
+      
+      {% if block.settings.image != blank %}
+                <img class="testimonial-image img-fluid" src="https://cdn.shopify.com/s/files/1/0276/4174/1415/{{ block.settings.image }}">
+            {% else %}
+      {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+     
+              {% if block.settings.darken_bg %}<div class="darken-bg"></div>{% endif %}
+    </div>
+    {% endif %}
+    
+     
+    <div class="col-md-8 align-self-lg-center">
+      <div class="card-body">
+        
+        {% if block.settings.title != blank %}
+                    <h2 class="card-title"> {{ block.settings.title }}</h2>
+        {% endif %}
+        
+        <p class="card-text">{{ block.settings.testimonial }}</p>
+         {% if block.settings.name != blank %}
+        <p class="card-text"> <b>{{ block.settings.name }}</b></p>
+        <p class="card-text"> {{ block.settings.store_name }}</p>
+        
+         {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+<style>
+  .testimonial-image{
+  max-height:350px!important;
+  margin: 20px;
+  }
+  
+  
+h1.title.testimonial {
+   color: {{section.settings.headline_color}} !important;
+}
+ 
+</style>
+{% schema %}
+
+{
+  "name": "Testimonials",
+  "class": "testimonial-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "wide_display",
+      "label": "Wide display",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Section Title",
+      "default": "Testimonials"
+    },
+	{
+      "type": "color",
+      "id": "section_color_bg",
+      "label": "Section Color BG"
+    },
+	{
+      "type": "color",
+      "id": "headline_color",
+      "label": "Section Title Color"
+    },
+	{
+      "type": "color",
+      "id": "content_color",
+      "label": "Content Font Color"
+    },
+	{
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color"
+    },
+	{
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dots Color"
+    },
+	{
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+	{
+      "type": "color",
+      "id": "fontcolor",
+      "label": "Title Font"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "350 x 350 px max. 30KB"
+        },
+        {
+          "type": "checkbox",
+          "id": "darken_bg",
+          "label": "Darken background image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Testimonial title",
+          "default": "Customer Testimonial"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial",
+          "label": "Testimonial",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quam enim, fringilla ut purus ut, pretium ullamcorper sem. In sit amet vestibulum tellus. Aenean gravida dolor eget mi bibendum semper. </p>"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Location"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Store link"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}
+
+<style>
+
+  .caption-content.testimonial-text h2, .caption-content.testimonial-text p.headline {
+    color: {{section.settings.headline_color}} !important;
+}
+  
+  .testimonial-block.gallery-cell.use-mobile-color .caption .caption-content p {
+    color: {{section.settings.content_color}} !important;
+}
+  
+.transparentBackground--false .flickity-prev-next-button .arrow {
+    fill: {{section.settings.dot_color}} !important;;
+    opacity: 1;
+}
+ 
+</style>

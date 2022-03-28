@@ -1,0 +1,61 @@
+{% if type == 'block' %}
+{% assign id = block.id %} 
+  {% assign image = block.settings.image %} 
+  {% assign image_m = block.settings.image_m %}
+{% assign promo-bann = block.settings.promo-banner-collection-tms %}
+{% assign titland = block.settings.title_page %}
+{% assign banner_height = block.settings.banner_height %}
+{% assign banner_height_m = block.settings.banner_height_m %}
+{% assign padding_top_d = block.settings.padding_top_d %}
+{% assign padding_top_m = block.settings.padding_top_m %}
+{% else %}
+{% assign id = section.id %} 
+  {% assign image = section.settings.image %} 
+  {% assign image_m = section.settings.image_m %}
+{% assign promo-bann = section.settings.promo-banner-collection-tms %}
+{% assign titland = section.settings.title_page %}
+{% assign banner_height = section.settings.banner_height %}
+{% assign banner_height_m = section.settings.banner_height_m %}
+{% assign padding_top_d = block.settings.padding_top_d %}
+{% assign padding_top_m = block.settings.padding_top_m %}
+{% endif %}
+
+
+<div id="{{id}}" class=" section-{{id}} container-fluid head_pic-{{id}} lazyload padding">
+  <div class="coll_title_banner container-fluid"> <p>{{ titland }}</p></div></div>
+{% if promo-bann != blank %}
+      <div class="promo_banner_tms">
+        <div class="promo_banner_tms_text">
+          {{ promo-bann }}
+        </div>
+      </div>
+    {% endif %}
+
+<style>
+  
+ {% for block in section.blocks %}
+  .head_pic-{{id}} {
+    background-image: url('https://cdn.shopify.com/s/files/1/0276/4174/1415/{{image}}')!important;
+    background-repeat: no-repeat;
+    height: {{banner_height}}em;
+    background-position: top;
+    position: relative;
+    overflow: hidden;
+      background-size: cover;
+}
+
+  
+  @media only screen and (max-width: 479px) {
+.head_pic-{{id}} {
+    background-image: url('https://cdn.shopify.com/s/files/1/0276/4174/1415/{{image_m}}')!important;
+    background-repeat: no-repeat;
+    height: {{banner_height_m}}em;
+    background-position: top;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    }
+  }
+  
+  {%endfor%}
+</style>

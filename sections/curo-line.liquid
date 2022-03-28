@@ -1,0 +1,453 @@
+{% assign resins = collection.products %}
+{% assign r = 0 %}
+{% assign count = 0 %}
+{% assign counl = 0 %}
+
+
+<div class="container-fluid" style="padding-top:60px;" >
+  <div class="top-portion" style="background-color:#E6E6E6">
+<div class="banner-header">
+  <div class="banner-overlay desktop_vid">
+    <div>
+    <img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/Curo-log.gif?v=1641452368"  class="logo-c-series img-fluid lazyload"/>
+      <div class="overlay-blurb">
+        <p class="over-blurb">{{ 'CURO.general.layover_blurb' | t}}</p>
+      </div> 
+    </div>
+  </div>
+  <img src="{{ 'CURO.general.img_header' | t}}" class="img-fluid lazyload"/> 
+  </div> 
+<div class=" intro-curo">
+  <div class="container blurb-curo-intro text-center">
+    <div class="banner-overlay mobile_vid">
+    <div>
+    <img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/Curo-log.gif?v=1641452368"  class="logo-c-series img-fluid lazyload"/>
+      <div class="overlay-blurb">
+        <p class="over-blurb">{{ 'CURO.general.layover_blurb_m' | t}}</p>
+      </div> 
+    </div>
+  </div>
+  <h1 class="mb-3 h1 title-curo fw-bold desktop_vid">{{ 'CURO.general.curo_tit' | t}}</h1>
+    <h1 class="mb-3 h1 title-curo fw-bold mobile_vid">{{ 'CURO.general.curo_tit_m' | t}}</h1>
+<p class="blurb-curo desktop_vid">  {{ 'CURO.general.curo_blurb' | t}}</p>
+    <p class="blurb-curo mobile_vid">  {{ 'CURO.general.curo_blurb_m' | t}}</p>
+  </div>
+  <div class="c-bottles banner-header text-center">
+  <img src="{{ 'CURO.general.img_bottles' | t}}" class="img-fluid lazyload"/> 
+</div>
+  </div>
+  <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        id="btn-back-to-top"
+        data-mdb-toggle="collapse"
+        data-mdb-target="">
+    <div class="btn_lbl"><p>{{ 'CURO.general.back_to_top_btn_html' | t}}</p></div>
+</button>
+<div class="container">
+  <div class="container text-center">
+  <h1 class="mb-3 h1 title-curo fw-bold">{{ 'CURO.general.search' | t}}</h1>
+
+  </div>
+  <div class="container bolas-btn">
+  <div class="row gx-3 text-center">
+{% for product in resins %}
+    {%- assign counl = counl | plus: 1 -%}
+    
+    {%- capture resin_title -%}{{-product.title | downcase | split: "curo" -}}{%-endcapture-%}
+    {%- capture resin_handle -%}{{-resin_title-}}{%-endcapture-%}
+    {%- capture resin_jname -%}{{-resin_handle | split: " " -}}{%-endcapture-%}
+    {%- capture application_img -%}img_{{-resin_handle | split: " " -}}{%-endcapture-%}
+    
+    {%- capture resin_name -%}CURO.product.resin-{{resin_handle}}{%-endcapture-%}
+    {%- capture resin_app -%}CURO.product.resin-app-{{-resin_handle | split: " "-}}{%-endcapture-%}
+  {% if resin_name contains "model" %}
+   {%else%}
+  <div class="col-4">
+    <button id="app_menu_{{ resin_name | t | downcase | split: " " | last }}"  name="#link-{{ resin_name | t | downcase | split: " " | last }}" action="#link-{{ resin_name | t | downcase | split: " " | last }}" 
+        data-mdb-toggle="collapse"
+        data-mdb-target="#flush-collapse-{{ resin_name | t | downcase | split: " " | last }}"
+        aria-expanded="false"
+        aria-controls="flush-collapse-{{ resin_name | t | downcase | split: " " | last }}"
+        resin_name="{{resin_jname}}"
+        onClick="window.location='#link-{{ resin_name | t | downcase | split: " " | last }}';graphs_{{ resin_name | t | downcase | split: " " | last }}('{{resin_jname}}');setAtt('{{resin_jname}}');"
+            class="btn-resin" >
+ <img src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/{{-application_img-}}.png" class="img-fluid lazyload app-btn" style="max-width:70%"/>
+      <p>{{resin_app | t}}</p></button>
+    </div>
+    {%endif%}
+    
+    {%endfor%}
+  </div> 
+     </div> 
+  </div>
+  </div>
+  
+  
+  
+  
+<div class="accordion accordion-flush" id="accordionResins">
+{% for product in resins %}
+{%- assign count = count | plus: 1 -%}
+{%- capture resin_title -%}{{-product.title | downcase | split: "curo" -}}{%-endcapture-%}
+{%- capture resin_handle -%}{{-resin_title-}}{%-endcapture-%}
+{%- capture resin_jname -%}{{-resin_handle | split: " " -}}{%-endcapture-%}
+{%- capture application_img -%}img_{{-resin_handle | split: " " -}}{%-endcapture-%}    
+{%- capture resin_name -%}CURO.product.resin-{{-resin_handle | split: " "-}}{%-endcapture-%}
+{%- capture resin_desc -%}CURO.product.resin-desc-{{-resin_handle | split: " "-}}_html{%-endcapture-%}
+{%- capture resin_broc -%}CURO.product.resin-broc-{{-resin_handle | split: " "-}}{%-endcapture-%}
+{%- capture resin_msds -%}CURO.product.resin-msds-{{-resin_handle | split: " "-}}{%-endcapture-%}
+{%- capture resin_iou -%}CURO.product.resin-iou-{{-resin_handle | split: " "-}}{%-endcapture-%}      
+{%- capture resin_pct -%}CURO.product.resin-pct-{{-resin_handle | split: " "-}}{%-endcapture-%}   
+{%- capture resin_color -%}CURO.product.resin-color-{{-resin_handle | split: " "-}}{%-endcapture-%}  
+{%- capture resin_broc_t -%}{{ resin_broc | t }}{%-endcapture-%}    
+{%- capture resin_msds_t -%}{{ resin_msds | t }}{%-endcapture-%} 
+{%- capture resin_iou_t -%}{{ resin_iou | t }}{%-endcapture-%} 
+{%- capture resin_pct_t -%}{{ resin_pct | t }}{%-endcapture-%} 
+  
+  <div id="link-{{ resin_name | t | downcase | split: " " | last }}" class="accordion-item">
+    <div class="container cont-rest">
+    <h2 class="accordion-header" id="flush-{{ resin_name | t | downcase | split: " " | last }}">
+      <button
+        id="btn-{{ resin_name | t | downcase | split: " " | last }}"     
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#flush-collapse-{{ resin_name | t | downcase | split: " " | last }}"
+        aria-expanded="false"
+        aria-controls="flush-collapse-{{ resin_name | t | downcase | split: " " | last }}"
+        resin-name="{{ resin_jname }}"
+        onclick="graphs_{{ resin_name | t | downcase | split: " " | last }}('{{resin_jname}}'); setAtt('{{resin_jname}}');this.onclick=null;"
+      >
+        {{product.title }}
+      </button>
+    </h2>
+    </div>
+    <div
+      id="flush-collapse-{{ resin_name | t | downcase | split: " " | last }}"
+      class="accordion-collapse collapse "
+      aria-labelledby="flush-heading-{{ resin_name | t | downcase | split: " " | last }}"
+      data-mdb-parent="#accordionResins"
+    >
+   <div class="accordion-body" style="background-color:{{resin_color|t}}">  
+     <div id="{{ resin_name | t | downcase | split: " " | last }}" class="resin {{ resin_name | t | downcase | split: " " | last }} container" onscroll="resin-{{ resin_name | t | downcase | split: " " | last }}()">
+     <div class="row r-descp desktop_flex">
+       <div class="col-6 text-center" >
+       <img src="{% if product.images[1] != blank %}{{ product.images[1] | img_url: '400x' }}{% else %}{{ product.featured_image | img_url: '400x' }}{% endif %}" class="img-fluid lazyload" alt="{{ alt_text | escape }}" />
+       </div>
+       <div class="col-6 text-center" ><h1 class="resin-title">{{product.title}}</h1>
+         <div class="row">
+              <span class="stamped-product-reviews-badge stamped-main-badge"  data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;">
+              {{product.metafields.stamped.badge}}</span>
+            <div class="feature_divider"></div>
+		</div>
+          {% assign ct = 0%}
+            {% if collection_handles contains 'coming-soon' %}
+              <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
+            {% else %}
+              <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                <meta itemprop="seller" content="{{ shop.name | escape }}" />
+                <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+                <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
+                <span class="sold_out">{% if product.available == false %}<button type="button" class="btn btn-danger btn-rounded   btn-sm" disabled data-mdb-ripple-color="#ffffff">{{ 'products.product.sold_out' | t }}</button>{% endif %}</span>
+                <span itemprop="price" content="{{ product.price | money_without_currency | remove: "," }}" class="{% if product.compare_at_price > product.price %}sale{% endif %}">
+                  <span class="current_price {% if product.available == false %}hidden{% endif %}">
+                    {% if product.price > 0 %}
+                      <span class="money">{{ product.price | money }}</span>
+                    {% else %}
+                      {{ settings.free_price_text }}
+                    {% endif %}
+                  </span>
+                </span>
+                <span class="was_price">
+                  {% if product.price < product.compare_at_price and product.available %}
+                     <i class="fas fa-tag"></i> {{ product.compare_at_price | money }}
+                  {% endif %}
+                </span>
+                {% if section.settings.display_savings %}
+                  <span class="sale savings">
+                    {% if product.price < product.compare_at_price and product.available %}
+                      {{ 'products.product.savings' | t }}  {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% (<span class="money">{{ product.compare_at_price | minus: product.price | money }}</span>)
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </p>
+              {% include 'product-notify-me' %}
+            {% endif %}
+         
+     <div class="row resin-blurb"><p>{{ resin_desc | t }}</p></div>
+         <div class="feature_divider"></div>
+{% unless collection_handles contains 'coming-soon' %}
+                <div class="row">
+                  <div class="col-md payments">
+              {% include 'product-form' with 'product' %}
+                       </div>
+                </div>
+              {% endunless %}
+       </div>
+  </div>
+      
+<div class="row desktop_vid">
+          <div class="col curo-link-group text-center">
+{% if resin_broc_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_broc | t }}"><i class="resin-color fas fa-file-pdf"></i>  {{'CURO.product.resin-broc-tag'| t }}</a>{%endif%}
+{% if resin_msds_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_msds | t }}"><i class="resin-color fas fa-file-pdf"></i>  {{'CURO.product.resin-msds-tag'| t }}</a>{%endif%}
+{% if resin_iou_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_iou | t }}"><i class="resin-color fas fa-info-circle"></i> {{'CURO.product.resin-iou-tag'| t }}</a>{%endif%}
+{% if resin_pct_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_pct | t }}"><i class="resin-color fas fa-stopwatch"></i> {{'CURO.product.resin-pct-tag'| t }}</a>{%endif%}
+           </div>
+ 	 	</div>
+<div id="gauges-{{ resin_name | t | downcase | split: " " | last }}" class="row gauges desktop_flex">
+  <div class="col-3 fm-{{ resin_name | t | downcase | split: " " | last }}"></div>
+  <div class="col-3 fs-{{ resin_name | t | downcase | split: " " | last }}"></div>
+  <div class="col-3 pt-{{ resin_name | t | downcase | split: " " | last }}"></div>
+  <div class="col-3 pb-{{ resin_name | t | downcase | split: " " | last }}"></div>
+</div>
+       <div class="row desktop_vid">
+         <div class="col text-center">
+       <img src="{% if product.images[0] != blank %}{{ product.images[0] | img_url: '400x' }}{% else %}{{ product.featured_image | img_url: '400x' }}{% endif %}" class="img-fluid lazyload" alt="{{ alt_text | escape }}" />
+       </div>
+       </div>
+       <div class="row r-descp mobile_vid text-center">
+        
+          <h1 class="resin-title">{{product.title}}</h1>
+          <span class="stamped-product-reviews-badge stamped-main-badge"  data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;">
+              {{product.metafields.stamped.badge}}</span>
+        <div class="feature_divider"></div>
+        <div class="col-6" style="display:inline;">
+        <img src="{% if product.images[0] != blank %}{{ product.images[0] | img_url: '200x' }}{% else %}{{ product.featured_image | img_url: '400x' }}{% endif %}" class="img-fluid lazyload" alt="{{ alt_text | escape }}" />
+        </div>
+        <div class="row resin-blurb"><p>{{ resin_desc | t }}</p></div>
+                
+                 <div class="col curo-link-group text-center">
+{% if resin_broc_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_broc | t }}"><i class="resin-color fas fa-file-pdf"></i>  {{'CURO.product.resin-broc-tag'| t }}</a>{%endif%}
+{% if resin_msds_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_msds | t }}"><i class="resin-color fas fa-file-pdf"></i>  {{'CURO.product.resin-msds-tag'| t }}</a>{%endif%}
+{% if resin_iou_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_iou | t }}"><i class="resin-color fas fa-info-circle"></i> {{'CURO.product.resin-iou-tag'| t }}</a>{%endif%}
+{% if resin_pct_t == blank %}{%else%}<a class="resin docu_link" target="_blank" href="{{ resin_pct | t }}"><i class="resin-color fas fa-stopwatch"></i> {{'CURO.product.resin-pct-tag'| t }}</a>{%endif%}
+           </div>
+        {% if collection_handles contains 'coming-soon' %}
+              <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
+            {% else %}
+              <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                <meta itemprop="seller" content="{{ shop.name | escape }}" />
+                <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+                <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
+                <span class="sold_out">{% if product.available == false %}<button type="button" class="btn btn-danger btn-rounded   btn-sm" disabled data-mdb-ripple-color="#ffffff">{{ 'products.product.sold_out' | t }}</button>{% endif %}</span>
+                <span itemprop="price" content="{{ product.price | money_without_currency | remove: "," }}" class="{% if product.compare_at_price > product.price %}sale{% endif %}">
+                  <span class="current_price {% if product.available == false %}hidden{% endif %}">
+                    {% if product.price > 0 %}
+                      <span class="money">{{ product.price | money }}</span>
+                    {% else %}
+                      {{ settings.free_price_text }}
+                    {% endif %}
+                  </span>
+                </span>
+                <span class="was_price">
+                  {% if product.price < product.compare_at_price and product.available %}
+                     <i class="fas fa-tag"></i> {{ product.compare_at_price | money }}
+                  {% endif %}
+                </span>
+                {% if section.settings.display_savings %}
+                  <span class="sale savings">
+                    {% if product.price < product.compare_at_price and product.available %}
+                      {{ 'products.product.savings' | t }}  {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% (<span class="money">{{ product.compare_at_price | minus: product.price | money }}</span>)
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </p>
+              {% include 'product-notify-me' %}
+            {% endif %}
+                 <div class="feature_divider"></div>
+{% unless collection_handles contains 'coming-soon' %}
+                <div class="row">
+                  <div class="col-md payments">
+              {% include 'product-form' with 'product' %}
+                       </div>
+                </div>
+              {% endunless %}
+        
+        </div>
+  </div>
+        
+      </div>
+    </div>
+    </div>
+
+    
+    
+
+
+
+
+  
+
+{% endfor %}
+    </div>
+</div>
+
+
+
+<style>
+  .desktop_flex{
+  display: flex;
+  }
+  .container-fluid{
+	overflow:hidden;
+}
+  .blurb-curo-intro {
+    padding: 30px 0;
+}
+button.btn-resin {
+    background-color: unset;
+    border: unset;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 0px 30px 0;
+    margin: unset;
+}
+  .app-btn:hover {
+    box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    -moz-box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    -webkit-box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    -o-box-shadow: 0px 0px 9px 5px rgb(0 0 0 / 40%);
+    border-radius: 100px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+  
+  img.logo-c-series.img-fluid.lazyloaded {
+    max-width: 50%;
+}
+  
+  .banner-overlay {
+    display: flex;
+    position: absolute;
+    top: 17rem;
+    max-width: 54%;
+    padding: 0 7%;
+    color: #fff;
+    font-size: 1.5rem;
+}
+  
+  .banner-header{
+  padding-bottom:30px;
+  }
+  #btn-back-to-top {
+    position: fixed;
+    bottom: 9%;
+    right: 7%;
+    z-index: 22222;
+    display: none;
+    padding-bottom: 0px;
+}
+
+  .accordion-button:not(.collapsed) {
+    color: #1266f1;
+    background-color: #fff;
+    -webkit-box-shadow:  none !important;
+    box-shadow: none !important;
+    border-bottom: none!important;
+}
+  .cont-rest {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+  .accordion-item {
+    border: none !important;
+}
+a.resin.docu_link {
+	color:#000;
+	display: inline;
+	margin: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+a.resin.docu_link:hover {
+	color:#764595;
+}
+
+  .resin{
+  padding-top: 5px;
+  }
+  .resin .feature_divider {
+    margin-bottom: 0px;
+}
+   .rbc-label-start {
+   font-family: fontawesome;
+   font-weight: bold;
+   font-size: 30px;
+ }
+ 
+ .rbc-center-text {
+   font-family: 'Open Sans';
+   fill: #000;;
+ }
+ 
+ .fm .fs .pt .pb, .rbc-center-text-line0 {
+   font-size: 2.8rem;
+ }
+ 
+.fm .fs .pt .pb, .rbc-center-text-line1 {
+   font-size: 1.8rem;
+ }
+.row.gauges {
+    padding: 5px 15%;
+}
+  h1.resin-title {
+    margin: 0;
+}
+.resin-blurb ul {
+    margin: 0;
+    padding: 0;
+}
+  .row.resin-blurb {
+    text-align: left;
+}
+  @media (max-width: 992px) {
+    .desktop_flex{
+    display: none !important;
+    }
+  .banner-overlay {
+    display: unset;
+    position: unset;
+    top: unset;
+    max-width: 100%;
+    padding: 0 0%;
+    color: #2a2828;
+    font-size: 1.5rem;
+}
+    img.logo-c-series.img-fluid.lazyloaded {
+    background-color: currentcolor;
+}
+    p.blurb-curo {
+    text-align: justify;
+    font-size: 1rem;
+    padding: 0 25px;  
+}
+    .row.resin-blurb {
+    font-size: 0.9rem;
+    text-align: justify;
+}
+    .row.gauges {
+    padding: 0px 0%;
+}
+    div#shopify-chat-dummy {
+    display: none;
+}
+    .blurb-curo-intro {
+    padding: 0;
+}
+    .banner-header {
+    padding-bottom: 10px;
+}
+}
+    @media (min-width: 993px) and (max-width: 1400px) {
+.banner-overlay {
+    top: 2% !important;
+    max-width: 54% !important;
+    padding: 5% 7% !important;
+    font-size: 1em !important;
+}
+}
+  
+  </style>

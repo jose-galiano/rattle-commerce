@@ -1,0 +1,49 @@
+<ul class="social_icons">
+  {% if settings.twitter_link != '' %}
+    <li><a href="{{ settings.twitter_link }}" title="{{ shop.name }} on Twitter" rel="me" target="_blank" class="icon"><i class="fab fa-twitter"></i></a></li>
+  {% endif %}
+
+  {% if settings.facebook_link != '' %}
+    <li><a href="{{ settings.facebook_link }}" title="{{ shop.name }} on Facebook" rel="me" target="_blank" class=" icon"><i class="fab fa-facebook-f"></i></a></li>
+  {% endif %}
+
+  {% if settings.youtube_link != '' %}
+    <li><a href="{{ settings.youtube_link }}" title="{{ shop.name }} on YouTube" rel="me" target="_blank" class=" icon"><i class="fab fa-youtube"></i></a></li>
+  {% endif %}
+
+  {% if settings.vimeo_link != '' %}
+    <li><a href="{{ settings.vimeo_link }}" title="{{ shop.name }} on Vimeo" rel="me" target="_blank" class="icon"><i class="fab fa-vimeo-v"></i></a></li>
+  {% endif %}
+
+  {% if settings.pinterest_link != '' %}
+    <li><a href="{{ settings.pinterest_link }}" title="{{ shop.name }} on Pinterest" rel="me" target="_blank" class="icon"><i class="fab fa-pinterest-p"></i></a></li>
+  {% endif %}
+
+  {% if settings.tumblr_link != '' %}
+    <li><a href="{{ settings.tumblr_link }}" title="{{ shop.name }} on Tumblr" rel="me" target="_blank" class="icon"><i class="fab fa-tumblr"></i></a></li>
+  {% endif %}
+
+  {% if settings.instagram_link != '' %}
+    <li><a href="{{ settings.instagram_link }}" title="{{ shop.name }} on Instagram" rel="me" target="_blank" class="icon"><i class="fab fa-instagram"></i></a></li>
+  {% endif %}
+
+  {% if settings.snapchat_link != '' %}
+    <li><a href="{{ settings.snapchat_link }}" title="{{ shop.name }} on Snapchat" rel="me" target="_blank" class="icon"><i class="fab fa-snapchat-ghost"></i></a></li>
+  {% endif %}
+
+  {% if settings.houzz_link != '' %}
+    <li><a href="{{ settings.houzz_link }}" title="{{ shop.name }} on Houzz" rel="me" target="_blank" class="icon"><i class="fab fa-houzz"></i></a></li>
+  {% endif %}
+
+  {% if settings.linkedin_link != '' %}
+    <li><a href="{{ settings.linkedin_link }}" title="{{ shop.name }} on LinkedIn" rel="me" target="_blank" class="icon"><i class="fab fa-linkedin-in"></i></a></li>
+  {% endif %}
+
+  {% if settings.tiktok_link != blank %}
+    <li><a href="{{ settings.tiktok_link }}" title="{{ shop.name }} on TikTok" rel="me" target="_blank" class="icon"><i class="fab fa-tiktok"></i></a></li>
+  {% endif %}
+  
+  {% if settings.email_link != '' %}
+    <li><a href="mailto:{{ settings.email_link }}" title="Email {{ shop.name }}" target="_blank" class="icon"><i class="far fa-envelope"></i></a></li>
+  {% endif %}
+</ul>

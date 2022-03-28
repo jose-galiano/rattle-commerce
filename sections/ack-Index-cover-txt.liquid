@@ -1,0 +1,35 @@
+{% comment %}
+** Image with text overlay - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'Include-Ack-img-text' %}
+
+{% schema %}
+
+{
+  "name": "Ecosystem Banner",
+  "class": "Ack3-img-txt-ovrly",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1800 x 1000px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image mobile",
+      "info": "640 x 640px recommended"
+    }
+ 
+ ],
+    "presets": [
+      {
+        "name": "Ecosystem Banner",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

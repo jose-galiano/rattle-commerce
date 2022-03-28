@@ -1,0 +1,24 @@
+{% for product in products limit: limit %}
+  {% if forloop.length == 3%}
+{% assign class_size = "p_c_3"%}
+  {% elsif forloop.length == 4 %}
+{% assign class_size = "p_c_4"%}
+  {% endif %}
+{% endfor %}
+
+
+<div class="row {{class_size}}">
+  <div class="col-6">
+  <div class="pdt_img">
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+  <img src="{% if product.images[1] != blank %}{{ product.images[1] | img_url: '800x' }}{% else %}{{ product.featured_image | img_url: '800x' }}{% endif %}" class="secondary lazyload" alt="{{ alt_text | escape }}" />
+  </a></div>
+  <div class="pdt_details">
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+  {% include "product-tms-details" %}
+    </a></div>
+  <div class="pdt_info">
+  {% include "product-info-tms" %}
+  </div>
+  </div>
+</div>

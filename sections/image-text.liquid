@@ -1,0 +1,313 @@
+{% comment %}
+** Image with text (half and half view) - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+<section id="text-w-img">
+ <div id="{{section.id}}" class="t-w-img section-{{ section.id}} {%if section.settings.frontpage_grid_style %}container-fluid {%else%}container{%endif%} image-align--{{ section.settings.frontpage_image_position }}">
+ {% if section.blocks.size > 0 %}
+   
+        {% for block in section.blocks %}
+<div class="t-w-img container-fluid">
+  <div class="row">
+    <div class="col-md-6 featured-link--half img-block twiblck {%if section.settings.frontpage_image_position != "left" %} order-last {%endif%}">   
+             <div class="">
+                <a data-no-instant {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                  {% if block.settings.image %}
+                    {% include 'image-element', image: block.settings.image, alt: block.settings.image.alt, stretch_width: false %}
+                  {% else %}
+                    {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                    {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+    
+   <div class="d-flex align-items-center col-md-6 text-block  block--{{ block.id }} twiblck" style="background-color: {{ block.settings.bg_color }}  ;" >
+            <div class="info text-{{section.settings.frontpage_text_align}}">
+              
+               {% if block.settings.category != blank %}
+              <div class="category text-{{section.settings.frontpage_text_align}}"> <small class="catg-tit cat--{{block.id}}">{{block.settings.category}}</small></div>
+              {%endif%}
+              
+              <a data-no-instant {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection_title">
+                  <h1 class="title block--{{block.id}}"> {{ block.settings.title }}</h1>
+                </a>
+                
+                  <div class="description">{{ block.settings.text }}</div>
+                
+                {% if block.settings.button_label != blank %}
+                  <a data-no-instant {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="btn {{block.settings.btn_scheme}}" data-mdb-ripple-color="dark">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
+    
+    </div>
+  </div>
+  
+
+</div>
+</div>
+        {% endfor %}
+      {% endif %}
+
+</section>
+<style>
+  small.catg-tit {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+   .description a {
+    color:{{block.settings.link_color}} !important;
+    }
+   .description p {
+    color:{{block.settings.content_color}} !important;
+    }
+  {% for block in section.blocks %}
+    .block--{{ block.id }} {
+      background-color: {{ block.settings.bg_color }};
+    }
+
+    .block--{{ block.id }} .collection_title,
+    .block--{{ block.id }} p {
+      color: {{ block.settings.text_color }};
+    }
+
+    .block--{{ block.id }} a.button {
+      color: {{ block.settings.text_color }};
+      border-color: {{ block.settings.text_color }};
+    }
+  
+   h1.title.block--{{block.id}} {
+   color: {{block.settings.headline_color}} !important;
+}
+  
+  .cat--{{block.id}}{
+    color: {{block.settings.cat_color}} !important;
+  }
+  {% endfor %}
+
+  {% if section.settings.frontpage_grid_style == false and section.settings.featured_links_per_row == '1' %}
+      #shopify-section-{{ section.id }} .featured-link--section {
+        margin-bottom: 3%;
+      }
+      @media only screen and (max-width: 480px) {
+        #shopify-section-{{ section.id }} .featured-link--section {
+          margin-bottom: 10%;
+        }
+      }
+
+      #shopify-section-{{ section.id }} .featured-link--half {
+        width: 45%;
+      }
+      #shopify-section-{{ section.id }} .featured-link--margin {
+        {% if section.settings.frontpage_image_position == 'right' %}
+          margin-left: 3%;
+        {% else %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% endif %}
+      }
+      #shopify-section-{{ section.id }} .featured-link--section:nth-child(even) .featured-link--margin {
+        {% if section.settings.frontpage_image_position == 'right' %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% else %}
+          margin-left: 3%;
+          margin-right: 0;
+        {% endif %}
+      }
+
+    {% elsif section.settings.frontpage_grid_style == false and section.settings.featured_links_per_row == '2' %}
+
+        @media only screen and (max-width: 480px) {
+          #shopify-section-{{ section.id }} .featured-link--section {
+            margin-bottom: 10%;
+          }
+        }
+
+        #shopify-section-{{ section.id }} .featured-link--margin {
+          margin-right: 0;
+          margin-left: 0;
+        }
+
+        #shopify-section-{{ section.id }} .featured-link--section:nth-child(even) .featured-link--margin {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+      {% endif %}
+</style>
+
+
+{% schema %}
+{
+  "name": "Image with text",
+  "class": "image-with-text-section",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "frontpage_grid_style",
+      "label": "Wide display"
+    },
+    {
+      "type": "select",
+      "id": "featured_links_per_row",
+      "label": "Images per row",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "frontpage_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "frontpage_image_position",
+      "label": "Image Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
+
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image with text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Headline"
+        },
+		{
+      	  "type": "color",
+          "id": "headline_color",
+          "label": "Title Color"
+    	},
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category",
+          "default": "Category"
+        },
+{
+      	  "type": "color",
+          "id": "cat_color",
+          "label": "Title Color"
+    	},
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "View all"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        },
+      	{
+      "type": "select",
+      "id": "btn_scheme",
+      "label": "Button Color",
+      "options": [
+          {
+            "value": "btn-primary",
+            "label": "Default"
+          },
+          {
+            "value": "btn-secondary",
+            "label": "Inverted"
+          },
+          {
+            "value": "btn-outline-primary",
+            "label": "Outlined"
+          },
+          {
+            "value": "btn-outline-secondary",
+            "label": "Outlined Inverted"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Image with text",
+    "category": "Image",
+    "settings": {
+      "featured_links_per_row": "1",
+      "frontpage_text_align": "left"
+    },
+    "blocks": [
+      {
+        "type": "image"
+      },
+      {
+        "type": "image"
+      }
+    ]
+  }]
+}
+{% endschema %}

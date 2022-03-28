@@ -1,0 +1,55 @@
+
+{% if type == 'block' %}
+  	{% assign id = block.id %}
+  	{% assign wide_display = block.settings.screen_size %}
+	{% assign framed = block.settings.framed %}
+
+{% else %}
+ 	{% assign id = section.id %}
+  	{% assign wide_display = section.settings.screen_size %}
+	{% assign framed = block.settings.framed %}
+
+{% endif %}
+<div id="{{id}}" class="desktop_vid chart-container container-fluid" >
+  <div id="{{id}}" class="container" >
+  <div class="row">
+    <div class="col-md-3 text-center"><img id="appli" class="app_img" src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/crown-bridg.jpg?v=1625803988"></div>
+<div class="col-md-9 text-center" style=" height:30vh;"> <canvas id="ProcessTime"></canvas></div>
+    </div>
+  
+  <div class=" chart-menu text-center">
+    <div class="btn-group justify-content-evenly" role="group" aria-label="Applications Menu">
+  <button id="0" type="button"class="btn btn-primary ripple-surface ripple-surface-dark active" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/crown-bridg.jpg?v=1625803988'" >Crowns & Bridges</button>
+  <button id="1" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/trays.jpg?v=1625817296'" >Trays</button>
+  <button id="2" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/denture.jpg?v=1625803988'" >Dentures</button>
+  <button id="3" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/Gingiva.jpg?v=1625817296'" >Gingiva</button>
+  <button id="4" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/ibt.jpg?v=1625817296'" >Bonding Trays</button>
+  <button id="5" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/Removable-dies.jpg?v=1625817296'">Removable Dies</button>
+  <button id="6" type="button"class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/Splints.jpg?v=1625817296'">Splints</button>
+  <button id="7" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/surgical-guides.jpg?v=1625817296'">Surgical Guides</button>
+  <button id="8" type="button" class="btn btn-primary ripple-surface ripple-surface-dark" onclick="document.getElementById('appli').src='https://cdn.shopify.com/s/files/1/0276/4174/1415/files/solid-models.jpg?v=1625817297'">Solid Models</button>
+  </div>
+  </div>
+  
+ </div>
+</div>
+
+
+
+<style>
+  .chart-container {
+padding-top:30px;
+  }
+  
+  .chart-menu{
+padding-top:20px;
+padding-bottom:20px ; 
+   
+  }
+  .app_img{
+  max-width: 266px;}
+</style>
+ 
+<script  src="{{'chart.js' | asset_url  }}"></script>
+
+

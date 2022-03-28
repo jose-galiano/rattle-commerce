@@ -1,0 +1,9 @@
+  <section id="benefits">
+  <div class="benefits_banner icon_ben" >
+    
+    <div class="freeshippicon iconic "><div class="icon_desc"><p>Free Shipping*</p></div></div>
+    <div class="satisicon iconic "><div class="icon_desc"><p>Satisfaction Guaranteed</p></div></div>
+    <div class="oneyearicon iconic "><div class="icon_desc"><p>1-Year Warranty</p></div></div>
+    <div class="returnicon iconic "><div class="icon_desc"><p>30-Day Money-Back Guarantee**</p></div></div>
+  </div>
+  </section>

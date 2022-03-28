@@ -1,0 +1,155 @@
+
+{% if type == 'block' %}
+  {% assign wide_display = block.settings.wide_display %}
+
+  {% assign detail_image_1 = block.settings.detail_image_1 %}
+  {% assign image_title_1 = block.settings.image_title_1 %}
+  {% assign image_text_1 = block.settings.image_text_1 %}
+  {% assign btn_1 = block.settings.btn_1 %}
+
+  {% assign detail_image_2 = block.settings.detail_image_2 %}
+  {% assign image_title_2 = block.settings.image_title_2 %}
+  {% assign image_text_2 = block.settings.image_text_2 %}
+  {% assign btn_2 = block.settings.btn_2 %}
+
+  {% assign detail_image_3 = block.settings.detail_image_3 %}
+  {% assign image_title_3 = block.settings.image_title_3 %}
+  {% assign image_text_3 = block.settings.image_text_3 %}
+  {% assign btn_3 = block.settings.btn_3 %}
+
+  {% assign detail_image_4 = block.settings.detail_image_4 %}
+  {% assign image_title_4 = block.settings.image_title_4 %}
+  {% assign image_text_4 = block.settings.image_text_4 %}
+  {% assign btn_4 = block.settings.btn_4 %}
+
+
+{% else %}
+{% assign wide_display = section.settings.wide_display %}
+
+  {% assign detail_image_1 = section.settings.detail_image_1 %}
+  {% assign image_title_1 = section.settings.image_title_1 %}
+  {% assign image_text_1 = section.settings.image_text_1 %}
+  {% assign btn_1 = section.settings.btn_1 %}
+
+  {% assign detail_image_2 = section.settings.detail_image_2 %}
+  {% assign image_title_2 = section.settings.image_title_2 %}
+  {% assign image_text_2 = section.settings.image_text_2 %}
+  {% assign btn_2 = section.settings.btn_2 %}
+
+  {% assign detail_image_3 = section.settings.detail_image_3 %}
+  {% assign image_title_3 = section.settings.image_title_3 %}
+  {% assign image_text_3 = section.settings.image_text_3 %}
+  {% assign btn_3 = section.settings.btn_3 %}
+
+  {% assign detail_image_4 = section.settings.detail_image_4 %}
+  {% assign image_title_4 = section.settings.image_title_4 %}
+  {% assign image_text_4 = section.settings.image_text_4 %}
+  {% assign btn_4 = section.settings.btn_4 %}
+
+{% endif %}
+<style>.quattro.column.gallery-image-wrapper.colts {
+  
+  {% if block.settings.detail_image_4 %} 
+    width: calc(100%/4 - 20px);
+  {% elsif block.settings.detail_image_3 %} 
+  width: calc(100%/3 - 20px);
+  {% elsif block.settings.detail_image_2 %} 
+  width: calc(100%/2 - 20px);
+  {% else %}
+  width: 100%;
+   {% endif %}
+}
+
+@media only screen and (max-width: 479px) {
+    
+    .quattro.column.gallery-image-wrapper.colts {
+        width: 100% !important;
+	}
+  .gallerys.card {
+    margin: 10% 0% 0 0% !important;
+}
+}
+</style>
+
+<div class="gallery-imgs  {% if wide_display == false %}container{% else %}container-fluid{%endif%}">
+  
+  <div class="gallery-imgs card-group">
+           {% if block.settings.detail_image_1 %}
+        <div class="gallerys card ">
+          {{ block.settings.detail_image_1 | img_url: '800x800' | img_tag: 'Ackuretta', 'card-img-top'  }}
+      <div class="card-body">
+        <h5 class="card-title">{{image_title_1}}</h5>
+        <p class="card-text">
+         {{image_text_1}}
+        </p>
+        {% if btn_1 %}
+        <a href="#!" class="btn btn-primary">Button</a>
+        {% endif %}
+      </div>
+    </div>
+
+      {% else %}
+  
+      {% endif %}
+    {% if block.settings.detail_image_2 %}
+      <div class="gallerys card  ">
+    {{ block.settings.detail_image_2 | img_url: '800x800' | img_tag: 'Ackuretta', 'card-img-top'  }}
+  <div class="card-body">
+    <h5 class="card-title">{{image_title_2}}</h5>
+    <p class="card-text">
+     {{image_text_2}}
+    </p>
+            {% if btn_2 %}
+        <a href="#!" class="btn btn-primary">Button</a>
+        {% endif %}
+  </div>
+</div>
+      {% else %}
+        
+      {% endif %}
+   
+    {% if block.settings.detail_image_3 %}
+     
+    <div class="gallerys card  ">
+         {{ block.settings.detail_image_3 | img_url: '800x800' | img_tag: 'Ackuretta', 'card-img-top'  }}
+  <div class="card-body">
+    <h5 class="card-title">{{image_title_3}}</h5>
+    <p class="card-text">
+     {{image_text_3}}
+    </p>
+            {% if btn_3 %}
+        <a href="#!" class="btn btn-primary">Button</a>
+        {% endif %}
+  </div>
+</div>
+  
+      {% else %}
+        
+      {% endif %}
+    
+     {% if block.settings.detail_image_4 %}
+     <div class="gallerys card ">
+ {{ block.settings.detail_image_4 | img_url: '800x800' | img_tag: 'Ackuretta', 'card-img-top'  }}
+  <div class="card-body">
+    <h5 class="card-title">{{image_title_4}}</h5>
+    <p class="card-text">
+     {{image_text_4}}
+    </p>
+            {% if btn_4 %}
+        <a href="#!" class="btn btn-primary">Button</a>
+        {% endif %}
+  </div>
+</div>   
+      {% endif %}
+  </div>
+  </div>
+
+<style>
+  
+  .gallerys.card {
+    margin: 0 3% 0 3%;
+}
+.gallery-imgs {
+    padding: 0 6% 0 6%;
+}
+</style>

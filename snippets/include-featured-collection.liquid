@@ -1,0 +1,43 @@
+{% if type == 'block' %}
+  {% assign title = block.settings.title %}
+  {% assign settingCollection = block.settings.collection %}
+  {% assign collection_style = block.settings.collection_style %}
+  {% assign collection_description = block.settings.collection_description %}
+  {% assign products_per = block.settings.products_per %}
+  {% assign products_limit = block.settings.products_limit %}
+  {% assign bg_color = block.settings.bg_color %}
+  {% assign color_mo = block.settings.color_mo %}
+  {% assign color_de = block.settings.color_de %}
+
+{% else %}
+  {% assign title = section.settings.title %}
+  {% assign settingCollection = section.settings.collection %}
+  {% assign collection_style = section.settings.collection_style %}
+  {% assign collection_description = section.settings.collection_description %}
+  {% assign products_per = section.settings.products_per %}
+  {% assign products_limit = section.settings.products_limit %}
+  {% assign bg_color = section.settings.bg_color %}
+  {% assign color_mo = section.settings.color_mo %}
+  {% assign color_de = section.settings.color_de %}
+
+{% endif %}
+
+ {%- assign section_onboarding = false -%}
+
+
+{% if title != blank %}
+<div class="container featured_products product-{{ collection_style }}" style="background-color:{{bg_color}};">
+  <div class="row text-center">
+     <h1 class="title" style="color:{{color_mo}};">{{ title }}</h1>
+  </div>
+</div>
+{% endif %}
+
+    {% assign collection = collections[settingCollection] %}
+    {% assign products = collections[settingCollection].products %}
+  
+    <div class="container featured-collection__products">
+      <div class="row">
+          {% include 'prd-ack-loop' with products_limit%}
+      </div>
+    </div>

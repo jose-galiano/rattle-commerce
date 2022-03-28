@@ -1,0 +1,180 @@
+<div class="top-c container-fluid text-center">
+	<div class="row">
+	<div class="col container-fluid text-image">
+      <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/arukettaislooking.jpg?v=1643267671" />
+      </div>
+		</div>
+</div>
+
+<div class="row">
+  
+  <div class="col-md-3 container text-center">
+    <div>
+      <h1>{{block.settings.section_title}}</h1>
+    </div>
+    
+    <div class="accordion" id="accordionJobs">
+    
+     {% for block in section.blocks %}
+     {%- assign counl = counl | plus: 1 -%}
+    
+    
+        <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{counl}}">
+      <button
+        class="accordion-button"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapse{{counl}}"
+        aria-expanded="false"
+        aria-controls="collapse{{counl}}"
+      >
+        {{ block.settings.title }}
+      </button>
+    </h2>
+    <div id="collapse{{counl}}" class="accordion-collapse collapse " aria-labelledby="heading{{counl}}" data-mdb-parent="#accordionJobs">
+      <div class="accordion-body">
+        <div class="job_descri text_left">
+          <p><b>Job Description</b></p>
+        <p>{{block.settings.job_description}} </p>
+          
+        {%if block.settings.location != blank %}<div class="feature_divider"></div>
+        <p><i class="fas fa-map-marker-alt"></i> {{block.settings.location}} </p>{%endif%}
+          
+         {%if block.settings.salary != blank %}<div class="feature_divider"></div>
+        <p><i class="fas fa-hand-holding-usd"></i> NTD$ {{block.settings.salary}} </p>{%endif%}
+          
+         {%if block.settings.experience != blank %}<div class="feature_divider"></div>
+        <p><i class="fas fa-user-tie"></i> Min. Experience {{block.settings.experience}} years</p>{%endif%}
+          
+         {%if block.settings.link_104 != blank %}<div class="feature_divider"></div>
+        <p><a href="{{block.settings.link_104}}" target="_blank"><i class="fas fa-plus"></i> Check more details here</a> </p>{%endif%}
+      </div>
+      </div>
+    </div>
+  </div>    
+      
+    {%endfor%}
+      
+</div>
+  </div>
+    
+  <div class="col-md-6 container text-center">
+    <div>
+      <h1>We'd like to know you better</h1>
+    </div>
+ <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+<script>
+  hbspt.forms.create({
+	region: "na1",
+	portalId: "2471334",
+	formId: "5b96321f-60c7-4b19-8cdb-b947391e8b71"
+});
+</script>
+  </div>
+  
+{% include 'lnprof' %}
+  
+
+</div>
+
+<style>
+    iframe#dummy-chat-button-iframe {
+    display: none;
+}
+  .hs-sticky-cart-cart-drawer.hs-event-static {
+    display: none;
+}
+  .job_descri.text_left {
+    text-align: left;
+    font-size: 1rem;
+}
+.shopify-section{
+  background-color:#000;
+  padding-top:20px;
+  color:#fff;
+  overflow:hidden;
+  }
+  h1, p{
+  color:#fff;
+  }
+  a {
+    color: #fff;
+}
+  html .slidecart-floating{
+  display:none;
+  }
+  #shopify-chat-dummy {
+   display:none;
+  }
+  
+</style>
+
+{% schema %}
+
+{
+  "name": "Jobs",
+  "class": "jobs-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Explore Our Available Positions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Job",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Job Title"
+        },
+        {
+          "type": "richtext",
+          "id": "job_description",
+          "label": "Job Description"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location"
+        },
+        {
+          "type": "text",
+          "id": "salary",
+          "label": "Salary Range"
+        },
+        {
+          "type": "text",
+          "id": "link_104",
+          "label": "Link to Job Bank"
+        },
+        {
+          "type": "text",
+          "id": "experience",
+          "label": "Years of Experience"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Jobs",
+    "category": "Image",
+    "settings": {
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "settings": {
+          "title": "Jobs"
+          
+        }
+      }
+    ]
+  }]
+}
+{% endschema %}

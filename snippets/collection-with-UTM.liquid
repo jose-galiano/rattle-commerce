@@ -1,0 +1,71 @@
+{% assign collection_image = true %}
+{% assign products_per_row_setting = 3 %}
+{% assign pagination_limit = 3 %}
+
+
+{% comment %}
+https://themeatstick.com/collections/pick-your-meatstick?utm_source=facebook&utm_medium=cpc&utm_campaign=xmas&fbclid=IwAR2KhfoemJShtGA7NH-pNbKy2HjZI7avcVesyxGdmDmZVadYWEJWns5k9Po
+{% endcomment %}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign page_url = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.themeatstick.com/collections' | last |   replace:'\/','/' |    replace:'%20',' ' |    replace:'\u0026','&'  -%}
+{%- assign param_page = '' -%}
+{% assign j = 0 %}	
+{%- for i in (1..1) -%}
+	{%- unless page_url contains "?" -%}{% break %}{%- endunless -%}
+	{%- assign query_string = page_url | split:'?' | last -%}
+	{%- assign qry_parts= query_string | split:'&' -%}											
+	{%- for part in qry_parts -%}
+		{%- assign key_and_value = part | split:'=' -%}
+		{%- if key_and_value.size > 1 -%}
+			{% if key_and_value[0] == 'utm_campaign' %}
+			{%- assign param_page = key_and_value[1] -%}
+			{% endif%}
+		{%- endif -%}
+{% assign j = j | plus:1 %}
+{% if j == 3 %}{% break %}{% endif %}
+	{%- endfor %}
+{%- endfor -%}
+<div style="display:none;">
+  
+utm1: {{ utm_1 }}<br>
+handle: {{ handle }}<br>
+key and value 0 {{ key_and_value[0] }}<br>
+key and value 1 {{ key_and_value[1] }}<br>
+key and value 2 {{ key_and_value[2] }}<br>
+key and value 3 {{ key_and_value[3] }}<br>
+utm2 {{ utm_2 }}<br>
+utm3 {{ utm_3 }}<br>
+page_url {{ page_url }}<br>
+content header {{ content_for_header }}<br>
+</div>  
+
+  {% assign handle = key_and_value[1] %} 
+  {% assign utm_1 = section.settings.utm_cat_1 %}
+  {% assign utm_2 = section.settings.utm_cat_2 %}
+  {% assign utm_3 = section.settings.utm_cat_3 %}
+<div style=" display:none;" >
+  {{ section.settings.utm_cat_1 }}
+Handle: {{ handle }}<br>
+Key and value 0 {{ key_and_value[0] }}<br>
+Key and value 1 {{ key_and_value[1] }}<br>
+utm1: {{ utm_1 }}<br>
+utm2: {{ utm_2 }}<br>
+utm3: {{ utm_3 }}<br>
+page_url: {{ page_url }}<br>
+content header: {{ content_for_header }}<br>
+</div>
+
+{% if handle == utm_1 %}
+{% assign utm_code = 'utm1' %}
+{%  elsif handle == utm_2 %}
+{% assign utm_code = 'utm2' %}
+{%  elsif handle == utm_3 %}
+{% assign utm_code = 'utm3' %}
+{% else %}
+{% assign utm_code = 'NHA-104 "No handle assigned"' %} 
+{% endif%}
+
+<div style="display:none;">
+  handle: {{ handle }}
+utm_code: {{ utm_code }}
+  </div>

@@ -1,0 +1,152 @@
+{% if products_per == 7 %}
+<div class="col-lg-1 col-md-3">
+{% elsif products_per == 6 %}
+<div class="col-lg-2 col-md-6">
+{% elsif products_per == 5 %}
+<div class="col-lg-2 col-md-{% cycle '12', '6', '6','6','6' %}">
+{% elsif products_per == 4 %}
+ <div class="col-lg-3 col-md-6">
+{% elsif products_per == 3 %}
+ <div class="col-lg-4 col-md-{% cycle '12', '6', '6' %}">
+{% elsif products_per == 2 %}
+{% cycle '<div class="col-md-6">','<div class="col-md-6">' %}
+{% elsif products_per == 1 %}
+<div class="col-12">
+{% endif %}
+
+
+{% if template != 'search' %} 
+  
+ 
+<div class="card in-loop">
+      <div class="card-body loops">
+      {% if product.price < product.compare_at_price and product.available %}  
+        <div class="sasalo"> 
+        <span class="sale savings">{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%</span>
+        </div>
+         {% endif %}
+        <div class="imagem-prod">
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+  <img src="{% if product.images[2] != blank %}{{ product.images[0] | img_url: '300x' }}{% else %}{{ product.featured_image | img_url: '300x' }}{% endif %}" class="card-img-top img-fluid lazyload" alt="{{ alt_text | escape }}" />
+  </a></div>
+        <div class="revi_row">
+        <div class="shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}">
+      <span 
+              class="stamped-product-reviews-badge stamped-main-badge" 
+              data-id="{{ product.id }}" 
+              data-product-sku="{{ product.handle }}" 
+              data-product-title="{{product.title}}" 
+              data-product-type="{{product.type}}" 
+              style="display: block;">
+              {{product.metafields.stamped.badge}}
+              </span>
+ </div>
+        </div>
+        
+        <div class="card-footer">
+             <div class="item_title">
+        <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+          <b><p class="item_tit">{{ product.title }} </p></b></a>
+        <div class="item_pricing">
+               {% if collection_handles contains 'coming-soon' %}
+    <span class="modal_price">{{ 'collections.general.coming_soon' | t }}</span>
+  {% else %}
+   <p class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
+      {% if product.available %}
+        {% if product.price_varies and product.price_min > 0 %}
+          <small><em>{{ 'products.general.from' | t }}</em></small>
+        {% endif %}
+          {% if product.price_min > 0 %}
+            <span class="money">{{ product.price_min | money }}</span>
+          {% else %}
+            {{ settings.free_price_text }}
+          {% endif %}
+      {% else %}
+        <span class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+      {% endif %}
+      {% if product.compare_at_price_max > product.price %}
+        <span class="was_price">
+          <span class="money">{{ product.compare_at_price_max | money }}</span>
+        </span>
+      {% endif %}
+    </p>
+          {% endif %}</div>
+          </div>
+          {% if product.available %}
+          <div class="buynow_btn">
+<form method="post" action="/cart/add">
+  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+     <div class="adcform">
+  <div class="number">
+    <div class="minus">-</div>
+	<input min="1" type="number" id="quantity" name="quantity" value="1" value="1"/>
+	 <div class="plus">+</div>
+  
+  </div>
+      <input type="submit" value="{{'products.product.add_to_cart' |t}}" class="a2cl btn btn-primary" />  
+  </div>
+  </form>
+   </div>
+           {% else %}
+          <div class="buynow_btn visit_prdct">
+           <a href="{{product.url}}" ><button class="btn btn-primary btn-sm ripple-surface" >{{'collections.general.visit_product_page' |t}}</button></a>
+          </div>
+          
+          {% endif %}
+      </div>
+        
+   
+      </div>
+    </div>
+
+  
+   </div>
+   
+{% else %}
+   
+   {% assign prod_type = 'None' %}
+    {% if product.object_type == 'product' %}
+        {% assign prod_type = 'Product' %}
+    {% elsif product.object_type == 'article'%}
+        {% assign prod_type = 'Article' %}
+   {% elsif product.object_type == 'page'%}
+        {% assign prod_type = 'Page' %}
+        {% assign pageim = 'https://cdn.shopify.com/s/files/1/0276/4174/1415/files/doc-ico.png?v=1638952561' %}
+   {% endif %}
+   
+   
+ <div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <div class="imagem-prod">
+          <div><small><b>{{prod_type}}</b></small></div>
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+  <img src="{% if product.object_type == 'article' %} {{ product.image | img_url: '300x' }} {% elsif product.object_type == 'page' %}{{ 'general.search.image_for_pages_results_html' | t }} {% else %}{% if product.images[2] != blank %}{{ product.images[0] | img_url: '300x' }}{% else %}{{ product.featured_image | img_url: '300x' }}{% endif %}{% endif %}" class="card-img-top img-fluid lazyload" alt="{{ alt_text | escape }}" />
+  </a></div>
+        <div class="{% if product.object_type == 'product' %}pdc_tit_p{%else%} pdc_tit {%endif%} text-center">
+        <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+          <b><p class="{% if product.object_type == 'product' %}pdc_tit_p{%else%} pdc_tit {%endif%}">{{ product.title | truncate: 30, "..." }} </p></b></a>
+        </div>
+          <div class="pdt_info">
+            {% if product.object_type == 'product' %}
+            {% include "prd-inf-v3" %}
+              {% elsif product.object_type == 'article' %}
+            <div><small> <p class="blog_meta"><span><b>{{ 'blogs.article.by_author' | t: author: product.author }}</b></span>
+                      <span class="seartdate">{{ product.published_at | date: format: "month_day_year" }}</span></p></small></div>
+                    <div class="act_btn" ><p><a itemprop="url" class="btn btn-primary" href="{{ product.url }}" title="{{ product.title | escape }}">{{ 'blogs.general.continue_reading_html' | t }} <span class="icon-right-arrow"></span></a></p></div>
+					
+            {% else %}
+            <div><small> <p class="page_preview">{{product.content | strip_html | truncate: 80 }}
+                      <span class="seartdate">{{ product.published_at | date: format: "month_day_year" }}</span></p></small></div>
+    <div class="act_btn" ><p><a itemprop="url" class="btn btn-primary" href="{{ product.url }}" title="{{ product.title | escape }}">{{ 'blogs.general.continue_reading_html' | t }} <span class="icon-right-arrow"></span></a></p></div>
+          
+            {% endif %}
+  </div>
+      </div>
+    </div>
+  </div>
+  
+   </div>
+   
+   {% endif %}
+   

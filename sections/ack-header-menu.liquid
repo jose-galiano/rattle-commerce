@@ -1,0 +1,340 @@
+<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar mobile_vid navbar-light mob_navb no-print">
+    <div class="container">
+
+      <!-- Brand-->
+       <a id="logo-brand" data-no-instant href="{{ shop.url }}" title="{{ shop.name | escape }}" class="mobile_logo logo navbar-brand">
+             <img src="{{ section.settings.logo_mobile | img_url: '410x' }}" alt="{{ shop.name | escape }}" class="lazyload mobile_vid " />
+    </a>
+
+      <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+           
+        <!-- Left -->
+         <div class="collapse navbar-collapse flex-grow-1 text-left" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+            {% for link in linklists.main-menu.links %}
+            {% assign child_list_handle = link.title | handle %}
+            {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+
+               <!-- Dropdown -->
+      
+      <li class="nav-item dropdown{% if link.active %} active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+           {{ link.title }}</a>
+                  
+              
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                      {% for child_link in linklists[child_list_handle].links %}
+                      {% assign grand_child_list_handle = child_link.title | handle %}      
+
+                        <li>
+            			  <a class="dropdown-item" href="{{child_link.url}}">{{child_link.title}}</a>
+            			</li>
+                                            
+                      {% endfor %}
+                      
+                    </ul>
+                  </li>
+              
+            {% else %}
+
+            <li class="{% if link.active %}active{% endif %} nav-item">
+               <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+
+            {% endif %}
+            {% endfor %}
+               <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle cntct-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >Contact Us
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="/pages/get-a-quote">Sales Inquiries</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/account#techs">Contact Support</a>
+          </li>
+        </ul>
+      </li> 
+            {%- if customer and customer.tags contains 'wholesale' -%}
+        <li>
+        <hr class="dropdown-divider" />
+        </li>      
+        <li class="nav-item">
+        <a class="nav-link {% if link.active %} active  {% endif %}" href="https://ackuretta.com/a/distributor-portal">Resource Center</a>
+        </li> 
+        {%- endif -%}  
+            </ul>
+        </div>
+     
+        {%- if shop.customer_accounts_enabled -%}
+       <ul class="navbar-nav d-flex flex-row me-1"> 
+        {%- if customer -%}
+      
+        <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" aria-current="page"  href="/account"><i class="fas fa-user"></i> <p class="acc-ico"> {{ customer.first_name }}</p></a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" aria-current="page"  href="/account/logout"><i class="fas fa-sign-out-alt"></i><p class="acc-ico"> Logout</p></a>
+          </li>
+        {%- else -%}
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" aria-current="page"  href="/account/login"><i class="fas fa-sign-in-alt"></i><p class="acc-ico"> Log-in</p></a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+             <a class="nav-link" aria-current="page"  href="/account/register"><i class="fas fa-user"></i><p class="acc-ico"> Register</p></a>
+          </li>
+      </ul>
+           {% endif %}
+        {% endif %}
+        
+               
+      </div>
+
+    </div>
+  </nav>
+
+
+
+
+
+<nav class="navbar fixed-top navbar-expand-lg desktop_vid navbar-dark bg-dark no-print">
+    <div class="container">
+
+      <!-- Brand-->
+       <a id="logo-brand" data-no-instant href="{{ shop.url }}" title="{{ shop.name | escape }}" class="mobile_logo logo navbar-brand">
+       {% if template contains "index" %}
+ <img src="{{ section.settings.logo | img_url: '410x' }}" alt="{{ shop.name | escape }}" class="lazyload desktop_vid" />
+{% else %}
+<img src="{{ section.settings.logo | img_url: '410x' }}" alt="{{ shop.name | escape }}" class="lazyload desktop_vid" />
+{% endif %}
+        <img src="{{ section.settings.logo_mobile | img_url: '410x' }}" alt="{{ shop.name | escape }}" class="lazyload mobile_vid " />
+    </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
+        <!-- Lefto -->
+     <div class="collapse navbar-collapse flex-grow-1 text-left" id="ack-menu">
+            <ul class="navbar-nav mr-auto">
+              {% for link in linklists.main-menu.links %}
+              {% assign child_list_handle = link.title | handle %}
+              {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+          		<li class="nav-item{% if link.active %}active{% endif %}">
+           		 <a href="{{ link.url }}" class="dropdown-toggle nav-link" data-toggle="dropdown">{{ link.title }}<b class="caret"></b></a>
+            	<ul class="dropdown-menu multi-level">
+					 {% for child_link in linklists[child_list_handle].links %}
+       	    			{% assign grand_child_list_handle = child_link.title | handle %}      
+      					  {% if linklists[grand_child_list_handle] and linklists[grand_child_list_handle].links.size > 0 %}      
+             
+                <li class="dropdown-submenu">
+                 <a href="{{ child_link.url }}" class="dropdown-toggle nav-link {% if link.child_active %} active {% endif %} " data-toggle="dropdown">{{ child_link.title }}<b class="caret"></b></a>
+                	<ul class="dropdown-menu">
+                  		{% for grand_child_link in linklists[grand_child_list_handle].links %}  
+                        <li>
+                         grand-child: {{ grand_child_link.title | link_to: grand_child_link.url }} 
+                        </li>
+                        {% endfor %}
+                    </ul>
+               </li>
+              {% else %}
+                {% assign nat_tit = child_link.title | downcase  | replace: ' ', '-' %}
+
+             <div class="cld_cntnr" > 
+                 <li class="nav-item">
+                     <div><a data-no-instant href="{{ child_link.url }}" class="nav-link" >
+                     <img src="{% if child_link.url contains "news" %}{{ 'navigation.menu_images.learn' | t}}
+                               {% elsif child_link.url contains "press"%}{{ 'navigation.menu_images.pressr' | t}}
+                               {% elsif child_link.url contains "sol"%}{{ 'navigation.menu_images.sol' | t}}
+                               {% elsif child_link.url contains "dentiq"%}{{ 'navigation.menu_images.dentiq' | t}}
+                               {% elsif child_link.url contains "ackuray"%}{{ 'navigation.menu_images.ackuray' | t}}
+                               {% elsif child_link.url contains "diplo"%}{{ 'navigation.menu_images.diplo' | t}}
+                               {% elsif child_link.url contains "cleani"%}{{ 'navigation.menu_images.cleani' | t}}
+                               {% elsif child_link.url contains "curie"%}{{ 'navigation.menu_images.curie' | t}}
+                               {% elsif child_link.url contains "uv-box"%}{{ 'navigation.menu_images.uvbox' | t}}
+                               {% endif %}" class="secondary lazyload" alt="{{ alt_text | escape }}" />
+                       <div class="cld_tit"><b>{{child_link.title}}</b></div></a>
+                      </div>
+                 </li>
+              </div>
+                          
+              {% endif %}
+              {% endfor %}
+            </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+           <a class="nav-link {% if link.active %} active  {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+              
+        {% endif %}
+        {% endfor %}
+        <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >Contact Us
+        </a>
+        <ul class="dropdown-menu cntct-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item cntct-itm" href="/pages/get-a-quote">Sales Inquiries</a>
+          </li>
+          <li>
+            <a class="dropdown-item cntct-itm" href="/account#techs">Contact Support</a>
+          </li>
+        </ul>
+      </li>      
+        {%- if customer and customer.tags contains 'wholesale' -%} 
+        <li class="nav-item">
+        <a class="nav-link {% if link.active %} active  {% endif %}" href="https://ackuretta.com/a/distributor-portal">Resource Center</a>
+        </li> 
+        {%- endif -%}
+       </ul>
+    </div>
+       {%- if shop.customer_accounts_enabled -%}
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       
+          {%- if customer -%}
+          <li class="nav-item">
+           
+            <a href="/account" class="nav-link {% if link.active %}active {% else %} not-act {% endif%}"><i class="fas fa-user"></i> <p class="acc-ico"> {{ customer.first_name }}</p></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  href="/account/logout"><i class="fas fa-sign-out-alt"></i><p class="acc-ico"> Logout</p></a>
+          </li>
+        {%- else -%}
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  href="/account/login"><i class="fas fa-sign-in-alt"></i><p class="acc-ico"> Login</p></a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link " aria-current="page"  href="/account/register"><i class="fas fa-user"></i><p class="acc-ico"> Register</p></a>
+          </li>
+        {%- endif -%}
+
+      </ul>
+      <!-- Left links -->
+        {%- endif -%}
+       {% if template contains "search"%}
+               {% else %}
+        <li class="nav-item{% if link.active %}active{% endif %} search-bar">
+           		 <a href="#" class="dropdown-toggle nav-link search-bar" data-toggle="dropdown"><i class="fas fa-search"></i></a>
+            	<ul class="dropdown-menu multi-level search-bar">
+                 {% include 'search-form' %}
+          </ul>
+        </li>
+        {% endif %}
+      </div>
+
+    </div>
+ 
+  </nav>
+<style>
+   @media (max-width: 768px) {
+     .dropdown-item.active, .dropdown-item:active {
+    color: #fff !important;
+    background-color: #764796;
+    font-weight: 600;
+}
+     .dropdown-menu li:hover {
+    background-color: unset;
+    transition: unset;
+}
+  .navbar .dropdown-menu a:not(.active) {
+    color: #000;
+  }
+   .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+   }
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+</style>
+
+
+{% schema %}
+
+{
+  "name": "Header",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement bar"
+    },
+    {
+      "type": "richtext",
+      "id": "promo_text",
+      "label": "Text",
+      "info": "Maximum character limit is 170"
+    },
+    {
+      "type": "richtext",
+      "id": "promo_text_deal",
+      "label": "Text for Dealers only",
+      "info": "Maximum character limit is 170"
+    },
+    {
+     "type": "header",
+     "content": "Logos"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "400 x 100px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Mobile logo",
+      "info": "100 x 50px recommended"
+    },
+{
+      "type": "image_picker",
+      "id": "logo_drk",
+      "label": "Logo Dark",
+      "info": "400 x 100px recommended"
+    }
+  ]
+}
+
+{% endschema %}

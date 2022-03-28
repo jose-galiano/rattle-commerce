@@ -1,0 +1,3099 @@
+{%include 'include-TMS-Collection'%}
+<style>
+iframe {
+    display: none;
+}</style>
+
+<div class="detail-sections">
+ 
+
+{% if section.blocks.size > 0 %}
+  
+
+  {% for block in section.blocks %}
+    <div {{ block.shopify_attributes }} class="block__{{ block.type }} block__{{ block.id }}{% if block.type == "image_with_text_overlay" and block.settings.wide_display %} under-menu{% elsif block.type == "featured_video" and block.settings.wide_display %} under-menu{% elsif block.type == "featured_collection" %} featured-collection-section{% endif %}"id="{{block.type}}_{{utm_code}}">
+      {% if block.type == "blog_posts" and block.settings.blog_posts_UTM == utm_code %}
+        <!-- Blog posts -->
+        {% include 'include-featured-blog', type: 'block' %}
+
+      {% elsif block.type == "contact_form" and block.settings.contact_form_UTM == utm_code %}
+        <!-- Contact form -->
+        {% include 'include-contact-form', type: 'block' %}
+
+      {% elsif block.type == "featured_video" and block.settings.featured_video_UTM == utm_code %}
+        <!-- Featured video -->
+        {% include 'include-video', type: 'block' %}
+
+       {% elsif block.type == 'image_gallery' and block.settings.image_gallery_UTM == utm_code %}
+        <!-- Image gallery -->
+        {% include 'include-gallery', type: 'block' %}
+      
+       {% elsif block.type == 'gallery_cols' and block.settings.image_gallery_cols_UTM == utm_code %}
+        <!-- Gallery Columns-->
+        {% include 'include-gallery-cols', type: 'block' %}
+      
+      {% elsif block.type == 'image_gallery_txt' and block.settings.image_gallery_txt_UTM == utm_code %}
+        <!-- Image gallery Txt -->
+        {% include 'include-gallery-txt', type: 'block' %}
+      
+      {% elsif block.type == 'image_gallery_feats' and block.settings.image_gallery_feats_UTM == utm_code %}
+        <!-- Image gallery -->
+        {% include 'include-gallery-feat', type: 'block' %}
+
+      {% elsif block.type == "image_with_text"  and block.settings.image_with_text_UTM == utm_code %}
+        <!-- Image with text -->
+        {% if block.settings.layout == false %}
+          <div class="container standard--width">
+        {% endif %}
+            
+
+            
+        <div id="{{block.settings.section_id}}" class="image-with-text
+          featured_collections
+          clearfix across-1 image-align--{{ block.settings.frontpage_image_position }}">
+          <section class="featured-link--section featured-link--image section-{{ forloop.index }}">
+            <div class="featured-link--half featured-link--image {% if block.settings.layout == false %}featured-link--margin{% endif %} image-crop--{{ block.settings.image_crop }}">
+              <div class="featured-link--wrap">
+                <a data-no-instant {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                  {% if block.settings.image %}
+                  
+                    {% include 'image-element', image: block.settings.image.src, alt: block.settings.image.alt %}
+                  {% else %}
+                    {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                    {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+
+            <div class="featured-link--half">
+              <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                <a data-no-instant {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection_title">
+                  {{ block.settings.title }}
+                  {{ block.settings.image_feat.src}}
+                </a>
+                {% if block.settings.text != blank %}
+                  <div class="description">{{ block.settings.text }}</div>
+                {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <a data-no-instant {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="button">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </section>
+        </div>
+        {% if block.settings.layout == false %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.layout == false %}
+          <style>
+            #shopify-section-{{ section.id }} .featured-link--section {
+              margin-bottom: 3%;
+            }
+            @media only screen and (max-width: 480px) {
+              #shopify-section-{{ section.id }} .featured-link--section {
+                margin-bottom: 10%;
+              }
+            }
+
+            .standard--width .featured-link--margin {
+              margin-left: 0%;
+              margin-right: 3%;
+            }
+
+            .standard--width .image-align--right .featured-link--margin {
+              margin-left: 3%;
+              margin-right: 0%;
+            }
+
+            .standard--width .featured-link--half {
+              width: 45%;
+            }
+
+      {% else %}
+            <style>
+                       
+            .featured-link--half {
+  		     background-color: {{block.settings.half_bg_color}} !important;
+		    }
+            .description p{
+             font-size: {{block.settings.desc_f_s}} !important;
+             color:{{block.settings.desc_f_c}} !important;
+            } 
+            
+            .description a{
+             color:{{block.settings.link_c}} !important;
+            } 
+            .description a:hover{
+             color:{{block.settings.link_h_c}} !important;
+            }
+
+          </style>
+        {% endif %}
+
+      {% elsif block.type == 'map' and block.settings.map_UTM == utm_code %}
+        <!-- Map -->
+        {% include 'include-map', type: 'block' %}
+
+      {% elsif block.type == "page" and block.settings.page_UTM == utm_code %}
+        <!-- Page -->
+        {% include 'include-content-page', type: 'block' %}
+
+      {% elsif block.type == 'quote' and block.settings.quote_UTM == utm_code %}
+        <!-- Quote -->
+        {% include 'include-quote', type: 'block' %}
+      
+      {% elsif block.type == 'responsive_text_and_image' and block.settings.responsive_text_and_image_UTM == utm_code %}
+        <!-- Responsive text and image -->
+        {% include 'include-responsive-featured-text', type: 'block' %}
+
+      {% elsif block.type == "rich_text_and_image" and block.settings.rich_text_and_image == utm_code %}
+        <!-- Rich text and image -->
+        {% include 'include-featured-text', type: 'block' %}
+
+      {% elsif block.type == 'divider' %}
+        <!-- Divider -->
+        {% include 'include-divider', type: 'block' %}
+
+      {% elsif block.type == "featured_collection" and block.settings.featured_collection_UTM == utm_code %}
+        <!-- Featured collection -->
+        {% include 'include-featured-collection', type: 'block' %}
+
+      {% elsif block.type == "image_with_text_overlay" and block.settings.image_with_text_overlay_UTM == utm_code%}
+        <!-- Image with text overlay -->
+        {% include 'include-image-with-text-overlay', type: 'block' %}
+
+      {% elsif block.type == "recently_viewed_products" and block.settings.recently_viewed_products_UTM == utm_code%}
+        <!-- Related Products -->
+        {% include 'include-recently-viewed', type: 'block' %}
+
+      {% elsif block.type == "custom_html" and block.settings.custom_html_UTM == utm_code%}
+        <!-- Custom HTML -->
+        {% include 'include-custom-html', type: 'block' %}
+
+       {% elsif block.type == "comparison_table" and block.settings.custom_html_UTM == utm_code %}
+        <!-- comparison_table -->
+        {% include 'tms-compare-table', type: 'block'  %}
+      
+      {% elsif block.type == "comparison_table_2" and block.settings.custom_html_UTM == utm_code %}
+        <!-- comparison_table 2x10 -->
+        {% include 'tms-compare-table-2', type: 'block'  %}
+      
+       {% elsif block.type == "header_landing" and block.settings.header_landing_UTM == utm_code %}
+        <!-- header_landing -->
+        {% include 'header_landing', type: 'block'  %}
+      
+      {% elsif block.type == "standalone_title" and block.settings.standalone_title_UTM == utm_code %}
+        <!-- Standalone Title -->
+        {% include 'standalone_title', type: 'block'  %}
+      
+      
+      
+        {% elsif block.type == "UTM_Setup" %}
+          {% assign utm_1 = block.settings.block_utm_cat_1 %}
+          {% assign utm_2 = block.settings.block_utm_cat_2 %}
+          {% assign utm_3 = block.settings.block_utm_cat_3 %}
+        		
+            {% if handle == utm_1 %}
+              {% assign utm_code = 'utm1' %}
+              {%  elsif handle == utm_2 %}
+              {% assign utm_code = 'utm2' %}
+              {%  elsif handle == utm_3 %}
+              {% assign utm_code = 'utm3' %}
+              {% else %}
+              {% assign utm_code = 'gen' %} 
+              {% endif %}
+            {% endif %}
+      
+      
+      
+    </div>
+
+  {% endfor %}
+{% endif %}
+
+</div>
+{% schema %}
+{
+  "name": "Content | Landing Page",
+  "class": "tms-landing-collection",
+  "max_blocks": 100,
+  "blocks": [
+{
+	  "type": "standalone_title",
+      "name": "Standalone Title",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "standalone_title_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+	},
+      {
+      "type": "text",
+      "id": "stnd_tit",
+      "label": "Title"
+    }
+]
+},
+
+	{
+	  "type": "header_landing",
+      "name": "Header Landing",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "header_landing_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+	},
+		{
+          "type": "range",
+          "id": "banner_height",
+          "label": "Banner Height",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "default": 10
+        },
+		{
+          "type": "range",
+          "id": "banner_height_m",
+          "label": "Banner Height Mobile",
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "default": 10
+        },
+		{
+          "type": "range",
+          "id": "padding_top_m",
+          "label": "Padding Top Mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 1
+        },
+    {
+	  "type": "text",
+      "id": "promo-banner-collection-tms",
+      "label": "Promo Banner Default"
+    },
+      {
+      "type": "text",
+      "id": "title_page",
+      "label": "Page Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image",
+      "info": "1920 x 170px recommended"
+    },
+      {
+      "type": "image_picker",
+      "id": "image_m",
+      "label": "Banner image",
+      "info": "1800 x 1000px recommended"
+    }
+     ]
+	},
+    {
+      "type": "comparison_table",
+      "name": "Comparison Table",
+      "settings": [
+    {
+   "type":      "select",
+   "id":        "custom_html_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+
+      {
+      "type": "richtext",
+      "id": "att_title_1",
+      "label": "Attribute Title 1"
+      },
+      {
+      "type": "richtext",
+      "id": "att_1_1",
+      "label": "Attribute Info 1,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_1_2",
+      "label": "Attribute Info 1,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_1_3",
+      "label": "Attribute Info 1,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_2",
+      "label": "Attribute Title 2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_2_1",
+      "label": "Attribute Info 2,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_2_2",
+      "label": "Attribute Info 2,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_2_3",
+      "label": "Attribute Info 2,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_3",
+      "label": "Attribute Title 3"
+      },
+      {
+      "type": "richtext",
+      "id": "att_3_1",
+      "label": "Attribute Info 3,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_3_2",
+      "label": "Attribute Info 3,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_3_3",
+      "label": "Attribute Info 3,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_4",
+      "label": "Attribute Title 4"
+      },
+      {
+      "type": "richtext",
+      "id": "att_4_1",
+      "label": "Attribute Info 4,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_4_2",
+      "label": "Attribute Info 4,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_4_3",
+      "label": "Attribute Info 4,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_5",
+      "label": "Attribute Title 5"
+      },
+      {
+      "type": "richtext",
+      "id": "att_5_1",
+      "label": "Attribute Info 5,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_5_2",
+      "label": "Attribute Info 5,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_5_3",
+      "label": "Attribute Info 5,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_6",
+      "label": "Attribute Title 6"
+      },
+      {
+      "type": "richtext",
+      "id": "att_6_1",
+      "label": "Attribute Info 6,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_6_2",
+      "label": "Attribute Info 6,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_6_3",
+      "label": "Attribute Info 6,3"
+      } ,
+
+      {
+      "type": "richtext",
+      "id": "att_title_7",
+      "label": "Attribute Title 7"
+      },
+      {
+      "type": "richtext",
+      "id": "att_7_1",
+      "label": "Attribute Info 7,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_7_2",
+      "label": "Attribute Info 7,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_7_3",
+      "label": "Attribute Info 7,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_8",
+      "label": "Attribute Title 8"
+      },
+      {
+      "type": "richtext",
+      "id": "att_8_1",
+      "label": "Attribute Info 8,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_8_2",
+      "label": "Attribute Info 8,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_8_3",
+      "label": "Attribute Info 8,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_9",
+      "label": "Attribute Title 9"
+      },
+      {
+      "type": "richtext",
+      "id": "att_9_1",
+      "label": "Attribute Info 9,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_9_2",
+      "label": "Attribute Info 9,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_9_3",
+      "label": "Attribute Info 9,3"
+      },
+
+      {
+      "type": "richtext",
+      "id": "att_title_10",
+      "label": "Attribute Title 10"
+      },
+      {
+      "type": "richtext",
+      "id": "att_10_1",
+      "label": "Attribute Info 10,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_10_2",
+      "label": "Attribute Info 10,2"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_10_3",
+      "label": "Attribute Info 10,3"
+      }
+
+      ]
+    },
+{
+      "type": "comparison_table_2",
+      "name": "Comparison Table 2X10",
+      "settings": [
+    {
+   "type":      "select",
+   "id":        "custom_html_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+
+      {
+      "type": "richtext",
+      "id": "att_title_1",
+      "label": "Attribute Title 1"
+      },
+      {
+      "type": "richtext",
+      "id": "att_1_1",
+      "label": "Attribute Info 1,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_1_2",
+      "label": "Attribute Info 1,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_2",
+      "label": "Attribute Title 2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_2_1",
+      "label": "Attribute Info 2,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_2_2",
+      "label": "Attribute Info 2,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_3",
+      "label": "Attribute Title 3"
+      },
+      {
+      "type": "richtext",
+      "id": "att_3_1",
+      "label": "Attribute Info 3,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_3_2",
+      "label": "Attribute Info 3,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_4",
+      "label": "Attribute Title 4"
+      },
+      {
+      "type": "richtext",
+      "id": "att_4_1",
+      "label": "Attribute Info 4,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_4_2",
+      "label": "Attribute Info 4,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_5",
+      "label": "Attribute Title 5"
+      },
+      {
+      "type": "richtext",
+      "id": "att_5_1",
+      "label": "Attribute Info 5,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_5_2",
+      "label": "Attribute Info 5,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_6",
+      "label": "Attribute Title 6"
+      },
+      {
+      "type": "richtext",
+      "id": "att_6_1",
+      "label": "Attribute Info 6,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_6_2",
+      "label": "Attribute Info 6,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_7",
+      "label": "Attribute Title 7"
+      },
+      {
+      "type": "richtext",
+      "id": "att_7_1",
+      "label": "Attribute Info 7,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_7_2",
+      "label": "Attribute Info 7,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_8",
+      "label": "Attribute Title 8"
+      },
+      {
+      "type": "richtext",
+      "id": "att_8_1",
+      "label": "Attribute Info 8,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_8_2",
+      "label": "Attribute Info 8,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_9",
+      "label": "Attribute Title 9"
+      },
+      {
+      "type": "richtext",
+      "id": "att_9_1",
+      "label": "Attribute Info 9,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_9_2",
+      "label": "Attribute Info 9,2"
+      },
+      {
+      "type": "richtext",
+      "id": "att_title_10",
+      "label": "Attribute Title 10"
+      },
+      {
+      "type": "richtext",
+      "id": "att_10_1",
+      "label": "Attribute Info 10,1"
+      },
+	  {
+      "type": "richtext",
+      "id": "att_10_2",
+      "label": "Attribute Info 10,2"
+      }
+      ]
+    },
+    {
+      "type": "UTM_Divider",
+      "name": "UTM Divider",
+      "settings": [
+      {
+      "type": "text",
+      "id": "title",
+      "label": "Divider"
+      }
+      ]
+    },
+
+    {
+      "type": "UTM_Setup",
+      "name": "UTM Setup",
+      "settings": [
+      {
+      "type": "text",
+      "id": "block_utm_cat_1",
+      "label": "Category #1"
+      },
+      {
+      "type": "text",
+      "id": "block_utm_cat_2",
+      "label": "Category #2"
+      },
+      {
+      "type": "text",
+      "id": "block_utm_cat_3",
+      "label": "Category #3"
+      }
+      ]
+    },
+	{
+	"type": "reviews",
+	"name": "Reviews Carrousel",
+    "settings": [
+		{
+          "type": "text",
+          "id": "rev_sec_tit",
+          "label": "Section Title",
+          "default": "People is loving their MeatStick"
+        },
+
+      	{
+          "type": "text",
+          "id": "cust_name_gen_1",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_1",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_1",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_gen_2",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_2",
+          "label": "Review",
+		   "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_2",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_gen_3",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_3",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_3",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_gen_4",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_4",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_4",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_gen_5",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_5",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_5",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_gen_6",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_6",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_6",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+      	{
+          "type": "text",
+          "id": "cust_name_utm1_1",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm1_1",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm1_val_1",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm1_2",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm1_2",
+          "label": "Review",
+		   "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm1_val_2",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_utm1_3",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm1_3",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm1_val_3",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm1_4",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm1_4",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm1_val_4",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_utm1_5",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm1_5",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm1_val_5",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm1_6",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm1_6",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm1_val_6",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+      	{
+          "type": "text",
+          "id": "cust_name_utm2_1",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm2_1",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm2_val_1",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm2_2",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm2_2",
+          "label": "Review",
+		   "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm2_val_2",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_utm2_3",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm2_3",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm2_val_3",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm2_4",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm2_4",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm2_val_4",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_utm2_5",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm2_5",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm2_val_5",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm2_6",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm2_6",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm2_val_6",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+      	{
+          "type": "text",
+          "id": "cust_name_utm3_1",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm3_1",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm3_val_1",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm3_2",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm3_2",
+          "label": "Review",
+		   "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm3_val_2",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_utm3_3",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm3_3",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm3_val_3",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm3_4",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm3_4",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm3_val_4",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_utm3_5",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm3_5",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm3_val_5",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_utm3_6",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_utm3_6",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_utm3_val_6",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        }
+	]
+	},
+{
+	"type": "revtwo",
+	"name": "revtwo",
+    "settings": [
+{
+   "type":      "select",
+   "id":        "revtwo_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+	},
+		{
+          "type": "text",
+          "id": "rev_sec_tit",
+          "label": "Section Title",
+          "default": "People is loving their MeatStick"
+        },
+
+      	{
+          "type": "text",
+          "id": "cust_name_gen_1",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_1",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_1",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_gen_2",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_2",
+          "label": "Review",
+		   "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_2",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_gen_3",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_3",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_3",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+		{
+          "type": "text",
+          "id": "cust_name_gen_4",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+      	{
+          "type": "richtext",
+          "id": "Review_gen_4",
+          "label": "Review",
+          "default": "<p>lorem ipsum...</p>"
+        },
+		{
+          "type": "range",
+          "id": "rev_gen_val_4",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+  		{
+          "type": "text",
+          "id": "cust_name_gen_5",
+          "label": "Customer Name",
+          "default": "John Doe"
+        }
+      ]
+	},
+    {
+      "type": "blog_posts",
+      "name": "Blog posts",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "blog_posts_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Blog posts"
+        },
+        {
+          "type": "blog",
+          "id": "blog_widget_select",
+          "label": "Blog"
+        },
+        {
+          "type": "range",
+          "id": "home_page_articles",
+          "label": "Posts",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "default": 3
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_tags",
+          "label": "Show blog post tags"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_author",
+          "label": "Show author"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_date",
+          "label": "Show date",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_comment_count",
+          "label": "Show comment count",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "read_more_link",
+          "label": "Show continue reading link for blog post excerpts",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "contact_form",
+      "name": "Contact form",
+      "settings": [
+  {
+   "type":      "select",
+   "id":        "contact_form_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "text",
+          "id": "contact_heading",
+          "label": "Heading",
+          "default": "Get in touch"
+        },
+        {
+          "type": "text",
+          "id": "contact_subheading",
+          "label": "Subheading",
+          "default": "Leave a message"
+        },
+        {
+          "type": "richtext",
+          "id": "contact_content",
+          "label": "Text",
+          "default": "<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.</p>"
+        },
+        {
+          "type": "select",
+          "id": "contact_text_position",
+          "label": "Text position",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "contact_text_alignment",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "custom_html_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "textarea",
+          "id": "custom_html",
+          "label": "Custom HTML"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "divider_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "range",
+          "id": "divider_spacing",
+          "min": 0,
+          "max": 30,
+          "step": 5,
+          "unit": "px",
+          "label": "Space",
+          "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "divider_border",
+          "label": "Show border",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "featured_collection",
+      "name": "Featured collection",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "featured_collection_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Featured collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "collection_description",
+          "label": "Show collection description",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "radio",
+          "id": "collection_style",
+          "label": "Collection layout",
+          "default": "grid",
+          "options": [
+            {
+              "value": "slider",
+              "label": "Slider"
+            },
+            {
+              "value": "grid",
+              "label": "Grid"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "products_per",
+          "label": "Products per row",
+          "min": 2,
+          "max": 7,
+          "step": 1,
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "products_limit",
+          "label": "Limit products",
+          "min": 2,
+          "max": 50,
+          "step": 1,
+          "default": 48
+        }
+      ]
+    },
+    {
+      "type": "image_gallery",
+      "name": "Image gallery",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "image_gallery_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "image_picker",
+          "id": "detail_image_1",
+          "label": "Image 1",
+          "info": "760 x 500px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_2",
+          "label": "Image 2",
+          "info": "760 x 500px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_3",
+          "label": "Image 3",
+          "info": "760 x 500px recommended"
+        }
+      ]
+    },
+{
+      "type": "image_gallery_txt",
+      "name": "Image gallery with Text",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "image_gallery_txt_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "image_picker",
+          "id": "detail_image_1",
+          "label": "Image 1",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_1",
+      	 "label": "Text"
+    	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_2",
+          "label": "Image 2",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_2",
+      	 "label": "Text"
+    	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_3",
+          "label": "Image 3",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_3",
+      	 "label": "Text"
+    	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_4",
+          "label": "Image 4",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_4",
+      	 "label": "Text"
+    	}
+      ]
+    },
+{
+      "type": "gallery_cols",
+      "name": "Gallery with Columns",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "image_gallery_cols_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "image_picker",
+          "id": "detail_image_1",
+          "label": "Image 1",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_1",
+      	 "label": "Text"
+    	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_2",
+          "label": "Image 2",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_2",
+      	 "label": "Text"
+    	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_3",
+          "label": "Image 3",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_3",
+      	 "label": "Text"
+    	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_4",
+          "label": "Image 4",
+          "info": "760 x 500px recommended"
+        },
+		{
+ 		 "type": "richtext",
+      	 "id": "image_text_4",
+      	 "label": "Text"
+    	}
+      ]
+    },
+    {
+      "type": "image_gallery_feats",
+      "name": "Image gallery Featured",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "image_gallery_feats_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+	},
+        {
+          "type": "image_picker",
+          "id": "detail_image_1",
+          "label": "Image 1",
+          "info": "760 x 500px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_2",
+          "label": "Image 2",
+          "info": "760 x 500px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_3",
+          "label": "Image 3",
+          "info": "760 x 500px recommended"
+        }
+      ]
+    },
+    {
+      "type": "image_with_text",
+      "name": "Image with text",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "image_with_text_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+{      "type": "text",
+      "id": "section_id",
+      "label": "section id"
+    },
+        {
+          "type": "checkbox",
+          "id": "layout",
+          "label": "Wide display"
+        },
+        {
+          "type": "color",
+          "id": "half_bg_color",
+          "label": "Half BG Color"
+        },
+        {
+          "type": "select",
+          "id": "frontpage_text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "frontpage_image_position",
+          "label": "Image position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image", 
+          "label": "Image",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "select",
+          "id": "image_crop",
+          "label": "Image cropping",
+          "default": "none",
+          "info": "Only applied when text area is taller than image.",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "View all"
+        },
+        {
+        "type": "text",
+        "id": "desc_f_s",
+        "label": "Description Font Size",
+        "default": "12px"
+        },
+		{  
+        "type": "color",
+        "id": "desc_f_c",
+        "label": "Description Font Color"
+        },
+		{  
+        "type": "color",
+        "id": "link_c",
+        "label": "Description Link Color"
+        },
+		{  
+        "type": "color",
+        "id": "link_h_c",
+        "label": "Description Link hover Color"
+        }
+      ]
+    },
+    {
+      "type": "image_with_text_overlay",
+      "name": "Image with text overlay",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "image_with_text_overlay_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1800 x 1000px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_m",
+          "label": "Mobile",
+          "info": "1800 x 1800px recommended"
+        },
+        {
+          "type": "richtext",
+          "id": "pretext",
+          "label": "Preheading",
+		  "default": "<p>This is</p>"
+        },
+		{  
+        "type": "text",
+        "id": "preh_font_size",
+        "label": "Preheading Font Size",
+        "default": "12px"
+        },
+		{  
+        "type": "text",
+        "id": "preh_line_height",
+        "label": "Preheading line height",
+        "default": "12px"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+		{  
+        "type": "text",
+        "id": "head_line_height",
+        "label": "Heading line height",
+        "default": "12px"
+        },
+		{  
+        "type": "text",
+        "id": "head_font_size",
+        "label": "Heading Font Size",
+        "default": "12px"
+        },
+		{  
+        "type": "color",
+        "id": "head_font_color",
+        "label": "Heading Font Color"
+        },
+		{  
+        "type": "color",
+        "id": "preh_font_color",
+        "label": "Preheading Font Color"
+        },		
+        {  
+        "type": "color",
+        "id": "subtitle_font_color",
+        "label": "Subtitle Font Color"
+        },
+        {  
+        "type": "color",
+        "id": "link_font_color",
+        "label": "Link Font Color"
+        },
+        {  
+        "type": "color",
+        "id": "link_hover_color",
+        "label": "Link hover Color"
+        },
+        {
+         "type": "richtext",
+         "id": "subtitle",
+         "label": "Text",
+         "default": "<p>Customize this section</p>"
+        },
+		{  
+        "type": "text",
+        "id": "sub_line_height",
+        "label": "Subtitle line height",
+        "default": "12px"
+        },
+		{  
+        "type": "text",
+        "id": "sub_font_size",
+        "label": "Subtitle Font Size",
+        "default": "12px"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background",
+          "label": "Display solid text background",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency",
+          "label": "Enable background transparency"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "button1",
+          "label": "First button label",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "First link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Second link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight",
+          "label": "Highlight second button"
+        }
+      ]
+    },
+    {
+      "type": "map",
+      "name": "Map",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "map_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "map_address",
+          "label": "Address",
+          "info": "Google Maps will find the exact location"
+        },
+        {
+          "type": "range",
+          "id": "map_height",
+          "min": 300,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Map height",
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "zoom_level",
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "unit": "x",
+          "label": "Map zoom level",
+          "default": 16
+        },
+        {
+          "type": "image_picker",
+          "id": "map_image",
+          "label": "Image",
+          "info": "Displayed when map isn't loaded"
+        },
+        {
+          "type": "header",
+          "content": "API key"
+        },
+        {
+          "type": "text",
+          "id": "api_key",
+          "label": "Google Maps API key",
+          "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_pin",
+          "label": "Show pin",
+          "info": "Requires use of API key",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "map_style",
+          "label": "Map color scheme",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "aubergine",
+              "label": "Aubergine"
+            },
+            {
+              "value": "night",
+              "label": "Night"
+            },
+            {
+              "value": "retro",
+              "label": "Retro"
+            },
+            {
+              "value": "silver",
+              "label": "Silver"
+            }
+          ],
+          "default": "default",
+          "info": "Requires use of API key"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "page_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "page",
+          "id": "content_page",
+          "label": "Content page"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "quote_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "text",
+          "id": "quote_text",
+          "label": "Text",
+          "default": "40% of online shoppers abandon a site that takes more than 3 seconds to load"
+        },
+        {
+          "type": "url",
+          "id": "quote_link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "recently_viewed_products",
+      "name": "Recently viewed products",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "recently_viewed_products_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "paragraph",
+          "content": "To test the recently viewed products, view your online store outside of the Editor and visit multiple product pages. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/115008765228)"
+        },
+        {
+          "type": "text",
+          "id": "rv_title",
+          "label": "Heading",
+          "default": "Recently viewed products"
+        },
+        {
+          "type": "radio",
+          "id": "rv_products_style",
+          "label": "Layout",
+          "default": "grid",
+          "options": [
+            {
+              "value": "slider",
+              "label": "Slider"
+            },
+            {
+              "value": "grid",
+              "label": "Grid"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "rv_max_display",
+          "label": "Products limit",
+          "min": 3,
+          "max": 12,
+          "step": 1,
+          "default": 6
+        },
+        {
+          "type": "range",
+          "id": "rv_per",
+          "label": "Products per row",
+          "min": 3,
+          "max": 5,
+          "step": 1,
+          "default": 4
+        }
+      ]
+    },
+    {
+      "type": "rich_text_and_image",
+      "name": "Rich text and image",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "rich_text_and_image_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Talk about your brand"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "regular_text",
+              "label": "Regular"
+            },
+            {
+              "value": "featured_text",
+              "label": "Large"
+            }
+          ],
+          "default": "featured_text"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "align_left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        }
+      ]
+    },
+{
+      "type": "responsive_text_and_image",
+      "name": "Responsive text and image",
+      "settings": [
+{
+   "type":      "select",
+   "id":        "responsive_text_and_image_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+},
+        {
+          "type": "image_picker",
+          "id": "image_d",
+          "label": "Image Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_m",
+          "label": "Image Mobile"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Talk about your brand"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "regular_text",
+              "label": "Regular"
+            },
+            {
+              "value": "featured_text",
+              "label": "Large"
+            }
+          ],
+          "default": "featured_text"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "align_left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "featured_video",
+      "name": "Video",
+      "settings": [
+	{
+   "type":      "select",
+   "id":        "featured_video_UTM",
+   "label":     "Select Landing UTM",
+   "default":   "gen",
+   "options": [
+     {
+       
+       "value": "utm1",
+       "label": "UTM 1"
+     },
+     {
+       
+       "value": "utm2",
+       "label": "UTM 2"
+     },
+     {
+       
+       "value": "utm3",
+       "label": "UTM 3"
+     },
+     {
+       
+       "value": "gen",
+       "label": "General Landing"
+     }
+   ] 
+	},
+	{
+      "type": "text",
+      "id": "mp4",
+      "label": "HTML5 MP4 File URL"
+    },
+	{
+      "type": "text",
+      "id": "mp4_m",
+      "label": "MOBILE HTML5 MP4 File URL"
+    },
+	{
+      "type": "image_picker",
+      "id": "image",
+      "label": "Video  Image for Desktop & Mobile",
+      "info": "1600 x 900px recommended"
+    },
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        }, 
+        {
+          "type": "header",
+          "content": "Content"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "image_with_text_overlay",
+        "settings": {
+          "pretext": "<p>Introducing Your</p>",
+          "title": "Page Details Template",
+          "subtitle": "<p>Let's Get Started!</p>",
+          "text_position": "center",
+          "text_align": "center"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 20
+        }
+      },
+      {
+        "type": "rich_text_and_image",
+        "settings": {
+          "title": "Talk about your brand",
+          "content": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "featured_collection",
+        "settings": {
+          "collection_style": "grid",
+          "products_per": 4,
+          "products_limit": 8
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "featured_video",
+        "settings": {
+          
+        }
+      },
+      {
+        "type": "image_with_text",
+        "settings": {
+        }
+      },
+      {
+        "type": "image_with_text",
+        "settings": {
+          "frontpage_image_position": "right"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "blog_posts",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "contact_form",
+        "settings": {
+          "contact_heading": "Get in touch",
+          "contact_subheading": "Leave a message",
+          "contact_content": "<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.</p>",
+          "contact_text_position": "left",
+          "contact_text_alignment": "left"
+      }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "map",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+        }
+      },
+      {
+        "type": "image_gallery",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 20
+        }
+      },
+      {
+        "type": "quote",
+        "settings": {
+          "quote_text": "40% of online shoppers abandon a site that takes more than 3 seconds to load"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 20
+        }
+      }
+    ]
+  }
+}
+
+{% endschema %}

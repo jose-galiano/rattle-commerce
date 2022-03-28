@@ -1,0 +1,34 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign stnd_tit = block.settings.stnd_tit %}
+  {% assign bg_color = block.settings.bg_color %}
+  {% assign screen_size = block.settings.screen_size %}
+  {% assign font_color = block.settings.font_color  %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign stnd_tit = section.settings.stnd_tit %}
+  {% assign bg_color = section.settings.bg_color %}
+  {% assign screen_size = section.settings.screen_size %}
+  {% assign font_color = section.settings.font_color  %}
+{% endif %}
+
+{% if stnd_tit != blank%}
+
+
+<div class="{% if screen_size %}container-fluid {%else%} container {%endif%}" style="background-color:{{bg_color}};">
+  <div class="{% if screen_size %}container-fluid {%else%} container {%endif%}">
+   		<div class="standalone_title" style="background-color:{{bg_color}} !important;">
+		<h1 class="sdn_tit-{{id}}">{{stnd_tit}} </h1>
+		</div>
+  </div>
+</div>
+
+  {% endif %}
+
+  <style>
+  
+  h1.sdn_tit-{{id}} {
+    color: {{font_color}}!important;
+}
+ 
+</style>

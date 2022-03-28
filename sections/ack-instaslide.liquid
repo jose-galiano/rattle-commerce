@@ -1,0 +1,27 @@
+{% comment %}
+** Image with text overlay - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'Include-Ack-instaslide' %}
+{% schema %}
+
+{
+  "name": "Instagram Feed",
+  "class": "ack3-instaslide",
+  "settings": [
+	{
+      "type": "text",
+      "id": "gr_bg_param",
+      "label": "Gradient Parameters",
+      "default": "background: rgb(231,21,21); background: -moz-linear-gradient(-180deg, rgba(231,21,21,1) 0%, rgba(0,3,255,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(231,21,21,1) 0%, rgba(0,3,255,1) 100%); background: linear-gradient(-180deg, rgba(231,21,21,1) 0%, rgba(0,3,255,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e71515',endColorstr='#0003ff',GradientType=1);"
+    }
+],
+    "presets": [
+      {
+        "name": "Instagram Feed",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

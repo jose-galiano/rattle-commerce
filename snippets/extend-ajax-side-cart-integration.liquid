@@ -1,0 +1,154 @@
+<script>
+    // Ensures that the Extend SDKs are instantiated, the code is only executed on the product page and if the currency is 'USD'
+    if (window.Extend && window.ExtendShopify && window.SLIDECART != 0  && window.Shopify.currency.active === 'USD') {
+      var slice = Array.prototype.slice
+
+
+      
+      var cart = {{cart | json}};
+
+      function hardRefresh() {
+        location.href = location.href.substring(0, location.href.indexOf('#'))
+      }
+
+      function findAll(element){
+        var items = document.querySelectorAll(element)
+        return items ? slice.call(items,0) : []
+      }
+
+
+      function initCartOffer () {
+		//Change Slide Carts Z-Index 
+        var slideCartOverlay = document.querySelector('.slidecarthq-overlay');
+        var slideCart = document.querySelector('#slidecarthq .slidecarthq');
+        slideCartOverlay.style.zIndex = "9998";
+        slideCart.style.zIndex = "999999";
+        
+
+        //Adds cart-offer div if not already created.
+        var cartItems = findAll('.item')
+        cartItems.forEach(function(el) {
+          if(el.querySelector(".main-top-left #extend-cart-offer")){
+          	return;
+          }
+            var itemVariant = el.getAttribute('data-variant-id');
+            var itemQuantity = el.querySelector('input[type="text"]').value
+            var variantContainer = el.querySelector('.main-top-left');
+			
+            var extendContainer = document.createElement('div');
+            // Adds the extend container to the page 
+            extendContainer.setAttribute("id", "extend-cart-offer");
+            extendContainer.setAttribute("data-extend-variant", itemVariant);
+            extendContainer.setAttribute("data-extend-quantity", itemQuantity);
+            variantContainer.append(extendContainer); 
+        })
+        
+        //Adds item properties for Extend items
+        cart.items.forEach(function(item){
+          if(item.vendor === "Extend"){
+			console.log(item);
+            var itemEle = document.querySelector(`[data-line-item-key='${item.key}']`) 
+            if(!itemEle) {
+            	return;
+            }
+            if(itemEle.querySelector('.extend-item-properties')){
+            	return;
+            }
+            
+            var itemPropertiesContainer = document.createElement('div');
+            itemPropertiesContainer.classList.add("extend-item-properties")
+            
+            var itemContainer = itemEle.querySelector('.main-top-left'); 
+            var referenceNum = itemContainer.querySelector('.variants-p');
+            referenceNum.remove();
+            itemContainer.append(itemPropertiesContainer)
+            
+            for(p in item.properties) {
+              if(p !== "Ref") {
+                var property = document.createElement('div');
+                property.classList.add('variants-p')
+                property.innerHTML = `<p style="font-weight: 700; display: inline;"> ${p}:</p> ${item.properties[p]}`
+                itemPropertiesContainer.append(property)  
+              }
+            }
+            var itemTitle = itemEle.querySelector('.title')
+            var itemImage = itemEle.querySelector('.image')
+            itemTitle.style.pointerEvents="none";
+            itemImage.style.pointerEvents="none";
+          }
+        })
+	
+        //Renders simple offer for each cart offer.
+        findAll('#extend-cart-offer').forEach(function(ele) {
+          var variantId = ele.getAttribute("data-extend-variant");
+          var quantity = ele.getAttribute("data-extend-quantity");
+          if (ExtendShopify.warrantyAlreadyInCart(variantId, cart.items)) {
+            return;
+          }
+			
+          Extend.buttons.destroyAll();
+          Extend.buttons.renderSimpleOffer(ele, {
+            referenceId: variantId,
+            onAddToCart({ plan, product, quantity }) {
+              if (plan && product) {
+                ExtendShopify.addPlanToCart(
+                  {
+                    plan: plan,
+                    product: product,
+                    quantity: quantity,
+                  },
+                  function (err) {
+                    // an error occurred
+                    if (err) {
+                      return;
+                    } else {
+                      // Effectively hard reloads the page; thus updating the cart
+                      window.SLIDECART_UPDATE()
+                      window.SLIDECART_OPEN()
+                      // For ajax carts invoke your cart refresh function
+                    }
+                  }
+                );
+              }}
+          })
+        })
+        
+
+        
+        ExtendShopify.normalizeCart({ cart: cart, balance: false }, function (
+                                    err,
+                                     data
+                                    ) {
+          if (data && data.updates) {
+            // Effectively hard reloads the page; thus updating the cart 
+            window.SLIDECART_UPDATE();
+          }
+        });
+
+
+      }
+      //When the slidecart is updated, re-initialize cart offer
+      window.SLIDECART_UPDATED = function() {
+        if(window.SLIDECART_STATE().open === false) {
+        	return;
+        }
+        $.getJSON('/cart.js', function(newCart){
+          cart = newCart;
+          window.SLIDECART_SET_CART(cart)
+          initCartOffer();
+        })
+      }
+      
+
+
+      //When the slidecart is opened, re-initialize cart offer
+      window.SLIDECART_OPENED = function() {
+        $.getJSON('/cart.js', function(newCart){
+          cart = newCart;
+          window.SLIDECART_SET_CART(cart)
+          initCartOffer();
+        })
+      }
+    }
+  
+</script>

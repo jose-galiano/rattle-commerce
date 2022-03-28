@@ -1,0 +1,18 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign image = block.settings.image %}
+  {% assign image_m = block.settings.image_m %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign wide_display = section.settings.wide_display %}
+  {% assign image = section.settings.image %}
+  {% assign image_m = section.settings.image_m %}
+{% endif %}
+
+
+{% if image != nil %}
+<div id="banner-{{id}}" class="{% if wide_display %} container-fluid {% else %} container {% endif %}">
+  <img src="{{ image.src | img_url: '3000x' }}" alt="{{image.alt}}" class="img-fluid" id="img--{{id}}"> 
+</div> 
+{% endif %}

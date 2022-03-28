@@ -1,0 +1,2551 @@
+
+
+<div style="margin:0 auto;" id="customform_data" data-id="4c9a0a4cf95fa7195c2f3a"></div>
+
+
+
+
+
+{% if fulfillment.item_count == item_count %} 
+  {% capture email_title %}Your order is on the way{% endcapture %}
+  {% capture email_body %}Your order is on the way. Track your shipment to see the delivery status.{% endcapture %}
+{% elsif fulfillment.item_count > 1 %} 
+  {% if fulfillment_status == 'fulfilled' %}
+    {% capture email_title %}The last items in your order are on the way{% endcapture %}
+    {% capture email_body %}The last items in your order are on the way. Track your shipment to see the delivery status.{% endcapture %}
+  {% else %}
+    {% capture email_title %}Some items in your order are on the way{% endcapture %}
+    {% capture email_body %}Some items in your order are on the way. Track your shipment to see the delivery status.{% endcapture %}
+  {% endif %}
+{% else %} 
+  {% if fulfillment_status == 'fulfilled' %}
+    {% capture email_title %}The last item in your order is on the way{% endcapture %}
+    {% capture email_body %}The last item in your order is on the way. Track your shipment to see the delivery status.{% endcapture %}
+  {% else %}
+    {% capture email_title %}One item in your order is on the way{% endcapture %}
+    {% capture email_body %}One item in your order is on the way. Track your shipment to see the delivery status.{% endcapture %}
+  {% endif %}
+{% endif %}
+
+{% capture email_emphasis %}Estimated delivery date: <strong>{{fulfillment.estimated_delivery_at | date: "%B %-d, %Y"}}</strong>{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>{{ email_title }}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width">
+<style>
+p, a{
+font-family: 'Karla', sans-serif;
+}
+h1, h2{
+font-family: 'Poppins', sans-serif;
+}
+.button p{
+font-family: 'Poppins', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+.container {
+	text-align: center;
+        
+}
+.container table {     
+	text-align: center;   
+	margin: 0 auto;
+    background-color: #fff;
+}
+table {border: none !important;}
+ .logo{
+text-align: center;
+background-color: #FFF;
+padding-top:5px;
+padding-bottom:5px;
+  float:unset !important;
+  width:auto !important;
+}
+  .banner{
+  background-color:#FFF!important;
+  }
+.banner img {
+    max-width: 600px;
+    height: auto;
+  display: unset !important;
+}
+h1 {
+font-size: 24px;
+}
+h2 {
+font-size: 16px;
+}
+.center{
+text-align:center;}
+
+.div_color{
+background-color:#ff9900;
+}
+.orange{
+color:#ff9900;
+}
+.white {
+color:#fff;
+}
+button a{
+text-decoration: none;
+color: #fff;
+}
+hr{
+    border: none;
+    width: 500px;
+    height: 1px;
+    background-color:#ff9900;
+    margin: auto;
+}
+.button {
+  background-color: #ff9900; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.social table{
+background-color:#ff9900;
+}
+.footerm{
+background-color: #2B2929;
+color: #fff;
+}
+.footerm a{
+text-decoration: none;
+color: #fff;
+}
+.navbar {
+    max-width: 600px;
+    margin-left: auto ;
+    margin-right: auto ;
+    padding: 4px 0;
+}
+.navbar ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+    overflow: hidden;
+}
+.navbar li{
+    padding: 2px;
+    width: 150px;
+    display:inline-block;
+}
+.legal p{
+font-size:10px;
+padding: 0px 15px;
+}
+.handle p{
+font-size: 9px;
+color: #fff;
+}
+.handle p a {
+  font-size: 10px;
+  color: #fff;
+}
+  .prodescr{
+  display: inline-grid;
+  }
+</style>
+  </head>
+  <body>
+<div class="container"><br>
+  <table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td>
+                <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><div class="banner"><img src="https://cdn.feedbackwhiz.com/uploads/images/8729.d7a5a000c637ece0d59c5889b61a6d92-7b094c5f92dbc35e42f31f76be2230d661bd05a6-1575021067.jpg"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+<div class="center">
+<div class="order_tit center div_color white"><h1> Order {{ order_name }} Details:</h1></div>
+
+  <div>
+  <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+  {% for line in fulfillment.fulfillment_line_items %}
+  <tr class="order-list__item" style="width: 100%; border-top-width: 1px; border-top-color: #e5e5e5; border-top-style: solid;">
+    <td class="order-list__item__cell">
+      <table>
+        <td>
+          {% if line.line_item.image %}
+            <img src="{{ line.line_item | img_url: 'compact_cropped' }}" align="left" width="60" height="60" class="order-list__product-image"/>
+          {% endif %}
+        </td>
+        <td class="order-list__product-description-cell" style="padding-top: 0px; width: 100%;">
+          {% if line.line_item.product.title %}
+            {% assign line_title = line.line_item.product.title %}
+          {% else %}
+            {% assign line_title = line.line_item.title %}
+          {% endif %}
+
+          {% if line.quantity < line.line_item.quantity %}
+            {% capture line_display %} {{ line.quantity }} of {{ line.line_item.quantity }} {% endcapture %}
+          {% else %}
+            {% assign line_display = line.line_item.quantity  %}
+          {% endif %}
+
+          <p class="order-list__item-title" style="font-size: 16px;font-weight: 600;line-height: 1.4;color: #555; font-family: 'Karla', sans-serif; margin-top: 0px; margin-bottom: 0px;">{{ line_title }} × {{ line_display }}</p>
+
+          {% if line.line_item.variant.title != 'Default Title' %}
+            <p class="order-list__item-variant" style="font-family: 'Karla', sans-serif;margin-top: 0px;margin-bottom: 0px;">{{ line.line_item.variant.title }}</p>
+          {% endif %}
+
+          {% if line.line_item.refunded_quantity > 0 %}
+            <p class="order-list__item-refunded" style="font-family: 'Karla', sans-serif;margin-top: 0px;margin-bottom: 0px;">Refunded</p>
+          {% endif %}
+
+          {% if line.line_item.discount_allocations %}
+            {% for discount_allocation in line.line_item.discount_allocations %}
+              {% if discount_allocation.discount_application.target_selection != 'all' %}
+                <span class="order-list__item-discount-allocation" style="font-family: 'Karla', sans-serif;margin-top: 0px;margin-bottom: 0px;">
+                  <img src="{{ 'notifications/discounttag.png' | shopify_asset_url }}" width="18" height="18" class="discount-tag-icon" />
+                  <span style="font-family: 'Karla', sans-serif;margin-top: 0px;margin-bottom: 0px;">
+                    {{ discount_allocation.discount_application.title | upcase }}
+                    (-{{ discount_allocation.amount | money }})
+                  </span>
+                </span>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </td>
+      </table>
+    </td>
+  </tr>{% endfor %}
+</table>
+  </div>
+
+              </div>
+</td>
+</tr>
+
+<tr>
+<td>
+  <div class="center"><hr></div>
+<div class="center">
+    <p>Fullfillment Est.: {{fulfillment.estimated_delivery_at}}</p>
+    <p>Fullfiled by: {{fulfillment.tracking_company}}</p>
+    <p>Fullfillment Tracking No.: {{fulfillment.tracking_numbers}}</p>
+    <a href="{{fulfillment.tracking_urls}}">{{fulfillment.tracking_urls}}</a><br>
+</div>
+  
+<div class="center" style="padding-top: 20px; " align="center";>
+<a href="{{ order_status_url }}"><button class="button"><strong><p>VIEW YOUR ORDER</p></strong></button></a>
+</div>
+</td></tr>
+      <tr><td><div class="center"><hr></div></td></tr>
+<tr><td>
+<div class="center div_color white">
+<h1>While you wait...</h1></div>
+<div class="center"> <p>1. Download The MeatStick app here:</p></div>
+<div class="center">
+<a href="https://jo.my/60jf0v"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/apple-app-store-badge.png?10162" style="max-width:200px"></a>
+<a href="https://jo.my/kc34yn"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/google-play-badge_3f892373-fbd1-40e2-8dc3-15e59a8882dd.png?10162" style="max-width:200px"><a/>
+</div>
+<div class="center">
+<a href="https://jo.my/60jf0v"><img src="https://cdn.feedbackwhiz.com/uploads/images/8729.d7a5a000c637ece0d59c5889b61a6d92-fb29c56b8b6dc5529339189faa5674f5d987ab51-1574998142.jpg" style="max-width:200px"></a>
+<a href="https://jo.my/kc34yn"><img src="https://cdn.feedbackwhiz.com/uploads/images/8729.d7a5a000c637ece0d59c5889b61a6d92-d2068ed5982090ddba1ce54a42bbaed8d25a8cbd-1574997959.jpg" style="max-width:200px"></a>
+</div>
+<div class="center"> <p>2. Check the User Manual <strong>by visiting our <a href="https://themeatstick.com/apps/help-center">F.A.Q. Page</a></strong></p></div>
+<div class="center"> <p>3. Watch our Tutorials on YouTube. <a href="https://www.youtube.com/playlist?list=PLZrVywpRPl8Bi6_oD2QW7qxCX9gQgkLFn">Find us as <strong>The MeatStick</strong></a></p></div>
+<div class="center"> <p>4. Join our <a href="https://www.facebook.com/groups/226678404582335">Facebook Community Group </a>for <strong>tips and more&nbsp;</strong></p></div>
+  <div class="center"> <span><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/attention.png?10376" style="max-width: 20px;"><span style="font-family: 'Karla', sans-serif;">Don't forget to <b>charge your MeatStick for 4 hours </b><br> before using it the first time!</span> </span></div>
+
+  </td></tr>
+<tr><td><hr></td></tr>
+<tr><td><div class="center orange"><h1>Find us and stay in touch!</h1></div></td></tr>
+<tr><td><div class="center div_color">
+<div class="social"> 
+<table class="social center">
+<tbody>
+  <tr><td><a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+</tr>
+</tbody></table>
+</div></div></td></tr>
+<tr><td>
+<div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+</td></tr>
+<tr><td>
+<div class="navbar footerm center">
+<div class="center legal"><p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p></div>
+</div>
+</td></tr>
+</tbody>
+</table>
+</div>
+  </body>
+</html>
+
+{% capture email_title %}Thank you for your purchase! {% endcapture %}
+{% capture email_body %}
+  {% if requires_shipping %}
+    Hi {{ customer.first_name }}, <br><br>Thank you so much for ordering the Meatstick! Our amazing cooking fanatics are now putting your thermometer together! As we put each piece together, we pray once to the meat god to ensure each piece performs. Once completely assembled we dip the thermometer in a vat of fat to ensure we have all the proper blessings. We then ask our quality assurance team (industry experts composed of the top tier cows and pigs) to ensure the product passes all of our standard checks! This process usually takes 39 hours and 16 minutes to complete before your order is shipped! 
+<br><br>
+Just Kidding! Your order will be processed within the next 24 hours. We will notify you as soon as the order has shipped! In the meantime, why not like our <a href="https://www.facebook.com/TheTRUEMeatStick/">Facebook page</a> where we post our latest updates and news!
+  {% endif %}
+{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>{{ email_title }}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width">
+<style>
+p, a{
+font-family: 'Karla', sans-serif;
+}
+h1, h2{
+font-family: 'Poppins', sans-serif;
+}
+.button p{
+font-family: 'Poppins', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+.container {
+	text-align: center;
+        
+}
+.container table {     
+	text-align: center;   
+	margin: 0 auto;
+    background-color: #fff;
+}
+table {border: none !important;}
+ .logo{
+text-align: center;
+background-color: #FFF;
+padding-top:5px;
+padding-bottom:5px;
+  float:unset !important;
+  width:auto !important;
+}
+  .banner{
+  background-color:#FFF!important;
+  }
+.banner img {
+    max-width: 600px;
+    height: auto;
+  display: unset !important;
+}
+h1 {
+font-size: 24px;
+}
+h2 {
+font-size: 16px;
+}
+.center{
+text-align:center;}
+
+.div_color{
+background-color:#ff9900;
+}
+.orange{
+color:#ff9900;
+}
+.white {
+color:#fff;
+}
+button a{
+text-decoration: none;
+color: #fff;
+}
+hr{
+    border: none;
+    width: 500px;
+    height: 1px;
+    background-color:#ff9900;
+    margin: auto;
+}
+.button {
+  background-color: #ff9900; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.social table{
+background-color:#ff9900;
+}
+.footerm{
+background-color: #2B2929;
+color: #fff;
+}
+.footerm a{
+text-decoration: none;
+color: #fff;
+}
+.navbar {
+    max-width: 600px;
+    margin-left: auto ;
+    margin-right: auto ;
+    padding: 4px 0;
+}
+.navbar ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+    overflow: hidden;
+}
+.navbar li{
+    padding: 2px;
+    width: 150px;
+    display:inline-block;
+}
+.legal p{
+font-size:10px;
+padding: 0px 15px;
+}
+.handle p{
+font-size: 9px;
+color: #fff;
+}
+.handle p a {
+  font-size: 10px;
+  color: #fff;
+}
+  .prodescr{
+  display: inline-grid;
+  }
+</style>
+  </head>
+  <body>
+<div class="container"><br>
+  <table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td>
+                <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/shopifythanku.jpg"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+<div class="center">
+<div class="order_tit center div_color white"><h1>{{ email_title }}</h1></div>
+
+  <div>
+  <p>{{ email_body }}</p>
+  </div>
+ </div>
+</td>
+</tr>
+
+<tr>
+<td>
+<div class="order_tit center div_color white"><h1> Order {{ order_name }} Summary:</h1></div>
+  <div>
+  <table class="row section">
+  <tr>
+    <td class="section__cell">
+      <center>
+        <table class="container">
+          <tr>
+            <td>
+              
+            
+<table class="row">
+  {% for line in subtotal_line_items %}
+  <tr class="order-list__item">
+    <td class="order-list__item__cell">
+      <table>
+        <td>
+          {% if line.image %}
+            <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="60" height="60" class="order-list__product-image"/>
+          {% endif %}
+        </td>
+        <td class="order-list__product-description-cell">
+          {% if line.product.title %}
+            {% assign line_title = line.product.title %}
+          {% else %}
+            {% assign line_title = line.title %}
+          {% endif %}
+
+          {% if line.quantity < line.quantity %}
+            {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
+          {% else %}
+            {% assign line_display = line.quantity  %}
+          {% endif %}
+
+          <p class="order-list__item-title" style="font-family: 'Karla', sans-serif;border-bottom-width: 0px;margin-bottom: 0px;margin-top: 0px;">{{ line_title }} × {{ line_display }}</p>
+
+          {% if line.variant.title != 'Default Title' %}
+            <p class="order-list__item-variant" style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">{{ line.variant.title }}</p>
+          {% endif %}
+
+          {% if line.refunded_quantity > 0 %}
+            <p class="order-list__item-refunded" style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">Refunded</p>
+          {% endif %}
+
+          {% if line.discount_allocations %}
+            {% for discount_allocation in line.discount_allocations %}
+              {% if discount_allocation.discount_application.target_selection != 'all' %}
+                <span class="order-list__item-discount-allocation">
+                  <img src="{{ 'notifications/discounttag.png' | shopify_asset_url }}" width="18" height="18" class="discount-tag-icon" />
+                  <span style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+                    {{ discount_allocation.discount_application.title | upcase }}
+                    (-{{ discount_allocation.amount | money }})
+                  </span>
+                </span>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </td>
+          <td class="order-list__price-cell">
+            {% if line.original_line_price != line.final_line_price %}
+              <p class="order-list__item-original-price">{{ line.original_line_price | money }}</p>
+            {% endif %}
+            <p class="order-list__item-price">
+              {% if line.final_line_price > 0 %}
+                {{ line.final_line_price | money }}
+              {% else %}
+                Free
+              {% endif %}
+            </p>
+          </td>
+      </table>
+    </td>
+  </tr>{% endfor %}
+</table>
+
+            <table class="row subtotal-lines">
+  <tr>
+    <td class="subtotal-spacer"></td>
+    <td>
+      <table class="row subtotal-table">
+        {% for discount_application in discount_applications %}
+          {% if discount_application.target_selection == 'all' %}
+            {% capture discount_title %}
+              {% if discount_application.title %}
+                {{ discount_application.title | upcase }}
+              {% else %}
+                Discount:
+              {% endif %}
+            {% endcapture %}
+            
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>Discount:</span>
+        <span class="subtotal-line__discount">
+          <img src="{{ 'notifications/discounttag.png' | shopify_asset_url }}" width="18" height="18" class="discount-tag-icon" />
+          <span class="subtotal-line__discount-title">{{ discount_title }}</span>
+        </span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;"><strong>-{{ discount_application.total_allocated_amount | money }}</strong></p>
+  </td>
+</tr>
+
+          {% endif %}
+        {% endfor %}
+
+        
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>Subtotal:</span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;"><strong>{{ subtotal_price | money }}</strong></p>
+  </td>
+</tr>
+
+        
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>Shipping:</span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;"><strong>{{ shipping_price | money }}</strong></p>
+  </td>
+</tr>
+
+
+        {% for line in tax_lines %}
+          
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>{{ line.title }}</span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;"><strong>{{ line.price | money }}</strong></p>
+  </td>
+</tr>
+
+        {% endfor %}
+
+        {% if total_tip and total_tip > 0 %}
+          
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>Tip:</span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;"><strong>{{ total_tip | money }}</strong></p>
+  </td>
+</tr>
+
+        {% endif %}
+      </table>
+      <table class="row subtotal-table subtotal-table--total">
+        
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>Total:</span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;"><strong>{{ total_price | money_with_currency }}</strong></p>
+  </td>
+</tr>
+
+      </table>
+
+      {% if total_discounts > 0 %}
+        <p class="total-discount" style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+          You saved: <span class="total-discount--amount">{{ total_discounts | money }}</span>
+        </p>
+      {% endif %}
+
+      {% assign transaction_size = 0 %}
+      {% assign transaction_amount = 0 %}
+      {% for transaction in transactions %}
+        {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+          {% assign transaction_size = transaction_size | plus: 1 %}
+          {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
+        {% endunless %}
+      {% endfor %}
+
+      {% if transaction_size > 1 or transaction_amount < total_price %}
+        <table class="row subtotal-table">
+          <tr><td colspan="2" class="subtotal-table__line"></td></tr>
+          <tr><td colspan="2" class="subtotal-table__small-space"></td></tr>
+
+          {% for transaction in transactions %}
+            {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+              {% if transaction.payment_details.credit_card_company %}
+                {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
+              {% else %}
+                {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
+              {% endif %}
+
+              
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>{{transaction_name}}</span>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <strong>{{ transaction.amount | money }}</strong>
+  </td>
+</tr>
+
+            {% endif %}
+            {% if transaction.kind == 'refund' %}
+              {% if transaction.payment_details.credit_card_company %}
+                {% assign refund_method_title = transaction.payment_details.credit_card_company %}
+              {% else %}
+                {% assign refund_method_title = transaction.gateway %}
+              {% endif %}
+
+              
+<tr class="subtotal-line">
+  <td class="subtotal-line__title">
+    <p style="font-family: 'Karla', sans-serif;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;">
+      <span>Refund</span>
+        <br>
+        <small>{{ refund_method_title | capitalize }}</small>
+    </p>
+  </td>
+  <td class="subtotal-line__value">
+    <strong>- {{ transaction.amount | money }}</strong>
+  </td>
+</tr>
+
+            {% endif %}
+          {% endfor %}
+        </table>
+      {% endif %}
+    </td>
+  </tr>
+</table>
+
+
+            </td>
+          </tr>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>
+  </div>  
+
+</td></tr>
+      <tr><td><div class="center"><hr></div></td></tr>
+<tr><td>      
+      <div class="order_tit center"><h1> Customer Information:</h1></div></td></tr>
+      
+<tr><td>
+  <table class="row section">
+  <tr>
+    <td class="section__cell">
+      <center>
+        <table class="container">
+          <tr>
+            <td>
+              
+            <table class="row">
+              <tr>
+                {% if requires_shipping and shipping_address %}
+                <td class="customer-info__item">
+                  <div style="padding-right: 80px;"> <p><b>Shipping address</b></p>
+                 <p> {{ shipping_address | format_address }}</p></div>
+                </td>
+                {% endif %}
+                {% if billing_address %}
+                <td class="customer-info__item">
+                 <div> <p><b>Billing address</b></p>
+                  <p>{{ billing_address | format_address }}</p></div>
+                </td>
+                {% endif %}
+              </tr>
+            </table>
+            <table class="row">
+              <tr>
+                {% if requires_shipping and shipping_address %}
+                <td class="customer-info__item">
+                  <div><p><b>Shipping method</b></p>
+                  <p>{{ shipping_method.title }}</p></div>
+                </td>
+                {% endif %}
+                {% assign transaction_count = transactions | size %}
+                {% if transaction_count > 0 %}
+ </tr>
+            </table>
+<table class="row">
+              <tr>
+                <td class="customer-info__item">
+                  <div><p><b>Payment method</b></p>
+                  {% for transaction in transactions %}
+                    {% if transaction.status == "success" or transaction.status == "pending" %}
+                      {% if transaction.kind == "authorization" or transaction.kind == "sale" %}
+                        <p class="customer-info__item-content">
+                          {% if transaction.payment_details.credit_card_company %}
+                            {% capture credit_card_url %}notifications/{{ transaction.payment_details.credit_card_company | downcase | replace: " ", "_" }}.png{% endcapture %}
+                            <img src="{{ credit_card_url | shopify_asset_url }}" class="customer-info__item-credit" height="24">
+                            <span>Payment method — <strong>{{ transaction.amount | money }}</strong></span>
+                          {% else %}
+                            {{ transaction.gateway | replace: "_", " " | capitalize }} — <strong>{{ transaction.amount | money }}</strong>
+                          {% endif %}
+                        </p>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </td>
+                {% endif %}
+              </tr>
+            </table>
+
+            </td>
+          </tr>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>
+  
+  <div class="center" style="padding-top: 20px; " align="center";>
+<a href="{{ order_status_url }}"><button class="button"><strong><p>VIEW YOUR ORDER</p></strong></button></a>
+</div>
+  </td></tr>      
+      
+<tr><td>
+<div class="center div_color white">
+<h1>While you wait...</h1></div>
+<div class="center"> <p>1. Download The MeatStick app here:</p></div>
+<div class="center">
+<a href="https://jo.my/60jf0v"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/apple-app-store-badge.png?10162" style="max-width:200px"></a>
+<a href="https://jo.my/kc34yn"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/google-play-badge_3f892373-fbd1-40e2-8dc3-15e59a8882dd.png?10162" style="max-width:200px"><a/>
+</div>
+<div class="center">
+<a href="https://jo.my/60jf0v"><img src="https://cdn.feedbackwhiz.com/uploads/images/8729.d7a5a000c637ece0d59c5889b61a6d92-fb29c56b8b6dc5529339189faa5674f5d987ab51-1574998142.jpg" style="max-width:200px"></a>
+<a href="https://jo.my/kc34yn"><img src="https://cdn.feedbackwhiz.com/uploads/images/8729.d7a5a000c637ece0d59c5889b61a6d92-d2068ed5982090ddba1ce54a42bbaed8d25a8cbd-1574997959.jpg" style="max-width:200px"></a>
+</div>
+<div class="center"> <p>2. Check the User Manual <strong>by visiting our <a href="https://themeatstick.com/apps/help-center">F.A.Q. Page</a></strong></p></div>
+<div class="center"> <p>3. Watch our Tutorials on YouTube. <a href="https://www.youtube.com/playlist?list=PLZrVywpRPl8Bi6_oD2QW7qxCX9gQgkLFn">Find us as <strong>The MeatStick</strong></a></p></div>
+<div class="center"> <p>4. Join our <a href="https://www.facebook.com/groups/226678404582335">Facebook Community Group </a>for <strong>tips and more&nbsp;</strong></p></div>
+  <div class="center"> <span><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/attention.png?10376" style="max-width: 20px;"><span style="font-family: 'Karla', sans-serif;">Don't forget to <b>charge your MeatStick for 4 hours </b><br> before using it the first time!</span> </span></div>
+
+  </td></tr>
+<tr><td><hr></td></tr>
+<tr><td><div class="center orange"><h1>Find us and stay in touch!</h1></div></td></tr>
+<tr><td><div class="center div_color">
+<div class="social"> 
+<table class="social center">
+<tbody>
+  <tr><td><a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+<td><a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a></td>
+</tr>
+</tbody></table>
+</div></div></td></tr>
+<tr><td>
+<div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+</td></tr>
+<tr><td>
+<div class="navbar footerm center">
+<div class="center legal"><p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p></div>
+</div>
+</td></tr>
+</tbody>
+</table>
+</div>
+  </body>
+</html>
+
+
+{% capture email_title %}Welcome to The MeatStick Family!{% endcapture %} {% capture email_body %}Hi <b>{{ customer.first_name }}</b>, your customer account is now active.
+<br>Join The MeatStick Revolution, bring joy and mouthwatering<br> dinners to family and friends.
+<br><br>
+Share with us all your moments on <br>social media with the hashtag <b>#MyMeatStick</b>
+<br>{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        p,
+        a {
+            font-family: 'Karla', sans-serif;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .button p {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+        .container {
+            text-align: center;
+        }
+        
+        .container table {
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        
+        table {
+            border: none !important;
+        }
+        
+        .logo {
+            text-align: center;
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            float: unset !important;
+            width: auto !important;
+        }
+        
+        .banner {
+            background-color: #FFF!important;
+        }
+        
+        .banner img {
+            max-width: 600px;
+            height: auto;
+            display: unset !important;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .div_color {
+            background-color: #ff9900;
+        }
+        
+        .orange {
+            color: #ff9900;
+        }
+        
+        .white {
+            color: #fff;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        hr {
+            border: none;
+            width: 500px;
+            height: 1px;
+            background-color: #ff9900;
+            margin: auto;
+        }
+        
+        .button {
+            background-color: #ff9900;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .social table {
+            background-color: #ff9900;
+        }
+        
+        .footerm {
+            background-color: #2B2929;
+            color: #fff;
+        }
+        
+        .footerm a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .navbar {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4px 0;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        
+        .navbar li {
+            padding: 2px;
+            width: 150px;
+            display: inline-block;
+        }
+        
+        .legal p {
+            font-size: 10px;
+            padding: 0px 15px;
+        }
+        
+        .handle p {
+            font-size: 9px;
+            color: #fff;
+        }
+        
+        .handle p a {
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .prodescr {
+            display: inline-grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/fireready.jpg"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <div class="order_tit center div_color white">
+                                <h1>Welcome to The MeatStick Family!</h1></div>
+                            <div>
+                                <p>{{ email_body }}</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <hr>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="order_tit center div_color white">
+                            <h1> Earn Points, Start Cooking!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/reward2.png" height="auto" width="600"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="center" style="padding-top: 20px; " align="center" ;>
+                            <a href="https://themeatstick.com/account">
+                                <button class="button">
+                                    <p><strong>Claim Your Points Now</strong></p>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center orange">
+                            <h1>Find us and stay in touch!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color">
+                            <div class="social">
+                                <table class="social center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="navbar footerm center">
+                            <div class="center legal">
+                                <p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+{% capture email_title %}Welcome to The MeatStick Family!{% endcapture %} {% capture email_body %}
+Hi <b>{{ customer.first_name }}</b>, you've created a new customer account at <a href="{{shop.url}}">{{shop.name}}</a>. All you have to do next, is <b>activate it</b>.
+
+{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        p,
+        a {
+            font-family: 'Karla', sans-serif;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .button p {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+        .container {
+            text-align: center;
+        }
+        
+        .container table {
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        
+        table {
+            border: none !important;
+        }
+        
+        .logo {
+            text-align: center;
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            float: unset !important;
+            width: auto !important;
+        }
+        
+        .banner {
+            background-color: #FFF!important;
+        }
+        
+        .banner img {
+            max-width: 600px;
+            height: auto;
+            display: unset !important;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .div_color {
+            background-color: #ff9900;
+        }
+        
+        .orange {
+            color: #ff9900;
+        }
+        
+        .white {
+            color: #fff;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        hr {
+            border: none;
+            width: 500px;
+            height: 1px;
+            background-color: #ff9900;
+            margin: auto;
+        }
+        
+        .button {
+            background-color: #ff9900;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .social table {
+            background-color: #ff9900;
+        }
+        
+        .footerm {
+            background-color: #2B2929;
+            color: #fff;
+        }
+        
+        .footerm a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .navbar {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4px 0;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        
+        .navbar li {
+            padding: 2px;
+            width: 150px;
+            display: inline-block;
+        }
+        
+        .legal p {
+            font-size: 10px;
+            padding: 0px 15px;
+        }
+        
+        .handle p {
+            font-size: 9px;
+            color: #fff;
+        }
+        
+        .handle p a {
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .prodescr {
+            display: inline-grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/onething.jpg"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <div class="order_tit center div_color white">
+                                <h1>Welcome to The MeatStick Family!</h1></div>
+                            <div>
+                                <p>{{ email_body }}</p>
+                            </div>
+                          <div class="center">
+                          
+                            <a href="{{ customer.account_activation_url }}">
+                                <button class="button">
+                                    <p><strong>Activate your account now</strong></p>
+                                </button>
+                            </a>
+                            
+                            <p><br>You can also copy/paste this link in to your browser:<br>
+                            {{ customer.account_activation_url }}
+                            </p>
+                          
+                          </div>
+                          
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <hr>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="order_tit center div_color white">
+                            <h1> Don't forget your reward!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/reward2.png" height="auto" width="600"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="center" style="padding-top: 20px; " align="center" ;>
+                            <a href="https://themeatstick.com/account">
+                                <button class="button">
+                                    <p><strong>Claim Your Points Now</strong></p>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center orange">
+                            <h1>Find us and stay in touch!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color">
+                            <div class="social">
+                                <table class="social center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="navbar footerm center">
+                            <div class="center legal">
+                                <p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        p,
+        a {
+            font-family: 'Karla', sans-serif;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .button p {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+        .container {
+            text-align: center;
+        }
+        
+        .container table {
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        
+        table {
+            border: none !important;
+        }
+        
+        .logo {
+            text-align: center;
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            float: unset !important;
+            width: auto !important;
+        }
+        
+        .banner {
+            background-color: #FFF!important;
+        }
+        
+        .banner img {
+            max-width: 600px;
+            height: auto;
+            display: unset !important;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .div_color {
+            background-color: #ff9900;
+        }
+        
+        .orange {
+            color: #ff9900;
+        }
+        
+        .white {
+            color: #fff;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        hr {
+            border: none;
+            width: 500px;
+            height: 1px;
+            background-color: #ff9900;
+            margin: auto;
+        }
+        
+        .button {
+            background-color: #ff9900;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .social table {
+            background-color: #ff9900;
+        }
+        
+        .footerm {
+            background-color: #2B2929;
+            color: #fff;
+        }
+        
+        .footerm a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .navbar {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4px 0;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        
+        .navbar li {
+            padding: 2px;
+            width: 150px;
+            display: inline-block;
+        }
+        
+        .legal p {
+            font-size: 10px;
+            padding: 0px 15px;
+        }
+        
+        .handle p {
+            font-size: 9px;
+            color: #fff;
+        }
+        
+        .handle p a {
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .prodescr {
+            display: inline-grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/fireready.jpg"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <div class="order_tit center div_color white">
+                                <h1>Welcome to The MeatStick Family!</h1></div>
+                            <div>
+                                <p>{{ email_body }}</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <hr>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="order_tit center div_color white">
+                            <h1> Earn Points, Start Cooking!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/reward2.png" height="auto" width="600"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="center" style="padding-top: 20px; " align="center" ;>
+                            <a href="https://themeatstick.com/account">
+                                <button class="button">
+                                    <p><strong>Claim Your Points Now</strong></p>
+                                </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center orange">
+                            <h1>Find us and stay in touch!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color">
+                            <div class="social">
+                                <table class="social center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="navbar footerm center">
+                            <div class="center legal">
+                                <p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        p,
+        a {
+            font-family: 'Karla', sans-serif;
+          font-size:20px;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .button p {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+        .container {
+            text-align: center;
+        }
+        
+        .container table {
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        
+        table {
+            border: none !important;
+        }
+        
+        .logo {
+            text-align: center;
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            float: unset !important;
+            width: auto !important;
+        }
+        
+        .banner {
+            background-color: #FFF!important;
+        }
+        
+        .banner img {
+            max-width: 600px;
+            height: auto;
+            display: unset !important;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .div_color {
+            background-color: #ff9900;
+        }
+        
+        .orange {
+            color: #ff9900;
+        }
+        
+        .white {
+            color: #fff;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        hr {
+            border: none;
+            width: 500px;
+            height: 1px;
+            background-color: #ff9900;
+            margin: auto;
+        }
+        
+        .button {
+            background-color: #ff9900;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .social table {
+            background-color: #ff9900;
+        }
+        
+        .footerm {
+            background-color: #2B2929;
+            color: #fff;
+        }
+        
+        .footerm a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .navbar {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4px 0;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        .navbar li {
+            padding: 2px;
+            width: 150px;
+            display: inline-block;
+        }
+        
+        .legal p {
+            font-size: 10px;
+            padding: 0px 15px;
+        }
+        
+        .handle p {
+            font-size: 9px;
+            color: #fff;
+        }
+        
+        .handle p a {
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .prodescr {
+            display: inline-grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/nicetomeatya.jpg"></div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <div class="order_tit  div_color white">
+                                <h1>Welcome to The MeatStick Family!</h1></div>
+                            <div style="text-align:left;">
+                              <p><b>Hi [[user.firstname]]</b><br><br>
+
+                                  Here at <b>The MeatStick HQ</b>, we’d like to welcome you to The<br>
+                                  MeatStick family. We’re excited that you have taken steps to<br>
+                                  improve your cooking game and we want to let you know that we<br>
+                                  are here to support that.<br><br>
+                                  We are a small business aiming to make our mark in the<br>
+                                  culinary world. We have tested our product design extensively<br>
+                                  to make your cooking experience as easy and delicious as possible.<br><br>
+                                  However, we ourselves know there is always room for<br>
+                                  improvement and we are here to provide all the support you need<br>
+                                  along the way. We are constantly updating the app to optimize<br>
+                                  our user experience and we appreciate any feedback from you.<br>
+                                  We will respond to every single email, so don’t hesitate to reply<br>
+                                  to this email; we want to hear your honest opinion,<br>
+                                  and keep improving your experience.</p>
+                              <div class="center">
+                              <p>Sincerely,<br>
+                                <b>The MeatStick Team</b></p><br></div>
+             
+                            </div>
+                          <div class="center">
+                           <hr>
+                          </div>
+                        
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color white">
+<h1>Remember...</h1></div>
+
+<div class="center"> <p>1. Check the User Manual <strong>by visiting our <a href="https://themeatstick.com/apps/help-center">F.A.Q. Page</a></strong></p></div>
+<div class="center"> <p>2. Watch our Tutorials on YouTube. <a href="https://www.youtube.com/playlist?list=PLZrVywpRPl8Bi6_oD2QW7qxCX9gQgkLFn">Find us as <strong>The MeatStick</strong></a></p></div>
+<div class="center"> <p>3. Join our <a href="https://www.facebook.com/groups/226678404582335">Facebook Community Group </a> for <strong>tips and more&nbsp;</strong></p></div>
+<div class="center"> <span><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/attention.png?10376" style="max-width: 30px;"><span style="font-size:20px; font-family: 'Karla', sans-serif;"> Don't forget to <b>charge your MeatStick for 4 hours </b><br> before using it the first time!</span> </span></div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center orange">
+                            <h1>Find us and stay in touch!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color">
+                            <div class="social">
+                                <table class="social center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="navbar footerm center">
+                            <div class="center legal">
+                              <p>You are receiving this email because you created an account on The MeatStick App.</p>
+                                <p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        p,
+        a {
+            font-family: 'Karla', sans-serif;
+          font-size:20px;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .button p {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+        .container {
+            text-align: center;
+        }
+        
+        .container table {
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        
+        table {
+            border: none !important;
+        }
+        
+        .logo {
+            text-align: center;
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            float: unset !important;
+            width: auto !important;
+        }
+        
+        .banner {
+            background-color: #FFF!important;
+        }
+        
+        .banner img {
+            max-width: 600px;
+            height: auto;
+            display: unset !important;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .div_color {
+            background-color: #ff9900;
+        }
+        
+        .orange {
+            color: #ff9900;
+        }
+        
+        .white {
+            color: #fff;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        hr {
+            border: none;
+            width: 500px;
+            height: 1px;
+            background-color: #ff9900;
+            margin: auto;
+        }
+        
+        .button {
+            background-color: #ff9900;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .social table {
+            background-color: #ff9900;
+        }
+        
+        .footerm {
+            background-color: #2B2929;
+            color: #fff;
+        }
+        
+        .footerm a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .navbar {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4px 0;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        .navbar li {
+            padding: 2px;
+            width: 150px;
+            display: inline-block;
+        }
+        
+        .legal p {
+            font-size: 10px;
+            padding: 0px 15px;
+        }
+        
+        .handle p {
+            font-size: 9px;
+            color: #fff;
+        }
+        
+        .handle p a {
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .prodescr {
+            display: inline-grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/bonape.jpg"></div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <div class="order_tit  div_color white">
+                                <h1>One Cook Down!</h1></div>
+                            <div style="text-align:left;">
+                              <p><b>Hi [[user.firstname]]</b><br><br>
+
+                                  <b>Congrats!</b> We’ve noticed that you’ve just completed your first<br> cook. How did it go? Whether you just cooked your best meal yet<br>
+                                  or if you weren’t satisfied with the experience, we would love to<br>
+                                  hear from you! Just reply to this email and we’ll get back to you asap!<br><br> 
+                                  In the meantime, please check out our cook demo videos and<br>
+                                  follow us on social media if you haven’t done so. Remember<br>
+                                  you can always share your juicy meats with the MeatStick<br> community using <b>#MyMeatStick.</b>
+                              <div class="center">
+                              <p>Sincerely,<br>
+                                <b>The MeatStick Team</b></p><br></div>
+             
+                            </div>
+                          <div class="center">
+                           <hr>
+                          </div>
+                        
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color white">
+<h1>Remember...</h1></div>
+
+<div class="center"> <p>1. Check the User Manual <strong>by visiting our <a href="https://themeatstick.com/apps/help-center">F.A.Q. Page</a></strong></p></div>
+<div class="center"> <p>2. Watch our Tutorials on YouTube. <a href="https://www.youtube.com/playlist?list=PLZrVywpRPl8Bi6_oD2QW7qxCX9gQgkLFn">Find us as <strong>The MeatStick</strong></a></p></div>
+<div class="center"> <p>3. Join our <a href="https://www.facebook.com/groups/226678404582335">Facebook Community Group </a> for <strong>tips and more&nbsp;</strong></p></div>
+<div class="center"> <span><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/attention.png?10376" style="max-width: 30px;"><span style="font-size:20px; font-family: 'Karla', sans-serif;"> Don't forget to <b>charge your MeatStick for 4 hours </b><br> to fully recharge it!</span> </span></div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center orange">
+                            <h1>Find us and stay in touch!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color">
+                            <div class="social">
+                                <table class="social center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.youtube.com/c/Themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="navbar footerm center">
+                            <div class="center legal">
+                              <p>You are receiving this email because you created an account on The MeatStick App.</p>
+                                <p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<section id="TOU">
+<head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        p,
+        a {
+            font-family: 'Karla', sans-serif;
+          font-size:20px;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .button p {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Karla|Poppins&display=swap');
+        .container {
+            text-align: center;
+        }
+        
+        .container table {
+            text-align: center;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+        
+        table {
+            border: none !important;
+        }
+        
+        .logo {
+            text-align: center;
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            float: unset !important;
+            width: auto !important;
+        }
+        
+        .banner {
+            background-color: #FFF!important;
+        }
+        
+        .banner img {
+            max-width: 600px;
+            height: auto;
+            display: unset !important;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .div_color {
+            background-color: #ff9900;
+        }
+        
+        .orange {
+            color: #ff9900;
+        }
+        
+        .white {
+            color: #fff;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        hr {
+            border: none;
+            width: 500px;
+            height: 1px;
+            background-color: #ff9900;
+            margin: auto;
+        }
+        
+        .button {
+            background-color: #ff9900;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .social table {
+            background-color: #ff9900;
+        }
+        
+        .footerm {
+            background-color: #2B2929;
+            color: #fff;
+        }
+        
+        .footerm a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .navbar {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4px 0;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0px;
+            overflow: hidden;
+        }
+        .navbar li {
+            padding: 2px;
+            width: 150px;
+            display: inline-block;
+        }
+        
+        .legal p {
+            font-size: 10px;
+            padding: 0px 15px;
+        }
+        
+        .handle p {
+            font-size: 9px;
+            color: #fff;
+        }
+        
+        .handle p a {
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .prodescr {
+            display: inline-grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="email logo"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/95d623b5-8cc5-47d5-9684-72c93ae01f8a.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner"><img src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/prpo.jpg"></div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <div class="order_tit  div_color white">
+                                <h1>Your privacy is our priority</h1></div>
+                            <div style="text-align:left;">
+                              <p><b>Hi [[user.firstname]]</b><br><br></p>
+<p>
+                               From time to time, we update our privacy policies - both to reflect the new products and services we offer and to comply with new laws and regulations and new industry standards.<br>
+                               Today, we want to let you know about the latest, changes and put the Chef's hat on you when it comes to your data.
+                                We're committed to being as transparent about how and why we use your information to give you a more personalized experience. For complete details, check out our updated <a href="https://themeatstick.com/pages/privacy-policy/"><b> Privacy Policy</b></a> and <a href="https://themeatstick.com/pages/terms-of-service/"> <b>Terms of Use</b></a>.<br>
+                               
+                                Thanks for being part of <b>The MeatStick Family</b> and continue to share your love for cooking with us and our fellow hungry pals around the world!
+                              </p>
+                              
+                              
+                              <div class="center">
+                              <p>Sincerely,<br>
+                                <b>The MeatStick Team</b></p><br></div>
+             
+                            </div>
+                         
+                        
+                        </div>
+                    </td>
+                </tr>
+              
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center orange">
+                            <h1>Find us and stay in touch!</h1></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center div_color">
+                            <div class="social">
+                                <table class="social center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.facebook.com/TheTRUEMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png" alt="Like us on Facebook! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.instagram.com/themeatstickig/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png" alt="Follow us on Instagram! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://twitter.com/TrueMeatStick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/twitter_96.png" alt="Follow us on Twitter! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.youtube.com/c/Themeatstick?sub_confirmation=1"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/youtube_96.png" alt="Watch us on YouTube! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.pinterest.com/TRUEMeatStick/"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/pinterest_96.png" alt="Pin us on Pinterest! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                            <td>
+                                                <a href="https://www.linkedin.com/company/themeatstick"><img src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/linkedin_96.png" alt="Follow us on LinkedIn! " width="48" style="border:0;height:auto;line-height:100%;max-width:100%;width:48px;"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="center"><img src="https://d3k81ch9hvuctc.cloudfront.net/company/LmfaPB/images/234e967d-1dc3-4c84-a9c8-d506eb8e0fdb.png" style="max-width:600px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="navbar footerm center">
+                            <div class="center legal">
+                              <p>You are receiving this email because you created an account on The MeatStick App.</p>
+                                <p>© 2019 The MeatStick. All rights reserved. The MeatStick® is a registered trademarks of Soma Labs LLC. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Soma Labs LLC is under license. Patent Pending.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+</section>

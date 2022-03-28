@@ -1,0 +1,18 @@
+<script>
+if (window.Extend && window.ExtendShopify) {
+ var urlParams = new URLSearchParams(window.location.search);
+ var leadToken = urlParams.get('leadtoken');
+ if(leadToken) {
+  Extend.aftermarketModal.open({
+   leadToken: leadToken,
+   onClose: function(plan, product, quantity) {
+    if(plan && product) {
+     ExtendShopify.addPlanToCart({plan: plan, product: product, leadToken: leadToken, quantity: quantity || 1}, function() {
+       window.location = '/cart'
+     }) 
+    }
+   }
+  }) 
+ }
+}
+</script>

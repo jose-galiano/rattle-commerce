@@ -1,0 +1,35 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div id="nfp" class="account container">
+  <h1 class="collection_title">Uh-oh... {{ 'general.404.title' | t }}</h1>
+  
+</div>
+<div class="container"><img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/404-oops.jpg?v=1624617225"></div>
+<div class="container">
+  <div class="row">
+    <p class="quote">
+       
+      {{ 'general.404.subtext' | t }}
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <p class="">
+      {{ 'general.404.continue_shopping_html' | t }}
+    </p>
+  </div>
+  <div class="row">
+    <form class="search" action="/search">
+      <input type="text" name="q" class="search_box" placeholder="{{ 'general.search.placeholder' | t }}"  value="{{ search.terms }}"  />
+    </form>
+  </div>
+</div>
+
+{% include 'SEOManager-404' %}{%- comment -%}smartseo_integration_begin{%- endcomment -%}{{ 'smart-seo-broken-link-detection.js' | asset_url | script_tag }}{%- comment -%}smartseo_integration_end{%- endcomment -%}
+<style>
+div#nfp {
+    padding-top: 100px;
+}
+</style>

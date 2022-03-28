@@ -1,0 +1,51 @@
+{% if type == 'block' %}
+  {% assign products_limit = block.settings.products_limit %}
+  {% assign products_per = block.settings.products_per %}
+  {% assign bg_color = block.settings.bg_color %}
+  {% assign color_mo = block.settings.color_mo %}
+  {% assign color_de = block.settings.color_de %}
+{% else %}
+  {% assign products_limit = section.settings.products_limit %}
+  {% assign products_per = section.settings.products_per %}
+  {% assign bg_color = section.settings.bg_color %}
+  {% assign color_mo = section.settings.color_mo %}
+  {% assign color_de = section.settings.color_de %}
+{% endif %}
+
+
+
+{% if collection and collection.all_products_count > 1 %}
+  {% assign col = collection.handle %}
+{% else %}
+  {% assign col = product.collections.last.handle %}
+{% endif %}
+
+{% for tag in product.tags %}
+  {% if tag contains 'meta-related-collection-' %}
+    {% assign related_collection_handle = tag | remove: 'meta-related-collection-' %}
+    {% if collections[related_collection_handle].all_products_count > 0 %}
+      {% assign col = related_collection_handle %}
+      {% assign collection = collections[col] %}
+{{col}}
+{{collection}}
+{{related_collection_handle}}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if col %}
+  {% if collections[col].all_products_count != 1 or collections[col].products.first.id != product.id %}
+    {% assign skip_product = product %}
+    {% assign products = collections[col].products %}
+     
+      {% assign limit = products_limit %}
+      {% assign products_per = products_per %}
+      {% if col and collections[col].all_products_count > 0 %}
+          <div class="container">{{bg_color}}
+            {% include 'prd-ack-loop', related_products: true %}
+          </div>
+        
+      {% endif %}
+
+  {% endif %}
+{% endif %}

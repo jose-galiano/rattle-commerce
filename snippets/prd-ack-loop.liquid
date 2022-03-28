@@ -1,0 +1,151 @@
+{% assign product_found = false %}
+{% assign skip = false %}
+{% assign collection_group = products | map: 'id' %}
+{% assign collection_group_thumb = collection_group | append : 'thumb' %}
+{% assign collection_group_mobile = collection_group | append : 'mobile' %}
+
+{% if template contains 'collection' %}
+  {% assign matrixType = 'collection-matrix' %}
+{% elsif template contains 'search' %}
+  {% assign matrixType = 'search-matrix' %}
+{% assign products_per = 3 %}
+{% endif %}
+
+
+  
+  {% if template != 'search' %}
+
+<div id="{{id}}" class="desktop_vid container" itemtype="http://schema.org/ItemList" class="{{ matrixType }}" >
+  {% assign j = 0 %}
+  {% for product in products limit: products_limit %}
+    {% if product.id == skip_product.id or skip == true %}
+      {% assign product_found = true %}
+    {% else %}
+      {% if forloop.rindex0 == 0 and product_found == false and forloop.length != products.count and template != 'search' and template != 'index' and type != 'block' %}
+        {% assign skip = true %}
+      {% else %}
+		{% assign j = j | plus: 1 %}
+ {% endif %}
+
+	{% if products_per == 10 %}
+	{% cycle '<div class="row justify-content-center reng">','','','','','','','','','' %}
+    {% elsif products_per == 9 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','','','','' %}
+	{% elsif products_per == 8 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','','','' %}
+	{% elsif products_per == 7 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','','' %}
+    {% elsif products_per == 6 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','' %}
+	{% elsif products_per == 5 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','' %}
+	{% elsif products_per == 4 %}
+    {% cycle '<div class="row justify-content-center reng">','','','' %}
+	{% elsif products_per == 3 %}
+    {% cycle '<div class="row justify-content-center reng">','','' %}
+    {% elsif products_per == 2 %}
+	{% cycle '<div class="row justify-content-center reng">','' %}
+  	{% elsif products_per == 1 %}
+	<div class="row justify-content-center reng">
+	{% endif %}
+      
+       {% include 'prd-ack-thumb' %}
+	 {% if products_per == 10 %}
+     {% cycle '','','','','','','','','','</div>' %}
+     {% elsif products_per == 9 %}
+     {% cycle '','','','','','','','','</div>' %}
+     {% elsif products_per == 8 %}
+     {% cycle '','','','','','','','</div>' %}
+     {% elsif products_per == 7 %}
+     {% cycle '','','','','','','</div>' %}
+     {% elsif products_per == 6 %}
+     {% cycle '','','','','','</div>' %}
+     {% elsif products_per == 5 %}
+     {% cycle '','','','','</div>' %} 
+	 {% elsif products_per == 4 %}
+     {% cycle '','','','</div>' %} 
+	 {% elsif products_per == 3 %}
+     {% cycle '','','</div>' %} 
+     {% elsif products_per == 2 %}
+	 {% cycle '','</div>' %} 
+     {% elsif products_per == 1 %}
+	 </div>
+     {% endif %}
+
+{% endif %}
+{% endfor %}
+</div>
+</div>
+
+  {% else %}
+  
+  {% assign products_per = 4 %}
+	{% if products_per == 10 %}
+	{% cycle '<div class="row justify-content-center reng">','','','','','','','','','' %}
+    {% elsif products_per == 9 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','','','','' %}
+	{% elsif products_per == 8 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','','','' %}
+	{% elsif products_per == 7 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','','' %}
+    {% elsif products_per == 6 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','','' %}
+	{% elsif products_per == 5 %}
+    {% cycle '<div class="row justify-content-center reng">','','','','' %}
+	{% elsif products_per == 4 %}
+    {% cycle '<div class="row justify-content-center reng">','','','' %}
+	{% elsif products_per == 3 %}
+    {% cycle '<div class="row justify-content-center reng">','','' %}
+    {% elsif products_per == 2 %}
+	{% cycle '<div class="row justify-content-center reng">','' %}
+  	{% elsif products_per == 1 %}
+	<div class="row justify-content-center reng">
+	{% endif %}
+         {% include 'prd-ack-thumb' %}
+	 {% if products_per == 10 %}
+     {% cycle '','','','','','','','','','</div>' %}
+     {% elsif products_per == 9 %}
+     {% cycle '','','','','','','','','</div>' %}
+     {% elsif products_per == 8 %}
+     {% cycle '','','','','','','','</div>' %}
+     {% elsif products_per == 7 %}
+     {% cycle '','','','','','','</div>' %}
+     {% elsif products_per == 6 %}
+     {% cycle '','','','','','</div>' %}
+     {% elsif products_per == 5 %}
+     {% cycle '','','','','</div>' %} 
+	 {% elsif products_per == 4 %}
+     {% cycle '','','','</div>' %} 
+	 {% elsif products_per == 3 %}
+     {% cycle '','','</div>' %} 
+     {% elsif products_per == 2 %}
+	 {% cycle '','</div>' %} 
+     {% elsif products_per == 1 %}
+	 </div>
+     {% endif %}
+
+  
+  
+  {% endif %}
+  
+ <div class="mobile_vid container contrars" style="background-color:{{bg_color}}; padding-bottom: 30px;">
+  <div class="title-blog_section text-center"  ></div>
+ {% for product in products limit: products_limit %}
+<div class="row art-cardso">  
+     <div class="col-6">
+       <div class=frame>
+    <span class="helper"></span>
+    <img class="art-mob" src="{% if product.images[0] != blank %}{{ product.images[0] | img_url: '300x' }}{% else %}{{ product.featured_image | img_url: '300x' }}{% endif %}" class=" img-fluid lazyload" alt="{{ alt_text | escape }}"/>
+</div>
+   </div>
+
+     <div class="art-body col-6">
+<div class="art-tit-m"><h1 class="fs-6">{{ product.title | truncate: 30  }}</h1></div>
+<div class=" date_p "><small class="text-muted">{% include "prd-ack-inf" %}</small></div>
+<div class=" ">
+        </div>
+    </div>
+</div>
+  {% endfor %}        
+  </div>
+   

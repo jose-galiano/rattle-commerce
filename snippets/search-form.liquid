@@ -1,0 +1,33 @@
+{% if type == 'block' %}
+  {% assign search_term = block.settings.search_term %}
+{% else %}
+  {% assign search_term = section.settings.search_term %}
+{% endif %}
+
+
+
+
+<style>
+  .search-results li.item-result:hover { background: {{ settings.link_color | color_modify: 'alpha', 0.50  }}; }
+  
+</style>
+
+<div class="container {% if template contains "search"%} bar-padd{% else %} bar-pad-el  {% endif %}" data-autocomplete-{{ settings.enable_autocomplete }} >
+<div class="search__wrapper text-center">
+  {% if template contains "search"%}{% else %}<div class="center"><h3>{{ 'general.search.description' | t }}</h3></div>{% endif %}
+  
+  <form class="search search__form" action="{{ routes.search_url }}">
+<div class="input-group">
+  <div class="form-outline flex-fill  ">
+    <input type="text" name="q" placeholder="{{ search_term }}" value="{{ search.terms | replace: '*', ''}}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" />
+    <input type="hidden" name="type" value="product,page,article" />
+    <label class="form-label" for="form1">Search</label>
+  </div>
+  <button type="submit" name="submit" class="btn btn-primary icon-search" value=" ">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+   </form>
+</div>
+</div>
+

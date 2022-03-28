@@ -1,0 +1,40 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign divider_border = block.settings.divider_border %}
+  {% assign divider_spacing = block.settings.divider_spacing %}
+  {% assign divider_color_bg = block.settings.line_color %}
+  {% assign divider_style = block.settings.border_style %}
+  {% assign divider_size = block.settings.divider_size %}
+  {% assign bg_color = block.settings.bg_color %}
+  {% assign screen_size = block.settings.screen_size %}
+  {% assign devicer = block.settings.devicer %}
+
+
+{% else %}
+  {% assign id = section.id %}
+  {% assign divider_border = section.settings.divider_border %}
+  {% assign divider_spacing = section.settings.divider_spacing %}
+  {% assign divider_color_bg = section.settings.line_color  %}
+  {% assign divider_style = section.settings.border_style %}
+  {% assign divider_size = section.settings.divider_size %}
+  {% assign bg_color = section.settings.bg_color %}
+  {% assign screen_size = section.settings.screen_size %}
+  {% assign devicer = section.settings.devicer %}	
+{% endif %}
+
+<div class="no-print{%if devicer == 'true' %}mobile_vid {% elsif devicer == 'false'%} desktop_vid {%else%} {% endif %}{% if screen_size %}container-fluid {%else%} container {%endif%}" style="background-color:{{bg_color}} ;padding:{{divider_spacing}}px 0 {{divider_spacing}}px 0">
+  <div class="{% if screen_size %}container-fluid {%else%} container {%endif%}">
+    <hr class="page-divider {% if divider_border %} active-divider-{{id}}  {% else %} ghost-divider-{{id}}  {%endif%}">
+  </div>
+</div>
+
+<style>
+  
+  .active-divider-{{id}} {
+    border: {{divider_size}}px {{divider_style}} {{divider_color_bg}};
+}
+  .ghost-divider-{{id}}{
+  border: none;
+  }
+ 
+</style>

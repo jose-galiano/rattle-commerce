@@ -1,0 +1,273 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign aspect_ratio = block.settings.aspect_ratio %}
+      {% assign autoplay = true %}
+      {% assign autoloop = true %}
+  {% assign video_dark_overlay = block.settings.video_dark_overlay %}
+  {% if mp4 == blank %}
+    {% assign mp4 = block.settings.mp4 %}
+    {% assign ogv = block.settings.ogv %}
+    {% assign mp4_m = block.settings.mp4_m %}
+    {% assign ogv_m = block.settings.ogv_m %}
+    
+  {% endif %}
+{% assign banner = block.settings.banner %}
+  {% assign display_text_over_video = block.settings.display_text_over_video %}
+  {% assign pretext = block.settings.pretext %}
+  {% assign title = block.settings.title %}
+  {% assign subtitle = block.settings.subtitle %}
+  {% assign text_position = block.settings.text_position %}
+  {% assign text_align = block.settings.text_align %}
+  {% assign caption_background = block.settings.caption_background %}
+  {% assign caption_background_transparency = block.settings.caption_background_transparency %}
+  {% assign button1_label = block.settings.button1_label %}
+  {% assign button1_link = block.settings.button1_link %}
+  {% assign button1_highlight = block.settings.button1_highlight %}
+  {% assign button2_label = block.settings.button2_label %}
+  {% assign button2_link = block.settings.button2_link %}
+  {% assign button2_highlight = block.settings.button2_highlight %}
+  {% assign head_line_height = block.settings.head_line_height %}
+  {% assign head_line_color = block.settings.head_line_color %}
+  {% assign head_font_size = block.settings.head_font_size %}
+  {% assign sub_font_size = block.settings.sub_font_size %}
+  {% assign link_color = block.settings.link_color %}
+  {% assign link_color_m = block.settings.link_color_m %}
+  {% assign link_h_color = block.settings.link_h_color %}
+  {% assign link_h_color_m = block.settings.link_h_color_m %}
+  {% assign bg_color = block.settings.bg_color %}
+  {% assign font_color_m = block.settings.font_color_m %}
+  {% assign pretext_size = block.settings.pretext_size %}
+  {% assign pretext_color = block.settings.pretext_color %}
+  {% assign subtitle_color = block.settings.subtitle_color %}
+  {% assign head_font_size_m = block.settings.head_font_size_m %}
+  {% assign head_line_color_m = block.settings.head_line_color_m %}
+  {% assign head_line_height_m = block.settings.head_line_height_m %}
+  {% assign pretext_size_m = block.settings.pretext_size_m %}
+  {% assign pretext_color_m = block.settings.pretext_color_m %}
+  {% assign sub_font_size_m = block.settings.sub_font_size_m %}
+  {% assign subtitle_color_m = block.settings.subtitle_color_m %}
+  {% assign mobile_bg = block.settings.mobile_bg %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign wide_display = section.settings.wide_display %}
+  {% assign aspect_ratio = section.settings.aspect_ratio %}
+      {% assign autoplay = true %}
+      {% assign autoloop = true %}
+  {% assign video_dark_overlay = section.settings.video_dark_overlay %}
+     {% if mp4 == blank %}
+      {% assign mp4 = section.settings.mp4 %}
+      {% assign ogv = section.settings.ogv %}
+      {% assign mp4_m = section.settings.mp4_m %}
+      {% assign ogv_m = section.settings.ogv_m %}
+      {% assign banner = section.settings.banner %}
+     {% endif %}
+
+  {% assign display_text_over_video = section.settings.display_text_over_video %}
+  {% assign pretext = section.settings.pretext %}
+  {% assign title = section.settings.title %}
+  {% assign subtitle = section.settings.subtitle %}
+  {% assign text_position = section.settings.text_position %}
+  {% assign text_align = section.settings.text_align %}
+  {% assign caption_background = section.settings.caption_background %}
+  {% assign caption_background_transparency = section.settings.caption_background_transparency %}
+  {% assign button1_label = section.settings.button1_label %}
+  {% assign button1_link = section.settings.button1_link %}
+  {% assign button1_highlight = section.settings.button1_highlight %}
+  {% assign button2_label = section.settings.button2_label %}
+  {% assign button2_link = section.settings.button2_link %}
+  {% assign button2_highlight = section.settings.button2_highlight %}
+  {% assign head_line_height = section.settings.head_line_height %}
+  {% assign head_line_color = section.settings.head_line_color %}
+  {% assign head_font_size = section.settings.head_font_size %}
+  {% assign sub_font_size = section.settings.sub_font_size %}
+  {% assign link_color = section.settings.link_color %}
+  {% assign link_color_m = section.settings.link_color_m %}
+  {% assign link_h_color = section.settings.link_h_color %}
+  {% assign link_h_color_m = section.settings.link_h_color_m %}
+  {% assign bg_color = section.settings.bg_color %}
+  {% assign font_color_m = section.settings.font_color_m %}
+  {% assign video_text_align = section.settings.video_text_align %}
+  {% assign pretext_size = section.settings.pretext_size %}
+  {% assign pretext_color = section.settings.pretext_color %}
+  {% assign subtitle_color = section.settings.subtitle_color %}
+  {% assign head_font_size_m = section.settings.head_font_size_m %}
+  {% assign head_line_color_m = section.settings.head_line_color_m %}
+  {% assign pretext_size_m = section.settings.pretext_size_m %}
+  {% assign pretext_color_m = section.settings.pretext_color_m %}
+  {% assign sub_font_size_m = section.settings.sub_font_size_m %}
+  {% assign subtitle_color_m = section.settings.subtitle_color_m %}
+  {% assign head_line_height_m = section.settings.head_line_height_m %}
+  {% assign mobile_bg = section.settings.mobile_bg %}
+{% endif %}
+
+{% comment %}Turn autoplay true/false into 1/0{% endcomment %}
+{% if autoplay == true %}
+  {% assign numberAutoplay = 1 %}
+  {% assign html5Autoplay = 'autoplay' %}
+{% else %}
+  {% assign numberAutoplay = 0 %}
+  {% assign html5Autoplay = '' %}
+{% endif %}
+
+{% comment %}Turn autoloop true/false into 1/0{% endcomment %}
+{% if autoloop == true %}
+  {% assign numberAutoloop = 1 %}
+  {% assign html5Autoloop = 'loop="loop"' %}
+{% else %}
+  {% assign numberAutoloop = 0 %}
+  {% assign html5Autoloop = '' %}
+{% endif %}
+
+{% comment %}Special check to display video preview if banner == false and autoplay is off{% endcomment %}
+{% if banner == blank and autoplay == false %}
+  {% assign autoplay = true %}
+  {% assign displayText = false %}
+{% endif %}
+
+ <video class="video-fluid desktop_vid" autoplay loop muted playsinline {% if banner %}
+          data-thumbnail="{{ banner }}"
+          {% endif %}
+          data-src="{{ iframeURL }}"
+          data-mp4="{{ mp4 }}"
+          data-ogv="{{ ogv }}"
+          data-ratio="{{ aspect_ratio }}"
+          data-init="{{ autoplay }}"
+          data-text-on-video="{{ display_text_over_video }}">
+  <source src="{{ mp4 }}" type="video/mp4">
+  <img src="{{ banner }}">
+</video>
+    
+    
+<section  class="mobile_vid embed-responsive embed-responsive-1by1">
+  
+ <video autoplay loop muted playsinline data-thumbnail="{{ banner}}">
+  <source src="{{ mp4_m }}">
+  <img src="{{ banner_m }}">
+</video>
+
+</section>
+
+    
+
+{% unless pretext == blank and title == blank and subtitle == blank and button1_label == blank and button2_label == blank %}
+  {% unless banner == blank and displayText == false and display_text_over_video == false %}
+    <section class="video-autoplay--{{autoplay}} {% if useLazyframe != true %}html-video{% endif %} text-{{ video_text_align }} caption js-caption {% if display_text_over_video %}text-on-video{% endif %} outside-homepage-video {% if pretext != blank or title != blank or subtitle != blank %}caption--has-content{% endif %}">
+      <div id="intro_text" class="container">
+        {% if pretext != blank %}
+          <div class="vidovrly pretext">
+            {{ pretext }}
+        </div>
+        {% endif %}
+        {% if title != blank %}
+          <h1 class="vidovrly headline">
+            {{ title }}
+          </h1>
+        {% endif %}
+        {% if subtitle != blank %}
+          <div class="vidovrly subtitle">
+            {{ subtitle }}
+          </div>
+        {% endif %}
+        {% if button1_label != blank %}
+          <a data-no-instant {% if button1_link != blank %}href="{{ button1_link }}"{% else %}data-play-video-button{% endif %} class="btn waves-effect waves-light {% if button1_highlight %} btn-primary  {%else%} btn-outline-primary {%endif%}">
+            {{ button1_label }}
+          </a>
+        {% endif %}
+        {% if button2_label != blank and button2_link != blank %}
+          <a data-no-instant href="{{ button2_link }}" class="btn waves-effect waves-light{% if button2_highlight %} btn-primary  {%else%} btn-outline-primary {%endif%}">
+            {{ button2_label }} 
+          </a>
+        {% endif %}
+      </div>
+    </section>
+  {% endunless %}
+{% endunless %}
+
+<style>
+
+@media (min-width: 993px){
+  .darken-video {
+  display: block;
+  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+}
+  .caption {
+   z-index: 30;
+	}
+    .subtitle a {
+      color: {{link_color}} !important;
+    }
+    .subtitle a:hover {
+      color: {{link_h_color}} !important;
+    }
+     .vidovrly.pretext{
+      color:{{pretext_color}}; 
+      line-height: {{head_line_height}}px; 
+      font-size:{{pretext_size}}px
+     }
+    .vidovrly.headline{
+      color:{{head_line_color}}; 
+      line-height: {{head_line_height}}px; 
+      font-size:{{head_font_size}}px
+    }
+    .vidovrly.subtitle p {
+    color:{{subtitle_color}}; 
+    font-size: {{sub_font_size}}px;
+    line-height: {{head_line_height}}px
+    }
+  
+  }
+  
+@media (max-width: 992px){
+    .subtitle a {
+      color: {{link_color_m}} !important;
+    }
+    .subtitle a:hover {
+      color: {{link_h_color_m}} !important;
+    }
+    .caption {
+    margin: 0px auto;
+    padding-top: 15px;  
+    font-size: 3vw;
+    position: static !important;
+    transform: none;
+    width: 100%;
+    background-color:{{mobile_bg}};
+    -ms-transform: unset !important;
+    -webkit-transform: unset !important;
+    transform: unset !important;
+	}
+   .vidovrly.pretext{
+      color:{{pretext_color_m}}; 
+      line-height: {{head_line_height_m}}px; 
+      font-size:{{pretext_size_m}}px
+     }
+   .vidovrly.headline{
+      color:{{head_line_color_m}}; 
+      line-height: {{head_line_height_m}}px; 
+      font-size:{{head_font_size_m}}px
+    }
+    .vidovrly.subtitle p {
+    color:{{subtitle_color_m}}; 
+    font-size: {{sub_font_size_m}}px;
+    line-height: {{head_line_height_m}}px
+    }
+  
+  }
+  
+  {% if autoplay %}
+    .homepage-video__placeholder {
+      visibility: hidden;
+    }
+  {% endif %}
+
+</style>
+
+

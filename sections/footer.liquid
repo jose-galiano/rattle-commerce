@@ -1,0 +1,423 @@
+<footer class="footer footer-collapse">
+    
+<div class="container-fluid help-box">
+  <div class="container">
+  <div class="row nhbwtbo">
+  <div class="nhb col-md-6 text-center">
+    <div class="desktop_vid text-center">
+      <h1><i class="fas fa-headset"></i></h1>
+      <h1>{{ 'products.product.need_help' | t }}</h1>
+    </div>
+    
+    <h1 class="mobile_vid"><i class="fas fa-headset"></i> {{ 'products.product.need_help' | t }} </h1>
+  <p>{{ 'products.product.contact_prompt' | t }}</p>
+<a href = "mailto: {{ 'products.product.contact_email' | t }}"><i class="fa fa-envelope"></i> {{ 'products.product.contact_email' | t }}</a>  
+  </div>
+    <div class="wtbo col-md-6 text-center">
+      <div class="desktop_vid text-center">
+      <h1><i class="fas fa-globe-americas"></i></h1>
+      <h1>  {{ 'products.product.botit' | t }}</h1>
+      </div>
+      <h1 class="mobile_vid"><i class="fas fa-globe-americas"></i> {{ 'products.product.botit' | t }}</h1>
+  <p>{{ 'products.product.botit_prompt' | t }}</p>
+<a href = "{{ 'products.product.botit_link' | t }}"><i class="fas fa-map-marked-alt"></i> {{ 'products.product.botit_cta' | t }}</a>  
+  </div>
+  </div>
+    <div class="text-center">
+      <button class="btn btn-primary">{{ 'products.product.buy_now' | t }}</button>
+    </div>
+  </div>
+  </div>
+  
+<div class="container-fluid bg_first">
+<div class="container footer logo-container">
+	<div class="row">
+		<div class="text-left">
+          {% for block in section.blocks %}
+           {% if block.settings.image %}
+          <img  alt="{{ block.settings.image.alt | escape }}"
+                      class="footer-logo lazyload {{ settings.image_loading_style }}"
+                      data-sizes="25vw"
+                      style="max-width: {{- block.settings.image.width -}}px"
+                      data-src="{{ block.settings.image | img_url: '2048x' }}"
+                      data-srcset=" {{ block.settings.image | img_url: '200x' }} 200w,
+                                    {{ block.settings.image | img_url: '300x' }} 300w,
+                                    {{ block.settings.image | img_url: '400x' }} 400w,
+                                    {{ block.settings.image | img_url: '500x' }} 500w,
+                                    {{ block.settings.image | img_url: '600x' }} 600w,
+                                    {{ block.settings.image | img_url: '1000x' }} 1000w"/>
+          {% endif %}
+      {%endfor%}
+		</div>
+	</div>
+  
+  
+  
+  
+  <div class="accordion bg_first mobile_vid" id="footerMobile">
+       {% for block in section.blocks %}
+            {% if block.type == 'link_list' %}
+            {% assign i = i | plus: 1 %} 
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-heading{{i}}">
+      <button
+        class="accordion-button collapsed bg_first text-white"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#flush-collapse{{i}}"
+        aria-expanded="false"
+        aria-controls="flush-collapse{{i}}"
+      >
+        {% if block.settings.menu != blank %}
+         <p class="menu_titles"><b>{{ block.settings.menu-title }}</b> </p>
+      </button>
+    </h2>
+    <div
+      id="flush-collapse{{i}}"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-heading{{i}}"
+      data-mdb-parent="#footerMobile"
+    >
+      <div class="accordion-body">
+       <ul class="widget-list list-unstyled p-0">
+                    {% for link in linklists[block.settings.menu].links %}
+                      <li><p><a href="{{ link.url }}" {% if link.title == 'FAQ' %}data-no-instant{% endif %}>{{ link.title }}</a></p></li>
+                    {% endfor %}
+                  </ul>
+      </div>
+    </div>
+  </div>
+    {% endif %} 
+  {%endif%}
+    {%endfor%}
+</div>
+  
+  <div class="container desktop_vid">
+	<div class="row">
+		<div class="col-md-6">
+          <div class="klaviyo-form-RhSUM9"></div>
+		</div>
+		{% for block in section.blocks %}
+            {% if block.type == 'link_list' %}
+            {% assign i = i | plus: 1 %}
+      <div class="col-md-2">
+	{% if block.settings.menu != blank %}
+        <p class="menu_titles"><b>{{ block.settings.menu-title }}</b> </p>
+                <div class="toggle_content">
+                  <ul class="widget-list list-unstyled p-0">
+                    {% for link in linklists[block.settings.menu].links %}
+                      <li><p><a href="{{ link.url }}" {% if link.title == 'FAQ' %}data-no-instant{% endif %}>{{ link.title }}</a></p></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% else %}
+                <h6>Menu title<span class="right"><i class="fas fa-chevron-down"></i></span></h6>
+                <div class="toggle_content">
+                  <ul>
+                    <li><p>{{ 'homepage.onboarding.no_content' | t }}</p></li>
+                  </ul>
+                </div>
+      </div>
+              {% endif %}  
+      
+      </div>
+            {% endif %}
+      {% endfor %}
+	</div>
+</div>
+  
+
+</div>
+
+<div class="container-fluid bg_second">
+<div class="container ">
+	<div class="row">
+      <div class="col-md-4 footard">
+        <div>
+          <h1>{{ 'general.footer.any_questions' | t }}</h1>
+          <p>{{ 'general.footer.questions_blurb' | t }}</p>
+        </div>
+        <div class="footard btmc">
+        <a href="{{ 'general.footer.contact_method_link' | t }}"  target="_blank">  
+        <span class="right"><i class="{{ 'general.footer.contact_method_icon' | t }}"></i></span> {{ 'general.footer.contact_method' | t }}
+        </a> 
+        </div>
+		</div>
+		<div class="col-md-4 footard">
+        <div>
+          <h1>{{ 'general.footer.professional_consultation' | t }}</h1>
+          <p>{{ 'general.footer.prof_blurb' | t }}</p>
+        </div>
+        <div class="footard btmc">
+        <a href="{{ 'general.footer.prof_method_link' | t }}"  target="_blank">  
+        <span class="right"><i class="{{ 'general.footer.prof_method_icon' | t }}"></i></span> {{ 'general.footer.prof_method' | t }}
+        </a> 
+        </div>
+		</div>
+       <div class="col-md-4 footard">
+        <div>
+          <h1>{{ 'general.footer.support_center' | t }}</h1>
+          <p>{{ 'general.footer.support_blurb' | t }}</p>
+        </div>
+        <div class="footard btmc">
+        <a href="{{ 'general.footer.support_method_link' | t }}"  target="_blank">  
+        <span class="right"><i class="{{ 'general.footer.support_method_icon' | t }}"></i></span> {{ 'general.footer.support_method' | t }}
+        </a> 
+        </div>
+		</div>
+	</div>
+</div>
+  </div>
+  
+<div class="container-fluid bg_third text-center">
+  <div class="container ">
+	<div class="row">
+		<div class="col-md-12">{% include 'social-icons' %}
+          <div class="container">
+        <p class="credits center">
+          &copy; {{ "now" | date: "%Y" }} {{ shop.name | link_to: '/' }}.
+          {{ section.settings.copyright_text }}
+          {% if section.settings.display_designed_by %}
+            {{ 'layout.general.designer_credits_html' | t }}
+          {% endif %}
+         
+        </p>
+		</div>
+     
+      <div class="container">
+        {% if section.settings.display_payment_methods %}
+          <div class="payment_methods">
+            {% for type in shop.enabled_payment_types %}
+              {{ type | payment_type_svg_tag: class:'payment-icon' }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        
+        <p style="text-align:center;">Proudly manufactured in Taiwan. </p>
+		</div>
+	</div>
+</div>
+  </div>
+  </div>
+</footer>
+
+<style>
+  .accordion-item {
+    background-color: unset;
+    border: 1px solid rgba(0,0,0,.125);
+}
+  .bg_first{
+    {{section.settings.gradient_bg_f}}
+  }
+    .bg_second{
+    {{section.settings.gradient_bg_s}}
+  }
+    .bg_third{
+    {{section.settings.gradient_bg_t}}
+  }
+
+</style>
+
+
+
+{% schema %}
+
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "max_blocks": 30,
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_designed_by",
+      "label": "Show theme designer credits",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_payment_methods",
+      "label": "Show payment method icons",
+      "default": true
+    },
+	{
+      "type": "text",
+      "id": "gradient_bg_f",
+      "label": "Gradient First Section"
+    },
+	{
+      "type": "text",
+      "id": "gradient_bg_s",
+      "label": "Gradient Second Section"
+    },
+	{
+      "type": "text",
+      "id": "gradient_bg_t",
+      "label": "Gradient Third Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Logo alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Subscribe today!"
+        },
+        {
+          "type": "richtext",
+          "id": "newsletter_text",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_firstname",
+          "label": "Show first name"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_lastname",
+          "label": "Show last name"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "label": "Show social media icons"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        },
+        {
+          
+          "type": "text",
+          "id": "menu-title",
+          "label": "Menu Title"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Content page"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "empty",
+      "name": "Empty column",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "logo"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "text"
+      }
+    ]
+  }
+}
+
+{% endschema %}

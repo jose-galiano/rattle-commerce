@@ -1,0 +1,26 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign gr_bg_param = block.settings.gr_bg_param %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign gr_bg_param = section.settings.gr_bg_param %}
+{% endif %}
+
+<div class="container-fluid bg_gr social_feed">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="social_feed tagline">
+        {{ 'homepage.social_feed.section_title' | t }}
+      </h1>
+    </div>
+  </div>
+  
+  <div class="elfsight-sapp-6e7e1571-098e-4c3e-8006-fac0496725a7"></div>
+</div>
+
+<style>
+  .bg_gr{
+    {{gr_bg_param}}
+  }
+  
+</style>

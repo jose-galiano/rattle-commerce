@@ -1,0 +1,99 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign scv_mp4 = block.settings.scv_mp4 %}
+  {% assign scv_mp4_m = block.settings.scv_mp4_m %}
+
+{% else %}
+
+  {% assign id = section.id %}
+  {% assign wide_display = section.settings.wide_display %}
+  {% assign scv_mp4 = section.settings.scv_mp4 %}
+  {% assign scv_mp4_m = section.settings.scv_mp4_m %}
+
+{% endif %}
+
+
+<div class="desktop_vid container-fluid">
+	<div id="bound-one" class="scroll-bound">
+		<div class="content">
+          	<video width="600" muted preload>
+				<source src="https://cdn.shopify.com/s/files/1/0276/4174/1415/files/Printing_area-1fps-rev.mp4?v=1632372586" type="video/webm">
+      </video>
+		</div>
+	</div>
+</div>
+
+<style>
+  @media only screen and (max-width: 478px){
+  .scroll-bound {
+  height: 500vh !important;
+}
+.scroll-bound .content {
+  height: 100vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-bound video {
+  width: 100% !important;
+}
+  
+  }
+  
+
+#bound-one {
+  background: #FFF;
+}
+
+
+
+.scroll-bound {
+  height: 500vh;
+}
+.scroll-bound .content {
+  height: 100vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-bound video {
+  width: auto;
+}
+</style>
+
+
+<script>
+  
+  const registerVideo = (bound, video) => {
+	bound = document.querySelector(bound);
+	video = document.querySelector(video);
+    
+	const scrollVideo = ()=>{
+		if(video.duration) {
+			const distanceFromTop = window.scrollY + bound.getBoundingClientRect().top;
+			const rawPercentScrolled = (window.scrollY - distanceFromTop) / (bound.scrollHeight - window.innerHeight);
+			const percentScrolled = Math.min(Math.max(rawPercentScrolled, 0), 1);
+			
+			video.currentTime = video.duration * percentScrolled;
+
+		}
+		requestAnimationFrame(scrollVideo);
+
+	}
+	requestAnimationFrame(scrollVideo);
+
+}
+
+
+registerVideo("#bound-one", "#bound-one video");
+  
+</script>

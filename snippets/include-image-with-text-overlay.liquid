@@ -1,0 +1,187 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign image = block.settings.image %}
+  {% assign image_m = block.settings.image_m %}
+  {% assign pretext = block.settings.pretext %}
+  {% assign title = block.settings.title %}
+  {% assign subtitle = block.settings.subtitle %}
+  {% assign caption_background = block.settings.caption_background %}
+  {% assign caption_background_transparency = block.settings.caption_background_transparency %}
+  {% assign block_position = block.settings.text_position %}
+  {% assign text_align = block.settings.text_align %}
+  {% assign button1 = block.settings.button1 %}
+  {% assign button1_link = block.settings.button1_link %}
+  {% assign button1_highlight = block.settings.button1_highlight %}
+  {% assign button2 = block.settings.button2 %}
+  {% assign button2_link = block.settings.button2_link %}
+  {% assign button2_highlight = block.settings.button2_highlight %}
+  {% assign preh_font_size = block.settings.preh_font_size %}
+  {% assign preh_line_height = block.settings.preh_line_height %}
+  {% assign head_line_height = block.settings.head_line_height %}
+  {% assign head_font_size = block.settings.head_font_size %}
+  {% assign sub_line_height = block.settings.sub_line_height %}
+  {% assign sub_font_size = block.settings.sub_font_size %}
+  {% assign head_font_color = block.settings.head_font_color %}
+  {% assign preh_font_color = block.settings.preh_font_color %}
+  {% assign subtitle_font_color = block.settings.subtitle_font_color %}
+  {% assign link_hover_color = block.settings.link_hover_color %}
+  {% assign link_font_color = block.settings.link_font_color %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign wide_display = section.settings.wide_display %}
+  {% assign image = section.settings.image %}
+  {% assign image_m = section.settings.image_m %}
+  {% assign pretext = section.settings.pretext %}
+  {% assign title = section.settings.title %}
+  {% assign subtitle = section.settings.subtitle %}
+  {% assign pretext_mobile = section.settings.pretext_mobile %}
+  {% assign title_mobile = section.settings.title_mobile %}
+  {% assign subtitle_mobile = section.settings.subtitle_mobile %}
+  {% assign caption_background = section.settings.caption_background %}
+  {% assign caption_background_transparency = section.settings.caption_background_transparency %}
+  {% assign block_position = section.settings.text_position %}
+  {% assign text_align = section.settings.text_align %}
+  {% assign button1 = section.settings.button1 %}
+  {% assign button1_link = section.settings.button1_link %}
+  {% assign button1_highlight = section.settings.button1_highlight %}
+  {% assign button2 = section.settings.button2 %}
+  {% assign button2_link = section.settings.button2_link %}
+  {% assign button2_highlight = section.settings.button2_highlight %}
+  {% assign preh_font_size = section.settings.preh_font_size %}
+  {% assign preh_line_height = section.settings.preh_line_height %}
+  {% assign head_font_size = section.settings.head_font_size %}
+  {% assign head_line_height = section.settings.head_line_height %}
+  {% assign sub_font_size = section.settings.sub_font_size %}
+  {% assign sub_line_height = section.settings.sub_line_height %}
+  {% assign head_font_color = section.settings.head_font_color %}
+  {% assign preh_font_color = section.settings.preh_font_color %}
+  {% assign subtitle_font_color = section.settings.subtitle_font_color %}
+  {% assign link_hover_color = section.settings.link_hover_color %}
+  {% assign link_font_color = section.settings.link_font_color %}
+{% endif %}
+
+ 
+
+<div id="banner-{{id}}" class="{%if wide_display %}container-fluid {%else%}container{%endif%}">
+  {% if image != nil %}
+    <img src="{{ image.src | img_url: '3000x' }}" alt="{{image.alt}}" class="img-fluid" id="img--{{id}}"> 
+  {% else %}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+  {% endif %}
+  {% unless pretext == blank and title == blank and subtitle == blank and button1 == blank and button2 == blank %}
+    <div class="row caption d-flex {{ block_position }}">
+      <div class="text-{{ text_align }}">         
+         {% if pretext != blank %}
+          <div class="pretext">
+            {% if template contains "account" %}
+            <p>Welcome back, {{customer.name}}</p>
+            {% endif %}
+            {{ pretext }} 
+          </div>
+        {% endif %}
+        {% if title != blank %}
+          <h1 class="iwtoh headline">
+                  {{ title }}
+          </h1>
+        {% endif %}
+        {% if subtitle != blank %}
+          <div id="sub" class="iwtos subtitle">
+            {{ subtitle }}
+          </div>
+        {% endif %}
+        {% if button1 != blank %}
+          <a {% if button1_link != blank %}href="{{ button1_link }}"{% endif %} class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            {{ button1 }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="{{ caption_background }} -{{ caption_background_transparency }} align-{{ text_align }}">
+        {% if pretext_mobile != blank %}
+          <div class="pretext">
+                        {% if template contains "account" %}
+            <p>Welcome back, {{customer.name}}</p>
+            {% endif %}
+            {{ pretext_mobile }}
+          </div>
+        {% endif %}
+        {% if title_mobile != blank %}
+          <h1 class="headline">
+            {{ title_mobile }}
+          </h1>
+        {% endif %}
+        {% if subtitle_mobile != blank %}
+          <div class="subtitle">
+            {{ subtitle_mobile }}
+          </div>
+        {% endif %}
+        
+       
+      </div>
+    </div>
+  {% endunless %}
+</div>
+
+
+<style>
+  .caption {
+        position: sticky;
+        -ms-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -250%);
+    transform: translate(0, -250%);
+}
+  
+  #pagecontent{
+  padding:0px!important;
+  }
+  .pretext p{
+    font-size:{{ preh_font_size }};
+    line-height:{{ preh_line_height }};
+    color:{{preh_font_color}};
+  }
+  .iwtoh, .headline h1, h2{
+  font-size:{{ head_font_size }}px !important;
+  line-height:{{ head_line_height }}px !important;
+  color:{{head_font_color}} !important;
+  }
+  
+  .iwtos, .subtitle p{
+   font-size:{{ sub_font_size }}px !important;
+   line-height:{{ sub_line_height }}px !important;
+    color:{{subtitle_font_color }};
+  }
+
+  .subtitle a{
+    color:{{link_font_color}};
+  }
+  .subtitle a:hover{
+  color:{{link_hover_color}};
+  }
+  
+.iwtohp{
+    background-image: url('{{ image.src | img_url: '1000x' }}')!important;
+    background-repeat: repeat-x;
+    height: 45em;
+    background-position: center;
+    background-size: cover;
+  }
+  
+ @media only screen and (max-width: 479px) {
+.iwtohp {
+    background-image: url({{ image_m.src | img_url: '1000x' }})!important;
+    background-repeat: repeat-x;
+    height: 25em;
+    background-position: center;
+    background-size: cover;
+    }
+   .caption {
+     margin: 0px !important;
+            }
+ }
+  
+  @media only screen and (max-width: 798px)
+{
+
+}
+</style>
+

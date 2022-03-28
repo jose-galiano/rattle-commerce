@@ -1,0 +1,132 @@
+<div class="container text-center" style="padding-top:80px">
+<div class="row">
+<div class="col text-center">
+  <h1>Press Release</h1>
+</div> 
+{% assign articles_per = 3 %}
+</div> 
+  <div id="{{id}}" class="desktop_vid {%if wide_display %}container-fluid {%else%}container{%endif%}" >
+  <div class="title-blog_section text-center"  ><h1 style="color:{{color_de}}";> </h1></div>
+  {% paginate blogs.press-releases.articles by 3 %}
+{% for article in blogs.press-releases.articles %}
+	{% if articles_per == 10 %}
+	{% cycle '<div class="row justify-content-center">','','','','','','','','','' %}
+    {% elsif articles_per == 9 %}
+    {% cycle '<div class="row justify-content-center">','','','','','','','','' %}
+	{% elsif articles_per == 8 %}
+    {% cycle '<div class="row justify-content-center">','','','','','','','' %}
+	{% elsif articles_per == 7 %}
+    {% cycle '<div class="row justify-content-center">','','','','','','' %}
+    {% elsif articles_per == 6 %}
+    {% cycle '<div class="row justify-content-center">','','','','','' %}
+	{% elsif articles_per == 5 %}
+    {% cycle '<div class="row justify-content-center">','','','','' %}
+	{% elsif articles_per == 4 %}
+    {% cycle '<div class="row justify-content-center">','','','' %}
+	{% elsif articles_per == 3 %}
+    {% cycle '<div class="row justify-content-center">','','' %}
+    {% elsif articles_per == 2 %}
+	{% cycle '<div class="row justify-content-center">','' %}
+  	{% elsif articles_per == 1 %}
+	<div class="row justify-content-center">
+	{% endif %}
+       {% include 'press-article-loop' %}
+	 {% if articles_per == 10 %}
+     {% cycle '','','','','','','','','','</div>' %}
+     {% elsif articles_per == 9 %}
+     {% cycle '','','','','','','','','</div>' %}
+     {% elsif articles_per == 8 %}
+     {% cycle '','','','','','','','</div>' %}
+     {% elsif articles_per == 7 %}
+     {% cycle '','','','','','','</div>' %}
+     {% elsif articles_per == 6 %}
+     {% cycle '','','','','','</div>' %}
+     {% elsif articles_per == 5 %}
+     {% cycle '','','','','</div>' %} 
+	 {% elsif articles_per == 4 %}
+     {% cycle '','','','</div>' %} 
+	 {% elsif articles_per == 3 %}
+     {% cycle '','','</div>' %} 
+     {% elsif articles_per == 2 %}
+	 {% cycle '','</div>' %} 
+     {% elsif articles_per == 1 %}
+	 </div>
+     {% endif %}
+{% endfor %}
+  
+ <div class="container text-center">
+   <div class="row paginate_link">
+  	{% if paginate.previous.is_link %}
+   <p class="paginate_link"> <a class="paginate_link" href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a></p>
+    {% endif %} 
+    {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+   <p class="paginate_link"><a class="paginate_link" href="{{ part.url }}">{{ part.title }}</a></p>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+   <p class="paginate_link"><b>{{ part.title }}</b></p>
+            {%- else -%}
+           <p class="paginate_link">{{ part.title }}</p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%} 
+     {% if paginate.next.is_link %}
+     <p class="paginate_link"><a class="paginate_link" href="{{ paginate.next.url }}">{{ paginate.next.title }}</a></p>
+      {% endif %}
+   </div>
+</div>
+  {% endpaginate %}
+</div>
+</div>
+  
+</div> 
+
+<div class="mobile_vid container contrars" style="background-color:{{bg_color}}; padding-bottom: 30px;">
+  {% paginate blogs.press-releases.articles by 5 %}
+{% for article in blogs.press-releases.articles %}
+ <div class="row art-cardso">  
+
+     <div class="col-6">
+       <div class=frame>
+    <span class="helper"></span>
+    <img class="art-mob" src="//cdn.shopify.com/s/files/1/0276/4174/1415/{{article.image}}" alt="{{article.image.alt}}"/>
+</div>
+   </div>
+
+     <div class="art-body col-6">
+<div class="art-tit-m"><h1 class="fs-6">{{ article.title }}</h1></div>
+<div class=" date_p "><small class="text-muted">{{ article.published_at | date: format: "month_day_year" }}</small></div>
+<div class=" ">
+        <small class="text-muted meta-info"><b> {{ 'blogs.article.by_author' | t: author: article.author }}</b> · {% include 'include-read-time' %} </small>
+       
+</div>
+<div class="art-mor text-end">
+        <a href="{{ article.url }}"><p class="art-mor text-info"> <b>Read More...</b></p></a>
+</div>
+    </div>
+</div>
+
+  {% endfor %}        
+ <div class="container small text-center">
+   <div class="row paginate_link">
+  	{% if paginate.previous.is_link %}
+   <p class="paginate_link"> <a class="paginate_link" href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a></p>
+    {% endif %} 
+    {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+   <p class="paginate_link"><a class="paginate_link" href="{{ part.url }}">{{ part.title }}</a></p>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+   <p class="paginate_link"><b>{{ part.title }}</b></p>
+            {%- else -%}
+           <p class="paginate_link">{{ part.title }}</p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%} 
+     {% if paginate.next.is_link %}
+     <p class="paginate_link"><a class="paginate_link" href="{{ paginate.next.url }}">{{ paginate.next.title }}</a></p>
+      {% endif %}
+   </div>
+</div>
+  {% endpaginate %}
+  </div>

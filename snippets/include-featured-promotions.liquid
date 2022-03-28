@@ -1,0 +1,36 @@
+{% assign featured_promos_per_row = section.settings.featured_promos_per_row | minus: 0 %}
+{% assign title_on_image = section.settings.promo_text_on_image_enabled %}
+
+{% if section.blocks.size > 0 %}
+  <div class="featured-promotions container full-width--{{ section.settings.featured_promos_grid }} ">
+    <div  class="js-featured-promotions promo-per-row-{{ featured_promos_per_row }} clearfix"
+          data-promo-animation="{{ section.settings.featured_links_animation }}">
+        {% for block in section.blocks %}
+          <figure class="feature-section section-{{ forloop.index }} promo-{{ forloop.index }} title-overlay-{{ title_on_image }} {% if section.settings.featured_links_animation != blank %}promo-animation--true{% endif %}" {{ block.shopify_attributes }}>
+              <div class="feature-inner feature-style--{{ section.settings.feature_style }} ">
+                {% if block.settings.image != nil %}
+                  {% include 'image-element', image: block.settings.image, alt: block.settings.image.alt, stretch_width: true %}
+                {% else %}
+                  {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                  {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                {% endif %}
+                {% if block.settings.text != blank or block.settings.button_label != blank or block.settings.title != blank and title_on_image != blank %}
+
+                {% elsif block.settings.link != blank %}
+                  <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}class="link-promo"></a>
+                {% endif %}
+                
+                <div class="description"><a class="featured-title title">{{ block.settings.text }}</a></div>
+              </div>
+            {% if title_on_image == blank %}
+              {% if block.settings.title != blank %}
+                
+                  <h2 class="title title-below">{{ block.settings.title }}</h2>
+                
+              {% endif %}
+            {% endif %}
+          </figure>
+        {% endfor %}
+    </div>
+  </div>
+{% endif %}

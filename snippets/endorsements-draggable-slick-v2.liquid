@@ -1,0 +1,88 @@
+
+<style>
+.slider-container {
+position: relative;
+margin-top: 10px;
+left: 0;
+height: 100%;
+width:100%;
+}
+.slider-custom {
+ width: 850px;
+ margin-left: auto;
+ margin-right: auto;
+ display: block;
+ height: 80px;
+}
+.slick-slide {
+ width: 170px;
+ padding-left: 10px;
+ padding-right: 10px;
+}
+</style>
+
+
+<div class="logo-slick-section container">
+  <div class="sixteen columns">
+    <div class="section clearfix">
+ 			
+      <div class="desktop_slide reviews_slide">
+        {% for i in (1..5) %}
+        
+        {% capture cust_name %}cust_name_gen_{{i}}{% endcapture %}
+        {% capture cust_rev %}Review_gen_{{i}}{% endcapture %}
+       
+        
+        {% capture badge_rev %}rev_{{utm_code}}_val_{{i}}{% endcapture %}
+          <div class="reviews">
+            
+                <div class="cust_name">
+                  <p><b>{{block.settings[cust_name]}}</b></p>
+                </div>
+            <div class="badge_rev center centered ">
+              {% capture badge_rev %}rev_gen_val_{{i}}{% endcapture %}
+              {% capture badge_rev_count %}{{block.settings[badge_rev]}}{% endcapture %}
+               {% for star in (1..badge_rev_count) %}
+              <img class="rev-badge" src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/orange-star_vv.svg">
+              {% endfor %}
+              <p class="stars_count"> ({{block.settings[badge_rev]}})</p>
+            </div>
+            <div class="cust_rev">
+              {{block.settings[cust_rev]}}
+            </div>
+            
+          </div>
+        {% endfor %}
+      </div>
+    
+      <div class="mobile_slide reviews_slide">
+        
+      {% for i in (1..5) %}
+        {% capture cust_name %}cust_name_gen_{{i}}{% endcapture %}
+        {% capture cust_rev %}Review_gen_{{i}}{% endcapture %}
+        {% capture badge_rev %}rev_{{utm_code}}_val_{{i}}{% endcapture %}
+          <div class="reviews">
+            
+                <div class="cust_name">
+                  <p><b>{{block.settings[cust_name]}}</b></p>
+                </div>
+            <div class="badge_rev center centered ">
+              {% capture badge_rev %}rev_gen_val_{{i}}{% endcapture %}
+              {% capture badge_rev_count %}{{block.settings[badge_rev]}}{% endcapture %}
+               {% for star in (1..badge_rev_count) %}
+              <img class="rev-badge" src="https://cdn.shopify.com/s/files/1/0080/0410/8403/files/orange-star_vv.svg">
+              {% endfor %}
+            </div>
+            <div class="cust_rev">
+              {{block.settings[cust_rev]}}
+            </div>
+            
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <!-- Endorsements Slick 2 -->

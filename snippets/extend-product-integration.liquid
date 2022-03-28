@@ -1,0 +1,75 @@
+<script>
+
+  if (window.Extend && window.ExtendShopify && window.Shopify.currency.active == "USD") {
+    var cart = {{ cart | json }}
+
+    window.addEventListener('variantChange', function () {
+      var urlParams = new URLSearchParams(window.location.search);
+      var variantId = urlParams.get('variant');
+      if (variantId) {
+        Extend.setActiveProduct('#extend-offer', variantId);
+      }
+    });
+    
+    var addToCartButton = document.querySelector("button[name='add']");  
+    addToCartButton.type = "button";
+    
+    //Listen to add to cart button, add product and warranty to cart, then open slidecart
+    addToCartButton.addEventListener("click", function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      var currentVariant = Extend.buttons.instance("#extend-offer").getActiveProduct().id;
+      
+      var formData = {
+        'items': [{
+          'id': currentVariant,
+          'quantity': 1
+        }]
+      }
+      
+      fetch('/cart/add.js', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(function(res) {
+        return res.json();
+      })
+      .catch(function(err) {
+        console.error('Error:', error);
+      })
+      ExtendShopify.handleAddToCart("#extend-offer", {
+        quantity: 1,
+        modal: true,
+        done: function () {
+          window.SLIDECART_UPDATE();
+          window.SLIDECART_OPEN();
+        }
+      })
+
+    })
+    
+    
+    
+    
+    function initProductOffer () {
+      var firstVariant = {{ bold_selected_or_first_available_variant.id }}
+      Extend.buttons.destroyAll();
+      Extend.buttons.render('#extend-offer', {referenceId: firstVariant })
+    }
+    
+    initProductOffer();
+    //Re-initialize product offer when slidecart closes
+    window.SLIDECART_CLOSED = function() {
+      initProductOffer();
+    }
+  }
+</script>
+<style>
+  #extend-offer {
+    margin-bottom: -5px;
+  }
+</style>

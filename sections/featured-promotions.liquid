@@ -1,0 +1,148 @@
+{% comment %}
+** Featured promotions - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+
+{% assign title_on_image = section.settings.promo_text_on_image_enabled %}
+
+<div class="{% if section.settings.featured_promos_grid %} container-fluid {% else %} container {% endif %}">
+    <div class="row text-center">
+    <div class="col-md"><h1 class="title block-fp ">{{section.settings.headline}}</h1>
+    </div>
+</div>
+  
+<div class ="row">
+  {% if section.blocks.size > 0 %}
+{% assign ii = 0 %}
+  {% for block in section.blocks %}
+  {% assign ii = ii | plus: 1 %}
+  {% endfor %}
+  
+
+  {% for block in section.blocks %}
+             <div class="promo-col col-{% if ii == 4 %}3{% elsif ii == 3 %}4{% elsif ii == 2 %}6{% elsif ii == 1 %}12{%else%} {%endif%}">
+               
+                {% if block.settings.image != nil %}
+                  {% include 'image-element', image: block.settings.image, alt: block.settings.image.alt, stretch_width: true %}
+                {% else %}
+                  {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                  {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                {% endif %}
+                {% if block.settings.text != blank or block.settings.button_label != blank or block.settings.title != blank and title_on_image != blank %}
+
+                {% elsif block.settings.link != blank %}
+                 
+                {% endif %}
+                  {% if block.settings.title != blank %}
+                <div class="text-center" >
+                  <p class="small text-uppercase text-muted">{{ block.settings.title }} </hp>
+                </div>
+              {% endif %}
+                <div class="text-left">{{ block.settings.text }}</div>
+              </div>
+      
+      
+        {% endfor %}
+  
+    </div>
+{% endif %}
+</div>
+
+<style>
+  h1.title.block-fp {
+   color: {{section.settings.headline_color}} !important;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Featured promotions",
+  "class": "featured-promotions-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "featured_promos_grid",
+      "label": "Wide display",
+      "default": true
+    },
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Heading",
+        "default": "Title Section"
+      },
+      {
+        "type": "color",
+        "id": "headline_color",
+        "label": "Section Title Color"
+      }
+
+],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Promotion",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "840 x 840px recommended"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Header",
+          "default": "Feature"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description details.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Featured promotions",
+    "category": "Image",
+    "settings": {
+      "featured_promos_grid": true
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      },
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      },
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      }
+    ]
+  }]
+}
+
+{% endschema %}

@@ -1,0 +1,111 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign screen_size = block.settings.screen_size %}
+  {% assign framed = block.settings.framed %}
+
+{% else %}
+  {% assign id = section.id %}
+  {% assign screen_size = section.settings.screen_size %}
+  {% assign framed = section.settings.framed %}
+{% endif %}
+
+
+
+<div class="{% if screen_size %}container-fluid {%else%} container {%endif%} {% if framed %} jumbotron {%endif%}">
+  <div class="row text-center">
+      <h1>{{ 'customer.account.details' | t }}</h1>
+    <div class="feature_divider"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <p class="name"><i class="fas fa-user"></i> <a href="/account" title="{{ 'layout.customer.my_account' | t }}"><b>{{ customer.name }}</b></a></p>
+      {% if customer.tags contains 'wholesale' %}
+      <p><i class="fas fa-id-badge"></i> You are an <b>Authorized Distributor</b></p>
+      
+      {% for tag in customer.tags %}
+     {% if tag == "USD" %}
+      <p><i class="fas fa-money-bill"></i> Your currency: <b>USD</b> </p>
+     {% endif %}
+    {% endfor %}
+
+   {% for tag in customer.tags %}
+     {% if tag == "EUR" %}
+      <p><i class="fas fa-money-bill"></i> Your currency: <b>EUR</b> </p>
+     {% endif %}
+    {% endfor %}
+      
+      {% if dealer_level != nil %}
+      <p style="color:{{dealer_badge}};" ><b><i class="fas fa-crown"></i> You are: {{ dealer_level | capitalize }} Distributor </b></p>
+      {% endif %}
+     
+      
+      {% endif %}
+      <p class="email"><i class="far fa-envelope"></i> {{ customer.email }}</p>
+      <p><i class="fas fa-location-arrow"></i> {{ 'customer.addresses.primary' | t }}</p>
+      <div class="address-cust">
+        {% if customer.default_address != nil %}
+          <p>{{ customer.default_address.address1 }}
+          {% if customer.default_address.address2 != "" %}
+            {{ customer.default_address.address2 }}
+          {% endif %}
+          {{ customer.default_address.city}}{% if customer.default_address.province_code %}, {{customer.default_address.province_code}}{% endif %} {{ customer.default_address.zip}}
+          {{customer.default_address.country}}
+          {{ customer.default_address.phone }}</p>
+        {% else %}
+          <p>{{ 'customer.addresses.no_addresses' | t }}</p>
+        {% endif %}
+        <p><b><i class="far fa-edit"></i>  <a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></b></p>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      
+      <div id="customer_orders">
+        <h1>{{ 'customer.orders.title' | t }}</h1>
+
+        {% if customer.orders.size != 0 %}
+        <table width="100%" class="table table-responsive table-sm table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col"><p>{{ 'customer.orders.order_number' | t }}</p></th>
+              <th scope="col"><p>{{ 'customer.orders.date' | t }}</p></th>
+              <th scope="col"><p>{{ 'customer.orders.payment_status' | t }}</p></th>
+              <th scope="col"><p>{{ 'customer.orders.fulfillment_status' | t }}</p></th>
+              <th scope="col"><p>{{ 'customer.orders.track_order' | t }}</p></th>
+              <th scope="col"><p>{{ 'customer.orders.total' | t }}</p></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+          {% assign orderpath =  order.customer_url | replace: 'https://ackuretta-shop.myshopify.com/account/', 'https://checkout.shopify.com/27641741415/' %}
+            <tr>
+              <th scope="row"><p>{{ order.name | link_to: order.customer_url }}</p></th>
+              <td scope="row"><p>{{ order.created_at | date: "%-m/%-d/%Y" }}</p></td>
+              <td scope="row"><p>{{ order.financial_status | capitalize  }}</p></td>
+              <td scope="row"><p>{{ order.fulfillment_status | capitalize }}</p></td>
+              <td scope="row"><p><a href="{{ orderpath }}" title="Track" target="_blank"><i class="fas fa-search-location"></i></a></p></td>
+              <td scope="row"><p>{{ order.total_price | money }}</p></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+          <p>{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+
+        {% include 'pagination' with true %}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  table p {
+    font-size: .9rem !important;
+}
+.address-cust p {
+    line-height: 1.8rem;
+}
+</style>

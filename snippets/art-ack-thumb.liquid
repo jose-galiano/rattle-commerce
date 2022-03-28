@@ -1,0 +1,37 @@
+{% if products_per == 7 %}
+<div class="col-lg-1 col-md-3">
+{% elsif products_per == 6 %}
+<div class="col-lg-2 col-md-6">
+{% elsif products_per == 5 %}
+<div class="col-lg-2 col-md-{% cycle '12', '6', '6','6','6' %}">
+{% elsif products_per == 4 %}
+ <div class="col-lg-3 col-md-6">
+{% elsif products_per == 3 %}
+ <div class="col-lg-4 col-md-{% cycle '12', '6', '6' %}">
+{% elsif products_per == 2 %}
+{% cycle '<div class="col-md-6">','<div class="col-md-6">' %}
+{% elsif products_per == 1 %}
+<div class="col-12">
+{% endif %}
+
+
+ 
+    <div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <div class="imagem-prod">
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+  <img src="{% if product.images[2] != blank %}{{ product.images[0] | img_url: '300x' }}{% else %}{{ product.featured_image | img_url: '300x' }}{% endif %}" class="card-img-top img-fluid lazyload" alt="{{ alt_text | escape }}" />
+  </a></div>
+        <div class="pdc_tit text-center">
+        <a href="{{ product.url | within: collection }}" itemprop="url" class="">
+          <b><p class="pdc_tit">{{ product.title }} </p></b></a>
+        </div>
+          <div class="pdt_info">
+  {% include "prd-ack-inf" %}
+  </div>
+      </div>
+    </div>
+  </div>
+  
+   </div>

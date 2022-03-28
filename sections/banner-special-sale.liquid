@@ -1,0 +1,316 @@
+{% comment %}
+** Image with text (half and half view) - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+
+
+
+{% if section.settings.position == "position_top_left" %}
+<div><a id="a-sale" data-no-instant href="{{section.settings.url}}"><div id="sale" class="sale corner-sale top-left animated fadeIn" >
+  </div></a></div>
+{% endif %}
+
+{% assign current_time = "now" | date: "%Y-%m-%d %H:%M" %}
+
+<style>
+  
+  .sale{
+    background-image: url('{{ section.settings.image.src | img_url: '1000x' }}')!important;
+    background-repeat: repeat-x;
+    height: 35em;
+    width: 60%;
+    background-position: center;
+    background-size: cover;
+    margin-left: 20%;
+    display:none;
+    {% if current_time >= section.settings.s_time and current_time <= section.settings.e_time %}
+    display:unset;
+      {% endif %}
+  }
+
+ #a-sale {
+    color: #bd1c01;
+    text-decoration: none;
+    position: unset;
+    transition: color .1s linear;
+}
+  
+#sale h1{
+    padding-top: 5%;
+    width: 92%;
+    height: 100%;
+    position: fixed;
+    left: 0%;
+    font-size: {{section.settings.ribbon_h1_size}}em !important;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 100px;
+    color: {{section.settings.tl_font_color}} !important;
+}
+
+#sale h2{
+  width: 500px;
+    height: 100%;
+    position: fixed;
+    left: 0%;
+    font-size: {{section.settings.ribbon_h2_size}}em !important;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 100px;
+    color: {{section.settings.tl_sub_font_color}} !important;
+   display: inline;
+  padding-top: 45px;
+}
+
+  #sale img{
+    display: inline;
+    margin-top: 5%;
+    max-width: 100px;
+  }
+  
+  #sale a{
+    color:{{section.settings.link_color}}!important;
+  }
+  
+  
+  #sale a:hover{
+    color:{{section.settings.link_hover_color}}!important;
+  }
+  
+/* The ribbons */
+
+.corner-sale{
+  width: 200px;
+  position: absolute;
+  top: 25px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  z-index: 1111;
+
+}
+.animated {
+    animation-duration: 1s;
+  animation-delay: .5s;
+    animation-fill-mode: both;
+  
+}
+
+.corner-sale.sticky{
+  position: fixed;
+}
+
+.corner-sale.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-sale.top-left{
+    top: 140px;
+    min-width: 300px;
+    height: 300px;
+    margin-left: 60px;
+}
+
+@media only screen and (max-width: 480px) {
+  
+.sale{
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+ .corner-sale{
+  display:  {% if section.settings.showmobile == false %} none {% endif%};
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 25px;
+  left: 0 !important;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  z-index: 111;
+  transform: none !important;
+  -webkit-transform: none !important;
+  box-shadow: none;
+
+}
+  .corner-sale.top-left {
+    top: 10%;
+    min-width: unset;
+    margin-left: 20px;
+}
+
+  #sale h1 {
+	padding-top: 0%;
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    left: 5px;
+    font-size: 1.3em !important;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 100px;
+    color: #000000 !important;
+}
+  
+  
+#sale h2 {
+    display: inline;
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    left: 0%;
+    font-size: 1.3em !important;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+    color: #ffffff !important;
+    margin-top: 0;
+    padding-top: 20px;
+    top: 0px;
+}
+
+ 
+ }
+  
+@media only screen and (min-width: 481px ) and (max-width: 567px) {
+  .sale{
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .corner-sale{
+  display:  {% if section.settings.showipad == false %} none {% endif%};
+  width: 90%;
+  left: -100px !important;  
+  z-index: 111;
+}
+  .corner-sale.top-left {
+    top: 10%;
+    height: 9%;
+        min-width: unset;
+    
+  }    #sale h1 {
+    padding-top: 3%;
+    left: 3%;
+    font-size: 1.2em !important;
+}
+
+  #sale h2 {
+    width: 400px;
+    padding-top: 20px;
+}
+
+  #sale h1 {
+    width: 65%;
+  }
+  
+}
+
+@media only screen and (min-width:568px) and (max-width:1024px ) {
+  .sale{
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .corner-sale{
+  display:  {% if section.settings.showipad == false %} none {% endif%};
+  width: 55%;
+  left: -140px !important;  
+  z-index: 111;
+}
+  .corner-sale.top-left {
+    top: 125px;
+    height: 230px;
+    
+  }
+  #sale h1 {
+    padding-top: 17px;
+    width: 387px;
+    font-size: 1.3em !important;
+}
+
+  #sale h2 {
+    width: 540px;
+    padding-top: 18px;
+  }
+
+}
+
+  
+</style>
+
+{% schema %}
+{
+  "name": "Banner Special Sale",
+  "class": "banner_sale",
+  "settings": [
+
+	   {
+	  "type": "checkbox",
+      "id": "showmobile",
+      "label": "Show on mobile",
+	  "default": false
+      },
+	   {
+	  "type": "checkbox",
+      "id": "showipad",
+      "label": "Show on ipad",
+	  "default": false
+      },
+       {
+      "type": "select",
+      "id": "position",
+      "label": "Positions",
+      "options": [
+		{
+          "value": "false",
+          "label": "Select a position"
+        },
+        {
+          "value": "position_top_left",
+          "label": "Top Left"
+        }
+      ]
+    },
+     {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "300 x 300px recommended"
+    },
+    {
+        "type": "text",
+        "id": "s_time",
+        "label": "Start Time (%Y-%m-%d %H:%M)",
+        "default": "2020-01-22 12:33"
+    },
+    {
+        "type": "text",
+        "id": "e_time",
+        "label": "End Time (%Y-%m-%d %H:%M)",
+        "default": "2020-01-25 12:33"
+    },
+    {
+        "type": "text",
+        "id": "url",
+        "label": "Link",
+        "default": "url"
+    }
+  ],
+  "presets": [{
+    "name": "Special Sale",
+    "category": "Image",
+    "settings": {
+    "url": "https://",
+    "position": "position_top_left"
+    }
+  }]
+}
+{% endschema %}

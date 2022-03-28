@@ -1,0 +1,47 @@
+{% if articles_per == 7 %}
+<div class="col-lg-1 col-md-3">
+{% elsif articles_per == 6 %}
+<div class="col-lg-2 col-md-6">
+{% elsif articles_per == 5 %}
+<div class="col-lg-2 col-md-{% cycle '12', '6', '6','6','6' %}">
+{% elsif articles_per == 4 %}
+ <div class="col-lg-3 col-md-6">
+{% elsif articles_per == 3 %}
+ <div class="col-lg-4 col-md-{% cycle '12', '6', '6' %}">
+{% elsif articles_per == 2 %}
+{% cycle '<div class="col-md-6">','<div class="col-md-6">' %}
+{% elsif articles_per == 1 %}
+<div class="col-12">
+{% endif %}
+
+ <div class="col card-article">
+    <div class="card h-100">
+          
+          {% if article.image %}
+            <a href="{{ article.url }}">
+              {% include 'image-element', image: article.image, alt: article.image.alt %}
+            </a>
+          {% endif %}
+     
+      <div class="card-body">
+        <div class="article-title">
+          <h5 class="article card-title"><b>{{ article.title }}</b></h5>
+        </div>
+        <div class="article-author">
+        <small class="text-muted"> {{ 'blogs.article.by_author' | t: author: article.author }} <b>·</b> </small>
+        <small class="text-muted"> {% include 'include-read-time' %}</small>
+        </div>
+         <div class="article-excerpt">
+          <p class="card-text"> {{ article.excerpt | strip_html | truncatewords: 30 }}<br></p>
+        </div>
+            <div class="article-more text-end">
+        <div class="text-right"><a href="{{ article.url }}"> <b>{{'blogs.general.continue_reading_html' | t }}</b></a></div>
+        </div>
+      </div>
+      
+      <div class="card-footer "><small class="text-muted"><b>{{ article.published_at | date: format: "month_day_year" }}</b></small> </div>
+    </div>
+  </div>
+
+
+</div>

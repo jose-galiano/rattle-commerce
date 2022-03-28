@@ -1,0 +1,85 @@
+{%- assign pre_pdf_link = 'https://docs.google.com/gview?url=' -%}
+{%- capture pdf_link -%} {{article.excerpt | strip_html | remove:" "}} {%- endcapture -%}
+{%- assign post_pdf_link = '&embedded=true' -%}
+
+
+{% capture full_link %}{{- pre_pdf_link -}}{{- pdf_link -}}{{- post_pdf_link -}}{% endcapture %}
+
+<div class="container text-center" style="padding-top:80px">
+  
+<div class=""> <h1>{{article.title}}</h1></div>
+  <p><b>{{article.published_at | date: "%B, %Y"}}</b></p>
+  <div class="feature_divider"></div>
+   <div class="row">
+            <div class="blog_share meta">
+              {% include "social-buttons" with "article" %}
+            </div>
+            </div>
+  <div class="col text-center">
+<iframe class="desktop_vid text-center" src="{{full_link}}" style="width:600px; height:820px;" frameborder="1"></iframe>
+<iframe class="mobile_vid " src="{{full_link}}" style="width:100%; height:420px;" frameborder="1"></iframe>
+  </div>
+  <div class="feature_divider"></div>
+  <div class="text-sm-start text-black-50"><h6>Text Version</h6></div>
+  <div class="press-release text-sm-start"><p>{{article.content}}</p></div>
+  
+</div>
+
+
+{% schema %}
+
+{
+  "name": "Blog post",
+  "class": "blog-post-section",
+  "settings": [
+        {
+      "type": "checkbox",
+      "id": "display_social_buttons",
+      "label": "Show social media share icons",
+      "default": true
+    }
+  ]
+}
+
+{% endschema %}
+
+
+<style>
+  
+ 
+  .feature_divider {
+    padding-top: 15px !important;
+}
+@media only screen and (max-width: 798px) {
+    
+  .mobile_nav-fixed--true #pagecontent, .mobile_nav-fixed--false #pagecontent {
+    display: unset !important;
+    padding-bottom: 0px !important; 
+}
+  h1 {
+    font-size: 20px;
+}
+  .share_article .social_buttons {
+    padding-top: 0px;
+}
+  .share-btn a {
+    color: #fff;
+    padding: 10px 10px 8px 10px;
+    border: unset;
+    display: unset;
+    transition: all 500ms ease 0s;
+}
+       .feature_divider {
+    padding-top: 0px !important;
+}
+  .blog_share {
+    height: 30px;
+}
+  .press-release.text-sm-start {
+    font-size: .8rem;
+    line-height: 0.9rem;
+    text-align: justify;
+}
+ }  
+  
+</style>

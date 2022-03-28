@@ -1,0 +1,33 @@
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign screen_size = block.settings.screen_size %}
+  {% assign framed = block.settings.framed %}
+
+{% else %}
+  {% assign id = section.id %}
+  {% assign screen_size = section.settings.screen_size %}
+  {% assign framed = section.settings.framed %}
+{% endif %}
+
+
+
+<div id="{{id}}" class="{% if screen_size %}container-fluid {%else%} container {%endif%} {% if framed %} jumbotron {%endif%}">
+{% for tag in customer.tags %}
+ {% if tag == "wholesale" %}
+
+
+    {% for tag in customer.tags %}
+     {% if tag == "USD" %}
+       <div class="coca-accordion" data-accordion-type="static" data-accordion-id="2196"></div>
+     {% endif %}
+    {% endfor %}
+
+{% for tag in customer.tags %}
+     {% if tag == "EUR" %}
+       <div class="coca-accordion" data-accordion-type="static" data-accordion-id="2197"></div>
+     {% endif %}
+    {% endfor %}
+
+ {% endif %}
+{% endfor %}
+</div>
