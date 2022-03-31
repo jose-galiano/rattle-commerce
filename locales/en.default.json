@@ -649,7 +649,7 @@
       "bp": "Build Platform",
       "Small": "Small",
       "Medium": "Medium",
-      "Small_desc_html": "<b>Printing area:<\/b> 70 x 70 mm<\/br><b>Finishing:<\/b> Anodized Metal<\/br><b>Compatibility:<\/b> SOL 3D Printer<\/br> ",
+      "Small_desc_html": "<b>Printing area:<\/b> 40 x 20 mm<\/br><b>Finishing:<\/b> Anodized Metal<\/br><b>Compatibility:<\/b> SOL 3D Printer<\/br> ",
       "Medium_desc_html": "<b>Printing area:<\/b> 70 x 70 mm<\/br><b>Finishing:<\/b> Anodized Metal<\/br><b>Compatibility:<\/b> SOL 3D Printer<\/br> ",
       "zero_ico": "",
       "back_to_top_btn_html": "<i class='fas fa-arrow-circle-up'><\/i>",
