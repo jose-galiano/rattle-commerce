@@ -1,1 +1,1553 @@
-{"presets":{},"current":{"slidecart":false,"slidecart_floating":false,"slidecart_floating_bg":"#ffffff","slidecart_floating_bg_hover":"#764796","slidecart_floating_count_bg":"#764796","slidecart_floating_count_color":"#ffffff","slidecart_floating_icon_color":"#100f0f","performance":"sport","image_loading_style":"blur-up","custom_scripts":"","logo_color":"#ffffff","regular_color":"#2c353c","banner_color":"#f3f3f3","headline_color":"#764595","headline_footer_text_color":"#ffffff","sub_footer_text_color":"#ffffff","sale_color":"#662483","was_price_color":"#8c8b8b","product_hover_text_color":"#662483","promo_text_color":"#ffffff","shop_home_page_content_text_color":"#ffffff","newsletter_popup_color":"#fffdfd","newsletter_section_color":"#ffffff","collection_filter_color":"#3d63ad","top_bar_color":"#020202","top_bar_color_hover":"#ffffff","nav_color":"#ffffff","nav_color_home":"#ffffff","nav_color_hover":"#b1b1b1","link_color":"#b01f23","link_hover_color":"#662483","sidebar_nav_color":"#b01f23","sidebar_nav_color_hover":"#3d63ad","sub_footer_link_color":"#ffffff","sub_footer_link_color_hover":"#3d63ad","btn_color":"#764595","banner_button_color":"#646464","btn_hover_color":"#646464","btn_text_color":"#ffffff","button_style":"rounded","read_more_style":"button","swatch_style":"square","table_styles_enabled":true,"slideshow_arrow_size":"light","arrow_color":"#bbbaba","slideshow_button_style":false,"slideshow_nav_buttons":true,"border_color":"#373a36","headline_border_color":"#b1b0b0","headline_border":"1","divider_style":"solid","sub_footer_border_color":"#2c353c","sale_banner_color":"#2c353c","new_banner_color":"#ffffff","banner_style":"square","search_section_color":"#ffffff","search_section_bg_color":"#b01f23","testimonial_color":"#ffffff","testimonial_bg_color":"#2c353c","featured_promotions_color":"#2c353c","featured_promotions_color_hover":"#662483","featured_promotions_background":"#2c353c","featured_promotions_mobile_background":true,"modal_background_color":"#ffffff","modal_text_color":"#2c353c","shop_bg_color":"#ffffff","custom_bg":"","repeat_bg":"repeat","bg_fixed":false,"bg_stretched":false,"top_bar_bg_color":"#3d63ad","top_bar_cart_bg_color":"rgba(0,0,0,0)","minicart_bg_color":"#3d63ad","banner_placeholder_background_color":"#2c353c","banner_background_color":"#2c353c","header_bg_color":"#2c353c","header_background":true,"transparent_header":false,"promo_bg_color":"#662483","shop_home_page_content_bg_color":"#2c353c","featured_links_background":"#2c353c","product_hover_bg_color":"#2c353c","sub_footer_color":"#000000","footer_bg":"","footer_bg_stretched":false,"newsletter_popup_background_color":"#2c353c","newsletter_section_background_color":"#2c353c","password_page_text_color":"#b1b1b1","password_page_background_color":"#2c353c","logo__font":"open_sans_n7","logo_font_style":"none","logo_font_size":20,"top_bar_font_size":12,"top_bar_letter_spacing":0,"nav__font":"open_sans_n4","nav_font_style":"none","nav_font_size":13,"nav_letter_spacing":0,"nav_shadow":true,"button_weight":"bold","button_font_style":"uppercase","button_font_size":20,"mega_text_font_size":18,"mega_text_letter_spacing":1,"headline__font":"open_sans_n4","headline_font_style":"none","headline_font_size":37,"headline_letter_spacing":1,"slideshow_headline__font":"open_sans_n7","slideshow_headline_font_style":"none","slideshow_headline_size":28,"slideshow_headline_letter_spacing":1,"slideshow_headline_shadow":false,"slideshow_subtitle__font":"open_sans_n6","slideshow_subtitle_font_style":"none","slideshow_subtitle_size":21,"slideshow_line_Height":10,"slideshow_subtitle_letter_spacing":1,"slideshow_shadow":true,"regular__font":"open_sans_n4","regular_font_style":"none","regular_font_size":18,"footer_logo_font_size":20,"footer_heading_font_size":18,"footer_font_size":13,"mega_menu_1":false,"mega_menu_2":false,"mega_menu_3":false,"mega_menu_4":false,"mega_menu_5":false,"search_option":"everything","search_pagination_type":"load_more","enable_autocomplete":false,"search_to_display":5,"mobile_products_per_row":"2","pagination_type":"basic_pagination","align_height":true,"collection_height":200,"thumbnail_hover_enabled":false,"display_vendor":false,"collection_secondary_image":false,"sale_banner_enabled":true,"collection_swatches":false,"notify_me_form":true,"notify_me_richtext":"<p>Notify me when this product is available:<\/p>","product_form_style":"swatches","display_product_quantity":false,"limit_quantity":false,"display_inventory_left":true,"inventory_threshold":10,"free_price_text":"Free","size_chart":"","enable_shopify_review_comments":true,"enable_shopify_collection_badges":false,"quick_shop_enabled":false,"quick_shop_display_vendor":false,"quick_shop_display_savings":true,"show_payment_button":true,"quick_shop_zoom":false,"quick_shop_full_description":false,"description_words":25,"quick_shop_product_description_position":"bottom","quick_shop_gallery_arrows":false,"quick_shop_slideshow_animation":"slide","quick_shop_product_images_position":"left","quick_shop_product_thumbs":true,"quick_shop_thumbnail_position":"left-thumbnails","cart_action":"redirect_cart","show_lock_icon":true,"display_tos_checkbox":false,"tos_page":"","go_to_checkout":false,"display_special_instructions":false,"display_savings":false,"show_shipping_calculator":true,"shipping_calculator_default_country":"United States","show_multiple_currencies":true,"currency_format":"money_format","supported_currencies":"EUR, USD, MXN","default_currency":"USD","mailchimp_link":"","secondary_newsletter_banner":true,"newsletter_popup":false,"newsletter_popup_close":true,"newsletter_popup_mobile":false,"newsletter_popup_form":true,"display_first_name":true,"display_last_name":true,"use_newsletter_border":true,"newsletter_bg":"shopify:\/\/shop_images\/fold_3.png","image_crop":"none","newsletter_popup_image_align":"left","newsletter_popup_text":"<p>Sign up now<\/p>","newsletter_popup_text_align":"center","popup_button1":"","popup_button1_link":"","popup_button1_highlight":false,"popup_button2":"","popup_button2_link":"","popup_button2_highlight":false,"newsletter_popup_seconds":0,"newsletter_popup_days":"0","twitter_link":"https:\/\/twitter.com\/ackuretta","facebook_link":"https:\/\/www.facebook.com\/ackuretta","youtube_link":"http:\/\/www.youtube.com\/c\/ackuretta","vimeo_link":"","pinterest_link":"https:\/\/pin.it\/2vvsdQB","tumblr_link":"","instagram_link":"https:\/\/www.instagram.com\/ackuretta\/","snapchat_link":"","houzz_link":"","linkedin_link":"https:\/\/www.linkedin.com\/company\/ackuretta","email_link":"info@ackuretta.com","og_image_fallback":"shopify:\/\/shop_images\/smile_ac4c609b-070a-4db3-855d-bf70787ab057.png","favicon":"shopify:\/\/shop_images\/icon-w.png","disqus_enabled":false,"disqus_shortname":"","whatshare_message":"Check this out","whatshare_bg_color":"#51a419","whatshare_width":"35px","whatshare_height":"35px","whatshare_padding":"10px","whatshare_margin":"0px","whatshare_border_rd":"28px","whatshare_text_align":"center","whatshare_position":"static","whatshare_position_top":"auto","whatshare_position_left":"auto","whatshare_float":"none","whatshare_text_content":"","whatshare_text_color":"#fff","whatshare_text_size":"","whatshare_font_family":"","whatshare_font_weight":"bold","whatshare_text_decoration":"none","whatshare_image_height":"","whatshare_image_max_height":"95%","whatshare_image_width":"","whatshare_image_max_width":"95%","whatshare_image_vertical_align":"middle","whatshare_custom_css":"","checkout_header_image":"shopify:\/\/shop_images\/checkoutbanner.jpg","checkout_logo_image":"shopify:\/\/shop_images\/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4.png","checkout_logo_position":"left","checkout_logo_size":"large","checkout_body_background_image":"","checkout_body_background_color":"#ffffff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"Open Sans","checkout_body_font":"Open Sans","checkout_accent_color":"#764595","checkout_button_color":"#764595","checkout_error_color":"#e32c2b","sections":{"ack-header-menu":{"type":"ack-header-menu","settings":{"promo_text":"","promo_text_deal":"","logo":"shopify:\/\/shop_images\/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4.png","logo_mobile":"shopify:\/\/shop_images\/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4.png","logo_drk":"shopify:\/\/shop_images\/ack-logo-desk-white_19e2c01b-1ca5-4f87-bb70-ff1cd6d36843.png"}},"1629872147ecdafa4b":{"type":"video","settings":{"wide_display":true,"aspect_ratio":"16:9","autoplay":true,"autoloop":true,"video_dark_overlay":false,"mp4":"https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/4174\/1415\/files\/intro.mp4?v=1644481511","ogv":"","mp4_m":"https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/4174\/1415\/files\/SOL_Video_Mobile.mp4?v=1627028100","ogv_m":"","image":"shopify:\/\/shop_images\/video-sol-banner.jpg","bg_color":"#ffffff","display_text_over_video":false,"video_text_align":"left","pretext":"","pretext_color":"","pretext_size":15,"title":"","head_font_size":35,"head_line_height":20,"head_line_color":"","subtitle":"","sub_font_size":35,"subtitle_color":"","link_color":"","link_h_color":"","head_line_height_m":20,"pretext_color_m":"","pretext_size_m":35,"head_line_color_m":"","head_font_size_m":35,"subtitle_color_m":"","sub_font_size_m":35,"mobile_bg":"","link_color_m":"","link_h_color_m":"","caption_background":false,"caption_background_transparency":false,"button1_label":"","button1_link":"","button1_highlight":false,"button2_label":"","button2_link":"","button2_highlight":false,"image_og":"shopify:\/\/shop_images\/video-sol-banner.jpg"}},"163030600200a13620":{"type":"ack-Index-cover-txt","settings":{"image":"shopify:\/\/shop_images\/ackuretta-ecosystema.png","image_mobile":"shopify:\/\/shop_images\/ackuretta-ecosystema.png"}},"1630398220d7ed1421":{"type":"ack-twin-banner","settings":{"image_a":"shopify:\/\/shop_images\/Sol-Dentiq-showcase_d76c52ea-fa70-4584-8613-5c318270c304.png","image_mobile_a":"shopify:\/\/shop_images\/Sol-Dentiq-showcase.png","gr_bg_param_a":"background: rgb(2,11,51); background: -moz-linear-gradient(-180deg, rgba(2,11,51,1) 0%, rgba(0,14,46,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(2,11,51,1) 0%, rgba(0,14,46,1) 100%); background: linear-gradient(-180deg, rgba(2,11,51,1) 0%, rgba(0,14,46,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#020b33\",endColorstr=\"#000e2e\",GradientType=1);","image_b":"shopify:\/\/shop_images\/dlp-showcase_96a48749-66a8-4853-876a-68f112904405.png","image_mobile_b":"shopify:\/\/shop_images\/dlp-showcase_96a48749-66a8-4853-876a-68f112904405.png","gr_bg_param_b":"background: rgb(102,102,102); background: -moz-linear-gradient(-180deg, rgba(102,102,102,1) 0%, rgba(26,26,26,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(102,102,102,1) 0%, rgba(26,26,26,1) 100%); background: linear-gradient(-180deg, rgba(102,102,102,1) 0%, rgba(26,26,26,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#666666\",endColorstr=\"#1a1a1a\",GradientType=1);","image_c":"shopify:\/\/shop_images\/cleani-showcase_22b6cb54-ec2b-40a5-917e-1322454f53fd.png","image_mobile_c":"shopify:\/\/shop_images\/cleani-showcase_22b6cb54-ec2b-40a5-917e-1322454f53fd.png","gr_bg_param_c":"background: rgb(102,45,144); background: -moz-linear-gradient(-180deg, rgba(102,45,144,1) 0%, rgba(0,14,46,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(102,45,144,1) 0%, rgba(0,14,46,1) 100%); background: linear-gradient(-180deg, rgba(102,45,144,1) 0%, rgba(0,14,46,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#662d90\",endColorstr=\"#000e2e\",GradientType=1);","image_d":"shopify:\/\/shop_images\/curie-showcase_3fc85306-f985-4dfa-aa5c-ceb53f5a3062.png","image_mobile_d":"shopify:\/\/shop_images\/curie-showcase_3fc85306-f985-4dfa-aa5c-ceb53f5a3062.png","gr_bg_param_d":"background: rgb(157,0,93); background: -moz-linear-gradient(-180deg, rgba(157,0,93,1) 0%, rgba(102,0,93,1) 75%); background: -webkit-linear-gradient(-180deg, rgba(157,0,93,1) 0%, rgba(102,0,93,1) 75%); background: linear-gradient(-180deg, rgba(157,0,93,1) 0%, rgba(102,0,93,1) 75%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#9d005d\",endColorstr=\"#66005d\",GradientType=1);","image_e":"shopify:\/\/shop_images\/alpha-showcase_a4b68686-3e19-474b-aa31-24927c69d1d5.png","image_mobile_e":"shopify:\/\/shop_images\/alpha-showcase_a4b68686-3e19-474b-aa31-24927c69d1d5.png","gr_bg_param_e":"background: rgb(0,104,55); background: -moz-linear-gradient(-180deg, rgba(0,104,55,1) 0%, rgba(26,26,26,1) 75%); background: -webkit-linear-gradient(-180deg, rgba(0,104,55,1) 0%, rgba(26,26,26,1) 75%); background: linear-gradient(-180deg, rgba(0,104,55,1) 0%, rgba(26,26,26,1) 75%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#006837\",endColorstr=\"#1a1a1a\",GradientType=1);","image_f":"shopify:\/\/shop_images\/newCuro-Home.png","image_mobile_f":"shopify:\/\/shop_images\/CURO-Home.png","gr_bg_param_f":"background: rgb(67,113,171); background: -moz-linear-gradient(-180deg, rgba(67,113,171,1) 0%, rgba(0,66,106,1) 81%); background: -webkit-linear-gradient(-180deg, rgba(67,113,171,1) 0%, rgba(0,66,106,1) 81%); background: linear-gradient(-180deg, rgba(67,113,171,1) 0%, rgba(0,66,106,1) 81%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#4371ab\",endColorstr=\"#00426a\",GradientType=1);"}},"1630481193a1696901":{"type":"ack-instaslide","settings":{"gr_bg_param":"background: rgb(141,58,80); background: -moz-linear-gradient(-180deg, rgba(141,58,80,1) 0%, rgba(95,30,31,1) 81%); background: -webkit-linear-gradient(-180deg, rgba(141,58,80,1) 0%, rgba(95,30,31,1) 81%); background: linear-gradient(-180deg, rgba(141,58,80,1) 0%, rgba(95,30,31,1) 81%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#8d3a50\",endColorstr=\"#5f1e1f\",GradientType=1);"}},"footer":{"type":"footer","blocks":{"footer-0":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/ack-logo-desk-white_8eaa8e8f-9bae-4025-9ba5-40d4402ce23e.png","text_align":"left","social_icons_footer":false}},"4b31ad9e-b1ff-4185-a407-73d9d233a420":{"type":"empty","disabled":true,"settings":{"social_icons_footer":false}},"footer-1":{"type":"link_list","settings":{"menu":"information","menu-title":"COMPANY"}},"footer-2":{"type":"link_list","settings":{"menu":"footer","menu-title":"SUPPORT"}},"77a5b72c-73f2-413a-9f1e-f94c80d1f0f7":{"type":"link_list","settings":{"menu":"shop","menu-title":"SHOP NOW"}}},"block_order":["footer-0","4b31ad9e-b1ff-4185-a407-73d9d233a420","footer-1","footer-2","77a5b72c-73f2-413a-9f1e-f94c80d1f0f7"],"settings":{"copyright_text":"All Rights Reserved","display_designed_by":false,"display_payment_methods":true,"gradient_bg_f":"background : -moz-linear-gradient(50% 104.45% 90deg,rgba(26, 26, 26, 1) 2.71%,rgba(38, 38, 38, 1) 100%);   background : -webkit-linear-gradient(90deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   background : -webkit-gradient(linear,50% 104.45% ,50% 2.53% ,color-stop(0.0271,rgba(26, 26, 26, 1) ),color-stop(1,rgba(38, 38, 38, 1) ));   background : -o-linear-gradient(90deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   background : -ms-linear-gradient(90deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   -ms-filter: \"progid:DXImageTransform.Microsoft.gradient(startColorstr='#1A1A1A', endColorstr='#262626' ,GradientType=0)\";   background : linear-gradient(0deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#262626',endColorstr='#1A1A1A' , GradientType=0);","gradient_bg_s":"background : -moz-linear-gradient(50% 104.45% 90deg,rgba(0, 0, 0, 1) 2.71%,rgba(0, 0, 0, 1) 98.8%);   background : -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   background : -webkit-gradient(linear,50% 104.45% ,50% 2.53% ,color-stop(0.0271,rgba(0, 0, 0, 1) ),color-stop(0.988,rgba(0, 0, 0, 1) ));   background : -o-linear-gradient(90deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   background : -ms-linear-gradient(90deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   -ms-filter: \"progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000' ,GradientType=0)\";   background : linear-gradient(0deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000',endColorstr='#000000' , GradientType=0);","gradient_bg_t":"background : #000000;   background : rgba(0, 0, 0, 1);"}},"pct-ack":{"type":"pct-ack","blocks":{"pct-ack-0":{"type":"rich_text_and_image","settings":{"rich_text_and_image_SKU":"gen","framed":false,"title":"This is an example headline","content":"<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Suspendisse potenti.<\/p>","text_size":"featured_text","text_alignment":"center","button_label":"Button","button_link":""}},"pct-ack-1":{"type":"divider","settings":{"divider_SKU":"gen","devicer":"all","divider_spacing":0,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"pct-ack-2":{"type":"image_gallery","settings":{"image_gallery_SKU":"gen"}},"pct-ack-3":{"type":"divider","settings":{"divider_SKU":"gen","devicer":"all","divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"pct-ack-4":{"type":"image_with_text_overlay","settings":{"image_with_text_overlay_SKU":"gen","wide_display":true,"section_color_bg":"","pretext":"<p>This is<\/p>","preh_font_size":12,"title":"Your Headline","sub_font_size":12,"sub_line_height":12,"subtitle":"<p>Customize this section<\/p>","pretext_mobile":"","title_mobile":"","subtitle_mobile":"","caption_background":false,"caption_background_transparency":false,"text_position":"ml-lg-0","text_align":"left","button1":"Button","button1_link":"","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"pct-ack-5":{"type":"image_with_text_overlay","settings":{"image_with_text_overlay_SKU":"gen","wide_display":true,"section_color_bg":"","pretext":"<p>This is<\/p>","preh_font_size":12,"title":"Your Headline","sub_font_size":12,"sub_line_height":12,"subtitle":"<p>Customize this section<\/p>","pretext_mobile":"","title_mobile":"","subtitle_mobile":"","caption_background":false,"caption_background_transparency":false,"text_position":"right","text_align":"left","button1":"Button","button1_link":"","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"pct-ack-6":{"type":"contact_form","settings":{"contact_form_SKU":"gen","contact_heading":"Get in touch","contact_subheading":"Leave a message","contact_content":"<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.<\/p>","contact_text_position":"left","contact_text_alignment":"left"}}},"block_order":["pct-ack-0","pct-ack-1","pct-ack-2","pct-ack-3","pct-ack-4","pct-ack-5","pct-ack-6"],"settings":{"gallery_arrows":false,"activate_zoom":false,"enable_product_lightbox":true,"activate_autoplay":false,"slideshow_animation":"slide","product_images_position":"left","product_thumbs":false,"thumbnail_position":"bottom-slider","product_breadcrumb":true,"display_vendor":false,"display_sku":false,"display_savings":true,"show_payment_button":true,"display_collections":false,"display_type":false,"display_tags":false,"display_social_buttons":true,"product_description_position":"top","enable_shopify_product_badges":true,"enable_reviews_in_description":false}},"newsletter":{"type":"newsletter","settings":{"wide_display":true,"newsletter_title":"Subscribe","newsletter_text":"<p>Sign up to get the latest on sales, new releases and more …<\/p>","display_first_name":false,"display_last_name":false,"newsletter_section_text_align":"center"}},"wholesale-page-template":{"type":"wholesale-page-template","blocks":{"ce2e73a1-8f1c-4cff-8438-7f8819e14d65":{"type":"header_landing","settings":{"banner_height":14,"banner_height_m":16,"promo-banner-collection-tms":"","title_page":"Distributor Dashboard","image":"shopify:\/\/shop_images\/distrib.jpg","image_m":"shopify:\/\/shop_images\/distrib.jpg"}},"f08fa345-9f05-4e9e-8468-d1300b8a2ddb":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"00b85af2-b322-418a-a025-73b8f992ca4a":{"type":"custom_html","settings":{"custom_html":"<div class=\"container-fluid\">\n    <div class=\"row\">\n    <div class=\"text-center col-md-6 d-flex flex-column justify-content-center align-items-center\" style=\"padding:20px;\">\n<h2 class=\"title\">Resource Center<\/h2>\n<p class=\"text-centered\">Access information exclusive to Authorized Distributors and Partners.<\/p>\n<\/div>\n    <div class=\"col-md-6 text-center \">\n    <div class=\"row\">\n    <div class=\"col\" style=\"padding:20px;\">\n   <a href=\"\/a\/distributor-portal\"> <img width=\"150px\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/4174\/1415\/files\/resource-center-icon.png?v=1629880409\"><\/a>\n    <\/div>\n<\/div>\n    <div class=\"row\" style=\"padding:20px;\">\n    <a href=\"\/a\/distributor-portal\" class=\"btn btn-primary \">Visit Resource Center<\/a>\n    <\/div>\n    \n    <\/div>\n    <\/div>\n    <\/div>"}},"c7b3a103-6712-491c-8fa3-b9a6eac5754e":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":true,"screen_size":false,"border_style":"solid","divider_size":1}},"6838708e-3c6b-4932-a74e-efaef8ed1ad1":{"type":"customer_support_ticket","settings":{"stnd_tit":"","bg_color":"","screen_size":true,"font_color":""}},"46c39bd9-27fa-4b3b-b17a-ffddeb08d083":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":true,"screen_size":false,"border_style":"solid","divider_size":1}},"0b3679d7-b3e3-4342-83df-1ed2aed8139e":{"type":"cost_schedules","settings":{"stnd_tit":"","bg_color":"","screen_size":false,"font_color":""}},"38d2643c-4707-4253-8f17-85aeda4db9be":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"66248e5b-6498-46b3-94a7-f60d5171650d":{"type":"customer_details","settings":{"screen_size":false,"framed":false}}},"block_order":["ce2e73a1-8f1c-4cff-8438-7f8819e14d65","f08fa345-9f05-4e9e-8468-d1300b8a2ddb","00b85af2-b322-418a-a025-73b8f992ca4a","c7b3a103-6712-491c-8fa3-b9a6eac5754e","6838708e-3c6b-4932-a74e-efaef8ed1ad1","46c39bd9-27fa-4b3b-b17a-ffddeb08d083","0b3679d7-b3e3-4342-83df-1ed2aed8139e","38d2643c-4707-4253-8f17-85aeda4db9be","66248e5b-6498-46b3-94a7-f60d5171650d"],"settings":{}},"coll-res":{"type":"coll-res","blocks":{"af9c1226-7ae5-4309-9555-d02f5701b9ea":{"type":"divider","settings":{"divider_spacing":15,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"8c701677-4c32-4344-bef8-8cbd59b0a0ef":{"type":"header_landing","settings":{"banner_height":27,"banner_height_m":25,"promo-banner-collection-tms":"","title_page":"","image":"shopify:\/\/shop_images\/si.png","image_m":"shopify:\/\/shop_images\/curooo.png"}},"coll-res-1":{"type":"divider","settings":{"divider_spacing":0,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"coll-res-0":{"type":"rich_text_and_image","settings":{"framed":false,"title":"The New CURO Range","content":"<p>The New CURO Range is a complete and versatile resin portfolio able to print any dental applications. It is designed to produce high-performance prints that look, feel, and perform precisely as you want. The CURO range promises an extended 2-year shelf life, and a unique curing window from 385 nm and 405nm, which allows across-the-board compatibility with most 3D printers in the market. Use Ackuretta materials with confidence to print a wide range of dental applications on both DLP and LCD-based polymer printers.<\/p>","text_size":"featured_text","text_alignment":"center","button_label":"","button_link":""}},"coll-res-3":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"65134b08-06be-4b71-b733-3bd7de250e35":{"type":"featured_collection","settings":{"title":"","collection_description":false,"collection":"resins","collection_style":"grid","products_per":3,"products_limit":10}},"bcad859f-a144-4430-a441-71241c93f901":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"8c10d89f-10c1-4272-aee6-18854cc1d3ba":{"type":"rich_text_and_image","settings":{"framed":false,"title":"High-Performing Materials for All Dental Applications","content":"","text_size":"featured_text","text_alignment":"center","button_label":"","button_link":""}},"bea85c79-9c97-417b-8d15-7f2592bb6be0":{"type":"header_landing","settings":{"banner_height":25,"banner_height_m":10,"promo-banner-collection-tms":"","title_page":"","image":"shopify:\/\/shop_images\/CURO_Correct.png","image_m":"shopify:\/\/shop_images\/CURO_Correct.png"}}},"block_order":["af9c1226-7ae5-4309-9555-d02f5701b9ea","8c701677-4c32-4344-bef8-8cbd59b0a0ef","coll-res-1","coll-res-0","coll-res-3","65134b08-06be-4b71-b733-3bd7de250e35","bcad859f-a144-4430-a441-71241c93f901","8c10d89f-10c1-4272-aee6-18854cc1d3ba","bea85c79-9c97-417b-8d15-7f2592bb6be0"],"settings":{}},"list-collections-template":{"type":"list-collections-template","blocks":{"2b6fbcb3-a936-405e-a543-018cb0a3cbe3":{"type":"divider","settings":{"devicer":"all","divider_spacing":20,"line_color":"","bg_color":"","divider_border":true,"screen_size":false,"border_style":"solid","divider_size":1}},"22e84e41-a942-45fe-9422-c9276a220b62":{"type":"featured_collection","settings":{"title":"SOL Accessories","collection_description":false,"collection":"sol-accessories","collection_style":"grid","products_per":3,"products_limit":5}},"fdd10cbb-f9bf-4d37-9533-5efac60fc026":{"type":"divider","settings":{"devicer":"all","divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"1c615ff1-5481-4624-9e9f-4a76d12573ea":{"type":"featured_collection","settings":{"title":"DENTIQ Accessories","collection_description":false,"collection":"dentiq-accessories","collection_style":"grid","products_per":4,"products_limit":5}},"b2dd330f-dcc6-4384-a6f1-ef607e97a36a":{"type":"divider","settings":{"devicer":"all","divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"3a9a4234-231f-4048-ab8a-00bbc1016de7":{"type":"featured_collection","settings":{"title":"FreeShape Accessories","collection_description":true,"collection":"consumables-freeshape","collection_style":"grid","products_per":5,"products_limit":6}}},"block_order":["2b6fbcb3-a936-405e-a543-018cb0a3cbe3","22e84e41-a942-45fe-9422-c9276a220b62","fdd10cbb-f9bf-4d37-9533-5efac60fc026","1c615ff1-5481-4624-9e9f-4a76d12573ea","b2dd330f-dcc6-4384-a6f1-ef607e97a36a","3a9a4234-231f-4048-ab8a-00bbc1016de7"],"settings":{}},"page-details-template":{"type":"page-details-template","blocks":{"1560976307309":{"type":"divider","settings":{"devicer":"all","divider_spacing":15,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"1557d032-d8c9-438d-b2fd-677b942053cb":{"type":"header_landing","settings":{"banner_height":25,"banner_height_m":16,"promo-banner-collection-tms":"","title_page":"","image":"shopify:\/\/shop_images\/alpha3d-banner5.jpg","image_m":"shopify:\/\/shop_images\/alpha3d-banner5.png"}},"a28f619d-0367-4704-84a9-4fd39b623f14":{"type":"image_with_text","settings":{"frontpage_grid_style":true,"frontpage_text_align":"right","frontpage_image_position":"right","image":"shopify:\/\/shop_images\/alpha3D-Cover.png","image_m":"shopify:\/\/shop_images\/alpha3D-Cover.png","title":"","padding_content_box":"10px 0 0 5%","content_box_font":32,"headline_color":"","category":"","cat_color":"","text":"<p><strong>Smart Slices.<br\/>Remove Guesswork.<br\/><\/strong>3D Slicing software for dental applications<\/p>","button_label":"","link":"","bg_color":"#000000","text_color":"#ffffff"}},"516b0a66-a2ce-405c-8272-19acc9bd7e63":{"type":"divider","settings":{"devicer":"false","divider_spacing":20,"line_color":"","bg_color":"#000000","divider_border":false,"screen_size":true,"border_style":"solid","divider_size":1}},"5c0a0aeb-b16d-4b34-bdf2-d8ca5a72d3cc":{"type":"divider","settings":{"devicer":"all","divider_spacing":10,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"df734ddb-821d-4ab4-96ea-1a78c9905a0c":{"type":"rich_text_and_image","settings":{"title":"<i class=\"fas fa-download\"><\/i> Download Alpha 3D","content":"","text_size":"featured_text","text_alignment":"center","button_label":"","button_link":""}},"761ad079-33d1-44e5-a36c-4928ac8abe0c":{"type":"divider","settings":{"devicer":"all","divider_spacing":5,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"e7a8417e-dafb-40de-8c00-ba3ac3d3eab5":{"type":"custom_html","settings":{"custom_html":"<div class=\"container-fluid\" style=\"background-color:#f5f5f5;\">\n<div class=\"container\">\n<div class=\"row text-center\">\n<i class=\"fa-solid fa-circle-exclamation-check\"><\/i> <h1> System Requirements<\/h1>\n<\/div>\n<div class=\"table-responsive\">\n  <table class=\"table table-striped table-hover table-borderless text-center\" style=\"font-size: 1.2rem;\">\n    <thead>\n      <tr>\n        <th scope=\"col\"><p><b>Minimum<\/b><\/p><\/th>\n        <th scope=\"col\"><p><b>Recommended<\/b><\/p><\/th>\n      <\/tr>\n    <\/thead>\n    <tbody>\n      <tr>\n <td><p>32-bit dual core 2 GHz CPU (e.g., Intel i3 or AMD Athlon)<\/p><\/td>\n        <td><p>64-bit quad core CPU (e.g., Intel i 7 or AMD Phenom II X4\/X6)<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>4 GB Ram<\/p><\/td>\n        <td><p>8 GB Ram<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>1600 x 900 display<\/p><\/td>\n        <td><p>1920 x 1080 display<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>Graphics card with 1 GB RAM<\/p><\/td>\n        <td><p>Graphics card with 2 GB RAM (e.g., Nvidia GeForce 830 or AMD Radeon R7 M340<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>1 GB of Disk space<\/p><\/td>\n        <td><p>2 GB of Disk space<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>Windows 11, 7 SP1, 8.1 or 10<\/p><\/td>\n        <td><p>Windows 11, 7 SP1, 8.1 or 10<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>Mouse, trackpad or pen & tablet<\/p><\/td>\n        <td><p>3-button mouse, or pen & tablet<\/p><\/td>\n      <\/tr>\n    <\/tbody>\n\n  <\/table>\n<\/div>\n<\/div>\n<\/div>","role":false}},"1560873750550":{"type":"divider","settings":{"devicer":"all","divider_spacing":20,"line_color":"","bg_color":"","divider_border":true,"screen_size":false,"border_style":"solid","divider_size":1}},"bcf7db7f-153e-4759-bb51-13c0e324962b":{"type":"custom_html","settings":{"custom_html":"<div class=\"container text-center\">\n<p>Please fill in the following form to start downloading the latest Alpha 3D version.<\/p>\n<\/div>","role":false}},"56acf75a-a97b-4335-a406-06da1ba78f24":{"type":"custom_html","settings":{"custom_html":"<div class=\"container jumbotron\">\n<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/shell.js\"><\/script>\n<script>\n  hbspt.forms.create({\n\tregion: \"na1\",\n\tportalId: \"2471334\",\n\tformId: \"31a9dfd8-d21a-4154-9662-227d6cbdafaa\"\n});\n<\/script>\n<\/div>","role":false}}},"block_order":["1560976307309","1557d032-d8c9-438d-b2fd-677b942053cb","a28f619d-0367-4704-84a9-4fd39b623f14","516b0a66-a2ce-405c-8272-19acc9bd7e63","5c0a0aeb-b16d-4b34-bdf2-d8ca5a72d3cc","df734ddb-821d-4ab4-96ea-1a78c9905a0c","761ad079-33d1-44e5-a36c-4928ac8abe0c","e7a8417e-dafb-40de-8c00-ba3ac3d3eab5","1560873750550","bcf7db7f-153e-4759-bb51-13c0e324962b","56acf75a-a97b-4335-a406-06da1ba78f24"],"settings":{}},"blog-template":{"type":"blog-template","blocks":{"8f328d8e-a860-4387-ae8b-c856bcf2d26a":{"type":"divider","settings":{"divider_spacing":15,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"47227b31-3f25-4390-a853-c26d4a3b6e00":{"type":"header_landing","settings":{"banner_height":20,"banner_height_m":20,"promo-banner-collection-tms":"","title_page":"Blog","image":"shopify:\/\/shop_images\/Curo-poured-dentiq.png","image_m":"shopify:\/\/shop_images\/CURO.jpg"}},"0f962469-0c48-4d71-bf99-d3a529e6f5fa":{"type":"blog_posts","settings":{"wide_display":false,"articles_per":3,"articles_limit":8,"bg_color":"","color_mo":"","color_de":"","title":"Blog posts","blog_widget_select":"news","blog_tags":false,"blog_author":false,"blog_date":true,"blog_comment_count":true,"read_more_link":true}},"25d4a36f-a2b9-4d94-b596-fca90a43aafb":{"type":"divider","settings":{"divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}}},"block_order":["8f328d8e-a860-4387-ae8b-c856bcf2d26a","47227b31-3f25-4390-a853-c26d4a3b6e00","0f962469-0c48-4d71-bf99-d3a529e6f5fa","25d4a36f-a2b9-4d94-b596-fca90a43aafb"],"settings":{}},"pct-sol":{"type":"pct-sol","settings":{"gallery_arrows":false,"activate_zoom":true,"enable_product_lightbox":true,"activate_autoplay":false,"slideshow_animation":"slide","product_images_position":"left","product_thumbs":false,"thumbnail_position":"bottom-slider","product_breadcrumb":false,"display_vendor":false,"display_sku":false,"display_savings":true,"show_payment_button":true,"display_collections":false,"display_type":false,"display_tags":false,"display_social_buttons":true,"product_description_position":"top","enable_shopify_product_badges":true,"enable_reviews_in_description":false}},"product-template":{"type":"product-template","blocks":{"4f32cca4-9327-49c8-9b17-e11eb6587360":{"type":"responsive_img","settings":{"responsive_img":true,"wide_display":true}},"6e62e047-79cb-4ff8-b48f-c7d742207534":{"type":"text","settings":{"title":"Heading","text":"<p>Text area can be used for special announcements or general information.b hj<\/p>"}}},"block_order":["4f32cca4-9327-49c8-9b17-e11eb6587360","6e62e047-79cb-4ff8-b48f-c7d742207534"],"settings":{"gallery_arrows":true,"activate_zoom":false,"enable_product_lightbox":true,"activate_autoplay":false,"slideshow_animation":"slide","product_images_position":"left","product_thumbs":true,"thumbnail_position":"bottom-slider","product_breadcrumb":false,"display_vendor":false,"display_sku":false,"display_savings":true,"show_payment_button":true,"display_collections":false,"display_type":false,"display_tags":false,"display_social_buttons":true,"product_description_position":"top","enable_shopify_product_badges":true,"review_position":"next_to_gallery","display_related_products":false,"related_products_style":"grid","products_limit":12,"products_per":3,"toggle":false}},"pct-curie":{"type":"pct-curie","settings":{"gallery_arrows":false,"activate_zoom":true,"enable_product_lightbox":true,"activate_autoplay":false,"slideshow_animation":"slide","product_images_position":"left","product_thumbs":false,"thumbnail_position":"bottom-slider","product_breadcrumb":false,"display_vendor":false,"display_sku":false,"display_savings":true,"show_payment_button":true,"display_collections":false,"display_type":false,"display_tags":false,"display_social_buttons":true,"product_description_position":"top","enable_shopify_product_badges":true,"enable_reviews_in_description":false}},"acc-ack":{"type":"acc-ack","blocks":{"acc-ack-0":{"type":"rich_text_and_image","settings":{"rich_text_and_image_SKU":"gen","framed":false,"title":"This is an example headline","content":"<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Suspendisse potenti.<\/p>","text_size":"featured_text","text_alignment":"center","button_label":"Button","button_link":""}},"acc-ack-1":{"type":"divider","settings":{"divider_SKU":"gen","divider_spacing":0,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"acc-ack-2":{"type":"image_gallery","settings":{"image_gallery_SKU":"gen"}},"acc-ack-3":{"type":"divider","settings":{"divider_SKU":"gen","divider_spacing":20,"line_color":"","bg_color":"","divider_border":false,"screen_size":false,"border_style":"solid","divider_size":1}},"acc-ack-4":{"type":"image_with_text_overlay","settings":{"image_with_text_overlay_SKU":"gen","wide_display":true,"section_color_bg":"","pretext":"<p>This is<\/p>","preh_font_size":12,"title":"Your Headline","sub_font_size":12,"sub_line_height":12,"subtitle":"<p>Customize this section<\/p>","pretext_mobile":"","title_mobile":"","subtitle_mobile":"","caption_background":false,"caption_background_transparency":false,"text_position":"ml-lg-0","text_align":"left","button1":"Button","button1_link":"","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"acc-ack-5":{"type":"image_with_text_overlay","settings":{"image_with_text_overlay_SKU":"gen","wide_display":true,"section_color_bg":"","pretext":"<p>This is<\/p>","preh_font_size":12,"title":"Your Headline","sub_font_size":12,"sub_line_height":12,"subtitle":"<p>Customize this section<\/p>","pretext_mobile":"","title_mobile":"","subtitle_mobile":"","caption_background":false,"caption_background_transparency":false,"text_position":"right","text_align":"left","button1":"Button","button1_link":"","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"acc-ack-6":{"type":"contact_form","settings":{"contact_form_SKU":"gen","contact_heading":"Get in touch","contact_subheading":"Leave a message","contact_content":"<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.<\/p>","contact_text_position":"left","contact_text_alignment":"left"}}},"block_order":["acc-ack-0","acc-ack-1","acc-ack-2","acc-ack-3","acc-ack-4","acc-ack-5","acc-ack-6"],"settings":{"gallery_arrows":false,"activate_zoom":false,"enable_product_lightbox":true,"activate_autoplay":false,"slideshow_animation":"slide","product_images_position":"left","product_thumbs":false,"thumbnail_position":"bottom-slider","product_breadcrumb":false,"display_vendor":false,"display_sku":false,"display_savings":true,"show_payment_button":true,"display_collections":false,"display_type":false,"display_tags":false,"display_social_buttons":true,"product_description_position":"top","enable_shopify_product_badges":true,"enable_reviews_in_description":false}},"page-banner-template":{"type":"page-banner-template","settings":{"show_banner":true,"image":"shopify:\/\/shop_images\/eco.png","pretext":"","title":"","subtitle":"","caption_background":false,"caption_background_transparency":false,"text_position":"center","text_align":"center","button1":"","button1_link":"","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"page-aboutus-template":{"type":"page-aboutus-template","settings":{"image":"shopify:\/\/shop_images\/SOL_workflow.png","image_m":"shopify:\/\/shop_images\/videocover.jpg","image_darken":false,"title":"","subtitle":"","text":"","show_map":false,"wide_display":false,"map_address":"","map_height":400,"zoom_level":16,"api_key":"","show_pin":true,"map_style":"default"}},"search-template":{"type":"search-template","settings":{"image_darken":false,"search_breadcrumb":true,"search_term":"Start Typing...","products_per_row":3,"pagination_limit":48,"blog_author":true,"read_more_link":true,"blog_date":true,"toggle":false}},"164437774845bbf809":{"type":"slideshow","blocks":{"164437774845bbf809-1":{"type":"image","settings":{"image_d":"shopify:\/\/shop_images\/Entry-Into-Digital-Dentistry_1980_92ba60ec-a3d7-4b26-a66d-833738ef8493.jpg","image_m":"shopify:\/\/shop_images\/Entry-Into-Digital-Dentistry_480_1a2bf07e-f955-4861-be3f-a658b488f0cb.jpg","pretext":"","title":"Entry Digital Dentistry Free Shipping Bundle","subtitle":"","text_position":"center","text_align":"center","caption_background":false,"caption_background_transparency":false,"button1":"","button1_link":"https:\/\/ackuretta.com\/products\/entry-digital-dentistry-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"28a29412-bd44-47ab-b1b9-1ce08edb6007":{"type":"image","settings":{"image_d":"shopify:\/\/shop_images\/SOL-Starter-Bundle_1980_8e713956-a756-4b6d-84e8-27a5bafc1703.jpg","image_m":"shopify:\/\/shop_images\/SOL-Starter-Bundle_480_fd2ee645-036e-47d2-a028-5440724f61ed.jpg","pretext":"","title":"SOL Starter Bundle","subtitle":"","text_position":"center","text_align":"center","caption_background":false,"caption_background_transparency":false,"button1":"","button1_link":"https:\/\/ackuretta.com\/products\/sol-dental-3d-printer-starter-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"da43ec19-1813-4ca6-833a-75f9c2a35eb7":{"type":"image","settings":{"image_d":"shopify:\/\/shop_images\/Pros-Bundle_1980_ef15dc96-f2bb-4d8f-b646-0e8298a23eb3.jpg","image_m":"shopify:\/\/shop_images\/Pros-Bundle_480_00b66aad-77ad-447f-919c-a1141a8e4916.jpg","pretext":"","title":"Pro's Bundle","subtitle":"","text_position":"center","text_align":"center","caption_background":false,"caption_background_transparency":false,"button1":"","button1_link":"https:\/\/ackuretta.com\/products\/prosthodontist-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"164437774845bbf809-0":{"type":"image","settings":{"image_d":"shopify:\/\/shop_images\/Finishing-kit-Bundle_1980_6b4c1ce0-aa8b-404e-8e1b-17b35000db1a.jpg","image_m":"shopify:\/\/shop_images\/Finishing-kit-Bundle_480_2f966f90-57f5-4d7a-97ee-e418bb44f506.jpg","pretext":"<p>Cleani<\/p>","title":"Finishing Kit Bundle Free Shipping","subtitle":"<p>Buy Now<\/p>","text_position":"center","text_align":"center","caption_background":false,"caption_background_transparency":false,"button1":"","button1_link":"https:\/\/ackuretta.com\/products\/post-printing-kit","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}},"08b0468f-7775-4b51-a064-c389f2996f1a":{"type":"image","settings":{"image_d":"shopify:\/\/shop_images\/CURIE-_-CURO-Bundle_1980_bed29c4e-9549-4f8d-a9cf-6c6dc427d5a9.jpg","image_m":"shopify:\/\/shop_images\/CURIE-_-CURO-Bundle_480_76fa49d9-7af8-456f-8f60-04a2c5c71e4f.jpg","pretext":"","title":"CURIE & CURO Bundle Free Shipping","subtitle":"","text_position":"center","text_align":"center","caption_background":false,"caption_background_transparency":false,"button1":"","button1_link":"https:\/\/ackuretta.com\/products\/curie-curing-oven-curo-resins-for-dental-3d-printing","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}}},"block_order":["164437774845bbf809-1","28a29412-bd44-47ab-b1b9-1ce08edb6007","da43ec19-1813-4ca6-833a-75f9c2a35eb7","164437774845bbf809-0","08b0468f-7775-4b51-a064-c389f2996f1a"],"settings":{"wide_display":true,"slideshow_text_animation":"fadeInDown","slideshow_animation":"slide","slideshow_speed":6,"activate_adaptiveHeight":false}},"1644400139738d26b9":{"type":"slideshow","blocks":{"1644400139738d26b9-0":{"type":"image","settings":{"image_d":"shopify:\/\/shop_images\/BEGO-Slider_1980.jpg","image_m":"shopify:\/\/shop_images\/BEGO-Slider_480.jpg","pretext":"","title":"Bego and Ackuretta","subtitle":"","text_position":"center","text_align":"center","caption_background":false,"caption_background_transparency":false,"button1":"","button1_link":"shopify:\/\/blogs\/press-releases\/ackuretta-bego-for-fully-validated-workflows","button1_highlight":false,"button2":"","button2_link":"","button2_highlight":false}}},"block_order":["1644400139738d26b9-0"],"settings":{"wide_display":true,"slideshow_text_animation":"fadeInDown","slideshow_animation":"slide","slideshow_speed":6,"activate_adaptiveHeight":false}},"page-team-template":{"type":"page-team-template","blocks":{"page-team-template-0":{"type":"employee","disabled":true,"settings":{"title":"Jamie Ipsum","job_title":"Fancy Job Title","description":"<p>Powered by cats and coffee.<\/p>","twitter":"Shopify"}},"page-team-template-1":{"type":"employee","disabled":true,"settings":{"title":"Jamie Ipsum","job_title":"Fancy Job Title","description":"<p>Powered by cats and coffee.<\/p>","twitter":"Shopify"}},"page-team-template-2":{"type":"employee","disabled":true,"settings":{"title":"Jamie Ipsum","job_title":"Fancy Job Title","description":"<p>Powered by cats and coffee.<\/p>","twitter":"Shopify"}}},"block_order":["page-team-template-0","page-team-template-1","page-team-template-2"],"settings":{"image_position":"left","title":"","text":"","text_position":"center","employee_per_row":3,"member_color":"#fff","member_accent_color":"#d54d4d","member_overlay_color":"#000"}},"article-template":{"type":"article-template","settings":{"banner_enabled":true,"image_darken":false,"blog_breadcrumb":true,"blog_pagination":true,"blog_tags":false,"blog_byline":false,"read_time":true,"blog_date":true,"blog_author":false,"display_social_buttons":true,"blog_comment_count":true,"blog_additional_posts":false,"read_more_link":true,"toggle":false}}},"content_for_index":["1629872147ecdafa4b","164437774845bbf809","163030600200a13620","1630398220d7ed1421","1644400139738d26b9","1630481193a1696901"],"blocks":{"8232603958289840080":{"type":"shopify:\/\/apps\/seo-manager\/blocks\/seomanager-404\/c54c366f-d4bb-4d52-8d2f-dd61ce8e7e12","disabled":false,"settings":{}},"17992116214976573926":{"type":"shopify:\/\/apps\/seo-manager\/blocks\/seomanager\/c54c366f-d4bb-4d52-8d2f-dd61ce8e7e12","disabled":false,"settings":{}},"10910696115237310528":{"type":"shopify:\/\/apps\/slide-cart-drawer-cart-upsell\/blocks\/slide-cart-app-embed\/06f96c51-92d4-4ccf-8798-f65ef7359208","disabled":false,"settings":{}}}}}
+{
+  "presets": {
+  },
+  "current": {
+    "slidecart": false,
+    "slidecart_floating": false,
+    "slidecart_floating_bg": "#ffffff",
+    "slidecart_floating_bg_hover": "#764796",
+    "slidecart_floating_count_bg": "#764796",
+    "slidecart_floating_count_color": "#ffffff",
+    "slidecart_floating_icon_color": "#100f0f",
+    "performance": "sport",
+    "image_loading_style": "blur-up",
+    "custom_scripts": "",
+    "logo_color": "#ffffff",
+    "regular_color": "#2c353c",
+    "banner_color": "#f3f3f3",
+    "headline_color": "#764595",
+    "headline_footer_text_color": "#ffffff",
+    "sub_footer_text_color": "#ffffff",
+    "sale_color": "#662483",
+    "was_price_color": "#8c8b8b",
+    "product_hover_text_color": "#662483",
+    "promo_text_color": "#ffffff",
+    "shop_home_page_content_text_color": "#ffffff",
+    "newsletter_popup_color": "#fffdfd",
+    "newsletter_section_color": "#ffffff",
+    "collection_filter_color": "#3d63ad",
+    "top_bar_color": "#020202",
+    "top_bar_color_hover": "#ffffff",
+    "nav_color": "#ffffff",
+    "nav_color_home": "#ffffff",
+    "nav_color_hover": "#b1b1b1",
+    "link_color": "#b01f23",
+    "link_hover_color": "#662483",
+    "sidebar_nav_color": "#b01f23",
+    "sidebar_nav_color_hover": "#3d63ad",
+    "sub_footer_link_color": "#ffffff",
+    "sub_footer_link_color_hover": "#3d63ad",
+    "btn_color": "#764595",
+    "banner_button_color": "#646464",
+    "btn_hover_color": "#646464",
+    "btn_text_color": "#ffffff",
+    "button_style": "rounded",
+    "read_more_style": "button",
+    "swatch_style": "square",
+    "table_styles_enabled": true,
+    "slideshow_arrow_size": "light",
+    "arrow_color": "#bbbaba",
+    "slideshow_button_style": false,
+    "slideshow_nav_buttons": true,
+    "border_color": "#373a36",
+    "headline_border_color": "#b1b0b0",
+    "headline_border": "1",
+    "divider_style": "solid",
+    "sub_footer_border_color": "#2c353c",
+    "sale_banner_color": "#2c353c",
+    "new_banner_color": "#ffffff",
+    "banner_style": "square",
+    "search_section_color": "#ffffff",
+    "search_section_bg_color": "#b01f23",
+    "testimonial_color": "#ffffff",
+    "testimonial_bg_color": "#2c353c",
+    "featured_promotions_color": "#2c353c",
+    "featured_promotions_color_hover": "#662483",
+    "featured_promotions_background": "#2c353c",
+    "featured_promotions_mobile_background": true,
+    "modal_background_color": "#ffffff",
+    "modal_text_color": "#2c353c",
+    "shop_bg_color": "#ffffff",
+    "custom_bg": "",
+    "repeat_bg": "repeat",
+    "bg_fixed": false,
+    "bg_stretched": false,
+    "top_bar_bg_color": "#3d63ad",
+    "top_bar_cart_bg_color": "rgba(0,0,0,0)",
+    "minicart_bg_color": "#3d63ad",
+    "banner_placeholder_background_color": "#2c353c",
+    "banner_background_color": "#2c353c",
+    "header_bg_color": "#2c353c",
+    "header_background": true,
+    "transparent_header": false,
+    "promo_bg_color": "#662483",
+    "shop_home_page_content_bg_color": "#2c353c",
+    "featured_links_background": "#2c353c",
+    "product_hover_bg_color": "#2c353c",
+    "sub_footer_color": "#000000",
+    "footer_bg": "",
+    "footer_bg_stretched": false,
+    "newsletter_popup_background_color": "#2c353c",
+    "newsletter_section_background_color": "#2c353c",
+    "password_page_text_color": "#b1b1b1",
+    "password_page_background_color": "#2c353c",
+    "logo__font": "open_sans_n7",
+    "logo_font_style": "none",
+    "logo_font_size": 20,
+    "top_bar_font_size": 12,
+    "top_bar_letter_spacing": 0,
+    "nav__font": "open_sans_n4",
+    "nav_font_style": "none",
+    "nav_font_size": 13,
+    "nav_letter_spacing": 0,
+    "nav_shadow": true,
+    "button_weight": "bold",
+    "button_font_style": "uppercase",
+    "button_font_size": 20,
+    "mega_text_font_size": 18,
+    "mega_text_letter_spacing": 1,
+    "headline__font": "open_sans_n4",
+    "headline_font_style": "none",
+    "headline_font_size": 37,
+    "headline_letter_spacing": 1,
+    "slideshow_headline__font": "open_sans_n7",
+    "slideshow_headline_font_style": "none",
+    "slideshow_headline_size": 28,
+    "slideshow_headline_letter_spacing": 1,
+    "slideshow_headline_shadow": false,
+    "slideshow_subtitle__font": "open_sans_n6",
+    "slideshow_subtitle_font_style": "none",
+    "slideshow_subtitle_size": 21,
+    "slideshow_line_Height": 10,
+    "slideshow_subtitle_letter_spacing": 1,
+    "slideshow_shadow": true,
+    "regular__font": "open_sans_n4",
+    "regular_font_style": "none",
+    "regular_font_size": 18,
+    "footer_logo_font_size": 20,
+    "footer_heading_font_size": 18,
+    "footer_font_size": 13,
+    "mega_menu_1": false,
+    "mega_menu_2": false,
+    "mega_menu_3": false,
+    "mega_menu_4": false,
+    "mega_menu_5": false,
+    "search_option": "everything",
+    "search_pagination_type": "load_more",
+    "enable_autocomplete": false,
+    "search_to_display": 5,
+    "mobile_products_per_row": "2",
+    "pagination_type": "basic_pagination",
+    "align_height": true,
+    "collection_height": 200,
+    "thumbnail_hover_enabled": false,
+    "display_vendor": false,
+    "collection_secondary_image": false,
+    "sale_banner_enabled": true,
+    "collection_swatches": false,
+    "notify_me_form": true,
+    "notify_me_richtext": "<p>Notify me when this product is available:<\/p>",
+    "product_form_style": "swatches",
+    "display_product_quantity": false,
+    "limit_quantity": false,
+    "display_inventory_left": true,
+    "inventory_threshold": 10,
+    "free_price_text": "Free",
+    "size_chart": "",
+    "enable_shopify_review_comments": true,
+    "enable_shopify_collection_badges": false,
+    "quick_shop_enabled": false,
+    "quick_shop_display_vendor": false,
+    "quick_shop_display_savings": true,
+    "show_payment_button": true,
+    "quick_shop_zoom": false,
+    "quick_shop_full_description": false,
+    "description_words": 25,
+    "quick_shop_product_description_position": "bottom",
+    "quick_shop_gallery_arrows": false,
+    "quick_shop_slideshow_animation": "slide",
+    "quick_shop_product_images_position": "left",
+    "quick_shop_product_thumbs": true,
+    "quick_shop_thumbnail_position": "left-thumbnails",
+    "cart_action": "redirect_cart",
+    "show_lock_icon": true,
+    "display_tos_checkbox": false,
+    "tos_page": "",
+    "go_to_checkout": false,
+    "display_special_instructions": false,
+    "display_savings": false,
+    "show_shipping_calculator": true,
+    "shipping_calculator_default_country": "United States",
+    "show_multiple_currencies": true,
+    "currency_format": "money_format",
+    "supported_currencies": "EUR, USD, MXN",
+    "default_currency": "USD",
+    "mailchimp_link": "",
+    "secondary_newsletter_banner": true,
+    "newsletter_popup": false,
+    "newsletter_popup_close": true,
+    "newsletter_popup_mobile": false,
+    "newsletter_popup_form": true,
+    "display_first_name": true,
+    "display_last_name": true,
+    "use_newsletter_border": true,
+    "newsletter_bg": "shopify:\/\/shop_images\/fold_3.png",
+    "image_crop": "none",
+    "newsletter_popup_image_align": "left",
+    "newsletter_popup_text": "<p>Sign up now<\/p>",
+    "newsletter_popup_text_align": "center",
+    "popup_button1": "",
+    "popup_button1_link": "",
+    "popup_button1_highlight": false,
+    "popup_button2": "",
+    "popup_button2_link": "",
+    "popup_button2_highlight": false,
+    "newsletter_popup_seconds": 0,
+    "newsletter_popup_days": "0",
+    "twitter_link": "https:\/\/twitter.com\/ackuretta",
+    "facebook_link": "https:\/\/www.facebook.com\/ackuretta",
+    "youtube_link": "http:\/\/www.youtube.com\/c\/ackuretta",
+    "vimeo_link": "",
+    "pinterest_link": "https:\/\/pin.it\/2vvsdQB",
+    "tumblr_link": "",
+    "instagram_link": "https:\/\/www.instagram.com\/ackuretta\/",
+    "snapchat_link": "",
+    "houzz_link": "",
+    "linkedin_link": "https:\/\/www.linkedin.com\/company\/ackuretta",
+    "email_link": "info@ackuretta.com",
+    "og_image_fallback": "shopify:\/\/shop_images\/smile_ac4c609b-070a-4db3-855d-bf70787ab057.png",
+    "favicon": "shopify:\/\/shop_images\/icon-w.png",
+    "disqus_enabled": false,
+    "disqus_shortname": "",
+    "whatshare_message": "Check this out",
+    "whatshare_bg_color": "#51a419",
+    "whatshare_width": "35px",
+    "whatshare_height": "35px",
+    "whatshare_padding": "10px",
+    "whatshare_margin": "0px",
+    "whatshare_border_rd": "28px",
+    "whatshare_text_align": "center",
+    "whatshare_position": "static",
+    "whatshare_position_top": "auto",
+    "whatshare_position_left": "auto",
+    "whatshare_float": "none",
+    "whatshare_text_content": "",
+    "whatshare_text_color": "#fff",
+    "whatshare_text_size": "",
+    "whatshare_font_family": "",
+    "whatshare_font_weight": "bold",
+    "whatshare_text_decoration": "none",
+    "whatshare_image_height": "",
+    "whatshare_image_max_height": "95%",
+    "whatshare_image_width": "",
+    "whatshare_image_max_width": "95%",
+    "whatshare_image_vertical_align": "middle",
+    "whatshare_custom_css": "",
+    "checkout_header_image": "shopify:\/\/shop_images\/checkoutbanner.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Open Sans",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#764595",
+    "checkout_button_color": "#764595",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "ack-header-menu": {
+        "type": "ack-header-menu",
+        "settings": {
+          "promo_text": "",
+          "promo_text_deal": "",
+          "logo": "shopify:\/\/shop_images\/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4.png",
+          "logo_mobile": "shopify:\/\/shop_images\/ack-logo-desk-dark_4b643e86-a5df-44cb-b98c-c867c330d2c4.png",
+          "logo_drk": "shopify:\/\/shop_images\/ack-logo-desk-white_19e2c01b-1ca5-4f87-bb70-ff1cd6d36843.png"
+        }
+      },
+      "1629872147ecdafa4b": {
+        "type": "video",
+        "settings": {
+          "wide_display": true,
+          "aspect_ratio": "16:9",
+          "autoplay": true,
+          "autoloop": true,
+          "video_dark_overlay": false,
+          "mp4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/4174\/1415\/files\/intro.mp4?v=1644481511",
+          "ogv": "",
+          "mp4_m": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/4174\/1415\/files\/SOL_Video_Mobile.mp4?v=1627028100",
+          "ogv_m": "",
+          "image": "shopify:\/\/shop_images\/video-sol-banner.jpg",
+          "bg_color": "#ffffff",
+          "display_text_over_video": false,
+          "video_text_align": "left",
+          "pretext": "",
+          "pretext_color": "",
+          "pretext_size": 15,
+          "title": "",
+          "head_font_size": 35,
+          "head_line_height": 20,
+          "head_line_color": "",
+          "subtitle": "",
+          "sub_font_size": 35,
+          "subtitle_color": "",
+          "link_color": "",
+          "link_h_color": "",
+          "head_line_height_m": 20,
+          "pretext_color_m": "",
+          "pretext_size_m": 35,
+          "head_line_color_m": "",
+          "head_font_size_m": 35,
+          "subtitle_color_m": "",
+          "sub_font_size_m": 35,
+          "mobile_bg": "",
+          "link_color_m": "",
+          "link_h_color_m": "",
+          "caption_background": false,
+          "caption_background_transparency": false,
+          "button1_label": "",
+          "button1_link": "",
+          "button1_highlight": false,
+          "button2_label": "",
+          "button2_link": "",
+          "button2_highlight": false,
+          "image_og": "shopify:\/\/shop_images\/video-sol-banner.jpg"
+        }
+      },
+      "163030600200a13620": {
+        "type": "ack-Index-cover-txt",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/ackuretta-ecosystema.png",
+          "image_mobile": "shopify:\/\/shop_images\/ackuretta-ecosystema.png"
+        }
+      },
+      "1630398220d7ed1421": {
+        "type": "ack-twin-banner",
+        "settings": {
+          "image_a": "shopify:\/\/shop_images\/Sol-Dentiq-showcase_d76c52ea-fa70-4584-8613-5c318270c304.png",
+          "image_mobile_a": "shopify:\/\/shop_images\/Sol-Dentiq-showcase.png",
+          "gr_bg_param_a": "background: rgb(2,11,51); background: -moz-linear-gradient(-180deg, rgba(2,11,51,1) 0%, rgba(0,14,46,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(2,11,51,1) 0%, rgba(0,14,46,1) 100%); background: linear-gradient(-180deg, rgba(2,11,51,1) 0%, rgba(0,14,46,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#020b33\",endColorstr=\"#000e2e\",GradientType=1);",
+          "image_b": "shopify:\/\/shop_images\/dlp-showcase_96a48749-66a8-4853-876a-68f112904405.png",
+          "image_mobile_b": "shopify:\/\/shop_images\/dlp-showcase_96a48749-66a8-4853-876a-68f112904405.png",
+          "gr_bg_param_b": "background: rgb(102,102,102); background: -moz-linear-gradient(-180deg, rgba(102,102,102,1) 0%, rgba(26,26,26,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(102,102,102,1) 0%, rgba(26,26,26,1) 100%); background: linear-gradient(-180deg, rgba(102,102,102,1) 0%, rgba(26,26,26,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#666666\",endColorstr=\"#1a1a1a\",GradientType=1);",
+          "image_c": "shopify:\/\/shop_images\/cleani-showcase_22b6cb54-ec2b-40a5-917e-1322454f53fd.png",
+          "image_mobile_c": "shopify:\/\/shop_images\/cleani-showcase_22b6cb54-ec2b-40a5-917e-1322454f53fd.png",
+          "gr_bg_param_c": "background: rgb(102,45,144); background: -moz-linear-gradient(-180deg, rgba(102,45,144,1) 0%, rgba(0,14,46,1) 100%); background: -webkit-linear-gradient(-180deg, rgba(102,45,144,1) 0%, rgba(0,14,46,1) 100%); background: linear-gradient(-180deg, rgba(102,45,144,1) 0%, rgba(0,14,46,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#662d90\",endColorstr=\"#000e2e\",GradientType=1);",
+          "image_d": "shopify:\/\/shop_images\/curie-showcase_3fc85306-f985-4dfa-aa5c-ceb53f5a3062.png",
+          "image_mobile_d": "shopify:\/\/shop_images\/curie-showcase_3fc85306-f985-4dfa-aa5c-ceb53f5a3062.png",
+          "gr_bg_param_d": "background: rgb(157,0,93); background: -moz-linear-gradient(-180deg, rgba(157,0,93,1) 0%, rgba(102,0,93,1) 75%); background: -webkit-linear-gradient(-180deg, rgba(157,0,93,1) 0%, rgba(102,0,93,1) 75%); background: linear-gradient(-180deg, rgba(157,0,93,1) 0%, rgba(102,0,93,1) 75%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#9d005d\",endColorstr=\"#66005d\",GradientType=1);",
+          "image_e": "shopify:\/\/shop_images\/alpha-showcase_a4b68686-3e19-474b-aa31-24927c69d1d5.png",
+          "image_mobile_e": "shopify:\/\/shop_images\/alpha-showcase_a4b68686-3e19-474b-aa31-24927c69d1d5.png",
+          "gr_bg_param_e": "background: rgb(0,104,55); background: -moz-linear-gradient(-180deg, rgba(0,104,55,1) 0%, rgba(26,26,26,1) 75%); background: -webkit-linear-gradient(-180deg, rgba(0,104,55,1) 0%, rgba(26,26,26,1) 75%); background: linear-gradient(-180deg, rgba(0,104,55,1) 0%, rgba(26,26,26,1) 75%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#006837\",endColorstr=\"#1a1a1a\",GradientType=1);",
+          "image_f": "shopify:\/\/shop_images\/newCuro-Home.png",
+          "image_mobile_f": "shopify:\/\/shop_images\/CURO-Home.png",
+          "gr_bg_param_f": "background: rgb(67,113,171); background: -moz-linear-gradient(-180deg, rgba(67,113,171,1) 0%, rgba(0,66,106,1) 81%); background: -webkit-linear-gradient(-180deg, rgba(67,113,171,1) 0%, rgba(0,66,106,1) 81%); background: linear-gradient(-180deg, rgba(67,113,171,1) 0%, rgba(0,66,106,1) 81%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#4371ab\",endColorstr=\"#00426a\",GradientType=1);"
+        }
+      },
+      "1630481193a1696901": {
+        "type": "ack-instaslide",
+        "settings": {
+          "gr_bg_param": "background: rgb(141,58,80); background: -moz-linear-gradient(-180deg, rgba(141,58,80,1) 0%, rgba(95,30,31,1) 81%); background: -webkit-linear-gradient(-180deg, rgba(141,58,80,1) 0%, rgba(95,30,31,1) 81%); background: linear-gradient(-180deg, rgba(141,58,80,1) 0%, rgba(95,30,31,1) 81%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#8d3a50\",endColorstr=\"#5f1e1f\",GradientType=1);"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "logo",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ack-logo-desk-white_8eaa8e8f-9bae-4025-9ba5-40d4402ce23e.png",
+              "text_align": "left",
+              "social_icons_footer": false
+            }
+          },
+          "4b31ad9e-b1ff-4185-a407-73d9d233a420": {
+            "type": "empty",
+            "disabled": true,
+            "settings": {
+              "social_icons_footer": false
+            }
+          },
+          "footer-1": {
+            "type": "link_list",
+            "settings": {
+              "menu": "information",
+              "menu-title": "COMPANY"
+            }
+          },
+          "footer-2": {
+            "type": "link_list",
+            "settings": {
+              "menu": "footer",
+              "menu-title": "SUPPORT"
+            }
+          },
+          "77a5b72c-73f2-413a-9f1e-f94c80d1f0f7": {
+            "type": "link_list",
+            "settings": {
+              "menu": "shop",
+              "menu-title": "SHOP NOW"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "4b31ad9e-b1ff-4185-a407-73d9d233a420",
+          "footer-1",
+          "footer-2",
+          "77a5b72c-73f2-413a-9f1e-f94c80d1f0f7"
+        ],
+        "settings": {
+          "copyright_text": "All Rights Reserved",
+          "display_designed_by": false,
+          "display_payment_methods": true,
+          "gradient_bg_f": "background : -moz-linear-gradient(50% 104.45% 90deg,rgba(26, 26, 26, 1) 2.71%,rgba(38, 38, 38, 1) 100%);   background : -webkit-linear-gradient(90deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   background : -webkit-gradient(linear,50% 104.45% ,50% 2.53% ,color-stop(0.0271,rgba(26, 26, 26, 1) ),color-stop(1,rgba(38, 38, 38, 1) ));   background : -o-linear-gradient(90deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   background : -ms-linear-gradient(90deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   -ms-filter: \"progid:DXImageTransform.Microsoft.gradient(startColorstr='#1A1A1A', endColorstr='#262626' ,GradientType=0)\";   background : linear-gradient(0deg, rgba(26, 26, 26, 1) 2.71%, rgba(38, 38, 38, 1) 100%);   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#262626',endColorstr='#1A1A1A' , GradientType=0);",
+          "gradient_bg_s": "background : -moz-linear-gradient(50% 104.45% 90deg,rgba(0, 0, 0, 1) 2.71%,rgba(0, 0, 0, 1) 98.8%);   background : -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   background : -webkit-gradient(linear,50% 104.45% ,50% 2.53% ,color-stop(0.0271,rgba(0, 0, 0, 1) ),color-stop(0.988,rgba(0, 0, 0, 1) ));   background : -o-linear-gradient(90deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   background : -ms-linear-gradient(90deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   -ms-filter: \"progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000' ,GradientType=0)\";   background : linear-gradient(0deg, rgba(0, 0, 0, 1) 2.71%, rgba(0, 0, 0, 1) 98.8%);   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000',endColorstr='#000000' , GradientType=0);",
+          "gradient_bg_t": "background : #000000;   background : rgba(0, 0, 0, 1);"
+        }
+      },
+      "pct-ack": {
+        "type": "pct-ack",
+        "blocks": {
+          "pct-ack-0": {
+            "type": "rich_text_and_image",
+            "settings": {
+              "rich_text_and_image_SKU": "gen",
+              "framed": false,
+              "title": "This is an example headline",
+              "content": "<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Suspendisse potenti.<\/p>",
+              "text_size": "featured_text",
+              "text_alignment": "center",
+              "button_label": "Button",
+              "button_link": ""
+            }
+          },
+          "pct-ack-1": {
+            "type": "divider",
+            "settings": {
+              "divider_SKU": "gen",
+              "devicer": "all",
+              "divider_spacing": 0,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "pct-ack-2": {
+            "type": "image_gallery",
+            "settings": {
+              "image_gallery_SKU": "gen"
+            }
+          },
+          "pct-ack-3": {
+            "type": "divider",
+            "settings": {
+              "divider_SKU": "gen",
+              "devicer": "all",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "pct-ack-4": {
+            "type": "image_with_text_overlay",
+            "settings": {
+              "image_with_text_overlay_SKU": "gen",
+              "wide_display": true,
+              "section_color_bg": "",
+              "pretext": "<p>This is<\/p>",
+              "preh_font_size": 12,
+              "title": "Your Headline",
+              "sub_font_size": 12,
+              "sub_line_height": 12,
+              "subtitle": "<p>Customize this section<\/p>",
+              "pretext_mobile": "",
+              "title_mobile": "",
+              "subtitle_mobile": "",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "text_position": "ml-lg-0",
+              "text_align": "left",
+              "button1": "Button",
+              "button1_link": "",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "pct-ack-5": {
+            "type": "image_with_text_overlay",
+            "settings": {
+              "image_with_text_overlay_SKU": "gen",
+              "wide_display": true,
+              "section_color_bg": "",
+              "pretext": "<p>This is<\/p>",
+              "preh_font_size": 12,
+              "title": "Your Headline",
+              "sub_font_size": 12,
+              "sub_line_height": 12,
+              "subtitle": "<p>Customize this section<\/p>",
+              "pretext_mobile": "",
+              "title_mobile": "",
+              "subtitle_mobile": "",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "text_position": "right",
+              "text_align": "left",
+              "button1": "Button",
+              "button1_link": "",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "pct-ack-6": {
+            "type": "contact_form",
+            "settings": {
+              "contact_form_SKU": "gen",
+              "contact_heading": "Get in touch",
+              "contact_subheading": "Leave a message",
+              "contact_content": "<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.<\/p>",
+              "contact_text_position": "left",
+              "contact_text_alignment": "left"
+            }
+          }
+        },
+        "block_order": [
+          "pct-ack-0",
+          "pct-ack-1",
+          "pct-ack-2",
+          "pct-ack-3",
+          "pct-ack-4",
+          "pct-ack-5",
+          "pct-ack-6"
+        ],
+        "settings": {
+          "gallery_arrows": false,
+          "activate_zoom": false,
+          "enable_product_lightbox": true,
+          "activate_autoplay": false,
+          "slideshow_animation": "slide",
+          "product_images_position": "left",
+          "product_thumbs": false,
+          "thumbnail_position": "bottom-slider",
+          "product_breadcrumb": true,
+          "display_vendor": false,
+          "display_sku": false,
+          "display_savings": true,
+          "show_payment_button": true,
+          "display_collections": false,
+          "display_type": false,
+          "display_tags": false,
+          "display_social_buttons": true,
+          "product_description_position": "top",
+          "enable_shopify_product_badges": true,
+          "enable_reviews_in_description": false
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "wide_display": true,
+          "newsletter_title": "Subscribe",
+          "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+          "display_first_name": false,
+          "display_last_name": false,
+          "newsletter_section_text_align": "center"
+        }
+      },
+      "wholesale-page-template": {
+        "type": "wholesale-page-template",
+        "blocks": {
+          "ce2e73a1-8f1c-4cff-8438-7f8819e14d65": {
+            "type": "header_landing",
+            "settings": {
+              "banner_height": 14,
+              "banner_height_m": 16,
+              "promo-banner-collection-tms": "",
+              "title_page": "Distributor Dashboard",
+              "image": "shopify:\/\/shop_images\/distrib.jpg",
+              "image_m": "shopify:\/\/shop_images\/distrib.jpg"
+            }
+          },
+          "f08fa345-9f05-4e9e-8468-d1300b8a2ddb": {
+            "type": "divider",
+            "settings": {
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "00b85af2-b322-418a-a025-73b8f992ca4a": {
+            "type": "custom_html",
+            "settings": {
+              "custom_html": "<div class=\"container-fluid\">\n    <div class=\"row\">\n    <div class=\"text-center col-md-6 d-flex flex-column justify-content-center align-items-center\" style=\"padding:20px;\">\n<h2 class=\"title\">Resource Center<\/h2>\n<p class=\"text-centered\">Access information exclusive to Authorized Distributors and Partners.<\/p>\n<\/div>\n    <div class=\"col-md-6 text-center \">\n    <div class=\"row\">\n    <div class=\"col\" style=\"padding:20px;\">\n   <a href=\"\/a\/distributor-portal\"> <img width=\"150px\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/4174\/1415\/files\/resource-center-icon.png?v=1629880409\"><\/a>\n    <\/div>\n<\/div>\n    <div class=\"row\" style=\"padding:20px;\">\n    <a href=\"\/a\/distributor-portal\" class=\"btn btn-primary \">Visit Resource Center<\/a>\n    <\/div>\n    \n    <\/div>\n    <\/div>\n    <\/div>"
+            }
+          },
+          "c7b3a103-6712-491c-8fa3-b9a6eac5754e": {
+            "type": "divider",
+            "settings": {
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": true,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "6838708e-3c6b-4932-a74e-efaef8ed1ad1": {
+            "type": "customer_support_ticket",
+            "settings": {
+              "stnd_tit": "",
+              "bg_color": "",
+              "screen_size": true,
+              "font_color": ""
+            }
+          },
+          "46c39bd9-27fa-4b3b-b17a-ffddeb08d083": {
+            "type": "divider",
+            "settings": {
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": true,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "0b3679d7-b3e3-4342-83df-1ed2aed8139e": {
+            "type": "cost_schedules",
+            "settings": {
+              "stnd_tit": "",
+              "bg_color": "",
+              "screen_size": false,
+              "font_color": ""
+            }
+          },
+          "38d2643c-4707-4253-8f17-85aeda4db9be": {
+            "type": "divider",
+            "settings": {
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "66248e5b-6498-46b3-94a7-f60d5171650d": {
+            "type": "customer_details",
+            "settings": {
+              "screen_size": false,
+              "framed": false
+            }
+          }
+        },
+        "block_order": [
+          "ce2e73a1-8f1c-4cff-8438-7f8819e14d65",
+          "f08fa345-9f05-4e9e-8468-d1300b8a2ddb",
+          "00b85af2-b322-418a-a025-73b8f992ca4a",
+          "c7b3a103-6712-491c-8fa3-b9a6eac5754e",
+          "6838708e-3c6b-4932-a74e-efaef8ed1ad1",
+          "46c39bd9-27fa-4b3b-b17a-ffddeb08d083",
+          "0b3679d7-b3e3-4342-83df-1ed2aed8139e",
+          "38d2643c-4707-4253-8f17-85aeda4db9be",
+          "66248e5b-6498-46b3-94a7-f60d5171650d"
+        ],
+        "settings": {
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "2b6fbcb3-a936-405e-a543-018cb0a3cbe3": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": true,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "22e84e41-a942-45fe-9422-c9276a220b62": {
+            "type": "featured_collection",
+            "settings": {
+              "title": "SOL Accessories",
+              "collection_description": false,
+              "collection": "sol-accessories",
+              "collection_style": "grid",
+              "products_per": 3,
+              "products_limit": 5
+            }
+          },
+          "fdd10cbb-f9bf-4d37-9533-5efac60fc026": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "1c615ff1-5481-4624-9e9f-4a76d12573ea": {
+            "type": "featured_collection",
+            "settings": {
+              "title": "DENTIQ Accessories",
+              "collection_description": false,
+              "collection": "dentiq-accessories",
+              "collection_style": "grid",
+              "products_per": 4,
+              "products_limit": 5
+            }
+          },
+          "b2dd330f-dcc6-4384-a6f1-ef607e97a36a": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "3a9a4234-231f-4048-ab8a-00bbc1016de7": {
+            "type": "featured_collection",
+            "settings": {
+              "title": "FreeShape Accessories",
+              "collection_description": true,
+              "collection": "consumables-freeshape",
+              "collection_style": "grid",
+              "products_per": 5,
+              "products_limit": 6
+            }
+          }
+        },
+        "block_order": [
+          "2b6fbcb3-a936-405e-a543-018cb0a3cbe3",
+          "22e84e41-a942-45fe-9422-c9276a220b62",
+          "fdd10cbb-f9bf-4d37-9533-5efac60fc026",
+          "1c615ff1-5481-4624-9e9f-4a76d12573ea",
+          "b2dd330f-dcc6-4384-a6f1-ef607e97a36a",
+          "3a9a4234-231f-4048-ab8a-00bbc1016de7"
+        ],
+        "settings": {
+        }
+      },
+      "page-details-template": {
+        "type": "page-details-template",
+        "blocks": {
+          "1560976307309": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 15,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "1557d032-d8c9-438d-b2fd-677b942053cb": {
+            "type": "header_landing",
+            "settings": {
+              "banner_height": 25,
+              "banner_height_m": 16,
+              "promo-banner-collection-tms": "",
+              "title_page": "",
+              "image": "shopify:\/\/shop_images\/alpha3d-banner5.jpg",
+              "image_m": "shopify:\/\/shop_images\/alpha3d-banner5.png"
+            }
+          },
+          "a28f619d-0367-4704-84a9-4fd39b623f14": {
+            "type": "image_with_text",
+            "settings": {
+              "frontpage_grid_style": true,
+              "frontpage_text_align": "right",
+              "frontpage_image_position": "right",
+              "image": "shopify:\/\/shop_images\/alpha3D-Cover.png",
+              "image_m": "shopify:\/\/shop_images\/alpha3D-Cover.png",
+              "title": "",
+              "padding_content_box": "10px 0 0 5%",
+              "content_box_font": 32,
+              "headline_color": "",
+              "category": "",
+              "cat_color": "",
+              "text": "<p><strong>Smart Slices.<br\/>Remove Guesswork.<br\/><\/strong>3D Slicing software for dental applications<\/p>",
+              "button_label": "",
+              "link": "",
+              "bg_color": "#000000",
+              "text_color": "#ffffff"
+            }
+          },
+          "516b0a66-a2ce-405c-8272-19acc9bd7e63": {
+            "type": "divider",
+            "settings": {
+              "devicer": "false",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "#000000",
+              "divider_border": false,
+              "screen_size": true,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "5c0a0aeb-b16d-4b34-bdf2-d8ca5a72d3cc": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 10,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "df734ddb-821d-4ab4-96ea-1a78c9905a0c": {
+            "type": "rich_text_and_image",
+            "settings": {
+              "title": "<i class=\"fas fa-download\"><\/i> Download Alpha 3D",
+              "content": "",
+              "text_size": "featured_text",
+              "text_alignment": "center",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "761ad079-33d1-44e5-a36c-4928ac8abe0c": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 5,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "e7a8417e-dafb-40de-8c00-ba3ac3d3eab5": {
+            "type": "custom_html",
+            "settings": {
+              "custom_html": "<div class=\"container-fluid\" style=\"background-color:#f5f5f5;\">\n<div class=\"container\">\n<div class=\"row text-center\">\n<i class=\"fa-solid fa-circle-exclamation-check\"><\/i> <h1> System Requirements<\/h1>\n<\/div>\n<div class=\"table-responsive\">\n  <table class=\"table table-striped table-hover table-borderless text-center\" style=\"font-size: 1.2rem;\">\n    <thead>\n      <tr>\n        <th scope=\"col\"><p><b>Minimum<\/b><\/p><\/th>\n        <th scope=\"col\"><p><b>Recommended<\/b><\/p><\/th>\n      <\/tr>\n    <\/thead>\n    <tbody>\n      <tr>\n <td><p>32-bit dual core 2 GHz CPU (e.g., Intel i3 or AMD Athlon)<\/p><\/td>\n        <td><p>64-bit quad core CPU (e.g., Intel i 7 or AMD Phenom II X4\/X6)<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>4 GB Ram<\/p><\/td>\n        <td><p>8 GB Ram<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>1600 x 900 display<\/p><\/td>\n        <td><p>1920 x 1080 display<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>Graphics card with 1 GB RAM<\/p><\/td>\n        <td><p>Graphics card with 2 GB RAM (e.g., Nvidia GeForce 830 or AMD Radeon R7 M340<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>1 GB of Disk space<\/p><\/td>\n        <td><p>2 GB of Disk space<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>Windows 11, 7 SP1, 8.1 or 10<\/p><\/td>\n        <td><p>Windows 11, 7 SP1, 8.1 or 10<\/p><\/td>\n      <\/tr>\n      <tr>\n        <td><p>Mouse, trackpad or pen & tablet<\/p><\/td>\n        <td><p>3-button mouse, or pen & tablet<\/p><\/td>\n      <\/tr>\n    <\/tbody>\n\n  <\/table>\n<\/div>\n<\/div>\n<\/div>",
+              "role": false
+            }
+          },
+          "1560873750550": {
+            "type": "divider",
+            "settings": {
+              "devicer": "all",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": true,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "bcf7db7f-153e-4759-bb51-13c0e324962b": {
+            "type": "custom_html",
+            "settings": {
+              "custom_html": "<div class=\"container text-center\">\n<p>Please fill in the following form to start downloading the latest Alpha 3D version.<\/p>\n<\/div>",
+              "role": false
+            }
+          },
+          "56acf75a-a97b-4335-a406-06da1ba78f24": {
+            "type": "custom_html",
+            "settings": {
+              "custom_html": "<div class=\"container jumbotron\">\n<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/shell.js\"><\/script>\n<script>\n  hbspt.forms.create({\n\tregion: \"na1\",\n\tportalId: \"2471334\",\n\tformId: \"31a9dfd8-d21a-4154-9662-227d6cbdafaa\"\n});\n<\/script>\n<\/div>",
+              "role": false
+            }
+          }
+        },
+        "block_order": [
+          "1560976307309",
+          "1557d032-d8c9-438d-b2fd-677b942053cb",
+          "a28f619d-0367-4704-84a9-4fd39b623f14",
+          "516b0a66-a2ce-405c-8272-19acc9bd7e63",
+          "5c0a0aeb-b16d-4b34-bdf2-d8ca5a72d3cc",
+          "df734ddb-821d-4ab4-96ea-1a78c9905a0c",
+          "761ad079-33d1-44e5-a36c-4928ac8abe0c",
+          "e7a8417e-dafb-40de-8c00-ba3ac3d3eab5",
+          "1560873750550",
+          "bcf7db7f-153e-4759-bb51-13c0e324962b",
+          "56acf75a-a97b-4335-a406-06da1ba78f24"
+        ],
+        "settings": {
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "blocks": {
+          "8f328d8e-a860-4387-ae8b-c856bcf2d26a": {
+            "type": "divider",
+            "settings": {
+              "divider_spacing": 15,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "47227b31-3f25-4390-a853-c26d4a3b6e00": {
+            "type": "header_landing",
+            "settings": {
+              "banner_height": 20,
+              "banner_height_m": 20,
+              "promo-banner-collection-tms": "",
+              "title_page": "Blog",
+              "image": "shopify:\/\/shop_images\/Curo-poured-dentiq.png",
+              "image_m": "shopify:\/\/shop_images\/CURO.jpg"
+            }
+          },
+          "0f962469-0c48-4d71-bf99-d3a529e6f5fa": {
+            "type": "blog_posts",
+            "settings": {
+              "wide_display": false,
+              "articles_per": 3,
+              "articles_limit": 8,
+              "bg_color": "",
+              "color_mo": "",
+              "color_de": "",
+              "title": "Blog posts",
+              "blog_widget_select": "news",
+              "blog_tags": false,
+              "blog_author": false,
+              "blog_date": true,
+              "blog_comment_count": true,
+              "read_more_link": true
+            }
+          },
+          "25d4a36f-a2b9-4d94-b596-fca90a43aafb": {
+            "type": "divider",
+            "settings": {
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          }
+        },
+        "block_order": [
+          "8f328d8e-a860-4387-ae8b-c856bcf2d26a",
+          "47227b31-3f25-4390-a853-c26d4a3b6e00",
+          "0f962469-0c48-4d71-bf99-d3a529e6f5fa",
+          "25d4a36f-a2b9-4d94-b596-fca90a43aafb"
+        ],
+        "settings": {
+        }
+      },
+      "pct-sol": {
+        "type": "pct-sol",
+        "settings": {
+          "gallery_arrows": false,
+          "activate_zoom": true,
+          "enable_product_lightbox": true,
+          "activate_autoplay": false,
+          "slideshow_animation": "slide",
+          "product_images_position": "left",
+          "product_thumbs": false,
+          "thumbnail_position": "bottom-slider",
+          "product_breadcrumb": false,
+          "display_vendor": false,
+          "display_sku": false,
+          "display_savings": true,
+          "show_payment_button": true,
+          "display_collections": false,
+          "display_type": false,
+          "display_tags": false,
+          "display_social_buttons": true,
+          "product_description_position": "top",
+          "enable_shopify_product_badges": true,
+          "enable_reviews_in_description": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "blocks": {
+          "4f32cca4-9327-49c8-9b17-e11eb6587360": {
+            "type": "responsive_img",
+            "settings": {
+              "responsive_img": true,
+              "wide_display": true
+            }
+          },
+          "6e62e047-79cb-4ff8-b48f-c7d742207534": {
+            "type": "text",
+            "settings": {
+              "title": "Heading",
+              "text": "<p>Text area can be used for special announcements or general information.b hj<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "4f32cca4-9327-49c8-9b17-e11eb6587360",
+          "6e62e047-79cb-4ff8-b48f-c7d742207534"
+        ],
+        "settings": {
+          "gallery_arrows": true,
+          "activate_zoom": false,
+          "enable_product_lightbox": true,
+          "activate_autoplay": false,
+          "slideshow_animation": "slide",
+          "product_images_position": "left",
+          "product_thumbs": true,
+          "thumbnail_position": "bottom-slider",
+          "product_breadcrumb": false,
+          "display_vendor": false,
+          "display_sku": false,
+          "display_savings": true,
+          "show_payment_button": true,
+          "display_collections": false,
+          "display_type": false,
+          "display_tags": false,
+          "display_social_buttons": true,
+          "product_description_position": "top",
+          "enable_shopify_product_badges": true,
+          "review_position": "next_to_gallery",
+          "display_related_products": false,
+          "related_products_style": "grid",
+          "products_limit": 12,
+          "products_per": 3,
+          "toggle": false
+        }
+      },
+      "pct-curie": {
+        "type": "pct-curie",
+        "settings": {
+          "gallery_arrows": false,
+          "activate_zoom": true,
+          "enable_product_lightbox": true,
+          "activate_autoplay": false,
+          "slideshow_animation": "slide",
+          "product_images_position": "left",
+          "product_thumbs": false,
+          "thumbnail_position": "bottom-slider",
+          "product_breadcrumb": false,
+          "display_vendor": false,
+          "display_sku": false,
+          "display_savings": true,
+          "show_payment_button": true,
+          "display_collections": false,
+          "display_type": false,
+          "display_tags": false,
+          "display_social_buttons": true,
+          "product_description_position": "top",
+          "enable_shopify_product_badges": true,
+          "enable_reviews_in_description": false
+        }
+      },
+      "acc-ack": {
+        "type": "acc-ack",
+        "blocks": {
+          "acc-ack-0": {
+            "type": "rich_text_and_image",
+            "settings": {
+              "rich_text_and_image_SKU": "gen",
+              "framed": false,
+              "title": "This is an example headline",
+              "content": "<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Suspendisse potenti.<\/p>",
+              "text_size": "featured_text",
+              "text_alignment": "center",
+              "button_label": "Button",
+              "button_link": ""
+            }
+          },
+          "acc-ack-1": {
+            "type": "divider",
+            "settings": {
+              "divider_SKU": "gen",
+              "divider_spacing": 0,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "acc-ack-2": {
+            "type": "image_gallery",
+            "settings": {
+              "image_gallery_SKU": "gen"
+            }
+          },
+          "acc-ack-3": {
+            "type": "divider",
+            "settings": {
+              "divider_SKU": "gen",
+              "divider_spacing": 20,
+              "line_color": "",
+              "bg_color": "",
+              "divider_border": false,
+              "screen_size": false,
+              "border_style": "solid",
+              "divider_size": 1
+            }
+          },
+          "acc-ack-4": {
+            "type": "image_with_text_overlay",
+            "settings": {
+              "image_with_text_overlay_SKU": "gen",
+              "wide_display": true,
+              "section_color_bg": "",
+              "pretext": "<p>This is<\/p>",
+              "preh_font_size": 12,
+              "title": "Your Headline",
+              "sub_font_size": 12,
+              "sub_line_height": 12,
+              "subtitle": "<p>Customize this section<\/p>",
+              "pretext_mobile": "",
+              "title_mobile": "",
+              "subtitle_mobile": "",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "text_position": "ml-lg-0",
+              "text_align": "left",
+              "button1": "Button",
+              "button1_link": "",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "acc-ack-5": {
+            "type": "image_with_text_overlay",
+            "settings": {
+              "image_with_text_overlay_SKU": "gen",
+              "wide_display": true,
+              "section_color_bg": "",
+              "pretext": "<p>This is<\/p>",
+              "preh_font_size": 12,
+              "title": "Your Headline",
+              "sub_font_size": 12,
+              "sub_line_height": 12,
+              "subtitle": "<p>Customize this section<\/p>",
+              "pretext_mobile": "",
+              "title_mobile": "",
+              "subtitle_mobile": "",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "text_position": "right",
+              "text_align": "left",
+              "button1": "Button",
+              "button1_link": "",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "acc-ack-6": {
+            "type": "contact_form",
+            "settings": {
+              "contact_form_SKU": "gen",
+              "contact_heading": "Get in touch",
+              "contact_subheading": "Leave a message",
+              "contact_content": "<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.<\/p>",
+              "contact_text_position": "left",
+              "contact_text_alignment": "left"
+            }
+          }
+        },
+        "block_order": [
+          "acc-ack-0",
+          "acc-ack-1",
+          "acc-ack-2",
+          "acc-ack-3",
+          "acc-ack-4",
+          "acc-ack-5",
+          "acc-ack-6"
+        ],
+        "settings": {
+          "gallery_arrows": false,
+          "activate_zoom": false,
+          "enable_product_lightbox": true,
+          "activate_autoplay": false,
+          "slideshow_animation": "slide",
+          "product_images_position": "left",
+          "product_thumbs": false,
+          "thumbnail_position": "bottom-slider",
+          "product_breadcrumb": false,
+          "display_vendor": false,
+          "display_sku": false,
+          "display_savings": true,
+          "show_payment_button": true,
+          "display_collections": false,
+          "display_type": false,
+          "display_tags": false,
+          "display_social_buttons": true,
+          "product_description_position": "top",
+          "enable_shopify_product_badges": true,
+          "enable_reviews_in_description": false
+        }
+      },
+      "page-banner-template": {
+        "type": "page-banner-template",
+        "settings": {
+          "show_banner": true,
+          "image": "shopify:\/\/shop_images\/eco.png",
+          "pretext": "",
+          "title": "",
+          "subtitle": "",
+          "caption_background": false,
+          "caption_background_transparency": false,
+          "text_position": "center",
+          "text_align": "center",
+          "button1": "",
+          "button1_link": "",
+          "button1_highlight": false,
+          "button2": "",
+          "button2_link": "",
+          "button2_highlight": false
+        }
+      },
+      "page-aboutus-template": {
+        "type": "page-aboutus-template",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/SOL_workflow.png",
+          "image_m": "shopify:\/\/shop_images\/videocover.jpg",
+          "image_darken": false,
+          "title": "",
+          "subtitle": "",
+          "text": "",
+          "show_map": false,
+          "wide_display": false,
+          "map_address": "",
+          "map_height": 400,
+          "zoom_level": 16,
+          "api_key": "",
+          "show_pin": true,
+          "map_style": "default"
+        }
+      },
+      "search-template": {
+        "type": "search-template",
+        "settings": {
+          "image_darken": false,
+          "search_breadcrumb": true,
+          "search_term": "Start Typing...",
+          "products_per_row": 3,
+          "pagination_limit": 48,
+          "blog_author": true,
+          "read_more_link": true,
+          "blog_date": true,
+          "toggle": false
+        }
+      },
+      "164437774845bbf809": {
+        "type": "slideshow",
+        "blocks": {
+          "62c05969-3209-4f91-9a16-0bd267e6ac6f": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/website-V3-SOL-BP-SLIDER-HOME.jpg",
+              "pretext": "",
+              "title": "ZERO WAIT, ZERO WASTE",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/ackuretta.com\/collections\/build-platforms-sol?utm_source=website&utm_medium=slider&utm_campaign=new_bps",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "164437774845bbf809-1": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/Entry-Into-Digital-Dentistry_1980_92ba60ec-a3d7-4b26-a66d-833738ef8493.jpg",
+              "image_m": "shopify:\/\/shop_images\/Entry-Into-Digital-Dentistry_480_1a2bf07e-f955-4861-be3f-a658b488f0cb.jpg",
+              "pretext": "",
+              "title": "Entry Digital Dentistry Free Shipping Bundle",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/ackuretta.com\/products\/entry-digital-dentistry-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "28a29412-bd44-47ab-b1b9-1ce08edb6007": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/SOL-Starter-Bundle_1980_8e713956-a756-4b6d-84e8-27a5bafc1703.jpg",
+              "image_m": "shopify:\/\/shop_images\/SOL-Starter-Bundle_480_fd2ee645-036e-47d2-a028-5440724f61ed.jpg",
+              "pretext": "",
+              "title": "SOL Starter Bundle",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/ackuretta.com\/products\/sol-dental-3d-printer-starter-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "da43ec19-1813-4ca6-833a-75f9c2a35eb7": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/Pros-Bundle_1980_ef15dc96-f2bb-4d8f-b646-0e8298a23eb3.jpg",
+              "image_m": "shopify:\/\/shop_images\/Pros-Bundle_480_00b66aad-77ad-447f-919c-a1141a8e4916.jpg",
+              "pretext": "",
+              "title": "Pro's Bundle",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/ackuretta.com\/products\/prosthodontist-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "164437774845bbf809-0": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/Finishing-kit-Bundle_1980_6b4c1ce0-aa8b-404e-8e1b-17b35000db1a.jpg",
+              "image_m": "shopify:\/\/shop_images\/Finishing-kit-Bundle_480_2f966f90-57f5-4d7a-97ee-e418bb44f506.jpg",
+              "pretext": "<p>Cleani<\/p>",
+              "title": "Finishing Kit Bundle Free Shipping",
+              "subtitle": "<p>Buy Now<\/p>",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/ackuretta.com\/products\/post-printing-kit",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
+          "08b0468f-7775-4b51-a064-c389f2996f1a": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/CURIE-_-CURO-Bundle_1980_bed29c4e-9549-4f8d-a9cf-6c6dc427d5a9.jpg",
+              "image_m": "shopify:\/\/shop_images\/CURIE-_-CURO-Bundle_480_76fa49d9-7af8-456f-8f60-04a2c5c71e4f.jpg",
+              "pretext": "",
+              "title": "CURIE & CURO Bundle Free Shipping",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/ackuretta.com\/products\/curie-curing-oven-curo-resins-for-dental-3d-printing",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          }
+        },
+        "block_order": [
+          "62c05969-3209-4f91-9a16-0bd267e6ac6f",
+          "164437774845bbf809-1",
+          "28a29412-bd44-47ab-b1b9-1ce08edb6007",
+          "da43ec19-1813-4ca6-833a-75f9c2a35eb7",
+          "164437774845bbf809-0",
+          "08b0468f-7775-4b51-a064-c389f2996f1a"
+        ],
+        "settings": {
+          "wide_display": true,
+          "slideshow_text_animation": "fadeInDown",
+          "slideshow_animation": "slide",
+          "slideshow_speed": 6,
+          "activate_adaptiveHeight": false
+        }
+      },
+      "1644400139738d26b9": {
+        "type": "slideshow",
+        "blocks": {
+          "1644400139738d26b9-0": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/BEGO-Slider_1980.jpg",
+              "image_m": "shopify:\/\/shop_images\/BEGO-Slider_480.jpg",
+              "pretext": "",
+              "title": "Bego and Ackuretta",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "shopify:\/\/blogs\/press-releases\/ackuretta-bego-for-fully-validated-workflows",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          }
+        },
+        "block_order": [
+          "1644400139738d26b9-0"
+        ],
+        "settings": {
+          "wide_display": true,
+          "slideshow_text_animation": "fadeInDown",
+          "slideshow_animation": "slide",
+          "slideshow_speed": 6,
+          "activate_adaptiveHeight": false
+        }
+      },
+      "page-team-template": {
+        "type": "page-team-template",
+        "blocks": {
+          "page-team-template-0": {
+            "type": "employee",
+            "disabled": true,
+            "settings": {
+              "title": "Jamie Ipsum",
+              "job_title": "Fancy Job Title",
+              "description": "<p>Powered by cats and coffee.<\/p>",
+              "twitter": "Shopify"
+            }
+          },
+          "page-team-template-1": {
+            "type": "employee",
+            "disabled": true,
+            "settings": {
+              "title": "Jamie Ipsum",
+              "job_title": "Fancy Job Title",
+              "description": "<p>Powered by cats and coffee.<\/p>",
+              "twitter": "Shopify"
+            }
+          },
+          "page-team-template-2": {
+            "type": "employee",
+            "disabled": true,
+            "settings": {
+              "title": "Jamie Ipsum",
+              "job_title": "Fancy Job Title",
+              "description": "<p>Powered by cats and coffee.<\/p>",
+              "twitter": "Shopify"
+            }
+          }
+        },
+        "block_order": [
+          "page-team-template-0",
+          "page-team-template-1",
+          "page-team-template-2"
+        ],
+        "settings": {
+          "image_position": "left",
+          "title": "",
+          "text": "",
+          "text_position": "center",
+          "employee_per_row": 3,
+          "member_color": "#fff",
+          "member_accent_color": "#d54d4d",
+          "member_overlay_color": "#000"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "banner_enabled": true,
+          "image_darken": false,
+          "blog_breadcrumb": true,
+          "blog_pagination": true,
+          "blog_tags": false,
+          "blog_byline": false,
+          "read_time": true,
+          "blog_date": true,
+          "blog_author": false,
+          "display_social_buttons": true,
+          "blog_comment_count": true,
+          "blog_additional_posts": false,
+          "read_more_link": true,
+          "toggle": false
+        }
+      }
+    },
+    "content_for_index": [
+      "1629872147ecdafa4b",
+      "164437774845bbf809",
+      "163030600200a13620",
+      "1630398220d7ed1421",
+      "1644400139738d26b9",
+      "1630481193a1696901"
+    ],
+    "blocks": {
+      "8232603958289840080": {
+        "type": "shopify:\/\/apps\/seo-manager\/blocks\/seomanager-404\/c54c366f-d4bb-4d52-8d2f-dd61ce8e7e12",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "17992116214976573926": {
+        "type": "shopify:\/\/apps\/seo-manager\/blocks\/seomanager\/c54c366f-d4bb-4d52-8d2f-dd61ce8e7e12",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "10910696115237310528": {
+        "type": "shopify:\/\/apps\/slide-cart-drawer-cart-upsell\/blocks\/slide-cart-app-embed\/06f96c51-92d4-4ccf-8798-f65ef7359208",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  }
+}
