@@ -15,7 +15,7 @@
   
   {% if template != 'search' %}
 
-<div id="{{id}}" class="desktop_vid container" itemtype="http://schema.org/ItemList" class="{{ matrixType }}" >
+<div id="{{id}}" class="container" itemtype="http://schema.org/ItemList" class="{{ matrixType }}" >
   {% assign j = 0 %}
         
   {% for product in products limit: products_limit %}
@@ -133,24 +133,4 @@
   
   {% endif %}
   
- <div class="mobile_vid container contrars" style="background-color:{{bg_color}}; padding-bottom: 30px;">
-  <div class="title-blog_section text-center"  ></div>
- {% for product in products limit: products_limit %}
-<div class="row art-cardso">  
-     <div class="col-6">
-       <div class=frame>
-    <span class="helper"></span>
-    <img class="art-mob" src="{% if product.images[0] != blank %}{{ product.images[0] | img_url: '300x' }}{% else %}{{ product.featured_image | img_url: '300x' }}{% endif %}" class=" img-fluid lazyload" alt="{{ alt_text | escape }}"/>
-</div>
-   </div>
-
-     <div class="art-body col-6">
-<div class="art-tit-m"><h1 class="fs-6">{{ product.title | truncate: 30  }}</h1></div>
-<div class=" date_p "><small class="text-muted">{% include "prd-inf-v3" %}</small></div>
-<div class=" ">
-        </div>
-    </div>
-</div>
-  {% endfor %}        
-  </div>
-   
+ 
