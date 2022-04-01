@@ -1282,6 +1282,7 @@
         "blocks": {
           "62c05969-3209-4f91-9a16-0bd267e6ac6f": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/website-V3-SOL-BP-SLIDER-HOME.jpg",
               "image_m": "shopify:\/\/shop_images\/website-V3-SOL-BP-slider-m.jpg",
