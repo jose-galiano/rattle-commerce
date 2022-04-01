@@ -1284,6 +1284,7 @@
             "type": "image",
             "settings": {
               "image_d": "shopify:\/\/shop_images\/website-V3-SOL-BP-SLIDER-HOME.jpg",
+              "image_m": "shopify:\/\/shop_images\/website-V3-SOL-BP-slider-m.jpg",
               "pretext": "",
               "title": "ZERO WAIT, ZERO WASTE",
               "subtitle": "",
