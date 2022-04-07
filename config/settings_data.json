@@ -1372,6 +1372,17 @@
               "s_time": "2020-01-22 12:33",
               "e_time": "2020-01-25 12:33"
             }
+          },
+          "5d9b1825-4bf5-458f-9909-3bcd45ebeabb": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/Slider_Bundle_2_1980.jpg",
+              "image_m": "shopify:\/\/shop_images\/Slider_Bundle_2_480.jpg",
+              "title": "3D Print for Peace - SOL Starter Bundle",
+              "button1_link": "https:\/\/ackuretta.com\/products\/3d-print-for-peace-sol-starter-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle&utm_term=webinar&utm_content=3dprintforpeace",
+              "s_time": "2020-01-22 12:33",
+              "e_time": "2020-01-25 12:33"
+            }
           }
         },
         "block_order": [
@@ -1382,7 +1393,8 @@
           "da43ec19-1813-4ca6-833a-75f9c2a35eb7",
           "164437774845bbf809-0",
           "08b0468f-7775-4b51-a064-c389f2996f1a",
-          "5019a4e0-cc17-4b57-b3eb-29101d909b52"
+          "5019a4e0-cc17-4b57-b3eb-29101d909b52",
+          "5d9b1825-4bf5-458f-9909-3bcd45ebeabb"
         ],
         "settings": {
           "wide_display": true
