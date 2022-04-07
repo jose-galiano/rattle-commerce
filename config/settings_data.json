@@ -1304,6 +1304,7 @@
           },
           "164437774845bbf809-1": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/Entry-Into-Digital-Dentistry_1980_92ba60ec-a3d7-4b26-a66d-833738ef8493.jpg",
               "image_m": "shopify:\/\/shop_images\/Entry-Into-Digital-Dentistry_480_1a2bf07e-f955-4861-be3f-a658b488f0cb.jpg",
@@ -1315,6 +1316,7 @@
           },
           "28a29412-bd44-47ab-b1b9-1ce08edb6007": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/SOL-Starter-Bundle_1980_8e713956-a756-4b6d-84e8-27a5bafc1703.jpg",
               "image_m": "shopify:\/\/shop_images\/SOL-Starter-Bundle_480_fd2ee645-036e-47d2-a028-5440724f61ed.jpg",
@@ -1326,6 +1328,7 @@
           },
           "da43ec19-1813-4ca6-833a-75f9c2a35eb7": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/Pros-Bundle_1980_ef15dc96-f2bb-4d8f-b646-0e8298a23eb3.jpg",
               "image_m": "shopify:\/\/shop_images\/Pros-Bundle_480_00b66aad-77ad-447f-919c-a1141a8e4916.jpg",
@@ -1337,6 +1340,7 @@
           },
           "164437774845bbf809-0": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/Finishing-kit-Bundle_1980_6b4c1ce0-aa8b-404e-8e1b-17b35000db1a.jpg",
               "image_m": "shopify:\/\/shop_images\/Finishing-kit-Bundle_480_2f966f90-57f5-4d7a-97ee-e418bb44f506.jpg",
@@ -1348,6 +1352,7 @@
           },
           "08b0468f-7775-4b51-a064-c389f2996f1a": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/CURIE-_-CURO-Bundle_1980_bed29c4e-9549-4f8d-a9cf-6c6dc427d5a9.jpg",
               "image_m": "shopify:\/\/shop_images\/CURIE-_-CURO-Bundle_480_76fa49d9-7af8-456f-8f60-04a2c5c71e4f.jpg",
@@ -1355,6 +1360,17 @@
               "button1_link": "https:\/\/ackuretta.com\/products\/curie-curing-oven-curo-resins-for-dental-3d-printing",
               "s_time": "",
               "e_time": ""
+            }
+          },
+          "5019a4e0-cc17-4b57-b3eb-29101d909b52": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/Slider_Bundle_1_1980.jpg",
+              "image_m": "shopify:\/\/shop_images\/Slider_Bundle_1_480.jpg",
+              "title": "3D Print for Peace - Triple BP Bundle",
+              "button1_link": "https:\/\/ackuretta.com\/products\/3d-print-for-peace-triple-bp-bundle?utm_source=website&utm_medium=slider&utm_campaign=bundle&utm_term=webinar&utm_content=3dprintforpeace",
+              "s_time": "2020-01-22 12:33",
+              "e_time": "2020-01-25 12:33"
             }
           }
         },
@@ -1365,7 +1381,8 @@
           "28a29412-bd44-47ab-b1b9-1ce08edb6007",
           "da43ec19-1813-4ca6-833a-75f9c2a35eb7",
           "164437774845bbf809-0",
-          "08b0468f-7775-4b51-a064-c389f2996f1a"
+          "08b0468f-7775-4b51-a064-c389f2996f1a",
+          "5019a4e0-cc17-4b57-b3eb-29101d909b52"
         ],
         "settings": {
           "wide_display": true
