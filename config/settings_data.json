@@ -1285,7 +1285,7 @@
             "settings": {
               "image_d": "shopify:\/\/shop_images\/3D_print_Peace_webinar_BG-slider-d.jpg",
               "image_m": "shopify:\/\/shop_images\/3D_print_Peace_webinar_BG-slider-m.jpg",
-              "pretext": "",
+              "pretext": "<p>Webinar: 3D Print for Peace<\/p>",
               "title": "Your headline",
               "subtitle": "",
               "text_position": "center",
