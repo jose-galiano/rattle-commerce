@@ -15,7 +15,7 @@
    {% for block in section.blocks %}
    
    {% if block.settings.s_time != blank%}
-   First check ok
+
    {% if current_time >= block.settings.s_time and current_time <= block.settings.e_time %}
     <h1>display:unset;</h1>
    {%endif%}
