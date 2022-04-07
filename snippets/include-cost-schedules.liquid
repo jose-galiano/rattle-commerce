@@ -170,10 +170,7 @@
     <tr>
     <th><p><b>Image</b></p></th>
     <th><p><b>Product</b></p></th>
-    
     <th><p><b>Qty/kit</b></p></th>
-    <th><p><b>Price</b></p></th>
-    <th><p><b>Support Level</b></p></th>  
      </tr>
     </thead>
     <tr>
@@ -184,17 +181,7 @@
     <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
     <td><p><b>{{ product.title }}</b></p></td>
     <td><p class="">{{ product.metafields.wholesale.pieces_per_kit }}</p></td>
-    <td> 
-      {%capture qnty%}
-      {{ product.metafields.wholesale.pieces_per_kit }}
-      {% endcapture %}
-      {%capture msrp %}
-      {{ product.metafields.distributor.msrp }}
-      {% endcapture %}
-      {% assign totalpr = msrp| times: qnty %}
-      
-      <p class="money">{{cur-sym}} {{totalpr | money_without_currency }}</p>  </td>
-      <td><p>{{ product.metafields.support.level }}</p></td> 
+    
     </tr>
     {% endif %}
     {% endif %}
