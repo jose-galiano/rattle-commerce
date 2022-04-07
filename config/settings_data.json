@@ -1280,6 +1280,26 @@
       "164437774845bbf809": {
         "type": "slideshow",
         "blocks": {
+          "19e001de-a717-4205-82af-15f50309f814": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/3D_print_Peace_webinar_BG-slider-d.jpg",
+              "image_m": "shopify:\/\/shop_images\/3D_print_Peace_webinar_BG-slider-m.jpg",
+              "pretext": "",
+              "title": "Your headline",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "caption_background": false,
+              "caption_background_transparency": false,
+              "button1": "",
+              "button1_link": "https:\/\/bit.ly\/3jbgc0m",
+              "button1_highlight": false,
+              "button2": "",
+              "button2_link": "",
+              "button2_highlight": false
+            }
+          },
           "62c05969-3209-4f91-9a16-0bd267e6ac6f": {
             "type": "image",
             "settings": {
@@ -1402,6 +1422,7 @@
           }
         },
         "block_order": [
+          "19e001de-a717-4205-82af-15f50309f814",
           "62c05969-3209-4f91-9a16-0bd267e6ac6f",
           "164437774845bbf809-1",
           "28a29412-bd44-47ab-b1b9-1ce08edb6007",
