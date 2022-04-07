@@ -13,9 +13,11 @@
 
  <div class="homepageslide desktop_vid container-fluid slidehome bg-coleur">
    {% for block in section.blocks %}
-   {% if current_time >= section.settings.s_time and current_time <= section.settings.e_time %}
-<h1>display:unset;</h1>
-      {% endif %}
+   {% if block.settings.s_time != blank%}
+   {% if current_time >= block.settings.s_time and current_time <= block.settings.e_time %}
+    <h1>display:unset;</h1>
+   {%endif%}
+   {% endif %}
    <div>{%if block.settings.button1_link != blank %}<a href="{{block.settings.button1_link}}">{%endif%}{% include 'image-element', image: block.settings.image_d, alt: block.settings.image_d.alt, stretch_width: true %}{%if block.settings.button1_link != blank %}</a>{%endif%}</div>
    {%endfor%} 
   </div>
