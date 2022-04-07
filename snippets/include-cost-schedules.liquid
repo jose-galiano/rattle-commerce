@@ -252,13 +252,10 @@
      <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
   <table class="schedule table table-striped table-hover table-borderless table-sm">
     <thead>
-    <tr>
+    <tr class="text-center">
     <th><p><b>Image</b></p></th>
     <th><p><b>Product</b></p></th>
-    <th><p><b>SKU</b></p></th>
     <th><p><b>Qty/kit</b></p></th>
-    <th><p><b>Price</b></p></th>
-      <th><p><b>Support Level</b></p></th>
      </tr>
     </thead>
     <tr>
@@ -268,27 +265,12 @@
       {% else %}
     <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
    <td><p><b>{{ product.title }}</b></p></td>
-    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
-    <td><p class="">{{ product.metafields.wholesale.pieces_per_kit }}</p></td>
-    <td> 
-      {%capture qnty%}
-      {{ product.metafields.wholesale.pieces_per_kit }}
-      {% endcapture %}
-      {%capture msrp %}
-      {{ product.metafields.distributor.msrp }}
-      {% endcapture %}
-      {% assign totalpr = msrp| times: qnty %}
-      
-      <p class="money">{{cur-sym}} {{totalpr | money_without_currency }}</p></td>
-      <td><p>{{ product.metafields.support.level }}</p></td>
-      
+    <td><p class="">{{ product.metafields.wholesale.pieces_per_kit }}</p></td>    
     </tr>
     {% endif %}
     {% endif %}
     {% endfor %}
     <tr>
-      <td></td>
-      <td></td>
       <td></td>
       <td><p><b>TOTAL</b></p></td>
       <td><p class="money"><b>{{cur-sym}} {% if allowBuy  %}{% for product in collections.dentiq-spare-kit.products %} 
