@@ -1,6 +1,7 @@
  {% for tag in customer.tags %}
      {% if tag == "USD" %}
         {% assign cur-sym = "$" %}
+		{% assign cost_sched_link = "https://drive.google.com/file/d/1uEOmK6Ajew5gakwycsU0AUhECHisBVpj/view?usp=sharing" %}
         {% assign allowBuy = true %}
      {% endif %}
     {% endfor %}
@@ -8,6 +9,7 @@
    {% for tag in customer.tags %}
      {% if tag == "EUR" %}
       {% assign cur-sym = "€" %}
+      {% assign cost_sched_link = "https://drive.google.com/file/d/1Gg_RqN7_QHDqNpwJnFxkBWJ4U1GE3PM3/view?usp=sharing" %}
       {% assign allowBuy = false %}
      {% endif %}
     {% endfor %}
@@ -43,7 +45,7 @@
       <div class="canvas_div_pdf">
   <div class="col-md-12 text-center">
 	<h1>Distributor Cost Schedule</h1>
-  
+    <a href="{{cost_sched_link}}" class="btn btn-primary" target="_blank" >Download PDF</a>
   </div>
     
  <div id="content" class="table-responsive">
