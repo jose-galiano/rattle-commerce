@@ -17,109 +17,7 @@
  
 <div class="container">
 <div class="accordion" id="costSchedules">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingEigth">
-      <button
-        class="accordion-button collapsed"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#collapseEigth"
-        aria-expanded="false"
-        aria-controls="collapseEigth"
-      >
-       DENTIQ Component Cost Schedule
-      </button>
-    </h2>
-    <div
-      id="collapseEigth"
-      class="accordion-collapse collapse"
-      aria-labelledby="headingEigth"
-      data-mdb-parent="#costSchedules"
-    >
-      <div class="accordion-body">
-        
-        
- <div class="table-responsive">
-   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
-     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
-  <table class="schedule table table-striped table-hover table-borderless table-sm">
-    <thead>
-    <tr>
-    <th><p><b>Image</b></p></th>
-    <th><p><b>Product</b></p></th>
-    <th><p><b>SKU</b></p></th>
-    <th><p><b>Price</b></p></th>
-    </tr>
-    </thead>
-    <tr>
-    {% for product in collections.dentiq-spare-kit.products %} 
-      {% if product.tags contains "spare DENTIQ" %}  
-    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
-    <td><p><b>{{ product.title }}</b></p></td>
-    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
-    <td><p class="money"> {{product.price | money }}</p></td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-  </table>
-  </div>  
-      
- 
-      </div>
-    </div>
-</div>
   
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingNine">
-      <button
-        class="accordion-button collapsed"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#collapseNine"
-        aria-expanded="false"
-        aria-controls="collapseNine"
-      >
-       SOL Component Cost Schedule
-      </button>
-    </h2>
-    <div
-      id="collapseNine"
-      class="accordion-collapse collapse"
-      aria-labelledby="headingNine"
-      data-mdb-parent="#costSchedules"
-    >
-      <div class="accordion-body">
-        
-        
- <div class="table-responsive">
-   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
-     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
-  <table class="schedule table table-striped table-hover table-borderless table-sm">
-    <thead>
-    <tr>
-    <th><p><b>Image</b></p></th>
-    <th><p><b>Product</b></p></th>
-    <th><p><b>SKU</b></p></th>
-    <th><p><b>Price</b></p></th>
-    </tr>
-    </thead>
-    <tr>
-    {% for product in collections.sol-spare-part-kit.products %} 
-      {% if product.tags contains "spare SOL" %}  
-      <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
-    <td><p><b>{{ product.title }}</b></p></td>
-    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
-    <td><p class="money"> {{product.price | money }}</p></td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-  </table>
-  </div>  
-      
- 
-      </div>
-    </div>
-</div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button
@@ -236,6 +134,110 @@
       </div>
     </div>
   </div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingEigth">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseEigth"
+        aria-expanded="false"
+        aria-controls="collapseEigth"
+      >
+       DENTIQ Component Cost Schedule
+      </button>
+    </h2>
+    <div
+      id="collapseEigth"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingEigth"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        
+        
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Price</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.dentiq-spare-kit.products %} 
+      {% if product.tags contains "spare DENTIQ" %}  
+    <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td><p class="money"> {{product.price | money }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+  </div>  
+      
+ 
+      </div>
+    </div>
+</div>
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingNine">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapseNine"
+        aria-expanded="false"
+        aria-controls="collapseNine"
+      >
+       SOL Component Cost Schedule
+      </button>
+    </h2>
+    <div
+      id="collapseNine"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingNine"
+      data-mdb-parent="#costSchedules"
+    >
+      <div class="accordion-body">
+        
+        
+ <div class="table-responsive">
+   <div class="text-end"><p><input type="button" class="button btn-primary no-print hidden-sm-up" id="btnPrint" onclick="print()" value="Print PDF" /></p>
+     <p class="small text-muted hidden-sm-up text-end">Printed on: {{'now' | date: " %D %H:%M" }}</p> </div>
+  <table class="schedule table table-striped table-hover table-borderless table-sm">
+    <thead>
+    <tr>
+    <th><p><b>Image</b></p></th>
+    <th><p><b>Product</b></p></th>
+    <th><p><b>SKU</b></p></th>
+    <th><p><b>Price</b></p></th>
+    </tr>
+    </thead>
+    <tr>
+    {% for product in collections.sol-spare-part-kit.products %} 
+      {% if product.tags contains "spare SOL" %}  
+      <td><div class="grid-view-item__image-wrapper"><img src="{{ product.images[0] | product_img_url: '500' }}"/></div></td>
+    <td><p><b>{{ product.title }}</b></p></td>
+    <td>{% assign current_variant = product.selected_or_first_available_variant %}<p>{{ current_variant.sku }}</p></td>
+    <td><p class="money"> {{product.price | money }}</p></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+  </div>  
+      
+ 
+      </div>
+    </div>
+</div>
   
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
