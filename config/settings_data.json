@@ -1280,8 +1280,20 @@
       "164437774845bbf809": {
         "type": "slideshow",
         "blocks": {
+          "62c05969-3209-4f91-9a16-0bd267e6ac6f": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/website-V3-SOL-BP-SLIDER-HOME.jpg",
+              "image_m": "shopify:\/\/shop_images\/website-V3-SOL-BP-slider-m.jpg",
+              "title": "ZERO WAIT, ZERO WASTE",
+              "button1_link": "https:\/\/ackuretta.com\/collections\/build-platforms-sol?utm_source=website&utm_medium=slider&utm_campaign=new_bps",
+              "s_time": "",
+              "e_time": ""
+            }
+          },
           "19e001de-a717-4205-82af-15f50309f814": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image_d": "shopify:\/\/shop_images\/3D_print_Peace_webinar_BG-slider-d.jpg",
               "image_m": "shopify:\/\/shop_images\/3D_print_Peace_webinar_BG-slider-m.jpg",
@@ -1383,20 +1395,10 @@
               "s_time": "2020-01-22 12:33",
               "e_time": "2020-01-25 12:33"
             }
-          },
-          "62c05969-3209-4f91-9a16-0bd267e6ac6f": {
-            "type": "image",
-            "settings": {
-              "image_d": "shopify:\/\/shop_images\/website-V3-SOL-BP-SLIDER-HOME.jpg",
-              "image_m": "shopify:\/\/shop_images\/website-V3-SOL-BP-slider-m.jpg",
-              "title": "ZERO WAIT, ZERO WASTE",
-              "button1_link": "https:\/\/ackuretta.com\/collections\/build-platforms-sol?utm_source=website&utm_medium=slider&utm_campaign=new_bps",
-              "s_time": "",
-              "e_time": ""
-            }
           }
         },
         "block_order": [
+          "62c05969-3209-4f91-9a16-0bd267e6ac6f",
           "19e001de-a717-4205-82af-15f50309f814",
           "164437774845bbf809-1",
           "28a29412-bd44-47ab-b1b9-1ce08edb6007",
@@ -1405,8 +1407,7 @@
           "08b0468f-7775-4b51-a064-c389f2996f1a",
           "5019a4e0-cc17-4b57-b3eb-29101d909b52",
           "5d9b1825-4bf5-458f-9909-3bcd45ebeabb",
-          "c269c85c-2f1a-4e83-8cfa-183dcfc2c660",
-          "62c05969-3209-4f91-9a16-0bd267e6ac6f"
+          "c269c85c-2f1a-4e83-8cfa-183dcfc2c660"
         ],
         "settings": {
           "wide_display": true
