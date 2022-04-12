@@ -1280,6 +1280,17 @@
       "164437774845bbf809": {
         "type": "slideshow",
         "blocks": {
+          "76314976-98c2-4794-b26a-6f21aa82ca01": {
+            "type": "image",
+            "settings": {
+              "image_d": "shopify:\/\/shop_images\/Bego-Webinar_slider_1980.jpg",
+              "image_m": "shopify:\/\/shop_images\/Bego-Webinar_slider_480.jpg",
+              "title": "BEGO Webinar",
+              "button1_link": "https:\/\/app.livestorm.co\/ackuretta\/3d-printing-in-restorative-dentistry",
+              "s_time": "2020-01-22 12:33",
+              "e_time": "2020-01-25 12:33"
+            }
+          },
           "62c05969-3209-4f91-9a16-0bd267e6ac6f": {
             "type": "image",
             "settings": {
@@ -1396,6 +1407,7 @@
           }
         },
         "block_order": [
+          "76314976-98c2-4794-b26a-6f21aa82ca01",
           "62c05969-3209-4f91-9a16-0bd267e6ac6f",
           "164437774845bbf809-1",
           "28a29412-bd44-47ab-b1b9-1ce08edb6007",
