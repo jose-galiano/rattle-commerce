@@ -104,7 +104,7 @@
         </div>
       {% assign claster = "display: none" %}
       
-      <div class="purchase-details__buttons purchase-details__spb--{{ show_payment_button }} {{claster}}">
+      <div class="purchase-details__buttons purchase-details__spb--{{ show_payment_button }} style="{{claster}}">
         {% if settings.cart_action == 'reload_page' %}
           <input type="hidden" name="return_to" value="back" />
         {% elsif settings.cart_action == 'redirect_checkout' %}
