@@ -199,6 +199,14 @@
 </div>
   </div>
   </div>
+  
+  {% if customer %}
+{% if customer.tags contains 'webmaster' %}
+  <a href="https://ackuretta.com/products/alpha-3d"></a>
+{% endif %}
+{% else %}
+
+{% endif %}
 </footer>
 
 <style>
