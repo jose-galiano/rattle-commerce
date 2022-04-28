@@ -1,6 +1,8 @@
 <div class="container" style='padding-top:80px'>
   
 <div class="row">
+    <div class="col-6">
+  </div>
           <div class="col-6">
             {% assign product_tags = product.tags | join: ' ' %}
             {% if product_tags contains 'meta-size-chart-' %}
@@ -139,8 +141,7 @@
           </div>
         {% endif %}
           </div>
-  <div class="col-6">
-  </div>
+
   </div>
 </div>
 {% schema %}
