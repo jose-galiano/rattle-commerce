@@ -88,21 +88,37 @@
   
 <div class="accordion accordion-flush" id="accordionResins">
 {% for product in resins %}
+  
 {%- assign count = count | plus: 1 -%}
+  
 {%- capture resin_title -%}{{-product.title | downcase | split: "curo" -}}{%-endcapture-%}
+
 {%- capture resin_handle -%}{{-resin_title-}}{%-endcapture-%}
+  
 {%- capture resin_jname -%}{{-resin_handle | split: " " -}}{%-endcapture-%}
+  
 {%- capture application_img -%}img_{{-resin_handle | split: " " -}}{%-endcapture-%}    
+  
 {%- capture resin_name -%}CURO.product.resin-{{-resin_handle | split: " "-}}{%-endcapture-%}
+  
 {%- capture resin_desc -%}CURO.product.resin-desc-{{-resin_handle | split: " "-}}_html{%-endcapture-%}
+  
 {%- capture resin_broc -%}CURO.product.resin-broc-{{-resin_handle | split: " "-}}{%-endcapture-%}
+  
 {%- capture resin_msds -%}CURO.product.resin-msds-{{-resin_handle | split: " "-}}{%-endcapture-%}
+  
 {%- capture resin_iou -%}CURO.product.resin-iou-{{-resin_handle | split: " "-}}{%-endcapture-%}      
+  
 {%- capture resin_pct -%}CURO.product.resin-pct-{{-resin_handle | split: " "-}}{%-endcapture-%}   
+  
 {%- capture resin_color -%}CURO.product.resin-color-{{-resin_handle | split: " "-}}{%-endcapture-%}  
-{%- capture resin_broc_t -%}{{ resin_broc | t }}{%-endcapture-%}    
+  
+{%- capture resin_broc_t -%}{{ resin_broc | t }}{%-endcapture-%}
+  
 {%- capture resin_msds_t -%}{{ resin_msds | t }}{%-endcapture-%} 
+  
 {%- capture resin_iou_t -%}{{ resin_iou | t }}{%-endcapture-%} 
+  
 {%- capture resin_pct_t -%}{{ resin_pct | t }}{%-endcapture-%} 
   
   <div id="link-{{ resin_name | t | downcase | split: " " | last }}" class="accordion-item">
